@@ -1,0 +1,67 @@
+\section*{Assignment 2 due on Monday September 15th at 5PM}
+
+\question{1}{}
+Humans have finally been able to design and build a spaceship that can travel distances up to $100$ light-years away. The propulsion system is capable of providing a constant acceleration $g = 9.8$ m/s in the rest frame of the spaceship; this simulates gravity so that people on board are as comfortable as on Earth. The spaceship leaves Earth from rest, accelerates towards its destination, and, halfway there, it reverses its engines so that it will come to rest when it reaches its destination. Find the position x and velocity v as functions of both Earth time t and proper time $\tau$. How long does it take to reach a destination $10$ light-years away according to a clock on Earth versus a clock in the spaceship? Repeat the calculation for a destination $100$ light-years away. It is interesting to note that the characteristic time $c/g$ is almost identically equal to one year.
+\answer{}
+Let's define the acceleration $a^\mu$,
+\begin{align}
+    a^\mu = \frac{d u^\mu}{d\tau}, a^\mu a_\mu=g^2,u^\mu=\frac{dx^\mu}{d\tau},
+\end{align}
+    where $u^\mu$ is the $4$-velocity. We can re-parameterize to easily define the velocity: let $y$ and $z$ to be zero for convention,
+
+    \begin{align}
+    u^\mu = (\cosh{\eta},\sinh{\eta},0,0),\quad \eta=\eta(\tau),
+    \end{align}
+    where $\eta$ is the rapidity. Now we have 
+    \begin{align}
+         \frac{du^\mu}{d\tau}&=\frac{d\eta}{d\tau}(\sinh{\eta},\cosh{\eta},0,0)\\
+        \frac{du^\mu}{d\tau}\frac{du^\mu}{d\tau}&=-(\sinh^2{\eta}-\cosh^2{\eta})\left(\frac{d\eta}{d\tau}\right)^2=\left(\frac{d\eta}{d\tau}\right)^2=g^2\\
+        &\to\left(\frac{d\eta}{d\tau}\right)=g\to\eta=g\tau+C
+    \end{align}
+    By initial condition, $C$ should be $0$, and then we have 
+    \begin{align}
+        u^\mu &= (\cosh{(g\tau)},\sinh{(g\tau)},0,0),\\
+        x^\mu &= \frac{1}{g}(\sinh{(g\tau)}+C_1,\cosh{(g\tau)}+C_2,0,0)\\
+              &= \frac{1}{g}(\sinh{(g\tau)},\cosh{(g\tau)}-1,0,0),
+    \end{align} where $C_1$ and $C_2$ are determined by initial condition $t(\tau=0)=0,x(\tau=0)=0$. Finally, we have 
+    \begin{align}
+        t &= x^{0}=\frac{1}{g}\sinh{(g\tau)}=\frac{c}{g}\sinh{(\frac{g\tau}{c})}\\
+        x &= x^{1}=\frac{1}{g}\cosh{(g\tau)}-1=\frac{c^2}{g}\left(\cosh{(\frac{g\tau}{c})}-1\right)
+    \end{align}
+    Considering the half of total traveling time $t_{1/2}$ when $x=L/2$, we have 
+    \begin{align}
+        t &= \frac{1}{c}\sqrt{\left(x+\frac{c^2}{g}
+        \right)^2-\frac{c^4}{g^2}}\\
+        t_{1/2}&=\frac{1}{c}\sqrt{\left(\frac{L}{2}+\frac{c^2}{g}
+        \right)^2-\frac{c^4}{g^2}}\\
+    \end{align}
+    For $L/2$ = $5$ light-years $=5\times \frac{c}{g}\times c=\frac{5c^2}{g}$, we have $t_{tatal}=2t_{1/2}=2\sqrt{35}c/g\approx 11.8$ years. For $L/2$ = $50$ light-years $=5\times \frac{c}{g}\times c=\frac{50c^2}{g}$, we have $t_{tatal}=2t_{1/2}=20\sqrt{26}c/g\approx 102$ years. This is the time for the people on the earth (in $\mathcal{O}$ frame).
+
+    On the other hand, for people on the spaceship, the (proper) time would be $\tau$, given by
+    \begin{align}
+        \tau_{1/2} = \frac{c}{g}\sinh^{-1}(\frac{t_{1/2}}{c/g})
+    \end{align}
+    Then for $L/2$ = $5$ light-years $=5\times \frac{c}{g}\times c=\frac{5c^2}{g}$, we have $\tau_{total}=2\tau_{1/2}=4.96 c/g\approx 4.96$ years. Also, for $L/2$ = $50$ light-years, we have $\tau_{total}=2\tau_{1/2}=9.25 c/g\approx 9.25$ years. \qed
+\clearpage
+\question{2}{}
+Prove component by component that $\varepsilon_{\alpha\beta\gamma\delta}=-\varepsilon^{\alpha\beta\gamma\delta}$, and evaluate the scalar $\varepsilon_{\alpha\beta\gamma\delta}\varepsilon^{\alpha\beta\gamma\delta}$.
+\answer{}
+\begin{align*}
+    \varepsilon_{\alpha\beta\gamma\delta}=\eta_{\alpha\rho}\eta_{\lambda\beta}\eta_{\gamma\kappa}\eta_{\zeta\delta}\varepsilon^{\rho\lambda\kappa\zeta}
+\end{align*} 
+If we choose $(\alpha,\beta,\gamma,\delta)=(0,1,2,3)$ as an example, we will have 
+\begin{align*}
+    \varepsilon_{0123}=\eta_{0\rho}\eta_{1\beta}\eta_{2\kappa}\eta_{3\delta}\varepsilon^{\rho\lambda\kappa\zeta}=\eta_{00}\eta_{11}\eta_{22}\eta_{33}\varepsilon^{0123}=-1.
+\end{align*}
+Also, the value is zero if any two of the variables $\alpha, \beta, \gamma,$ or $\delta$ are equal. Last, if the permutation of $(\alpha,\beta,\gamma,\delta)$ is even, the value is $-1$ due to the property of $\varepsilon^{\rho\lambda\kappa\zeta}$. Once the permutation of $(\alpha,\beta,\gamma,\delta)$ is odd, the value is $+1$ due to the property of $\varepsilon^{\rho\lambda\kappa\zeta}$. Hence, we prove the statement:
+\begin{align*}
+    \varepsilon_{\alpha\beta\gamma\delta}=-\varepsilon^{\alpha\beta\gamma\delta}.
+\end{align*}
+Last, 
+\begin{align*}
+    &\varepsilon_{\alpha\beta\gamma\delta}\varepsilon^{\alpha\beta\gamma\delta}\\
+    =&- (\varepsilon^{\alpha\beta\gamma\delta})^2\\
+    =&-1\times(4!)=-24,
+\end{align*}
+where $4!$ means the number of possible permutation leaving non-vanishing terms.  
+\qed
