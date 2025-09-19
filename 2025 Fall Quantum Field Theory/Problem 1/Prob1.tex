@@ -167,7 +167,7 @@ Verify that eq. (2.16) follows from eq. (2.14).
 Considering an infinitesimal transformation in $U(\Lambda)=1+\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta}$ and ${\Lambda^\mu}_\nu={\delta^\mu}_\nu+\delta{\omega^\mu}_\nu$, now we get 
 \begin{align}
     LHS=&\left(1-\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta} \right) M^{\mu\nu}\left(1+\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta} \right)\\
-    \to&\delta\omega_{\alpha\beta}\frac{i}{2\hbar}[M^{\mu\nu},M^{\alpha\beta}]=\delta\omega_{\rho\sigma}\frac{i}{2\hbar}[M^{\mu\nu},M^{\rho\sigma}]\\
+    \Rightarrow&\delta\omega_{\alpha\beta}\frac{i}{2\hbar}[M^{\mu\nu},M^{\alpha\beta}]=\delta\omega_{\rho\sigma}\frac{i}{2\hbar}[M^{\mu\nu},M^{\rho\sigma}]\\
     RHS=&({\delta^\mu}_\rho+{\delta\omega^\mu}_\rho)({\delta^\nu}_\sigma+{\delta\omega^\nu}_\sigma)M^{\rho\sigma}\\
     \to&{\delta^\mu}_\rho{\delta\omega^\nu}_\sigma M^{\rho\sigma}+
     {\delta^\nu}_\sigma{\delta\omega^\mu}_\rho M^{\rho\sigma}={\delta\omega^\nu}_\sigma M^{\mu\sigma}+{\delta\omega^\mu}_\rho M^{\rho\nu}\\
@@ -675,4 +675,64 @@ Consider a complex (that is, non-hermitian) scalar field $\varphi$ with Lagrangi
     \item [(d)] Assuming canonical commutation relations for the fields and their conjugate momenta, find the commutation relations obeyed by $a(\mathbf{k})$ and $b(\mathbf{k})$ and their Hermitian conjugates.
     \item [(e)] Express the Hamiltonian in terms of $a(\mathbf{k})$ and $b(\mathbf{k})$ and their Hermitian conjugates. What value must $\Omega_0$ have in order for the ground state to have zero energy?
 \end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \varphi}=&-m^2\varphi^\dagger,\\
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}=&-\partial^\mu\varphi^\dagger,\\
+    \partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}\right)=&-\partial_\mu\partial^\mu\varphi^\dagger.
+\end{align}
+Hence, the Euler-Lagrange equation gives that
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial \varphi}-\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}\right)=0\\
+    \Rightarrow& -m^2\varphi^\dagger+\partial_\mu\partial^\mu\varphi^\dagger=0\\
+    \Rightarrow& (\partial_\mu\partial^\mu -m^2)\varphi^\dagger=0.
+\end{align}
+Similarly, we can show that
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial \varphi^\dagger}=-m^2\varphi,\\
+    &\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi^\dagger)}=-\partial^\mu\varphi,\\
+    &\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi^\dagger)}\right)=-\partial_\mu\partial^\mu\varphi.
+\end{align}
+Hence, the Euler-Lagrange equation gives that
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial \varphi^\dagger}-\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi^\dagger)}\right)=0\\
+    \Rightarrow& -m^2\varphi+\partial_\mu\partial^\mu\varphi=0\\
+    \Rightarrow& (\partial_\mu\partial^\mu -m^2)\varphi=0.
+\end{align}
+Therefore, both $\varphi$ and $\varphi^\dagger$ obey the Klein-Gordon equation.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+\begin{align}
+    \Pi_\varphi=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi)}=-\partial^0\varphi^\dagger=-\dot{\varphi}^\dagger,\\
+    \Pi_{\varphi^\dagger}=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi^\dagger)}=-\partial^0\varphi=-\dot{\varphi}.
+\end{align}
+The Hamiltonian density is given by
+\begin{align}
+    \mathcal{H}=&\Pi_\varphi\dot{\varphi}+\Pi_{\varphi^\dagger}\dot{\varphi}^\dagger-\mathcal{L}\\
+    =&-\dot{\varphi}^\dagger\dot{\varphi}-\dot{\varphi}\dot{\varphi}^\dagger+\partial^\mu\varphi^\dagger\partial_\mu\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&-\dot{\varphi}^\dagger\dot{\varphi}-\dot{\varphi}\dot{\varphi}^\dagger+\dot{\varphi}^\dagger\dot{\varphi}-\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&-\dot{\varphi}\dot{\varphi}^\dagger-\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\Pi_\varphi\Pi_{\varphi^\dagger}-\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0.
+\end{align} 
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+\begin{align}
+    \varphi(x)=&\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}]\\
+    \Rightarrow \dot{\varphi}(x)=&\int \widetilde{dk}[i\omega a(\mathbf{k})e^{ikx}-i\omega b^\dagger(\mathbf{k})e^{-ikx}]\\
+    \varphi^\dagger(x)=&\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]\\
+    \Rightarrow \dot{\varphi}^\dagger(x)=&\int \widetilde{dk}[-i\omega a^\dagger(\mathbf{k})e^{-ikx}+i\omega b(\mathbf{k})e^{ikx}]
+\end{align}
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+
+
 
