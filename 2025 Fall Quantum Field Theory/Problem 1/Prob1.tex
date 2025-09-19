@@ -607,12 +607,19 @@ Derive eq.~(3.29) from eqs.~(3.21),~(3.24), and~(3.28).
     [a(\mathbf{k}), a(\mathbf{k}')] & =0, \quad [a^\dagger(\mathbf{k}), a^\dagger(\mathbf{k}')] =0, \quad
     [a(\mathbf{k}), a^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}') \tag{3.29}
 \end{align}
-\answer{}
+\answer{} 
+Since $a(\mathbf{x})$ is independent of time, we can set $x^0=y^0$, meaning all time variables are the same. Now, we compute
 \begin{align}
     &[a(\mathbf{k}), a(\mathbf{k}')]\\
     =&\int d^3x d^3y e^{-ikx}e^{-ik'y}[i\partial_0\varphi(x)+\omega \varphi(x),i\partial_0\varphi(y)+\omega \varphi(y)]\\
     =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
     -[\partial_0\varphi(x),\partial_0\varphi(y)]+i\omega[\partial_0\varphi(x),\varphi(y)]+i\omega[\varphi(x),\partial_0\varphi(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega[\partial_0\varphi(x),\varphi(y)]+i\omega[\varphi(x),\partial_0\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega(-i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
     \bigg)\\
     =&0,
 \end{align}
@@ -622,6 +629,12 @@ where we have used the commutation relations in Equation~(3.28). Similarly, we c
     =&\int d^3x d^3y e^{ikx}e^{ik'y}[i\partial_0\varphi(x)-\omega \varphi(x),i\partial_0\varphi(y)-\omega \varphi(y)]\\
     =&\int d^3x d^3y e^{ikx}e^{ik'y}\bigg(
     -[\partial_0\varphi(x),\partial_0\varphi(y)]-i\omega[\partial_0\varphi(x),\varphi(y)]-i\omega[\varphi(x),\partial_0\varphi(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{ikx}e^{ik'y}\bigg(
+    -i\omega[\partial_0\varphi(x),\varphi(y)]-i\omega[\varphi(x),\partial_0\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{ikx}e^{ik'y}\bigg(
+    -i\omega(-i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
     \bigg)\\
     =&0.
 \end{align}
@@ -638,7 +651,7 @@ Now, we compute
     =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
     -i\omega(-i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
     \bigg)\\
-    =&\int d^3x d^3y e^{-ikx}e^{ik'y}(2\omega \delta^{(3)}(\mathbf{x}-\mathbf{y)})\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}(2\omega \delta^{(3)}(\mathbf{x}-\mathbf{y}))\\
     =&\int d^3x e^{-i(\mathbf{k}-\mathbf{k}')\cdot \mathbf{x}}(2\omega)\\
     =& (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}').
 \end{align}
