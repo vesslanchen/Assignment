@@ -404,7 +404,7 @@ are matrices which constitute the \textit{vector representation} of the Lorentz 
         \begin{pmatrix}
             \cosh{\eta} &0 &0&\sinh{\eta}\\
             0&1&0&0\\
-            0&0&0&0\\
+            0&0&1&0\\
             \sinh{\eta}&0&0&\cosh{\eta}
         \end{pmatrix}.    
         \tag{2.37}
@@ -446,22 +446,169 @@ which is exactly the result we want to prove.
 \begin{itemize}
     \item [(b)]
 \end{itemize}
-
+\begin{align}
+    &{[(S^{\mu\nu}_V),(S^{\rho\sigma}_V)]^\alpha}_\beta\\
+    =&{(S^{\mu\nu}_V)^\alpha}_\tau {(S^{\rho\sigma}_V)^\tau}_\beta - {(S^{\rho\sigma}_V)^\alpha}_\tau {(S^{\mu\nu}_V)^\tau}_\beta\\
+    =&\frac{\hbar}{i}(g^{\mu\alpha}{\delta^\nu}_\tau -g^{\nu\alpha}{\delta^\mu}_\tau)\frac{\hbar}{i}(g^{\rho\tau}{\delta^\sigma}_\beta -g^{\sigma\tau}{\delta^\rho}_\beta) - \frac{\hbar}{i}(g^{\rho\alpha}{\delta^\sigma}_\tau -g^{\sigma\alpha}{\delta^\rho}_\tau)\frac{\hbar}{i}(g^{\mu\tau}{\delta^\nu}_\beta -g^{\nu\tau}{\delta^\mu}_\beta)\\
+    =&\left(\frac{\hbar}{i}\right)^2\bigg[
+    {\color{red}g^{\mu\alpha}g^{\rho\nu}{\delta^\sigma}_\beta}
+    {\color{black}-g^{\mu\alpha}g^{\sigma\nu}{\delta^\rho}_\beta}
+    {\color{blue}-g^{\nu\alpha}g^{\rho\mu}{\delta^\sigma}_\beta}
+    {\color{teal}+g^{\nu\alpha}g^{\sigma\mu}{\delta^\rho}_\beta}\\
+    &\qquad
+    {\color{teal}-g^{\rho\alpha}g^{\mu\sigma}{\delta^\nu}_\beta}
+    {\color{black}+g^{\rho\alpha}g^{\nu\sigma}{\delta^\mu}_\beta}
+    {\color{blue}+g^{\sigma\alpha}g^{\mu\rho}{\delta^\nu}_\beta}
+    {\color{red}-g^{\sigma\alpha}g^{\nu\rho}{\delta^\mu}_\beta}
+    \bigg]\\
+    =&i\hbar\left(\frac{\hbar}{i}\right) \bigg[
+    {\color{blue}g^{\mu\rho}(g^{\nu\alpha}{\delta^\sigma}_\beta -g^{\sigma\alpha}{\delta^\nu}_\beta)}{\color{red}
+    -g^{\nu\rho}(g^{\mu\alpha}{\delta^\sigma}_\beta -g^{\sigma\alpha}{\delta^\mu}_\beta)}{\color{teal}
+    -g^{\mu\sigma}(g^{\nu\alpha}{\delta^\rho}_\beta -g^{\rho\alpha}{\delta^\nu}_\beta)}
+    +g^{\nu\sigma}(g^{\mu\alpha}{\delta^\rho}_\beta -g^{\rho\alpha}{\delta^\mu}_\beta) \bigg]\\
+    =&i\hbar\left(g^{\mu\rho}{(S^{\nu\sigma}_V)^\alpha}_\beta - g^{\nu\rho}{(S^{\mu\sigma}_V)^\alpha}_\beta - g^{\mu\sigma}{(S^{\nu\rho}_V)^\alpha}_\beta + g^{\nu\sigma}{(S^{\mu\rho}_V)^\alpha}_\beta \right)\\
+    =&i\hbar{\left(g^{\mu\rho}{(S^{\nu\sigma}_V)} - g^{\nu\rho}{(S^{\mu\sigma}_V)} - g^{\mu\sigma}{(S^{\nu\rho}_V)} + g^{\nu\sigma}{(S^{\mu\rho}_V)} \right)^\alpha}_\beta.
+\end{align}
+This looks exactly the same as
+\begin{align}
+    &[M^{\mu\nu},M^{\rho\sigma}]\notag\\
+    =&i\hbar \left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma} -g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma} \right)\tag{2.16}\end{align}
 \begin{itemize}
     \item [(c)]
 \end{itemize}
-
+    \begin{align}
+        \frac{i}{\hbar}{(S^{12}_V)^\mu}_\nu=&(g^{1\mu}{\delta^2}_\nu -g^{2\mu}{\delta^1}_\nu)=\begin{pmatrix}
+            0 &0 &0&0\\
+            0&0&1&0\\
+            0&-1&0&0\\
+            0&0&0&0
+        \end{pmatrix}\equiv \mathcal{R},\\
+        \mathcal{R}^2=&\begin{pmatrix}
+            0 &0 &0&0\\
+            0&-1&0&0\\
+            0&0&-1&0\\
+            0&0&0&0
+        \end{pmatrix},\\
+        \mathcal{R}^3=&\begin{pmatrix}
+            0 &0 &0&0\\
+            0&0 &-1&0\\
+            0&1&0&0\\
+            0&0&0&0
+        \end{pmatrix}=-\mathcal{R},\\
+        \mathcal{R}^4=&\begin{pmatrix}
+            0 &0 &0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&0
+        \end{pmatrix}=-\mathcal{R}^2.
+    \end{align}
+    Hence, we have 
+    \begin{align}
+        \Lambda=&\exp{(-i\theta S^{12}_V/\hbar)}=\exp{(-\theta \mathcal{R})}\\
+        =&\sum_{n=0}^{\infty}\frac{(-\theta \mathcal{R})^n}{n!}=\sum_{m=0}^{\infty}\frac{(-\theta \mathcal{R})^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{(-\theta \mathcal{R})^{2m+1}}{(2m+1)!}\\
+        =&I+\sum_{m=1}^{\infty}\frac{(-1)^m\theta^{2m}\mathcal{R}^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{(-1)\theta^{2m+1}\mathcal{R}^{2m+1}}{(2m+1)!}\\
+        =&I+ \sum_{m=1}^{\infty}\frac{(-1)^{m}\theta^{2m}}{(2m)!}\mathcal{R}^2-\sum_{m=0}^{\infty}\frac{(-1)^{m}\theta^{2m+1}}{(2m+1)!}\mathcal{R}\\
+        =&I+(\cos{\theta}-1)\mathcal{R}^2-\sin{\theta}\mathcal{R}\\
+        =&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&1
+        \end{pmatrix}+\begin{pmatrix}
+            0 &0 &0&0\\
+            0&\cos{\theta}-1&0&0\\
+            0&0&\cos{\theta}-1&0\\
+            0&0&0&0
+        \end{pmatrix}+\begin{pmatrix}
+            0 &0 &0&0\\
+            0&0 &-\sin{\theta}&0\\
+            0&\sin{\theta}&0&0\\
+            0&0&0&0
+        \end{pmatrix}\\
+        =&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&\cos{\theta}&-\sin{\theta}&0\\
+            0&\sin{\theta}&\cos{\theta}&0\\
+            0&0&0&1
+        \end{pmatrix}.
+        \end{align}
+    This is exactly the same as the result in Equation~(2.35).    
 \begin{itemize}
     \item [(d)]
 \end{itemize}
-
+    \begin{align}
+        \frac{i}{\hbar}{(S^{30}_V)^\mu}_\nu=&(g^{3\mu}{\delta^0}_\nu -g^{0\mu}{\delta^3}_\nu)=\begin{pmatrix}
+            0 &0 &0&1\\
+            0&0&0&0\\
+            0&0&0&0\\
+            1&0&0&0
+        \end{pmatrix}\equiv \mathcal{B},\\
+        \mathcal{B}^2=&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+            0&0&0&1
+        \end{pmatrix},\\
+        \mathcal{B}^3=&\begin{pmatrix}
+            0 &0 &0&1\\
+            0&0&0&0\\
+            0&0&0&0\\
+            1&0&0&0
+        \end{pmatrix}=\mathcal{B},\\
+        \mathcal{B}^4=&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+            0&0&0&1
+        \end{pmatrix}=\mathcal{B}^2.
+    \end{align}
+    Hence, we have 
+    \begin{align}
+        \Lambda=&\exp{(+i\eta S^{30}_V/\hbar)}=\exp{(\eta \mathcal{B})}\\
+        =&\sum_{n=0}^{\infty}\frac{(\eta \mathcal{B})^n}{n!}=\sum_{m=0}^{\infty}\frac{(\eta \mathcal{B})^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{(\eta \mathcal{B})^{2m+1}}{(2m+1)!}\\
+        =&I+\sum_{m=1}^{\infty}\frac{\eta^{2m}\mathcal{B}^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{\eta^{2m+1}\mathcal{B}^{2m+1}}{(2m+1)!}\\
+        =&I+ \sum_{m=1}^{\infty}\frac{\eta^{2m}}{(2m)!}\mathcal{B}^2+\sum_{m=0}^{\infty}\frac{\eta^{2m+1}}{(2m+1)!}\mathcal{B}\\
+        =&I+(\cosh{\eta}-1)\mathcal{B}^2+\sinh{\eta}\mathcal{B}\\
+        =&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&1
+        \end{pmatrix}+\begin{pmatrix}
+            \cosh{\eta}-1 &0 &0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+            0&0&0&\cosh{\eta}-1
+        \end{pmatrix}+\begin{pmatrix}
+            0 &0 &0&\sinh{\eta}\\
+            0&0&0&0\\
+            0&0&0&0\\
+            \sinh{\eta}&0&0&0
+        \end{pmatrix}\\
+        =&\begin{pmatrix}
+            \cosh{\eta} &0 &0&\sinh{\eta}\\
+            0&1&0&0\\
+            0&0&1&0\\
+            \sinh{\eta}&0&0&\cosh{\eta}
+        \end{pmatrix}.
+        \end{align}
 \clearpage
 \question{5}{Problem 3.1}
 
-
 Derive eq.~(3.29) from eqs.~(3.21),~(3.24), and~(3.28).
-
+\begin{align}
+    a(\mathbf{k}) & =\int d^3 x e^{-i k x}\left[i \partial_0 \varphi(x)+\omega \varphi(x)\right] \tag{3.21}\\
+    \Pi(x)&=\dot{\varphi}(x)\tag{3.24}\\
+    [\varphi(\mathbf{x}, t), \varphi(\mathbf{x}', t)]&=0, \quad [\Pi(\mathbf{x}, t), \Pi(\mathbf{x}', t)]=0, \quad
+    [\varphi(\mathbf{x}, t), \Pi(\mathbf{x}', t)]=i \delta^{(3)}(\mathbf{x}-\mathbf{x}')\tag{3.28}
+\end{align}
+\begin{align}
+    [a(\mathbf{k}), a(\mathbf{k}')] & =0, \quad [a^\dagger(\mathbf{k}), a^\dagger(\mathbf{k}')] =0, \quad
+    [a(\mathbf{k}), a^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}') \tag{3.29}
+\end{align}
+\answer{}
 \clearpage
+
 \question{6}{Problem 3.5}
 
 Consider a complex (that is, non-hermitian) scalar field $\varphi$ with Lagrangian density 
