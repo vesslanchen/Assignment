@@ -707,16 +707,16 @@ Therefore, both $\varphi$ and $\varphi^\dagger$ obey the Klein-Gordon equation.
     \item [(b)]
 \end{itemize}
 \begin{align}
-    \Pi_\varphi=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi)}=-\partial^0\varphi^\dagger=-\dot{\varphi}^\dagger,\\
-    \Pi_{\varphi^\dagger}=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi^\dagger)}=-\partial^0\varphi=-\dot{\varphi}.
+    \Pi_\varphi=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi)}=-\partial^0\varphi^\dagger=-\frac{-\partial}{\partial t}\varphi=+\dot{\varphi}^\dagger,\\
+    \Pi_{\varphi^\dagger}=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi^\dagger)}=-\partial^0\varphi=-\frac{-\partial}{\partial t}\varphi=+\dot{\varphi}.
 \end{align}
 The Hamiltonian density is given by
 \begin{align}
     \mathcal{H}=&\Pi_\varphi\dot{\varphi}+\Pi_{\varphi^\dagger}\dot{\varphi}^\dagger-\mathcal{L}\\
-    =&-\dot{\varphi}^\dagger\dot{\varphi}-\dot{\varphi}\dot{\varphi}^\dagger+\partial^\mu\varphi^\dagger\partial_\mu\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
-    =&-\dot{\varphi}^\dagger\dot{\varphi}-\dot{\varphi}\dot{\varphi}^\dagger+\dot{\varphi}^\dagger\dot{\varphi}-\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
-    =&-\dot{\varphi}\dot{\varphi}^\dagger-\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
-    =&\Pi_\varphi\Pi_{\varphi^\dagger}-\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0.
+    =&\dot{\varphi}^\dagger\dot{\varphi}+\dot{\varphi}\dot{\varphi}^\dagger+\partial^\mu\varphi^\dagger\partial_\mu\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\dot{\varphi}^\dagger\dot{\varphi}+\dot{\varphi}\dot{\varphi}^\dagger-\dot{\varphi}^\dagger\dot{\varphi}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\dot{\varphi}\dot{\varphi}^\dagger+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\Pi_\varphi\Pi_{\varphi^\dagger}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0.
 \end{align} 
 \begin{itemize}
     \item [(c)]
@@ -726,6 +726,11 @@ The Hamiltonian density is given by
     \Rightarrow \dot{\varphi}(x)=&\int \widetilde{dk}[i\omega a(\mathbf{k})e^{ikx}-i\omega b^\dagger(\mathbf{k})e^{-ikx}]\\
     \varphi^\dagger(x)=&\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]\\
     \Rightarrow \dot{\varphi}^\dagger(x)=&\int \widetilde{dk}[-i\omega a^\dagger(\mathbf{k})e^{-ikx}+i\omega b(\mathbf{k})e^{ikx}]
+\end{align}
+Hence, we have
+\begin{align}
+    a(\mathbf{k})=&\int d^3x e^{-ikx}\left[i\partial_0 \varphi(x)+\omega \varphi(x)\right],\\
+    b(\mathbf{k})=&\int d^3x e^{-ikx}\left[i\partial_0 \varphi^\dagger(x)+\omega \varphi^\dagger(x)\right].
 \end{align}
 \begin{itemize}
     \item [(d)]
