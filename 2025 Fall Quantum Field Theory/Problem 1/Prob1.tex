@@ -415,21 +415,33 @@ are matrices which constitute the \textit{vector representation} of the Lorentz 
     \end{align*}
 \end{itemize}
 \begin{align}
-    U^{-1}(\Lambda)\partial^\mu\varphi(x)U(\Lambda)={\Lambda^{\mu}}_\rho \overline{\partial}^\rho \varphi(\Lambda^{-1}x),\quad \overline{x}^\mu={(\Lambda^{-1})^\mu}_\nu x^\nu, \quad\overline{\partial}^\mu={(\Lambda^{-1})^\mu}_\nu\partial^\nu\tag{2.27}
+    U^{-1}(\Lambda)\partial^\rho\varphi(x)U(\Lambda)={\Lambda^{\rho}}_\mu \overline{\partial}^\mu \varphi(\Lambda^{-1}x),\quad \overline{x}^\mu={(\Lambda^{-1})^\mu}_\nu x^\nu, \quad\overline{\partial}^\mu={(\Lambda^{-1})^\mu}_\nu\partial^\nu\tag{2.27}
 \end{align}
 \answer{}
 \begin{itemize}
     \item [(a)]
 \end{itemize}
 \begin{align}
-    LHS=&\left(1-\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right) \partial^\rho\varphi(x)\left(1+\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right)\\
-    \to&\delta\omega_{\mu\nu}\frac{i}{2\hbar}[\partial^\rho\varphi(x),M^{\mu\nu}]\\
-    RHS=&{\Lambda^{\mu}}_\rho \overline{\partial}^\rho \varphi(\Lambda^{-1}x)\\
-    =&{\Lambda^{\mu}}_\rho{(\Lambda^{-1})^\rho}_\tau\partial^\tau \varphi({(\Lambda^{-1})^\alpha}_\nu x^\nu)\\
-    =&({\delta^\mu}_\rho+{\delta\omega^\mu}_\rho)({\delta^\rho}_\tau-{\delta\omega^\rho}_\tau)\partial^\tau \varphi(({\delta^\alpha}_\nu-{\delta\omega^\alpha}_\nu)x^\nu)\\
-    =&({\delta^\mu}_\rho+{\delta\omega^\mu}_\rho)({\delta^\rho}_\tau-{\delta\omega^\rho}_\tau)\partial^\tau \Big[\varphi(x)-{\delta\omega^\alpha}_\nu x^\nu\partial_\alpha \varphi(x)\Big]\\
-    =&({\delta^\mu}_\tau +{\delta\omega^\mu}_\tau -{\delta\omega^\mu}_\tau )\Big[\partial^\tau \varphi(x)-{\delta\omega^\alpha}_\nu(\delta^\nu_\beta x^\beta \partial_\alpha\partial^\tau \varphi(x)+g^{\nu\tau}\partial_\alpha \varphi(x))\Big]
+    &LHS=\left(1-\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right) \partial^\rho\varphi(x)\left(1+\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right)\\
+    =&\partial^\rho \varphi(x)+\delta\omega_{\mu\nu}\frac{i}{2\hbar}[\partial^\rho\varphi(x),M^{\mu\nu}]\\
+    &RHS={\Lambda^{\rho}}_\mu \overline{\partial}^\mu \varphi(\Lambda^{-1}x)\\
+    =&({\delta^\rho}_\mu+{\delta\omega^\rho}_\mu)\overline{\partial}^\mu \varphi(({\delta^\mu}_\nu-{\delta\omega^\mu}_\nu)x^\nu)\\
+    =&({\delta^\rho}_\mu+{\delta\omega^\rho}_\mu)({\delta^\mu}_\nu-{\delta\omega^\mu}_\nu)\partial^\nu(\varphi(x)-{\delta\omega^\alpha}_\beta x^\beta\partial_\alpha \varphi(x))\\
+    =&{\delta^{\rho}}_\nu (\partial^\nu\varphi(x)-{\delta\omega^\alpha}_\beta g^{\nu\beta}\partial_\alpha \varphi(x)-{\delta\omega^\alpha}_\beta x^{\beta}\partial^{\nu}\partial_\alpha \varphi(x))\\
+    =&\partial^\rho\varphi(x)-{\delta\omega^\alpha}_\beta g^{\rho\beta}\partial_\alpha \varphi(x)-{\delta\omega^\alpha}_\beta x^{\beta}\partial^{\rho}\partial_\alpha \varphi(x)\\
+    =& \partial^\rho\varphi(x)-{\delta\omega}_{\alpha\beta} g^{\rho\beta}\partial^\alpha \varphi(x)-{\delta\omega}_{\alpha\beta} x^{\beta}\partial^{\rho}\partial^\alpha \varphi(x)\\
+    =& \partial^\rho\varphi(x)-{\delta\omega}_{\mu\nu} g^{\rho\nu}\partial^\mu \varphi(x)-{\delta\omega}_{\mu\nu} x^{\nu}\partial^{\rho}\partial^\mu \varphi(x)\\
+    =& \partial^\rho\varphi(x)+{\delta\omega}_{\mu\nu}\left(-g^{\rho\nu}\partial^\mu -x^{\nu}\partial^{\rho}\partial^\mu \right)\varphi(x)\\
+    =& \partial^\rho\varphi(x)+{\delta\omega}_{\mu\nu}\frac{1}{2}\left(-g^{\rho\nu}\partial^\mu -x^{\nu}\partial^{\rho}\partial^\mu +g^{\rho\mu}\partial^\nu +x^{\mu}\partial^{\rho}\partial^\nu \right)\varphi(x)
 \end{align}
+Hence, we have 
+\begin{align}
+&[\partial^\rho\varphi(x),M^{\mu\nu}]=\frac{\hbar}{i}\left(-g^{\rho\nu}\partial^\mu -x^{\nu}\partial^{\rho}\partial^\mu +g^{\rho\mu}\partial^\nu +x^{\mu}\partial^{\rho}\partial^\nu \right)\varphi(x)\\
+=& \frac{\hbar}{i}(x^\mu\partial^\nu -x^\nu\partial^\mu)\partial^\rho\varphi(x)+\frac{\hbar}{i}(g^{\rho\mu}{\delta^\nu}_\tau \partial^\tau -g^{\rho\nu}{\delta^{\mu}}_\tau \partial^\tau)\varphi(x)\\
+=&\frac{\hbar}{i}(x^\mu\partial^\nu -x^\nu\partial^\mu)\partial^\rho\varphi(x)+\frac{\hbar}{i}(g^{\mu\rho}{\delta^\nu}_\tau  -g^{\nu\rho}{\delta^{\mu}}_\tau )\partial^\tau\varphi(x)\\
+=&\mathcal{L}^{\mu\nu}\partial^\rho\varphi(x)+  {(S^{\mu\nu}_V)^\rho}_\tau\partial^{\tau}\varphi(x),
+\end{align}
+which is exactly the result we want to prove.
 
 \begin{itemize}
     \item [(b)]
