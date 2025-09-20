@@ -467,7 +467,7 @@ which is exactly the result we want to prove.
     -g^{\mu\sigma}(g^{\nu\alpha}{\delta^\rho}_\beta -g^{\rho\alpha}{\delta^\nu}_\beta)}
     +g^{\nu\sigma}(g^{\mu\alpha}{\delta^\rho}_\beta -g^{\rho\alpha}{\delta^\mu}_\beta) \bigg]\\
     =&i\hbar\left(g^{\mu\rho}{(S^{\nu\sigma}_V)^\alpha}_\beta - g^{\nu\rho}{(S^{\mu\sigma}_V)^\alpha}_\beta - g^{\mu\sigma}{(S^{\nu\rho}_V)^\alpha}_\beta + g^{\nu\sigma}{(S^{\mu\rho}_V)^\alpha}_\beta \right)\\
-    =&i\hbar{\left(g^{\mu\rho}{(S^{\nu\sigma}_V)} - g^{\nu\rho}{(S^{\mu\sigma}_V)} - g^{\mu\sigma}{(S^{\nu\rho}_V)} + g^{\nu\sigma}{(S^{\mu\rho}_V)} \right)^\alpha}_\beta.
+    =&i\hbar{\Big(g^{\mu\rho}{(S^{\nu\sigma}_V)} - g^{\nu\rho}{(S^{\mu\sigma}_V)} - g^{\mu\sigma}{(S^{\nu\rho}_V)} + g^{\nu\sigma}{(S^{\mu\rho}_V)} \Big)^\alpha}_\beta.
 \end{align}
 This looks exactly the same as
 \begin{align}
@@ -767,6 +767,89 @@ by exchanging $a(\mathbf{k})$ and $b^\dagger(\mathbf{k})$ with $a^\dagger(\mathb
 \begin{itemize}
     \item [(d)]
 \end{itemize}
+Again, since $a(\mathbf{x})$ and $b(\mathbf{x})$ are independent of time, we can set $x^0=y^0$, meaning all time variables are the same. Also, we rewrite the $a(\mathbf{k})$ and $b(\mathbf{k})$ for convention. \begin{align}
+    a(\mathbf{k})=&\int d^3 x e^{-i k x}\left[i \partial_0 \varphi(x)+\omega \varphi(x)\right]=\int d^3 x e^{-i k x}\left[i \Pi_{\varphi^\dagger}(x)+\omega \varphi(x)\right],\\
+    b(\mathbf{k})=&\int d^3x e^{-ikx}[\omega\varphi^\dagger(x)+i\partial_0\varphi^\dagger(x)]=\int d^3 x e^{-i k x}\left[i \Pi_\varphi(x) +\omega \varphi^\dagger(x)\right].
+\end{align}
+Now, we compute 
+\begin{align}
+    &[a(\mathbf{k}), a(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),i\Pi_{\varphi^\dagger}(y)+\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    -[\Pi_{\varphi^\dagger}(x),\Pi_{\varphi^\dagger}(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi(y)]+i\omega[\varphi(x),\Pi_{\varphi^\dagger}(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    0
+    \bigg)\\
+    =&0,
+\end{align}
+where we have used the canonical commutation relations and the fact that $\varphi$ and $\varphi^\dagger$ are independent fields. Similarly, we can show that 
+\begin{align}
+    &[b(\mathbf{k}), b(\mathbf{k}')]=0,
+\end{align}
+by exchanging $a(\mathbf{k})$, $\varphi$ and $\Pi_{\varphi^\dagger}$ with $b(\mathbf{k})$, $\varphi^\dagger$ and $\Pi_\varphi$, respectively. Now, we compute 
+\begin{align}
+    &[a(\mathbf{k}), b(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),i\Pi_\varphi(y) +\omega \varphi^\dagger(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    -[\Pi_{\varphi^\dagger}(x),\Pi_\varphi(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi^\dagger(y)]+i\omega[\varphi(x),\Pi_\varphi(y)]-\omega^2[\varphi(x),\varphi^\dagger(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega[\varphi(x),\Pi_\varphi(y)]-i\omega[\varphi^\dagger(y),\Pi_{\varphi^\dagger}(x),]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))-i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&0.
+\end{align}
+Next, we compute
+\begin{align}
+    &[a(\mathbf{k}), b^\dagger(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),-i\Pi_{\varphi^\dagger}(y) +\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    [\Pi_{\varphi^\dagger}(x),\Pi_{\varphi^\dagger}(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi(y)]-i\omega[\varphi(x),\Pi_{\varphi^\dagger}(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =0,
+\end{align}
+by the same reason as $[a(\mathbf{k}), a(\mathbf{k}')]$. Also, the result leads to
+\begin{align}
+    &[a^\dagger(\mathbf{k}), b(\mathbf{k}')] =0.
+\end{align}
+Finally, we compute
+\begin{align}
+    &[a(\mathbf{k}), a^\dagger(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),-i\Pi_{\varphi}(y) +\omega \varphi^\dagger(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    [\Pi_{\varphi^\dagger}(x),\Pi_{\varphi}(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi^\dagger(y)]-i\omega[\varphi(x),\Pi_{\varphi}(y)]+\omega^2[\varphi(x),\varphi^\dagger(y)]
+    \bigg)\\
+    =&-i\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    \omega[\varphi(x),\Pi_{\varphi}(y)]+\omega[\varphi^\dagger(y),\Pi_{\varphi^\dagger}(x)]
+    \bigg)\\
+    =&-i\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    \omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}(2\omega \delta^{(3)}(\mathbf{x}-\mathbf{y}))\\
+    =&\int d^3x e^{-i(\mathbf{k}-\mathbf{k}')\cdot \mathbf{x}}(2\omega)\\
+    =& (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}').
+\end{align}
+Similarly, we can show that
+\begin{align}
+    &[b(\mathbf{k}), b^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}'),
+\end{align} 
+by exchanging $a(\mathbf{k})$,$a^\dagger(\mathbf{k})$, $\varphi$ and $\Pi_{\varphi^\dagger}$ with $b(\mathbf{k})$,$b^\dagger(\mathbf{k})$, $\varphi^\dagger$ and $\Pi_\varphi$, respectively.
 \begin{itemize}
     \item [(e)]
 \end{itemize}
+First, we know that 
+\begin{align}
+    H= \int d^3x \mathcal{H}=&\int d^3x \left(\Pi_\varphi\Pi_{\varphi^\dagger}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\right).
+\end{align}
+Before we proceed, we remind each term in the Hamiltonian density.
+\begin{align}
+    \Pi_\varphi = &\dot{\varphi}^\dagger=\int \widetilde{dk}[-i\omega a^\dagger(\mathbf{k})e^{-ikx}+i\omega b(\mathbf{k})e^{ikx}],\\
+    \Pi_{\varphi^\dagger} = &\dot{\varphi}=\int \widetilde{dk}[i\omega a(\mathbf{k})e^{ikx}-i\omega b^\dagger(\mathbf{k})e^{-ikx}],\\
+    \nabla\varphi = &\int \widetilde{dk}[i\mathbf{k} a(\mathbf{k})e^{ikx}-i\mathbf{k} b^\dagger(\mathbf{k})e^{-ikx}],\\
+    \nabla\varphi^\dagger = &\int \widetilde{dk}[-i\mathbf{k} a^\dagger(\mathbf{k})e^{-ikx}+i\mathbf{k} b(\mathbf{k})e^{ikx}],\\
+    \varphi = &\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}],\\
+    \varphi^\dagger = &\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}].
+\end{align}
