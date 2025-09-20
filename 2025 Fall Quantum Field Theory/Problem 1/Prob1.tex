@@ -675,6 +675,9 @@ Consider a complex (that is, non-hermitian) scalar field $\varphi$ with Lagrangi
     \item [(d)] Assuming canonical commutation relations for the fields and their conjugate momenta, find the commutation relations obeyed by $a(\mathbf{k})$ and $b(\mathbf{k})$ and their Hermitian conjugates.
     \item [(e)] Express the Hamiltonian in terms of $a(\mathbf{k})$ and $b(\mathbf{k})$ and their Hermitian conjugates. What value must $\Omega_0$ have in order for the ground state to have zero energy?
 \end{itemize}
+\begin{align}
+    d\widetilde{k}=\frac{d^3k}{(2\pi)^3 2\omega},\quad \omega=\sqrt{\mathbf{k}^2+m^2} \tag{3.11}
+\end{align}
 \answer{}
 \begin{itemize}
     \item [(a)]
@@ -729,15 +732,41 @@ The Hamiltonian density is given by
 \end{align}
 Hence, we have
 \begin{align}
-    a(\mathbf{k})=&\int d^3x e^{-ikx}\left[i\partial_0 \varphi(x)+\omega \varphi(x)\right],\\
-    b(\mathbf{k})=&\int d^3x e^{-ikx}\left[i\partial_0 \varphi^\dagger(x)+\omega \varphi^\dagger(x)\right].
+     &\int d^3x e^{-ikx}\varphi(x)\\
+    =&\int d^3x e^{-ikx}\int \widetilde{dk'}[a(\mathbf{k}')e^{ik'x}+b^\dagger(\mathbf{k}')e^{-ik'x}]\\
+    =&\int \widetilde{dk'}\int d^3x [a(\mathbf{k}')e^{i(k'-k)x}+b^\dagger(\mathbf{k}')e^{-i(k'+k)x}]\\
+    =&\int \widetilde{dk'}\left[a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right] \\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\frac{1}{2\omega}a(\mathbf{k})e^{-i(\omega-\omega)t}+\frac{1}{2\omega}b^\dagger(-\mathbf{k})e^{i(\omega+\omega)t}\\
+    =&\frac{1}{2\omega}a(\mathbf{k})+\frac{1}{2\omega}b^\dagger(-\mathbf{k})e^{i2\omega t}.
 \end{align}
+Next, we compute
+\begin{align}
+     &\int d^3x e^{-ikx}\dot{\varphi}(x)\\
+    =&\int d^3x e^{-ikx}\int \widetilde{dk'}[-i\omega' a(\mathbf{k}')e^{ik'x}+i\omega' b^\dagger(\mathbf{k}')e^{-ik'x}]\\
+    =&\int \widetilde{dk'}\int d^3x [-i\omega' a(\mathbf{k}')e^{i(k'-k)x}+i\omega' b^\dagger(\mathbf{k}')e^{-i(k'+k)x}]\\
+    =&\int \widetilde{dk'}\left[-i\omega' a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+i\omega' b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right] \\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[-i\omega' a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+i\omega' b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[-i\omega' a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+i\omega' b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\frac{-i\omega}{2\omega}a(\mathbf{k})e^{-i(\omega-\omega)t}+\frac{i\omega}{2\omega}b^\dagger(-\mathbf{k})e^{i(\omega+\omega)t}\\
+    =&\frac{-i}{2}a(\mathbf{k})+\frac{i}{2}b^\dagger(-\mathbf{k})e^{i2\omega t}.
+\end{align}
+Therefore, we have
+\begin{align}
+    \int d^3x e^{-ikx}[i\partial_0 \varphi(x)+\omega \varphi(x)]&=\int d^3x e^{-ikx}[i\dot{\varphi}(x)+\omega \varphi(x)]\\
+    &=\left[i\frac{-i}{2}a(\mathbf{k})+i\frac{i}{2}b^\dagger(-\mathbf{k})e^{i2\omega t}\right]+\left[\frac{\omega}{2\omega}a(\mathbf{k})+\frac{\omega}{2\omega}b^\dagger(-\mathbf{k})e^{i2\omega t}\right]\\
+    &=a(\mathbf{k}).
+\end{align}
+Similarly, we can show that 
+\begin{align}
+    \varphi^\dagger(x)=&\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]\\
+    \Rightarrow b(\mathbf{x})=&\int d^3x e^{-ikx}[\omega\varphi^\dagger(x)+i\partial_0\varphi^\dagger(x)],
+\end{align}
+by exchanging $a(\mathbf{k})$ and $b^\dagger(\mathbf{k})$ with $a^\dagger(\mathbf{k})$ and $b(\mathbf{k})$, respectively.
 \begin{itemize}
     \item [(d)]
 \end{itemize}
 \begin{itemize}
     \item [(e)]
 \end{itemize}
-
-
-
