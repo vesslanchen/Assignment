@@ -719,7 +719,7 @@ The Hamiltonian density is given by
     =&\dot{\varphi}^\dagger\dot{\varphi}+\dot{\varphi}\dot{\varphi}^\dagger+\partial^\mu\varphi^\dagger\partial_\mu\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
     =&\dot{\varphi}^\dagger\dot{\varphi}+\dot{\varphi}\dot{\varphi}^\dagger-\dot{\varphi}^\dagger\dot{\varphi}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
     =&\dot{\varphi}\dot{\varphi}^\dagger+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
-    =&\Pi_\varphi\Pi_{\varphi^\dagger}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0.
+    =&\Pi_{\varphi^\dagger}\Pi_\varphi+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0.
 \end{align} 
 \begin{itemize}
     \item [(c)]
@@ -842,14 +842,121 @@ by exchanging $a(\mathbf{k})$,$a^\dagger(\mathbf{k})$, $\varphi$ and $\Pi_{\varp
 \end{itemize}
 First, we know that 
 \begin{align}
-    H= \int d^3x \mathcal{H}=&\int d^3x \left(\Pi_\varphi\Pi_{\varphi^\dagger}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\right).
+    H= \int d^3x \mathcal{H}=&\int d^3x \left(\Pi_{\varphi^\dagger}\Pi_\varphi+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\right).
 \end{align}
 Before we proceed, we remind each term in the Hamiltonian density.
 \begin{align}
-    \Pi_\varphi = &\dot{\varphi}^\dagger=\int \widetilde{dk}[-i\omega a^\dagger(\mathbf{k})e^{-ikx}+i\omega b(\mathbf{k})e^{ikx}],\\
-    \Pi_{\varphi^\dagger} = &\dot{\varphi}=\int \widetilde{dk}[i\omega a(\mathbf{k})e^{ikx}-i\omega b^\dagger(\mathbf{k})e^{-ikx}],\\
-    \nabla\varphi = &\int \widetilde{dk}[i\mathbf{k} a(\mathbf{k})e^{ikx}-i\mathbf{k} b^\dagger(\mathbf{k})e^{-ikx}],\\
-    \nabla\varphi^\dagger = &\int \widetilde{dk}[-i\mathbf{k} a^\dagger(\mathbf{k})e^{-ikx}+i\mathbf{k} b(\mathbf{k})e^{ikx}],\\
-    \varphi = &\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}],\\
-    \varphi^\dagger = &\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}].
+    \varphi = &\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}]=\int \widetilde{dk}[a_\mathbf{k}e^{ikx}+b^\dagger_\mathbf{k}e^{-ikx}],\\
+    \varphi^\dagger = &\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]=\int \widetilde{dk}[a^\dagger_\mathbf{k}e^{-ikx}+b_\mathbf{k}e^{ikx}],\\
+    \Pi_\varphi = &\dot{\varphi}^\dagger=\int \widetilde{dk}[i\omega a^\dagger_\mathbf{k}e^{-ikx}-i\omega b_\mathbf{k}e^{ikx}],\\
+    \Pi_{\varphi^\dagger} = &\dot{\varphi}=\int \widetilde{dk}[-i\omega a_\mathbf{k}e^{ikx}+i\omega b^\dagger_\mathbf{k}e^{-ikx}],\\
+    \nabla\varphi = &\int \widetilde{dk}[i\mathbf{k} a_\mathbf{k}e^{ikx}-i\mathbf{k} b^\dagger_\mathbf{k}e^{-ikx}],\\
+    \nabla\varphi^\dagger = &\int \widetilde{dk}[-i\mathbf{k} a^\dagger_\mathbf{k}e^{-ikx}+i\mathbf{k} b_\mathbf{k}e^{ikx}].\\
 \end{align}
+Now, we compute each term in the Hamiltonian.
+\begin{align}
+    &\int d^3x \Pi_{\varphi^\dagger}\Pi_\varphi\\
+    =&\int d^3x \int \widetilde{dk}[-i\omega a_\mathbf{k}e^{ikx}+i\omega b^\dagger_\mathbf{k}e^{-ikx}]\int \widetilde{dk'}[i\omega' a^\dagger_{\mathbf{k}'}e^{-ik'x}-i\omega' b_{\mathbf{k}'}e^{ik'x}]\\
+    =&\int \widetilde{dk}\widetilde{dk'}\int d^3x \bigg(
+    \omega\omega' a_\mathbf{k}a^\dagger_{\mathbf{k}'}e^{i(k-k')x}+\omega\omega' b^\dagger_\mathbf{k}b_{\mathbf{k}'}e^{-i(k-k')x}-\omega\omega' a_\mathbf{k}b_{\mathbf{k}'}e^{i(k+k')x}-\omega\omega' b^\dagger_\mathbf{k}a^\dagger_{\mathbf{k}'}e^{-i(k+k')x}
+    \bigg)\\
+    =&\int \widetilde{dk}\widetilde{dk'} \bigg(
+    \omega\omega' a_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega-\omega')t}+\omega\omega' b^\dagger_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega-\omega')t}\\
+    &-\omega\omega' a_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}-\omega\omega' b^\dagger_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega}\frac{d^3k'}{(2\pi)^3 2\omega'} \bigg(
+    \omega\omega' a_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega-\omega')t}+\omega\omega' b^\dagger_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega-\omega')t}\\
+    &-\omega\omega' a_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}-\omega\omega' b^\dagger_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega} \frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 a_\mathbf{k}b_{-\mathbf{k}}e^{-i2\omega t}-\omega^2 b^\dagger_\mathbf{k}a^\dagger_{-\mathbf{k}}e^{i2\omega t}
+    \bigg)\\
+    &=\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 a_\mathbf{k}b_{-\mathbf{k}}e^{-i2\omega t}-\omega^2 b^\dagger_\mathbf{k}a^\dagger_{-\mathbf{k}}e^{i2\omega t}
+    \bigg)
+\end{align}
+\begin{align}
+    &\int d^3x \nabla\varphi^\dagger\cdot\nabla\varphi\\
+    =&\int d^3x \int \widetilde{dk}[-i\mathbf{k} a^\dagger_\mathbf{k}e^{-ikx}+i\mathbf{k} b_\mathbf{k}e^{ikx}]\cdot \int \widetilde{dk'}[i\mathbf{k}' a_{\mathbf{k}'}e^{ik'x}-i\mathbf{k}' b^\dagger_{\mathbf{k}'}e^{-ik'x}]\\
+    =&\int \widetilde{dk}\widetilde{dk'}\int d^3x \bigg(
+    \mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}a_{\mathbf{k}'}e^{i(k'-k)x}+\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k'-k)x}-\mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k+k')x}-\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}a_{\mathbf{k}'}e^{i(k+k')x}
+    \bigg)\\
+    =&\int \widetilde{dk}\widetilde{dk'} \bigg(
+    \mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &-\mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}-\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega}\frac{d^3k'}{(2\pi)^3 2\omega'} \bigg(
+    \mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &-\mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}-\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \widetilde{dk} \frac{1}{2\omega}\bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg),\quad\text{by $\mathbf{k'}=-\mathbf{k}$.}
+\end{align}
+\begin{align}
+    &\int d^3x m^2\varphi^\dagger\varphi\\
+    =&\int d^3x m^2 \int \widetilde{dk}[a^\dagger_\mathbf{k}e^{-ikx}+b_\mathbf{k}e^{ikx}]\int \widetilde{dk'}[a_{\mathbf{k}'}e^{ik'x}+b^\dagger_{\mathbf{k}'}e^{-ik'x}]\\
+    =&\int \widetilde{dk}\widetilde{dk'}\int d^3x m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}'}e^{i(k'-k)x}+b_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k'-k)x}+a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k+k')x}+b_\mathbf{k}a_{\mathbf{k}'}e^{i(k+k')x}
+    \bigg)\\
+    =&\int \widetilde{dk}\widetilde{dk'} m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &+a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}+b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega}\frac{d^3k'}{(2\pi)^3 2\omega'} m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &+a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}+b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \widetilde{dk} m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+b_\mathbf{k}b^\dagger_{\mathbf{k}}+a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)              
+\end{align}
+Therefore, the Hamiltonian is given by
+\begin{align}
+    H=&\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 b^\dagger_\mathbf{k}a^\dagger_{-\mathbf{k}}e^{i2\omega t}-\omega^2 a_\mathbf{k}b_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk}\frac{1}{2\omega} \bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk} \frac{1}{2\omega} \bigg(m^2
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+m^2b_\mathbf{k}b^\dagger_{\mathbf{k}}+m^2a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+m^2b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg) -\int d^3x \Omega_0
+\end{align}
+Also, we can change varible $\mathbf{k}\to\mathbf{k'}=-\mathbf{k}, d\mathbf{k}=d\mathbf{k'}$, but $\omega\to\omega'=\omega$. Then, the third and fourth terms in the first integral become $b^\dagger_{\mathbf{k}}\to b^\dagger_{\mathbf{-k}}$ and so on. Hence, we have
+\begin{align}
+    H=&\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 b^\dagger_{-\mathbf{k}}a^\dagger_{\mathbf{k}}e^{i2\omega t}-\omega^2 a_{-\mathbf{k}}b_{\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk}\frac{1}{2\omega} \bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk} \frac{1}{2\omega} \bigg(m^2
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+m^2b_\mathbf{k}b^\dagger_{\mathbf{k}}+m^2a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+m^2b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg) -\int d^3x \Omega_0\\
+    =&\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 a^\dagger_{\mathbf{k}}b^\dagger_{-\mathbf{k}}e^{i2\omega t}-\omega^2 b_{\mathbf{k}}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk}\frac{1}{2\omega} \bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk} \frac{1}{2\omega} \bigg(m^2
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+m^2b_\mathbf{k}b^\dagger_{\mathbf{k}}+m^2a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+m^2b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg) -\int d^3x \Omega_0\\
+    =&\int \widetilde{dk}\frac{1}{2\omega}\omega^2 \bigg( a_{\mathbf{k}}a_{\mathbf{k}}^\dagger+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}+a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+ b_{\mathbf{k}}b_{\mathbf{k}}^\dagger
+    \bigg)-\int d^3x \Omega_0, \quad\text{by $\omega^2=\mathbf{k}^2+m^2$}\\
+    =&\int \widetilde{dk}\frac{\omega}{2} \bigg( 2a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+2b_{\mathbf{k}}^\dagger b_{\mathbf{k}}+2(2\pi)^3 2\omega \delta^{(3)}(0)
+    \bigg)-\int d^3x \Omega_0, \quad\text{by commutation relation}\\
+    =&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg)+\int\frac{d^3k}{(2\pi)^3 2\omega} \omega (2\pi)^3 2\omega \delta^{(3)}(0)  -\int d^3x \Omega_0\\
+    =&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg)+2\frac{1}{2(2\pi)^3}\int d^3k \omega (2\pi)^3\delta^{(3)}(0)-\Omega_0V , \quad \text{by } \int d^3x =V \\
+    =&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg)+2\mathcal{E}_0 V -\Omega_0V, \quad\text{by } \mathcal{E}_0=\frac{1}{2(2\pi)^3}\int d^3 k \omega, V= (2\pi)^3\delta^{(3)}(0).
+\end{align}
+In order to make the vacuum energy zero, we set $\Omega_0=2\mathcal{E}_0$. Hence, the Hamiltonian is given by
+\begin{align}
+    H=&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg).
+\end{align}
+\qed
