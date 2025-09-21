@@ -7,6 +7,14 @@ In the class, we defined the $4$-vector current density for a collection of poin
     J^0(t,\mathbf{x})&=\rho(t,\mathbf{x})=\sum_a q_a \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))\\
     \mathbf{J}(t,\mathbf{x})&=\sum_a q_a \mathbf{v}_a(t)\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t)), \quad \mathbf{v}_a(t)=\frac{d\mathbf{x}_a(t)}{dt}.
 \end{align}
+Then we have 
+\begin{align}
+    \partial_\mu J^\mu&=\frac{\partial \rho}{\partial t}+\nabla\cdot \mathbf{J}\\
+    &=\sum_a q_a \left[\frac{\partial}{\partial t}\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\nabla\cdot(\mathbf{v}_a(t)\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t)))\right]\\
+    &=\sum_a q_a \left[-\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\nabla\cdot(\mathbf{v}_a(t)\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t)))\right]\\
+    &=\sum_a q_a \left[-\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))\nabla\cdot \mathbf{v}_a(t)\right]\\
+    &=0.
+\end{align}
 \clearpage
 \question{2}{}
 Prove that the electromagnetic energy density squared minus the square of the Poynting vector is a Lorentz invariant for an electromagnetic field by expressing this quantity in terms of tensors. You might consider using the dual field strength tensor defined by $\widetilde{F}^{\mu\nu}=\frac{1}{2}\varepsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$.
