@@ -12,14 +12,32 @@ Then we have
     \partial_\mu J^\mu&=\frac{\partial \rho}{\partial t}+\nabla\cdot \mathbf{J}\\
     &=\sum_a q_a \left[\frac{\partial}{\partial t}\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\nabla\cdot(\mathbf{v}_a(t)\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t)))\right]\\
     &=\sum_a q_a \left[-\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\nabla\cdot(\mathbf{v}_a(t)\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t)))\right]\\
-    &=\sum_a q_a \left[-\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))\nabla\cdot \mathbf{v}_a(t)\right]\\
+    &=\sum_a q_a \left[-\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))+\mathbf{v}_a(t)\cdot\nabla \delta^{(3)}(\mathbf{x}-\mathbf{x}_a(t))\right]\\
     &=0.
 \end{align}
 \clearpage
 \question{2}{}
 Prove that the electromagnetic energy density squared minus the square of the Poynting vector is a Lorentz invariant for an electromagnetic field by expressing this quantity in terms of tensors. You might consider using the dual field strength tensor defined by $\widetilde{F}^{\mu\nu}=\frac{1}{2}\varepsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$.
 \answer{}
-
+In the EM class, we defined the electromagnetic energy density and the Poynting vector as
+\begin{align}
+    u&=\frac{1}{2}(\mathbf{E}^2+\mathbf{B}^2)\\
+    \mathbf{S}&=\mathbf{E}\times \mathbf{B}.
+\end{align}
+Also, we have the following relations
+\begin{align}
+    F^{\mu\nu}=\begin{pmatrix}
+    0 & E_x & E_y & E_z \\
+    -E_x & 0 & B_z & -B_y \\
+    -E_y & -B_z & 0 & B_x \\
+    -E_z & B_y & -B_x & 0
+    \end{pmatrix}
+\end{align}
+Besides, the EM field energy momentum strength tensor is given by
+\begin{align}
+    T_{EM}^{\mu\nu}&=F^{\mu\alpha}{F^\nu}_\alpha-\frac{1}{4}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta},\\
+    u = T_{EM}^{00}&=\frac{1}{2}(\mathbf{E}^2+\mathbf{B}^2), \quad S^i = T_{EM}^{i0} = (\mathbf{E}\times \mathbf{B})^i.
+\end{align}
 \clearpage
 \question{3}{}
 Calculate the scalar ${T^\alpha}_\alpha$ associated with the electromagnetic stress tensor.
