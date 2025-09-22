@@ -17,7 +17,7 @@ Then we have
 \end{align}
 \clearpage
 \question{2}{}
-Prove that the electromagnetic energy density squared minus the square of the Poynting vector is a Lorentz invariant for an electromagnetic field by expressing this quantity in terms of tensors. You might consider using the dual field strength tensor defined by $\widetilde{F}^{\mu\nu}=\frac{1}{2}\varepsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$.
+Prove that the electromagnetic energy density squared minus the square of the Poynting vector is a Lorentz invariant for an electromagnetic field by expressing this quantity in terms of tensors. You might consider using the dual field strength tensor defined by $\widetilde{F}^{\mu\nu}=\frac{1}{2}\varepsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$. 
 \answer{}
 In the EM class, we defined the electromagnetic energy density and the Poynting vector as
 \begin{align}
@@ -33,12 +33,72 @@ Also, we have the following relations
     -E_z & B_y & -B_x & 0
     \end{pmatrix}
 \end{align}
-Besides, the EM field energy momentum strength tensor is given by
+Besides, the EM field energy momentum strength tensor is given by (from Weinberg's GR book)
 \begin{align}
     T_{EM}^{\mu\nu}&=F^{\mu\alpha}{F^\nu}_\alpha-\frac{1}{4}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta},\\
-    u = T_{EM}^{00}&=\frac{1}{2}(\mathbf{E}^2+\mathbf{B}^2), \quad S^i = T_{EM}^{i0} = (\mathbf{E}\times \mathbf{B})^i.
+    u = T_{EM}^{00}&=\frac{1}{2}(\mathbf{E}^2+\mathbf{B}^2), \quad S^i = T_{EM}^{i0} = (\mathbf{E}\times \mathbf{B})^i,
 \end{align}
+where $u$ is the EM energy density and $\mathbf{S}$ is the Poynting vector. Hence, we can define a $4$-vector $U^\mu$ as
+\begin{align}
+    U^\mu = (u, \mathbf{S}) = (T_{EM}^{00}, T_{EM}^{i0})=T^{\mu0}_{EM}.
+\end{align}
+Then we have
+\begin{align}
+    T^{00}_{EM}&=F^{0\alpha}{F^0}_\alpha-\frac{1}{4}\eta^{00}F_{\alpha\beta}F^{\alpha\beta}=F^{0i}{F^0}_i+\frac{1}{4}F_{\alpha\beta}F^{\alpha\beta}\\
+    &=\mathbf{E}^2-\frac{1}{2}(\mathbf{E}^2-\mathbf{B}^2)\\
+    &=\frac{1}{2}(\mathbf{E}^2+\mathbf{B}^2)=u\\
+\end{align}
+and
+\begin{align}
+    T^{i0}_{EM}&=F^{i\alpha}{F^0}_\alpha-\frac{1}{4}\eta^{i0}F_{\alpha\beta}F^{\alpha\beta}=F^{ij}{F^0}_j\\
+    &=\epsilon_{ijk}B_k E_j\\
+    &=(\mathbf{E}\times \mathbf{B})^i=S^i.
+\end{align}
+Therefore, we have 
+\begin{align}
+    U^\mu U_\mu&=-\eta_{\mu\nu}U^\mu U^\nu\\
+    &=-\eta_{\mu\nu}T^{\mu0}_{EM}T^{\nu0}_{EM}\\
+    &=T^{00}_{EM}T^{00}_{EM}-T^{i0}_{EM}T^{i0}_{EM}=u^2-\mathbf{S}^2.
+\end{align}
+We can claim that $U^\mu U_\mu$ is a Lorentz invariant since it is the contraction of two tensors. Hence, we conclude that $u^2-\mathbf{S}^2$ is a Lorentz invariant.
+
+\textbf{Remark:} We can also prove this by using the dual field strength tensor $\widetilde{F}^{\mu\nu}=\frac{1}{2}\varepsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}$. First, we have
+\begin{align}
+    \widetilde{F}^{0i}&=\frac{1}{2}\varepsilon^{0ijk}F_{jk}=\frac{1}{2}\epsilon^{ijk}F_{jk}=\frac{1}{2}\epsilon^{ijk}\epsilon_{jkl}B_l=B^i,\\
+    \widetilde{F}^{ij}&=\frac{1}{2}\varepsilon^{ij0k}F_{0k}=\frac{1}{2}(\varepsilon^{ij0k}-\varepsilon^{ji0k})F_{0k}=\varepsilon^{ij0k}E_k=\epsilon^{ijk}E_k.
+\end{align}
+Then we can calculate the following two Lorentz invariants:
+\begin{align}
+    F_{\mu\nu}F^{\mu\nu}&=2(\mathbf{B}^2-\mathbf{E}^2),\\
+    \widetilde{F}_{\mu\nu}F^{\mu\nu}&=-4\mathbf{E}\cdot \mathbf{B}.
+\end{align}
+Now we can calculate
+\begin{align}
+    (F_{\mu\nu}F^{\mu\nu})^2+(\widetilde{F}_{\mu\nu}F^{\mu\nu})^2&=4(\mathbf{B}^2-\mathbf{E}^2)^2+16(\mathbf{E}\cdot \mathbf{B})^2\\
+    &=4[(\mathbf{B}^2+\mathbf{E}^2)^2-4\mathbf{E}^2\mathbf{B}^2+4(\mathbf{E}\cdot \mathbf{B})^2]\\
+    &=4[(\mathbf{B}^2+\mathbf{E}^2)^2-4(\mathbf{E}\times \mathbf{B})^2]\\
+    &=4(u^2-\mathbf{S}^2).
+\end{align}
+This quantity is Lorentz invariant since all indices are contracted. Hence, we conclude that $u^2-\mathbf{S}^2$ is a Lorentz invariant.
 \clearpage
 \question{3}{}
 Calculate the scalar ${T^\alpha}_\alpha$ associated with the electromagnetic stress tensor.
 \answer{}
+Consider the energy momentum tensor with the EM field:
+\begin{align}
+    T^{\alpha\beta}_{total}&=T^{\alpha\beta}+T^{\alpha\beta}_{EM}= \sum_n p_n^\alpha(t) \frac{dx_n^\beta}{dt}\delta^{(3)}(\mathbf{x}-\mathbf{x}_n(t))+F^{\alpha\mu}{F^\beta}_\mu-\frac{1}{4}\eta^{\alpha\beta}F_{\mu\nu}F^{\mu\nu}\\
+    &=\sum_n\frac{p_n^\alpha p_n^\beta}{E_n}\delta^3(\mathbf{x}-\mathbf{x}_n(t)) +F^{\alpha\mu}{F^\beta}_\mu-\frac{1}{4}\eta^{\alpha\beta}F_{\mu\nu}F^{\mu\nu},
+\end{align}
+We have
+\begin{align}
+    {T^\alpha}_\alpha &= \eta_{\alpha\beta}T^{\alpha\beta}_{total}\\
+    &=\sum_n \frac{p_n^\alpha p_{n\alpha}}{E_n}\delta^3(\mathbf{x}-\mathbf{x}_n(t)) +F^{\alpha\mu}{F_{\alpha\mu}}-\frac{1}{4}\eta_{\alpha\beta}\eta^{\alpha\beta} F_{\mu\nu}F^{\mu\nu}\\
+    &=\sum_n \frac{m_n^2}{E_n}\delta^3(\mathbf{x}-\mathbf{x}_n(t)) +0,\quad \text{by } \eta^{\alpha\beta}\eta_{\alpha\beta}=4\\
+    &=\sum_n \frac{m_n^2}{E_n}\delta^3(\mathbf{x}-\mathbf{x}_n(t)) \\
+    &=\sum_n \frac{m_n^2}{E_n}\delta^3(\mathbf{x}-\mathbf{x}_n(t)) .
+\end{align}
+
+\textbf{Remark:} In class, we have shown that \begin{align}
+    \frac{\delta^3( \mathbf{x}-\mathbf{x}_n(t))}{E_n}
+\end{align}
+is a Lorentz invariant. Hence, we can conclude that ${T^\alpha}_\alpha$ is a Lorentz invariant since $m_n$ is also a Lorentz invariant. In other words, ${T^\alpha}_\alpha$ is a Lorentz scalar.
