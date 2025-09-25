@@ -40,12 +40,68 @@ List all applicable conservation laws that are or would be violated in the follo
 \end{enumerate}
 (Look up the corresponding parities from the Particle Data Group at http://pdg.lbl.gov.)
 \answer{}
+Before we analyze each decay, we list the conservation laws that we will check for each decay:
+\begin{itemize}
+    \item Conservation of electric charge
+    \item Conservation of angular momentum (total angular momentum $J$).
+    \item Conservation of isospin
+    \item Conservation of parity
+    \item Conservation of C-parity
+    \item Conservation of G-parity
+\end{itemize}
 \begin{enumerate}
-    \item The decay $\rho^0\to\pi^0\pi^0$ violates Bose-Einstein statistics. The $\rho^0$ has quantum numbers $J^{PC}=1^{--}$, while the two $\pi^0$ system has quantum numbers $J^{PC}=0^{++}, 2^{++}, 4^{++}, \ldots$. Therefore, the decay is forbidden.
+    \item The $\rho^0$ has quantum numbers $I^G(J^{PC})=1^+(1^{--})$, the $\pi^0$ has quantum numbers $I^G(J^{PC})=1^-(0^{-+})$. 
+    \begin{itemize}
+        \item Electric charge: The $\rho^0$ has charge $0$, and the two $\pi^0$'s have charge $0+0=0$. Electric charge is conserved.
+        \item Angular momentum: The $\rho^0$ has spin $1$, and the two $\pi^0$'s have spin $0+0=0$. To conserve total angular momentum, the two-pion system must have orbital angular momentum $l=1$. Total angular momentum is conserved.
+        \item Isospin: The $\rho^0$ has isospin $I=1$, and the two $\pi^0$'s can couple to isospin $I=0, 1, 2$. Therefore, the decay can proceed through the $I=1$ channel. Isospin is conserved.
+        \item Parity: The parity of the two-pion system is given by
+        \begin{align}
+            P_\rho = P_\pi P_\pi (-1)^l = (-1)(-1)(-1)^l = (-1)^l.
+        \end{align}
+        Since the $\rho^0$ has spin $1$ and the pions have spin $0$, the two-pion system must have orbital angular momentum $l=1$ to conserve total angular momentum. Therefore, the parity of the two-pion system is $P=-1$, which massches the parity of the $\rho^0$. Parity is conserved.
+        \item C-parity: The C-parity of the two-pion system is given by
+        \begin{align}
+            C_\rho = C_\pi C_\pi (-1)^l = (+1)(+1)(-1)^l = (-1)^l.
+        \end{align}
+        Since the $\rho^0$ has spin $1$ and the pions have spin $0$, the two-pion system must have orbital angular momentum $l=1$ to conserve total angular momentum. Therefore, the C-parity of the two-pion system is $C=-1$, which matches the C-parity of the $\rho^0$. C-parity is conserved.
+        \item G-parity: The G-parity of the two-pion system is given by
+        \begin{align}
+            G_\rho = G_\pi G_\pi  = (-1)(-1) = 1.
+        \end{align}
+        Hence, the G parity is $G=+1$, which matches the G-parity of the $\rho^0$. G-parity is conserved.
+    \end{itemize}
+    All conservation laws are satisfied, so the decay can occur.\\
+    \textbf{Remark:} If we check the decay mode of $\rho\to\pi\pi$, we find that the branch ratio is close to $100\%$. This is consistent with our analysis that the decay can occur.
+    \item The $\rho$ has quantum numbers $I^G(J^{PC})=1^+(1^{--})$, the photon has quantum numbers $I^G(J^{PC})=0^-(1^{--})$. \\
+    \textbf{Remark:} Actually, PDG show that the photon has isospin $I=0,1$. Here, I choose $I=0$ because the photon do not involve in strong interactions. In other words, the photon is a singlet under the strong interaction. I think $I=1$ case is for the weak interaction, but I am not sure. 
+    \begin{itemize}
+        \item Electric charge: The $\rho$ has charge $0$, and the two photons have charge $0+0=0$. Electric charge is conserved.
+        \item Angular momentum: The $\rho$ has spin $1$, and the two photons have spin $1+1=0, 1, 2$. To conserve total angular momentum, the two-photon system must have orbital angular momentum $l=0 (\text{when }s=1), l=1 (\text{when }s=0,1,2), l=2(\text{when }s=1)$. Hence, the total angular momentum might be conserved. However, by the \textbf{Landau-Yang theorem}, a massive spin-1 particle cannot decay into two photons. Therefore, the decay cannot occur. \textbf{Angular momentum is not conserved}.
+        \item Isospin: The $\rho$ has isospin $I=1$, and the two photons can couple to isospin $I=0$. Therefore, the decay cannot proceed through any isospin channel. \textbf{Isospin is not conserved}.
+        \item Parity: The parity of the two-photon system is given by
+        \begin{align}
+            P_\rho = P_\gamma P_\gamma (-1)^l = (-1)(-1)(-1)^l = (-1)^l.
+        \end{align}
+        By checking the possible values of $l$ above, we know the $l$ should be $1$ to conserve the parity.
+        \item C-parity: The C-parity of the two-photon system is given by
+        \begin{align}
+            C_\gamma C_\gamma = (-1)(-1) = 1\neq -1 = C_\rho.
+        \end{align}
+        Hence, the C parity is $C=+1$, which does not match the C-parity of the $\rho$. \textbf{C-parity is not conserved}.
+    \end{itemize}
+    The decay cannot occur because angular momentum, isospin, and C-parity are not conserved.\\
+    \textbf{Remark:} If we check the decay mode of $\rho\to\gamma\gamma$, we find that the branch ratio is $0\%$.
+    \item The $K^+$ has quantum numbers $I(J^P)=\frac{1}{2}(0^-)$, the $\pi^+$ has quantum numbers $I(J^P)=1(0^-)$, and the $\pi^0$ has quantum numbers $I(J^P)=1(0^-)$.
+    \begin{itemize}
+        \item Electric charge: The $K^+$ has charge $+1$, and the two pions have charge $+1+0=+1$. Electric charge is conserved.
+        \item Angular momentum: The $K^+$ has spin $0$, and the two pions have spin $0+0=0$. To conserve total angular momentum, the two-pion system must have orbital angular momentum $l=0$. Total angular momentum is conserved.
+        \item Isospin: The $K^+$ has isospin $I=\frac{1}{2}$, and the two pions can couple to isospin $I=0, 1, 2$. Therefore, the decay cannot proceed through any isospin channel.
+    \end{itemize}
 \end{enumerate}
 \clearpage
 \question{3}{}
-List all states ($J^{PC}$) with total spin $J = 0, 1, 2$ and $P, C$ parities that cannot be realized as a fermion-antifermion system (i.e., as $e^+e^-$ or quark-antiquark). (Hypothetical particles with such combinations of quantum numbers are called exotic, and are being sought for in experiments, so far unsuccessfully.)
+List all states ($(J^{PC})$) with total spin $J = 0, 1, 2$ and $P, C$ parities that cannot be realized as a fermion-antifermion system (i.e., as $e^+e^-$ or quark-antiquark). (Hypothetical particles with such combinations of quantum numbers are called exotic, and are being sought for in experiments, so far unsuccessfully.)
 \answer{}
 \clearpage
 \question{4}{}
