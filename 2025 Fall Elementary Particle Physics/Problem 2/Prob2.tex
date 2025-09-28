@@ -175,6 +175,7 @@ State which of the following combinations can or cannot exist in a state of isos
 \begin{enumerate}
     \item $\pi^0\pi^0$
     \item $\pi^+\pi^-$
+    \item $\pi^+\pi^+$
     \item $\Sigma^0\pi^0$
     \item $\Lambda\pi^0$
 \end{enumerate}
@@ -189,8 +190,15 @@ First, we note the isospin quantum numbers of the particles involved:
 \end{itemize}
 Now we analyze each combination:
 \begin{enumerate}
-    \item $\pi^0\pi^0$: The two $\pi^0$'s can form isospin $I=0, 1, 2$. Therefore, the combination can exist in a state of isospin $I=1$. But since the two pions are identical bosons, their total wavefunction must be symmetric under exchange. When the isospin state is $I=1$ (which is antisymmetric), the spatial part must be antisymmetric (odd orbital angular momentum) to make the total wavefunction symmetric. Hence, the combination can exist in a state of isospin $I=1$ \textbf{with odd orbital angular momentum} $L=1,3,5$ and so on.
+    \item $\pi^0\pi^0$: The two $\pi^0$'s can form isospin $I=0, 1, 2$. Therefore, the combination can exist in a state of isospin $I=1$. But since the two pions are identical bosons, their total wavefunction must be symmetric under exchange. When the isospin state is $I=1$ (which is antisymmetric), the spatial part must be antisymmetric (odd orbital angular momentum) to make the total wavefunction symmetric. Hence, the combination can exist in a state of isospin $I=1$ \textbf{with odd orbital angular momentum} $L=1,3,5$ and so on.\\
+    \textbf{Remark:} I also check the C-G coefficients, and find that the state $|I=1, I_3=0\rangle$ is given by
+    \begin{align}
+        |1,0\rangle = \frac{1}{\sqrt{2}}(|\pi^+\pi^-\rangle - |\pi^-\pi^+\rangle), \\
+        |\pi^0\pi^0\rangle = \sqrt{\frac{2}{3}}|2,0\rangle - \sqrt{\frac{1}{3}}|0,0\rangle.
+    \end{align}
+     The $|1,0\rangle $ state does not contain the $|\pi^0\pi^0\rangle$ component. This means that the two $\pi^0$'s cannot form isospin $I=1$ state. This is consistent with our analysis above that the two $\pi^0$'s can exist in a state of isospin $I=1$. In my opinion, I think we cannot consider orbital angular momentum when we analyze the isospin state. Therefore, I think the two $\pi^0$'s cannot form isospin $I=1$ state. But I am not sure about this point.
     \item $\pi^+\pi^-$: The $\pi^+$ and $\pi^-$ can form isospin $I=0, 1, 2$. Therefore, the combination can exist in a state of isospin $I=1$. Since the two pions are not identical particles, there is no symmetry requirement on their total wavefunction. Hence, the combination can exist in a state of isospin $I=1$.
+    \item $\pi^+\pi^+$: The two $\pi^+$'s can only form isospin $I=2$ since $I_3=+2$. Therefore, the combination cannot exist in a state of isospin $I=1$.
     \item $\Sigma^0\pi^0$: The $\Sigma^0$ has isospin $I=1$, and the $\pi^0$ has isospin $I=1$. The combination can form isospin $I=0, 1, 2$. Therefore, the combination can exist in a state of isospin $I=1$.
     \item $\Lambda\pi^0$: The $\Lambda$ has isospin $I=0$, and the $\pi^0$ has isospin $I=1$. The combination can only form isospin $I=1$. Therefore, the combination can exist in a state of isospin $I=1$.
 \end{enumerate}\qed
