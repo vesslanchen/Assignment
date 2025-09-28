@@ -2,12 +2,119 @@
 \question{1}{}
 Calculate the metric $g_{ij}$ and its inverse $g^{ij}$ , the affine connection $\Gamma^{i}_{jk}$, and the Laplacian $\nabla^2$ in two dimensions for a polar coordinate system with $\xi^1 = x$ and $\xi^2 = y$ being Cartesian coordinates and $x^1 = r$ and $x^2 = \theta$ being polar coordinates.
 \answer{}
-
+First, we have the transformation relations between Cartesian coordinates and polar coordinates:
+\begin{align}
+    x &= r \cos \theta, \\
+    y &= r \sin \theta.
+\end{align}
+The metric in Cartesian coordinates is given by:
+\begin{align}
+    \eta_{ij} = \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+    \end{pmatrix}.
+\end{align}
+To find the metric in polar coordinates, we use the transformation:
+\begin{align}
+    g_{ij} = \frac{\partial \xi^k}{\partial x^i} \frac{\partial \xi^l}{\partial x^j} \eta_{kl}.
+\end{align}
+Calculating the partial derivatives, we have:
+\begin{align}
+    \frac{\partial x}{\partial r} &= \cos \theta,  \frac{\partial x}{\partial \theta} = -r \sin \theta, \\
+    \frac{\partial y}{\partial r} &= \sin \theta,  \frac{\partial y}{\partial \theta} = r \cos \theta.
+\end{align}
+Thus, the metric components in polar coordinates are:
+\begin{align}
+    g_{rr} &= \left(\frac{\partial x}{\partial r}\right)^2 + \left(\frac{\partial y}{\partial r}\right)^2 = \cos^2 \theta + \sin^2 \theta = 1, \\
+    g_{r\theta} &= \frac{\partial x}{\partial r} \frac{\partial x}{\partial \theta} + \frac{\partial y}{\partial r} \frac{\partial y}{\partial \theta} = \cos \theta (-r \sin \theta) + \sin \theta (r \cos \theta) = 0, \\
+    g_{\theta\theta} &= \left(\frac{\partial x}{\partial \theta}\right)^2 + \left(\frac{\partial y}{\partial \theta}\right)^2 = (-r \sin \theta)^2 + (r \cos \theta)^2 = r^2 (\sin^2 \theta + \cos^2 \theta) = r^2.
+\end{align}
+Therefore, the metric in polar coordinates is:
+\begin{align}
+    g_{ij} = \begin{pmatrix}
+    1 & 0 \\
+    0 & r^2
+    \end{pmatrix}.
+\end{align}
+The inverse metric is given by:
+\begin{align}
+    g^{ij} = \begin{pmatrix}
+    1 & 0 \\
+    0 & \frac{1}{r^2}
+    \end{pmatrix}.
+\end{align}
+Next, we calculate the affine connection components using the formula:
+\begin{align}
+    \Gamma^i_{jk} = \frac{1}{2} g^{il} \left( \frac{\partial g_{lj}}{\partial x^k} + \frac{\partial g_{lk}}{\partial x^j} - \frac{\partial g_{jk}}{\partial x^l} \right).
+\end{align}
+Now, we have:
+\begin{align}
+    \Gamma^r_{rr} = \frac{1}{2} g^{rr} \left( \frac{\partial g_{rr}}{\partial r} + \frac{\partial g_{rr}}{\partial r} - \frac{\partial g_{rr}}{\partial r} \right) = 0, \\
+    \Gamma^r_{r\theta} = \Gamma^r_{\theta r} = \frac{1}{2} g^{rr} \left( \frac{\partial g_{r\theta}}{\partial r} + \frac{\partial g_{rr}}{\partial \theta} - \frac{\partial g_{r\theta}}{\partial r} \right) = 0, \\
+    \Gamma^\theta_{rr} = \frac{1}{2} g^{\theta\theta} \left( \frac{\partial g_{\theta r}}{\partial r} + \frac{\partial g_{\theta r}}{\partial r} - \frac{\partial g_{rr}}{\partial \theta} \right) = 0, \\
+    \Gamma^\theta_{\theta\theta} = \frac{1}{2} g^{\theta\theta} \left( \frac{\partial g_{\theta\theta}}{\partial \theta} + \frac{\partial g_{\theta\theta}}{\partial \theta} - \frac{\partial g_{\theta\theta}}{\partial \theta} \right) = 0.
+\end{align}
+The non-zero components of the affine connection are:
+\begin{align}
+    \Gamma^r_{\theta\theta} = \frac{1}{2} g^{rr} \left( \frac{\partial g_{r\theta}}{\partial \theta} + \frac{\partial g_{r\theta}}{\partial \theta} - \frac{\partial g_{\theta\theta}}{\partial r} \right) = -r, \\
+    \Gamma^\theta_{r\theta} = \Gamma^\theta_{\theta r} = \frac{1}{2} g^{\theta\theta} \left( \frac{\partial g_{\theta r}}{\partial r} + \frac{\partial g_{\theta\theta}}{\partial r} - \frac{\partial g_{r\theta}}{\partial \theta} \right) = \frac{1}{r}.
+\end{align}
+Finally, we calculate the Laplacian in polar coordinates:
+\begin{align}
+    \partial_r f &= \frac{\partial f}{\partial r}, \quad \partial_\theta f = \frac{\partial f}{\partial \theta},\\
+    \partial_r f &= \partial_x f \frac{\partial x}{\partial r} + \partial_y f \frac{\partial y}{\partial r} = \cos \theta \partial_x f + \sin \theta \partial_y f,\\
+    \partial_\theta f &= \partial_x f \frac{\partial x}{\partial \theta} + \partial_y f \frac{\partial y}{\partial \theta} = -r \sin \theta \partial_x f + r \cos \theta \partial_y f,\\
+    \partial_{rr} f &= \partial_r (\partial_r f) = \cos \theta \partial_{xx} f \cos \theta + \sin \theta \partial_{yy} f \sin \theta + 2 \cos \theta \sin \theta \partial_{xy} f,\\
+    \partial_{\theta\theta} f &= \partial_\theta (\partial_\theta f) = r^2 \sin^2 \theta \partial_{xx} f + r^2 \cos^2 \theta \partial_{yy} f - 2 r^2 \sin \theta \cos \theta \partial_{xy} f - r \cos \theta \partial_x f - r \sin \theta \partial_y f.
+\end{align}
+\begin{align}
+    &\partial_{rr} f = \cos^2 \theta \partial_{xx} f + \sin^2 \theta \partial_{yy} f + 2 \cos \theta \sin \theta \partial_{xy} f,\\
+    &\frac{1}{r} \partial_r f = \frac{1}{r} (\cos \theta \partial_x f + \sin \theta \partial_y f),\\
+    &\frac{1}{r^2} \partial_{\theta\theta} f = \sin^2 \theta \partial_{xx} f + \cos^2 \theta \partial_{yy} f - 2 \sin \theta \cos \theta \partial_{xy} f - \frac{1}{r} \cos \theta \partial_x f - \frac{1}{r} \sin \theta \partial_y f.
+\end{align}
+Thus, the Laplacian in polar coordinates is:
+\begin{align}
+    \nabla^2 f &= \partial_{xx}f+\partial_{yy}f \\
+    &= \partial_{rr} f + \frac{1}{r} \partial_r f + \frac{1}{r^2} \partial_{\theta\theta} f.
+\end{align}
+\qed
 \clearpage
 \question{2}{}
-Calculate the compact expressions for the components of the affine connection when the metric $g_{ij}$ is diagonal. See problem 3 in chapter 3 in chapter 3 of Carroll's book.
+Calculate the compact expressions for the components of the affine connection when the metric $g_{ij}$ is diagonal. See problem 3 in chapter 3 of Carroll's book.\\
+\textbf{Problem 3 in chapter 3 of Carroll's book:} Imagine we have a diagonal metric $g_{\mu \nu}$. Show that the Christoffel symbols are given by
+\begin{align}
+\Gamma_{\mu \nu}^\lambda & =0 \\
+\Gamma_{\mu \mu}^\lambda & =-\frac{1}{2}\left(g_{\lambda \lambda}\right)^{-1} \partial_\lambda g_{\mu \mu} \\
+\Gamma_{\mu \lambda}^\lambda & =\partial_\mu\left(\ln \sqrt{\left|g_{\lambda \lambda}\right|}\right) \\
+\Gamma_{\lambda \lambda}^\lambda & =\partial_\lambda\left(\ln \sqrt{\left|g_{\lambda \lambda}\right|}\right).
+\end{align}
+In these expressions, $\mu \neq \nu \neq \lambda$, and repeated indices are not summed over.
 \answer{}
-
+By the definedion of the Christoffel symbols, we have
+\begin{align}
+    \Gamma^\lambda_{\mu \nu} = \frac{1}{2} g^{\lambda \sigma} \left( \partial_\mu g_{\nu \sigma} + \partial_\nu g_{\mu \sigma} - \partial_\sigma g_{\mu \nu} \right).
+\end{align}
+Since the metric is diagonal, we have $g_{\mu \nu} = 0$ for $\mu \neq \nu$. Therefore, we can analyze the different cases:
+1. For $\mu \neq \nu \neq \lambda$:
+\begin{align}
+    \Gamma^\lambda_{\mu \nu} = \frac{1}{2} g^{\lambda \sigma} \left( \partial_\mu g_{\nu \sigma} + \partial_\nu g_{\mu \sigma} - \partial_\sigma g_{\mu \nu} \right) = 0,
+\end{align}
+where we used the fact that all terms vanish because $g_{\mu \nu} = 0$ for $\mu \neq \nu$ when we sum over $\sigma$.\\
+2. For $\mu = \nu \neq \lambda$:
+\begin{align}
+    \Gamma^\lambda_{\mu \mu} = \frac{1}{2} g^{\lambda \sigma} \left( \partial_\mu g_{\mu \sigma} + \partial_\mu g_{\mu \sigma} - \partial_\sigma g_{\mu \mu} \right)=-\frac{1}{2}g^{\lambda \lambda} \partial_\lambda g_{\mu \mu}=-\frac{1}{2}\left(g_{\lambda \lambda}\right)^{-1} \partial_\lambda g_{\mu \mu},
+\end{align}
+where we used the fact that only the term with $\sigma = \lambda$ survives in the sum. When $g$ is diagonal, $g^{\lambda \lambda} = \frac{1}{g_{\lambda \lambda}}$.\\
+3. For $\mu \neq \lambda=\nu$:
+\begin{align}
+    \Gamma^\lambda_{\mu \lambda} = \frac{1}{2} g^{\lambda \sigma} \left( \partial_\mu g_{\lambda \sigma} + \partial_\lambda g_{\mu \sigma} - \partial_\sigma g_{\mu \lambda} \right) = \frac{1}{2} g^{\lambda \lambda} \partial_\mu g_{\lambda \lambda} = \partial_\mu\left(\ln \sqrt{\left|g_{\lambda \lambda}\right|}\right),
+\end{align}
+where we used the fact that only the term with $\sigma = \lambda$ survives in the sum. When $g$ is diagonal, $g^{\lambda \lambda} = \frac{1}{g_{\lambda \lambda}}$.\\
+4. For $\mu = \nu = \lambda$:
+\begin{align}
+    \Gamma^\lambda_{\lambda \lambda} = \frac{1}{2} g^{\lambda \sigma} \left( \partial_\lambda g_{\lambda \sigma} + \partial_\lambda g_{\lambda \sigma} - \partial_\sigma g_{\lambda \lambda} \right) = \frac{1}{2} g^{\lambda \lambda} \partial_\lambda g_{\lambda \lambda} = \partial_\lambda\left(\ln \sqrt{\left|g_{\lambda \lambda}\right|}\right),
+\end{align}
+where we used the fact that only the term with $\sigma = \lambda$ survives in the sum. When $g$ is diagonal, $g^{\lambda \lambda} = \frac{1}{g_{\lambda \lambda}}$.\qed
 \clearpage
 \question{3}{}
 Prove that if the equation for a geodesic has the form
@@ -16,3 +123,45 @@ Prove that if the equation for a geodesic has the form
 \end{align}
 for two different parameters $p_1$ and $p_2$ defined along the geodesic then the most general relation between them is $p_2= Ap_1+B$ where $A$ and $B$ are constants.
 \answer{}
+Let $x^\alpha(p_1)$ be a geodesic parameterized by $p_1$. We want to show that if we reparameterize the geodesic using a different parameter $p_2$, the new parameter must be a linear function of the old one, i.e., $p_2 = A p_1 + B$ for some constants $A$ and $B$.
+
+Assume that $x^\alpha(p_2)$ is the same geodesic but parameterized by $p_2$. We can express $p_2$ as a function of $p_1$, i.e., $p_2 = f(p_1)$ for some function $f$. Then, we have:
+\begin{align}
+    \frac{d x^\alpha}{d p_2} &= \frac{d x^\alpha}{d p_1} \frac{d p_1}{d p_2}, \\
+    \frac{d^2 x^\alpha}{d p_2^2} &= \frac{d}{d p_2} \left( \frac{d x^\alpha}{d p_1} \frac{d p_1}{d p_2} \right) = \frac{d^2 x^\alpha}{d p_1^2} \left( \frac{d p_1}{d p_2} \right)^2 + \frac{d x^\alpha}{d p_1} \frac{d^2 p_1}{d p_2^2}.
+\end{align}
+Substituting these into the geodesic equation parameterized by $p_2$, we get:
+\begin{align}
+    \frac{d^2 x^\alpha}{d p_2^2} + \Gamma^\alpha_{\beta \gamma} \frac{d x^\beta}{d p_2} \frac{d x^\gamma}{d p_2} = 0.
+\end{align}
+Substituting the expressions for the derivatives, we have:
+\begin{align}
+    \left( \frac{d^2 x^\alpha}{d p_1^2} \left( \frac{d p_1}{d p_2} \right)^2 + \frac{d x^\alpha}{d p_1} \frac{d^2 p_1}{d p_2^2} \right) + \Gamma^\alpha_{\beta \gamma} \left( \frac{d x^\beta}{d p_1} \frac{d p_1}{d p_2} \right) \left( \frac{d x^\gamma}{d p_1} \frac{d p_1}{d p_2} \right) = 0.
+\end{align}
+Rearranging, we get:
+\begin{align}
+    \frac{d^2 x^\alpha}{d p_1^2} \left( \frac{d p_1}{d p_2} \right)^2 + \Gamma^\alpha_{\beta \gamma} \frac{d x^\beta}{d p_1} \frac{d x^\gamma}{d p_1} \left( \frac{d p_1}{d p_2} \right)^2 + \frac{d x^\alpha}{d p_1} \frac{d^2 p_1}{d p_2^2} = 0.
+\end{align}
+Since $x^\alpha(p_1)$ satisfies the geodesic equation, we have:
+\begin{align}
+    \frac{d^2 x^\alpha}{d p_1^2} + \Gamma^\alpha_{\beta \gamma} \frac{d x^\beta}{d p_1} \frac{d x^\gamma}{d p_1} = 0.
+\end{align}
+Thus, the first two terms cancel out, leaving us with:
+\begin{align}
+    \frac{d x^\alpha}{d p_1} \frac{d^2 p_1}{d p_2^2} = 0.
+\end{align}
+Since $\frac{d x^\alpha}{d p_1}$ is not zero (as we are moving along the geodesic), we must have:
+\begin{align}
+    \frac{d^2 p_1}{d p_2^2} = 0.
+\end{align}
+This implies that $p_1$ is a linear function of $p_2$, i.e.,
+\begin{align}
+    p_1 = A p_2 + B,
+\end{align}
+for some constants $A$ and $B$. We can rewrite this as:
+\begin{align}
+    p_2= C p_1 +D 
+\end{align}
+where $C = \frac{1}{A}$ and $D = -\frac{B}{A}$. \qed\\
+\textbf{Remark:} I am not sure $A$ or $C$ should be positive or negative. If we want $p_1$ and $p_2$ to have the same orientation, then $A$ and $C$ should be positive.\\ 
+\textbf{Remark:} I am not sure if $A$ or $C$ could be $0$, because if $A=0$, then $p_1=B$ is a constant, which means the parameterization is not valid. Similarly, if $C=0$, then $p_2=D$ is a constant, which also means the parameterization is not valid. In other words, I don't know how to make sure $p_1$ and $p_2$ can be non-constant functions.
