@@ -54,7 +54,12 @@ Before we analyze each decay, we list the conservation laws that we will check f
     \begin{itemize}
         \item Electric charge: The $\rho^0$ has charge $0$, and the two $\pi^0$'s have charge $0+0=0$. Electric charge is conserved.
         \item Angular momentum: The $\rho^0$ has spin $1$, and the two $\pi^0$'s have spin $0\otimes0=0$. To conserve total angular momentum, the two-pion system must have orbital angular momentum $l=1$. Total angular momentum is conserved.
-        \item Isospin: The $\rho^0$ has isospin $I=1$, and the two $\pi^0$'s can form isospin $I=1\otimes1=0, 1, 2$. Therefore, the decay can proceed through the $I=1$ channel. Isospin is conserved.
+        \item Isospin: The $\rho^0$ has isospin $I=1$, and the two $\pi^0$'s can form isospin $I=1\otimes1=0, 1, 2$. I also check the C-G coefficients, and find that the state $|I=1, I_3=0\rangle$ is given by
+        \begin{align}
+        |1,0\rangle = \frac{1}{\sqrt{2}}(|\pi^+\pi^-\rangle - |\pi^-\pi^+\rangle), \\
+        |\pi^0\pi^0\rangle = \sqrt{\frac{2}{3}}|2,0\rangle - \sqrt{\frac{1}{3}}|0,0\rangle.
+        \end{align}
+        In other words, the two $\pi^0$'s cannot form isospin $I=1$ state. \textbf{Therefore, the decay violated isospin}.
         \item Parity: The parity of the two-pion system is given by
         \begin{align}
             P_\rho = P_\pi P_\pi (-1)^l = (-1)(-1)(-1)^l = (-1)^l.
@@ -71,19 +76,18 @@ Before we analyze each decay, we list the conservation laws that we will check f
         \end{align}
         Hence, the G parity is $G=+1$, which matches the G-parity of the $\rho^0$. G-parity is conserved.
     \end{itemize}
-    All conservation laws are satisfied.\\
-    \textbf{Remark:} If we check the decay mode of $\rho\to\pi\pi$, we find that the branch ratio is close to $100\%$. This is consistent with our analysis that the decay can occur.
+    The isospin is not conserved.\\
     \item The $\rho$ has quantum numbers $I^G(J^{PC})=1^+(1^{--})$, the photon has quantum numbers $I^G(J^{PC})=0^-(1^{--})$. \\
     \textbf{Remark:} Actually, PDG show that the photon has isospin $I=0,1$. Here, I choose $I=0$ because the photon do not involve in strong interactions. In other words, the photon is a singlet under the strong interaction. I think $I=1$ case is for the weak interaction, but I am not sure. 
     \begin{itemize}
         \item Electric charge: The $\rho$ has charge $0$, and the two photons have charge $0+0=0$. Electric charge is conserved.
-        \item Angular momentum: The $\rho$ has spin $1$, and the two photons have spin $s=1\otimes1=0, 1, 2$. To conserve total angular momentum, the two-photon system must have orbital angular momentum $l=0 (\text{when }s=1), l=1 (\text{when }s=0,1,2), l=2(\text{when }s=1)$. Hence, the total angular momentum might be conserved. However, by the \textbf{Landau-Yang theorem}, a massive spin-1 particle cannot decay into two photons. Therefore, the decay cannot occur. \textbf{Angular momentum is not conserved}.
+        \item Angular momentum: The $\rho$ has spin $1$, and the two photons have spin $s=1\otimes1=0, 1, 2$. To conserve total angular momentum, the two-photon system must have orbital angular momentum $l=0 (\text{when }s=1), l=1 (\text{when }s=0,1,2), l=2(\text{when }s=1)$. \textit{Hence, the total angular momentum might be conserved}. However, by the \textbf{Landau-Yang theorem}, a massive spin-1 particle cannot decay into two photons. Therefore, the decay cannot occur. \textbf{Angular momentum is not conserved}.
         \item Isospin: The $\rho$ has isospin $I=1$, and the two photons can couple to isospin $I=0$. Therefore, the decay cannot proceed through any isospin channel. \textbf{Isospin is not conserved}.
         \item Parity: The parity of the two-photon system is given by
         \begin{align}
             P_\rho = P_\gamma P_\gamma (-1)^l = (-1)(-1)(-1)^l = (-1)^l.
         \end{align}
-        By checking the possible values of $l$ above, we know the $l$ should be $1$ to conserve the parity.
+        By checking the possible values of $l$ above, we know the $l$ should be $1,3,5$ and so on to conserve the parity.
         \item C-parity: The C-parity of the two-photon system is given by
         \begin{align}
             C_\gamma C_\gamma = (-1)(-1) = 1\neq -1 = C_\rho.
@@ -115,7 +119,7 @@ Before we analyze each decay, we list the conservation laws that we will check f
         \begin{align}
             -1=P_\pi = P_\gamma P_\gamma P_\gamma P_\gamma P_\gamma (-1)^l = -1\times(-1)^l.
         \end{align}
-        By checking the possible values of $l$ above, we know the $l$ should be $2,4$ to conserve the parity.
+        By checking the possible values of $l$ above, we know the $l$ should be $0,2,4$ to conserve the parity.
         \item C-parity: The C-parity of the five-photon system is given by
         \begin{align}
             +1=C_\pi \neq C_\gamma C_\gamma C_\gamma C_\gamma C_\gamma = (-1)^5 = -1,
