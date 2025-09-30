@@ -7,12 +7,34 @@ In lecture we studied the time dilation of a slowly moving object in a weak stat
 \frac{\nu_2-\nu_1}{\nu_0}=\frac{\Delta \nu}{\nu_0}=\phi_2-\phi_1,    
 \end{align}
 where $\phi$ is the gravitational potential. Generalize this formula to the case when they are moving with velocities $\mathbf{v}_1$ and $\mathbf{v}_2$ which are small compared to the speed of light. This results in contributions from both gravity and special relativity.
-
+\answer{}
 
 
 \clearpage
 \question{2}{}
 Prove that $V_{\mu ; \nu} \equiv \partial V_\mu / \partial x^\nu-\Gamma_{\mu \nu}^\lambda V_\lambda$ transforms as a second rank tensor, similar to how we proved it for $V^\mu{ }_{; \nu}$ in class, assuming that $V$ transforms as a 4 -vector.
+\answer{}
+First, by the definition, we have 
+\begin{align}
+    {V'}_\mu &= \frac{\partial x^\nu}{\partial {x'}^\mu} V_\nu,\\
+    \frac{\partial {V'}_\mu}{\partial {x'}^\nu} &= \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial}{\partial x^\alpha}\left(\frac{\partial x^\beta}{\partial {x'}^\mu} V_\beta\right) = \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial^2 x^\beta}{\partial x^\alpha \partial {x'}^\mu} V_\beta + \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial x^\beta}{\partial {x'}^\mu} \frac{\partial V_\beta}{\partial x^\alpha}\\
+    &=\frac{\partial^2 x^\beta}{\partial {x'}^\nu \partial {x'}^\mu} V_\beta + \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial x^\beta}{\partial {x'}^\mu} \frac{\partial V_\beta}{\partial x^\alpha}\\
+    {\Gamma'}_{\mu \nu}^\lambda &= \frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho + \frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial^2 x^\rho}{\partial {x'}^\mu \partial {x'}^\nu}\\
+    &= \frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho - \frac{\partial x^\lambda}{\partial {x'}^\nu}\frac{\partial x^\sigma}{\partial {x'}^\mu}\frac{\partial^2 {x'}^\lambda}{\partial x^\rho \partial x^\sigma},\quad \text{by } \frac{\partial}{\partial {x'}^\mu}\Big(\frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial {x}^\rho}{\partial {x'}^\nu} \Big)=0,\\
+    {\Gamma'}^{\lambda}_{\mu\nu}{V'}_\lambda&=\Big( \frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho + \frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial^2 x^\rho}{\partial {x'}^\mu \partial {x'}^\nu}\Big)\frac{\partial x^\beta}{\partial {x'}^\lambda} V_\beta \\
+    &= \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho \frac{\partial {x'}^\lambda}{\partial x^\rho} \frac{\partial x^\beta}{\partial {x'}^\lambda} V_\beta  +  \frac{\partial^2 x^\rho}{\partial {x'}^\mu \partial {x'}^\nu}\frac{\partial {x'}^\lambda}{\partial x^\rho}\frac{\partial x^\beta}{\partial {x'}^\lambda} V_\beta\\
+    &= \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho {\delta^{\beta}}_\rho V_\beta + \frac{\partial^2 x^\rho}{\partial {x'}^\mu \partial {x'}^\nu} {\delta^{\beta}}_\rho V_\beta\\
+    &= \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho V_\rho + \frac{\partial^2 x^\rho}{\partial {x'}^\mu \partial {x'}^\nu} V_\rho.
+\end{align}
+Therefore, we have
+\begin{align}
+    {V'}_{\mu ; \nu} &= \frac{\partial {V'}_\mu}{\partial {x'}^\nu} - {\Gamma'}_{\mu \nu}^\lambda {V'}_\lambda\\
+    &= \frac{\partial^2 x^\beta}{\partial {x'}^\nu \partial {x'}^\mu} V_\beta + \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial x^\beta}{\partial {x'}^\mu} \frac{\partial V_\beta}{\partial x^\alpha} - \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho V_\rho - \frac{\partial^2 x^\rho}{\partial {x'}^\mu \partial {x'}^\nu} V_\rho\\
+    &= \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial x^\beta}{\partial {x'}^\mu} \frac{\partial V_\beta}{\partial x^\alpha} - \frac{\partial x^\tau}{\partial {x'}^\mu} \frac{\partial x^\sigma}{\partial {x'}^\nu} \Gamma_{\tau \sigma}^\rho V_\rho\\
+    &= \frac{\partial x^\alpha}{\partial {x'}^\nu} \frac{\partial x^\beta}{\partial {x'}^\mu} \Big(\frac{\partial V_\beta}{\partial x^\alpha} - \Gamma_{\alpha \beta}^\rho V_\rho\Big)=\frac{\partial x^\beta}{\partial {x'}^\nu} \frac{\partial x^\alpha}{\partial {x'}^\mu} \Big(\frac{\partial V_\alpha}{\partial x^\beta} - \Gamma_{\alpha \beta}^\rho V_\rho\Big)\\
+    &= \frac{\partial x^\alpha}{\partial {x'}^\mu}\frac{\partial x^\beta}{\partial {x'}^\nu}  V_{\alpha ; \beta}.   
+\end{align}
+This shows that $V_{\mu ; \nu}$ transforms as a second rank tensor.\qed
 
 
 \clearpage
@@ -22,3 +44,21 @@ Show that
 A_{\mu \nu ; \lambda}+A_{\lambda \mu ; \nu}+A_{\nu \lambda ; \mu}=A_{\mu \nu, \lambda}+A_{\lambda \mu, \nu}+A_{\nu \lambda, \mu},    
 \end{align}
 when $A_{\mu \nu}$ is an anti-symmetric tensor.
+\answer{}
+By the definition of covariant derivative, we have
+\begin{align}
+    A_{\mu \nu ; \lambda} &= \frac{\partial A_{\mu \nu}}{\partial x^\lambda} - \Gamma_{\mu \lambda}^\rho A_{\rho \nu} - \Gamma_{\nu \lambda}^\rho A_{\mu \rho},\\
+    A_{\lambda \mu ; \nu} &= \frac{\partial A_{\lambda \mu}}{\partial x^\nu} - \Gamma_{\lambda \nu}^\rho A_{\rho \mu} - \Gamma_{\mu \nu}^\rho A_{\lambda \rho},\\
+    A_{\nu \lambda ; \mu} &= \frac{\partial A_{\nu \lambda}}{\partial x^\mu} - \Gamma_{\nu \mu}^\rho A_{\rho \lambda} - \Gamma_{\lambda \mu}^\rho A_{\nu \rho}.
+\end{align}
+Adding them together, we have
+\begin{align}
+    A_{\mu \nu ; \lambda}+A_{\lambda \mu ; \nu}+A_{\nu \lambda ; \mu} &= \frac{\partial A_{\mu \nu}}{\partial x^\lambda} + \frac{\partial A_{\lambda \mu}}{\partial x^\nu} + \frac{\partial A_{\nu \lambda}}{\partial x^\mu} \notag\\
+    &{\color{blue}- \Gamma_{\mu \lambda}^\rho A_{\rho \nu}} {\color{red}- \Gamma_{\nu \lambda}^\rho A_{\mu \rho}} {\color{red}- \Gamma_{\lambda \nu}^\rho A_{\rho \mu} - \Gamma_{\mu \nu}^\rho A_{\lambda \rho}} - \Gamma_{\nu \mu}^\rho A_{\rho \lambda}  {-\color{blue}\Gamma_{\lambda \mu}^\rho A_{\nu \rho}}.
+\end{align}
+Since $A_{\mu \nu}$ is an anti-symmetric tensor, we have $A_{\mu \nu}=-A_{\nu \mu}$. Therefore, we have
+\begin{align}
+    A_{\mu \nu ; \lambda}+A_{\lambda \mu ; \nu}+A_{\nu \lambda ; \mu} =& \frac{\partial A_{\mu \nu}}{\partial x^\lambda} + \frac{\partial A_{\lambda \mu}}{\partial x^\nu} + \frac{\partial A_{\nu \lambda}}{\partial x^\mu}\\
+    =&A_{\mu \nu, \lambda}+A_{\lambda \mu, \nu}+A_{\nu \lambda, \mu}.
+\end{align}
+\qed
