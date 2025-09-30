@@ -7,9 +7,34 @@ In lecture we studied the time dilation of a slowly moving object in a weak stat
 \frac{\nu_2-\nu_1}{\nu_0}=\frac{\Delta \nu}{\nu_0}=\phi_2-\phi_1,    
 \end{align}
 where $\phi$ is the gravitational potential. Generalize this formula to the case when they are moving with velocities $\mathbf{v}_1$ and $\mathbf{v}_2$ which are small compared to the speed of light. This results in contributions from both gravity and special relativity.
-\answer{}
-
-
+\answer{} 
+In a weak stationary gravitational field, the metric can be approximated as
+\begin{align}
+    d\tau^2 =&-(g_{\mu \nu} dx^\mu dx^\nu)  \\
+            =& (1+2\phi)dt^2 - (1-2\phi)(dx^2 + dy^2 + dz^2),
+\end{align}
+where $\phi$ is the gravitational potential and $|\phi| \ll 1$. For a clock moving with velocity $\mathbf{v} = (v_x, v_y, v_z)$, we have $dx = v_x dt$, $dy = v_y dt$, and $dz = v_z dt$. Therefore, the line element becomes
+\begin{align}
+    d\tau^2  = (1+2\phi)dt^2 - (1-2\phi)(v_x^2 + v_y^2 + v_z^2)dt^2.
+\end{align}
+This simplifies to
+\begin{align}
+    d\tau^2  =& \left[(1+2\phi) - (1-2\phi)v^2\right]dt^2
+\end{align}
+where $v^2 = v_x^2 + v_y^2 + v_z^2$. Hence, if we consider the $dt/d\tau$, we will have 
+\begin{align}
+    \frac{dt}{d\tau} &= \frac{1}{\sqrt{(1+2\phi) - (1-2\phi)v^2}}=\frac{1}{\sqrt{ 1+2\phi-v^2+2\phi v^2}}\approx\frac{1}{\sqrt{ 1+2\phi-v^2}}\\
+    &=(1+2\phi-v^2)^{-\frac{1}{2}},
+\end{align}
+where we have used the binomial expansion. Therefore, the frequency of the clock moving with velocity $\mathbf{v}$ in a weak stationary gravitational field is 
+\begin{align}
+    \nu_i = \frac{1}{dt_i} = \frac{1}{d\tau}\frac{d\tau}{dt_i} = \nu_0 \sqrt{1+2\phi_i - v_i^2} \approx \nu_0\left(1 + \phi_i - \frac{v_i^2}{2}\right),\quad i=1,2.
+\end{align}
+where $\nu_0 = 1/d\tau$ is the frequency of the clock at rest in the absence of gravitational field. Thus, we have
+\begin{align}
+    \frac{\Delta \nu}{\nu_0} = \frac{\nu_2 - \nu_1}{\nu_0} = (\phi_2 - \phi_1) - \frac{1}{2}(v_2^2 - v_1^2).
+\end{align}
+\qed
 \clearpage
 \question{2}{}
 Prove that $V_{\mu ; \nu} \equiv \partial V_\mu / \partial x^\nu-\Gamma_{\mu \nu}^\lambda V_\lambda$ transforms as a second rank tensor, similar to how we proved it for $V^\mu{ }_{; \nu}$ in class, assuming that $V$ transforms as a 4 -vector.
@@ -54,7 +79,7 @@ By the definition of covariant derivative, we have
 Adding them together, we have
 \begin{align}
     A_{\mu \nu ; \lambda}+A_{\lambda \mu ; \nu}+A_{\nu \lambda ; \mu} &= \frac{\partial A_{\mu \nu}}{\partial x^\lambda} + \frac{\partial A_{\lambda \mu}}{\partial x^\nu} + \frac{\partial A_{\nu \lambda}}{\partial x^\mu} \notag\\
-    &{\color{blue}- \Gamma_{\mu \lambda}^\rho A_{\rho \nu}} {\color{red}- \Gamma_{\nu \lambda}^\rho A_{\mu \rho}} {\color{red}- \Gamma_{\lambda \nu}^\rho A_{\rho \mu} - \Gamma_{\mu \nu}^\rho A_{\lambda \rho}} - \Gamma_{\nu \mu}^\rho A_{\rho \lambda}  {-\color{blue}\Gamma_{\lambda \mu}^\rho A_{\nu \rho}}.
+    &{\color{blue}- \Gamma_{\mu \lambda}^\rho A_{\rho \nu}} {\color{red}- \Gamma_{\nu \lambda}^\rho A_{\mu \rho}} {\color{red}- \Gamma_{\lambda \nu}^\rho A_{\rho \mu}}- \Gamma_{\mu \nu}^\rho A_{\lambda \rho} - \Gamma_{\nu \mu}^\rho A_{\rho \lambda}  {-\color{blue}\Gamma_{\lambda \mu}^\rho A_{\nu \rho}}.
 \end{align}
 Since $A_{\mu \nu}$ is an anti-symmetric tensor, we have $A_{\mu \nu}=-A_{\nu \mu}$. Therefore, we have
 \begin{align}
