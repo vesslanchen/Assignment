@@ -3,6 +3,67 @@
 \question{1}{Problem 5.1}\\
 Work out the LSZ reduction formula for the complex scalar field that was introduced in problem~$3.5$. Note that we must specify the type ($a$ or $b$) of each incoming and outgoing particle.
 \answer{}
+We start with the mode expansion of the complex scalar field:
+\begin{align}
+    \varphi(x)=\int \frac{d^3k}{(2\pi)^3 2\omega}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}]\\
+    \varphi^\dagger(x)=\int \frac{d^3k}{(2\pi)^3 2\omega}[b(\mathbf{k})e^{ikx}+a^\dagger(\mathbf{k})e^{-ikx}]
+\end{align}
+\begin{align}
+    a(\mathbf{k})=&\int d^3 x e^{-i k x}\left[i \partial_0 \varphi(x)+\omega \varphi(x)\right],\\
+    b(\mathbf{k})=&\int d^3x e^{-ikx}[\omega\varphi^\dagger(x)+i\partial_0\varphi^\dagger(x)].
+\end{align}
+First, we define the $|i\rangle$ and $|f\rangle$ states as
+\begin{align}
+    |i\rangle=& \lim_{t\to -\infty} a_1^\dagger(t)a_2^\dagger(t)\cdots b_1^\dagger(t)b_2^\dagger(t)\cdots |0\rangle,\\
+    |f\rangle=& \lim_{t\to +\infty} a_{1'}^\dagger(t)a_{2'}^\dagger(t)\cdots b_{1'}^\dagger(t)b_{2'}^\dagger(t)\cdots |0\rangle.
+\end{align}
+And $a_i$ and $b_i$ are given by 
+\begin{align}
+    a_i^\dagger=&\int d^3k f_i(\mathbf{k})a^\dagger(\mathbf{k})\\
+    b_i^\dagger=&\int d^3k g_i(\mathbf{k})b^\dagger(\mathbf{k}),
+\end{align}
+where
+\begin{align}
+    f_i(\mathbf{k}),g_i(\mathbf{k}) \propto& \exp(-{(\mathbf{k}-\mathbf{k}_i)^2}/{4\sigma^2}).
+\end{align}
+Now we can compute the difference between $a_1^\dagger(+\infty)$ and $a_1^\dagger(-\infty)$:
+\begin{align}
+    a_1^\dagger(+\infty)-a_1^\dagger(-\infty)=&\int_{-\infty}^{+\infty} dt \partial_0 a_1^\dagger(t)\\
+    =&\int_{-\infty}^{+\infty} dt \int d^3k f_1(\mathbf{k})\int d^3x e^{ikx}[\omega\varphi(x)-i\partial_0\varphi(x)]\\
+    =& -i\int d^3k f_1(\mathbf{k})\int d^4x e^{ikx}(-\partial_\mu\partial^\mu +m^2)\varphi(x),
+\end{align}
+where I quote the equation in the textbook. Similarly, we can get
+\begin{align}
+    b_1^\dagger(+\infty)-b_1^\dagger(-\infty)=& -i\int d^3k g_1(\mathbf{k})\int d^4x e^{ikx}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x),\\
+    a_{1'}(+\infty)-a_{1'}(-\infty)=& i\int d^3k f_{1'}^*(\mathbf{k})\int d^4x e^{-ikx}(-\partial_\mu\partial^\mu +m^2)\varphi(x),\\
+    b_{1'}(+\infty)-b_{1'}(-\infty)=& i\int d^3k g_{1'}^*(\mathbf{k})\int d^4x e^{-ikx}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x).
+\end{align}
+Now we can express the S-matrix element $\langle f|i\rangle$ as
+\begin{align}
+    \langle f|i\rangle=&\langle 0|\mathcal{T} b_{1'}(+\infty)b_{2'}(+\infty)\cdots a_{1'}(+\infty)a_{2'}(+\infty)\cdots a_1^\dagger(-\infty)a_2^\dagger(-\infty)\cdots b_1^\dagger(-\infty)b_2^\dagger(-\infty)\cdots |0\rangle\\
+    =&\langle 0|\mathcal{T} [b_{1'}(-\infty)+i\int d^3k g_{1'}^*(\mathbf{k})\int d^4x e^{-ikx}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x)]\cdots\notag\\
+    &\cdots [a_{1'}(-\infty)+i\int d^3k f_{1'}^*(\mathbf{k})\int d^4x e^{-ikx}(-\partial_\mu\partial^\mu +m^2)\varphi(x)]\cdots\notag\\
+    &\cdots [a_1^\dagger(+\infty)+i\int d^3k f_1(\mathbf{k})\int d^4x e^{ikx}(-\partial_\mu\partial^\mu +m^2)\varphi(x)]\cdots\notag\\
+    &\cdots [b_1^\dagger(+\infty)+i\int d^3k g_1(\mathbf{k})\int d^4x e^{ikx}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x)]\cdots |0\rangle\\
+    =&\langle 0|\mathcal{T} [i\int d^3k g_{1'}^*(\mathbf{k})\int d^4x e^{-ikx}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x)]\cdots\notag\\
+    &\cdots [i\int d^3k f_{1'}^*(\mathbf{k})\int d^4x e^{-ikx}(-\partial_\mu\partial^\mu +m^2)\varphi(x)]\cdots\notag\\
+    &\cdots [i\int d^3k f_1(\mathbf{k})\int d^4x e^{ikx}(-\partial_\mu\partial^\mu +m^2)\varphi(x)]\cdots\notag\\
+    &\cdots [i\int d^3k g_1(\mathbf{k})\int d^4x e^{ikx}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x)]\cdots |0\rangle\\
+    =&(i)^{n+n'+m+m'}\langle 0|\mathcal{T} [\prod_{j'}^{n'}  \int d^4x e^{-ik_{j'}x}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x)]
+    [\prod_{l'}^{n'}  \int d^4x e^{-ik_{l'}x}(-\partial_\mu\partial^\mu +m^2)\varphi(x)]\\
+    & [\prod_{l}^{m}\int d^4x e^{ik_{l}x}(-\partial_\mu\partial^\mu +m^2)\varphi(x)] [\prod_{j}^{n}\int d^4x e^{ik_{j}x}(-\partial_\mu\partial^\mu +m^2)\varphi^\dagger(x)] |0\rangle,
+\end{align}
+where we have used the fact that $a_i|0\rangle=b_i|0\rangle=0$ and $\langle 0|a_i^\dagger=\langle 0|b_i^\dagger=0$. Here $n$ and $m$ are the number of incoming $a$ and $b$ particles, while $n'$ and $m'$ are the number of outgoing $a$ and $b$ particles, respectively. We also impose the $\sigma\to0$ limit, so that $f_i(\mathbf{k})$ and $g_i(\mathbf{k})$ become delta functions. Finally, we can rewrite the S-matrix element as
+\begin{align}
+    \langle f|i\rangle=&(i)^{n+n'+m+m'}\int d^4x_1 e^{-ik_1 x_1}\cdots \int d^4x_n e^{-ik_n x_n}\int d^4x_{1'} e^{ik_{1'} x_{1'}}\cdots \int d^4x_{n'} e^{ik_{n'} x_{n'}}\notag\\
+    &\int d^4y_1 e^{-ip_1 y_1}\cdots \int d^4y_m e^{-ip_m y_m}\int d^4y_{1'} e^{ip_{1'} y_{1'}}\cdots \int d^4y_{m'} e^{ip_{m'} y_{m'}}\notag\\
+    &(-\partial_\mu\partial^\mu_{x_1}+m^2)\cdots(-\partial_\mu\partial^\mu_{x_n}+m^2)(-\partial_\mu\partial^\mu_{x_{1'}}+m^2)\cdots(-\partial_\mu\partial^\mu_{x_{n'}}+m^2)\notag\\
+    &(-\partial_\mu\partial^\mu_{y_1}+m^2)\cdots(-\partial_\mu\partial^\mu_{y_m}+m^2)(-\partial_\mu\partial^\mu_{y_{1'}}+m^2)\cdots(-\partial_\mu\partial^\mu_{y_{m'}}+m^2)\notag\\
+    &\langle 0|\mathcal{T} \varphi^\dagger(y_{1'})\cdots \varphi^\dagger(y_{m'})\varphi(x_{1'})\cdots \varphi(x_{n'})\varphi(x_1)\cdots \varphi(x_n)\varphi^\dagger(y_1)\cdots \varphi^\dagger(y_m)|0\rangle.
+\end{align}
+This is the LSZ reduction formula for the complex scalar field. 
+\qed
+
 \clearpage
 \question{2}{Problem 6.1}
 \begin{itemize}
@@ -10,7 +71,20 @@ Work out the LSZ reduction formula for the complex scalar field that was introdu
     \item [(b)] For the case of a free particle, $V(Q)=0$, evaluate the path integral of eq.~(7.9) explicitly. Hint: integrate over $q_1$, then $q_2$, etc, and look for a pattern. Express you final answer in terms of $q',t',q'',t''$ and $m$. Restore $\hbar$ by dimensional analysis.
     \item [(c)] Compute the $\langle q'',t''|q',t' \rangle =\langle q'' |e^{-iH(t''-t')}|q'\rangle$ by inserting a complete set of momentum eigenstates, and performing the integral over the momentum. Compare your result in part (b).
 \end{itemize}
+\begin{align}
+    \langle q'',t''| q',t'\rangle &=\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{ip_j (q_{j+1}-q_j)}e^{-iH(p_j,\overline{q}_j)\delta t},  \tag{6.7}\\
+    \langle q'',t''| q',t'\rangle &=\int \mathcal{D}q \exp{\Bigg[ i\int_{t'}^{t''}dt L(\dot{q}(t),q(t))  \Bigg]}.  \tag{6.9}
+\end{align}
 \answer{}
+First, from eq.~(6.7), we can see that
+\begin{align}
+    \langle q'',t''| q',t'\rangle =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{ip_j (q_{j+1}-q_j)}e^{-iH(p_j,\overline{q}_j)\delta t},\quad \text{assuming }H(p,q)=\frac{1}{2m}p^2+V(q)\\
+    =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{ip_j (q_{j+1}-q_j)}e^{-i(\frac{1}{2m}p_j^2+V(\overline{q}_j))\delta t}\\
+    =&
+\end{align}
+
+
+
 \clearpage
 \question{3}{Problem 7.3}
 \begin{itemize}
@@ -18,9 +92,9 @@ Work out the LSZ reduction formula for the complex scalar field that was introdu
     \item [(b)] Write the Schr\"odinger-picture operators $Q$ and $P$ in terms of the creation and annihilation operators $a$ and $a^\dagger$, where $H=\hbar\omega (a^\dagger a +\frac{1}{2})$. Then, using your result from part (a), write the Heisenberg-picture operator $Q(t)$ and $P(t)$ in terms of $a$ and $a^\dagger$.
     \item [(c)] Using your result from part (b), and $a|0\rangle=\langle0|a^\dagger=0$,verify eqs.~(7.16) and (7.17).
 \end{itemize}
-
-
 \answer{}
+
+
 
 \clearpage
 \question{4}{Problem 7.4}\\
