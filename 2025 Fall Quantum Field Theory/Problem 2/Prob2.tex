@@ -291,3 +291,37 @@ where we have used the definition of $G(t)$ in eq.~(7.14). This verifies eq.~(7.
 \question{4}{Problem 7.4}\\
 Consider a harmonic oscillator in its ground state at $t=-\infty$. It is then subjected to an external force $f(t)$. Compute the probability $|\langle0|0\rangle_f|^2$ that the oscillator is still in its ground state at $t=+\infty$. Write your answer as a manifestly real expression, and in terms of the Fourier transform $\tilde{f}(E)=\int^{+\infty}_{-\infty}e^{iEt}f(t)$. Your answer should not involve any other unevaluated integrals.
 \answer{}
+Recall eqs.~(7.10),~(7.11)and~(7.14):
+\begin{align}
+    \langle 0|0\rangle_f=& \exp{\Big[\frac{i}{2} \int_{-\infty}^{\infty} \frac{dE}{2\pi}\frac{\widetilde{f}(E)\widetilde{f}(-E)}{-E^2+\omega^2-i\epsilon}\Big]}, \tag{7.10}\\
+    =&\exp\Big[\frac{i}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) G(t-t') f(t')\Big] \tag{7.11}\\
+    =&\exp\Big[\frac{i}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{i}{2\omega}e^{-i\omega|t-t'|} f(t')\Big], \quad \text{by eq.~(7.14)}\notag
+\end{align}
+\begin{align}
+    |\langle0|0\rangle_f|^2=& \langle 0|0\rangle_f \langle 0|0\rangle_f^*\\
+    =&\exp\Big[\frac{i}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{i}{2\omega}e^{-i\omega|t-t'|} f(t')\Big] \exp\Big[-\frac{i}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{-i}{2\omega}e^{i\omega|t-t'|} f(t')\Big]\\
+    =&\exp\Big[-\frac{1}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}e^{-i\omega|t-t'|} f(t') -\frac{1}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}e^{i\omega|t-t'|} f(t')\Big]\\
+    =&\exp\Big[-\frac{1}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}\Big(e^{-i\omega|t-t'|}+e^{i\omega|t-t'|}\Big) f(t')\Big]\\
+    =&\exp\Big[-\frac{1}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{\omega}\cos{\omega|t-t'|} f(t')\Big]\\
+    =&\exp\Big[-\frac{1}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}(e^{-i\omega(t-t')}+e^{i\omega(t-t')}) f(t')\Big]
+\end{align}
+By the definition of Fourier transform, we have
+\begin{align}
+    \tilde{f}(E)=&\int_{-\infty}^{+\infty} e^{iE t} f(t) dt.
+\end{align}
+Thus, we have
+\begin{align}
+    &\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}(e^{-i\omega(t-t')}+e^{i\omega(t-t')}) f(t')\\
+    =&\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}e^{-i\omega(t-t')} f(t') + \int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}e^{i\omega(t-t')} f(t')\\
+    =&\frac{1}{2\omega}\int_{-\infty}^{+\infty} dt  dt' f(t) e^{-i\omega t} e^{i\omega t'} f(t') + \frac{1}{2\omega}\int_{-\infty}^{+\infty} dt  dt' f(t) e^{i\omega t} e^{-i\omega t'} f(t')\\
+    =&\frac{1}{2\omega}\Big(\int_{-\infty}^{+\infty} dt f(t) e^{-i\omega t}\Big)\Big(\int_{-\infty}^{+\infty} dt' f(t') e^{i\omega t'}\Big) + \frac{1}{2\omega}\Big(\int_{-\infty}^{+\infty} dt f(t) e^{i\omega t}\Big)\Big(\int_{-\infty}^{+\infty} dt' f(t') e^{-i\omega t'}\Big)\\
+    =&\frac{1}{2\omega}\tilde{f}(-\omega)\tilde{f}(\omega) + \frac{1}{2\omega}\tilde{f}(\omega)\tilde{f}(-\omega)\\
+    =&\frac{1}{\omega}\tilde{f}(\omega)\tilde{f}(-\omega) 
+\end{align}
+Therefore, we have
+\begin{align}
+    |\langle0|0\rangle_f|^2=&\exp\Big[-\frac{1}{2}\int_{-\infty}^{+\infty} dt  dt' f(t) \frac{1}{2\omega}(e^{-i\omega(t-t')}+e^{i\omega(t-t')}) f(t')\Big]\\
+    =&\exp\Big[-\frac{1}{2}\cdot \frac{1}{\omega}\tilde{f}(\omega)\tilde{f}(-\omega)\Big]\\
+    =&\exp\Big[-\frac{1}{2\omega}|\tilde{f}(\omega)|^2\Big],
+\end{align}
+where we have used the fact that $\tilde{f}(-\omega)$ is the complex conjugate of $\tilde{f}(\omega)$. This is a manifestly real expression and does not involve any other unevaluated integrals. \qed
