@@ -68,7 +68,7 @@ This is the LSZ reduction formula for the complex scalar field.
 \question{2}{Problem 6.1}
 \begin{itemize}
     \item [(a)] Find an explicit formula for $\mathcal{D}q$ in eq.~(6.9). Your formula should be of the form $\mathcal{D}q = C \prod_{j=1}^N dq_j$, where $C$ is a constant that you should compute.
-    \item [(b)] For the case of a free particle, $V(Q)=0$, evaluate the path integral of eq.~(7.9) explicitly. Hint: integrate over $q_1$, then $q_2$, etc, and look for a pattern. Express you final answer in terms of $q',t',q'',t''$ and $m$. Restore $\hbar$ by dimensional analysis.
+    \item [(b)] For the case of a free particle, $V(Q)=0$, evaluate the path integral of eq.~(6.9) explicitly. Hint: integrate over $q_1$, then $q_2$, etc, and look for a pattern. Express you final answer in terms of $q',t',q'',t''$ and $m$. Restore $\hbar$ by dimensional analysis.
     \item [(c)] Compute the $\langle q'',t''|q',t' \rangle =\langle q'' |e^{-iH(t''-t')}|q'\rangle$ by inserting a complete set of momentum eigenstates, and performing the integral over the momentum. Compare your result in part (b).
 \end{itemize}
 \begin{align}
@@ -76,15 +76,117 @@ This is the LSZ reduction formula for the complex scalar field.
     \langle q'',t''| q',t'\rangle &=\int \mathcal{D}q \exp{\Bigg[ i\int_{t'}^{t''}dt L(\dot{q}(t),q(t))  \Bigg]}.  \tag{6.9}
 \end{align}
 \answer{}
-First, from eq.~(6.7), we can see that
+\begin{itemize}
+    \item [(a)] First, from eq.~(6.7), we can see that
+\end{itemize}
 \begin{align}
     \langle q'',t''| q',t'\rangle =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{ip_j (q_{j+1}-q_j)}e^{-iH(p_j,\overline{q}_j)\delta t},\quad \text{assuming }H(p,q)=\frac{1}{2m}p^2+V(q)\\
     =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{ip_j (q_{j+1}-q_j)}e^{-i(\frac{1}{2m}p_j^2+V(\overline{q}_j))\delta t}\\
-    =&
+    =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{ip_j\delta t \dot{q_j}}e^{-i(\frac{1}{2m}p_j^2+V(\overline{q}_j))\delta t},\quad \text{where }\dot{q_j}=\frac{q_{j+1}-q_j}{\delta t}\\
+    =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{-i\delta t(\frac{1}{2m}p_j^2 - p_j\dot{q_j}+V(\overline{q}_j))}\\
+    =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{-i\delta t(\frac{1}{2m}(p_j-m\dot{q_j})^2 - \frac{1}{2}m\dot{q_j}^2+V(\overline{q}_j))}\\
+    =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{-i\delta t\frac{1}{2m}(p_j-m\dot{q_j})^2}e^{i\delta t(\frac{1}{2}m\dot{q_j}^2 - V(\overline{q}_j))}\\
+    =&\int \prod_{k=1}^N dq_k\prod_{j=0}^N \frac{dp_j}{2\pi} e^{-i\delta t\frac{1}{2m}(p_j-m\dot{q_j})^2}e^{i\delta t L(\dot{q_j},\overline{q}_j)},\quad \text{where }L(\dot{q},q)=\frac{1}{2}m\dot{q}^2 - V(q)\\
+    =&\int \prod_{k=1}^N dq_k \Bigg[\prod_{j=0}^N \int \frac{dp_j}{2\pi} e^{-i\delta t\frac{1}{2m}(p_j-m\dot{q_j})^2}\Bigg]e^{i \sum_{j=0}^N \delta t L(\dot{q_j},\overline{q}_j)},
 \end{align}
-
-
-
+where we have used the definition of $\dot{q_j}$ and $L(\dot{q},q)$. Now we can compute the integral over $p_j$:
+\begin{align}
+    \int \frac{dp_j}{2\pi} e^{-i\delta t\frac{1}{2m}(p_j-m\dot{q_j})^2}=&\int \frac{dp_j}{2\pi} e^{-i\frac{\delta t}{2m}p_j^2} \quad \text{(by shifting }p_j\to p_j+m\dot{q_j}\text{)}\\
+    =&\frac{1}{2\pi} \sqrt{\frac{2m\pi}{i\delta t}} \quad \text{(by Gaussian integral)}\\
+    =&\sqrt{\frac{m}{2\pi i \delta t}}.
+\end{align}
+Thus, we have
+\begin{align}
+    \langle q'',t''| q',t'\rangle =&\int \prod_{k=1}^N dq_k \Bigg[\prod_{j=0}^N \sqrt{\frac{m}{2\pi i \delta t}}\Bigg]e^{i \sum_{j=0}^N \delta t L(\dot{q_j},\overline{q}_j)}\\
+    =&\int \prod_{k=1}^N dq_k \Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}e^{i \sum_{j=0}^N\delta t L(\dot{q_j},\overline{q}_j)}\\
+    =&\int \prod_{k=1}^N dq_k \Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}e^{i \int_{t'}^{t''} dt L(\dot{q}(t),q(t))} \quad \text{(by definition of Riemann integral)}.
+\end{align}
+Therefore, we can identify
+\begin{align}
+    \mathcal{D}q=&\Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}} \prod_{j=1}^N dq_j.
+\end{align}
+This is the explicit formula for $\mathcal{D}q$ in eq.~(6.9).
+\begin{itemize}
+    \item [(b)] Now if we consider the case of a free particle, i.e. $V(Q)=0$, then we have
+\end{itemize}
+\begin{align}
+    L(\dot{q},q)=&\frac{1}{2}m\dot{q}^2,\\
+    \langle q'',t''| q',t'\rangle =&\int \prod_{k=1}^N dq_k \Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}e^{i \int_{t'}^{t''} dt \frac{1}{2}m\dot{q}^2}\\
+    =&\int \prod_{k=1}^N dq_k \Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}e^{i \sum_{j=0}^N \delta t \frac{1}{2}m\dot{q_j}^2}.\\
+\end{align}
+The terms in the exponent are given by:
+\begin{align}
+    \sum_{j=0}^N \delta t \frac{1}{2}m\dot{q_j}^2=\sum_{j=0}^N \delta t \frac{1}{2}m\Big(\frac{q_{j+1}-q_j}{\delta t}\Big)^2
+    =\sum_{j=0}^N \frac{m}{2\delta t}(q_{j+1}^2 - 2q_{j+1}q_j + q_j^2).
+\end{align}
+Thus, we focus on the integral and compute it step by step:
+\begin{align}
+    &\int dq_N\cdots \int dq_2\exp{\Big( \sum_{j=2}^N \frac{im}{2\delta t}(q_{j+1}^2 - 2q_{j+1}q_j + q_j^2) \Big)}  \int dq_1 \exp\Big[\frac{im}{2\delta t}\Big((q_2^2 - 2q_2 q_1 + q_1^2)+(q_1^2 - 2q_1 q_0 + q_0^2)\Big)\Big]\\
+    =&\int dq_N\cdots \int dq_2\exp{\Big( \sum_{j=2}^N i\lambda(q_{j+1}-q_j)^2 \Big)} \notag\\
+     &\int dq_1 \exp\Big[i\lambda\Big( (q_2-q_1)^2+(q_1-q_0)^2 \Big)\Big],\quad \text{where }\lambda=\frac{m}{2\delta t}
+\end{align}
+Before performing the integral over $q_1$, we consider the following integral:
+\begin{align}
+    \int_{-\infty}^{+\infty} dx e^{i\alpha(x-\beta)^2}=\sqrt{\frac{i\pi}{\alpha}}
+\end{align}
+Then we also consider the more complicated integral:
+\begin{align}
+    \int_{-\infty}^{+\infty} dx e^{i\alpha(x-c_1)^2+i\beta(x-c_2)^2}=&\int_{-\infty}^{+\infty} dx e^{i(\alpha+\beta)x^2 - 2i(\alpha c_1 + \beta c_2)x + i(\alpha c_1^2 + \beta c_2^2)}\\
+    =&e^{i\frac{\alpha\beta}{\alpha+\beta}(c_1-c_2)^2}\int_{-\infty}^{+\infty} dx e^{i(\alpha+\beta)(x-\frac{\alpha c_1 + \beta c_2}{\alpha+\beta})^2}\\
+    =&e^{i\frac{\alpha\beta}{\alpha+\beta}(c_1-c_2)^2}\sqrt{\frac{i\pi}{\alpha+\beta}}=e^{i\frac{1}{\frac{1}{\alpha}+\frac{1}{\beta}}(c_1-c_2)^2}\sqrt{\frac{i\pi}{\alpha+\beta}},
+\end{align}
+where I quoted the result from \texttt{Mathematica}. Now we can perform the integral over $q_1$:
+\begin{align}
+    &\int dq_1 \exp\Big[i\lambda\Big( (q_2-q_1)^2+(q_1-q_0)^2 \Big)\Big]\\
+    =&\int dq_1 \exp\Big[i\lambda(q_1-q_2)^2 + i\lambda(q_1-q_0)^2 \Big]\\
+    =&e^{i\frac{\lambda^2}{2\lambda}(q_2-q_0)^2}\sqrt{\frac{i\pi}{2\lambda}}\\
+    =&e^{i\frac{\lambda}{2}(q_2-q_0)^2}\sqrt{\frac{i\pi}{2\lambda}}.
+\end{align}
+Thus, we have
+\begin{align}
+    &\int dq_N\cdots \int dq_2\exp{\Big( \sum_{j=2}^N i\lambda(q_{j+1}-q_j)^2 \Big)} \int dq_1 \exp\Big[i\lambda\Big( (q_2-q_1)^2+(q_1-q_0)^2 \Big)\Big]\\
+    =&\sqrt{\frac{i\pi}{2\lambda}}\int dq_N\cdots \int dq_2\exp{\Big( \sum_{j=2}^N i\lambda(q_{j+1}-q_j)^2 + i\frac{\lambda}{2}(q_2-q_0)^2 \Big)}\\
+    =&\sqrt{\frac{i\pi}{2\lambda}}\int dq_N\cdots \int dq_3\exp{\Big( \sum_{j=3}^N i\lambda(q_{j+1}-q_j)^2 \Big)} \int dq_2 \exp{\Big(i\lambda(q_3-q_2)^2 + i\frac{\lambda}{2}(q_2-q_0)^2 \Big)}\\
+    =&\sqrt{\frac{i\pi}{2\lambda}}\sqrt{\frac{i\pi}{\frac{3}{2}\lambda}}\int dq_N\cdots \int dq_3\exp{\Big( \sum_{j=3}^N i\lambda(q_{j+1}-q_j)^2 + i\frac{\lambda}{3}(q_3-q_0)^2 \Big)}\\
+    =&\sqrt{\left(\frac{i\pi}{\lambda}\right)^2}\frac{1}{\sqrt{3}}\int dq_N\cdots \int dq_4\exp{\Big( \sum_{j=4}^N i\lambda(q_{j+1}-q_j)^2 \Big)} \int dq_3 \exp{\Big(i\lambda(q_4-q_3)^2 + i\frac{\lambda}{3}(q_3-q_0)^2 \Big)}\\
+    =&\cdots\\
+    =&\sqrt{\left(\frac{i\pi}{\lambda}\right)^{N-1}}\frac{1}{\sqrt{N}}\int dq_N \exp{\Big(i\lambda(q_{N+1}-q_N)^2 + i\frac{\lambda}{N}(q_N-q_0)^2 \Big)}\\
+    =&\sqrt{\left(\frac{i\pi}{\lambda}\right)^{N}}\frac{1}{\sqrt{N+1}}e^{i\frac{\lambda}{N+1}(q_{N+1}-q_0)^2}.
+\end{align}
+Combine with the prefactor, we have
+\begin{align}
+    \langle q'',t''| q',t'\rangle =&\Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}\sqrt{\left(\frac{i\pi}{\lambda}\right)^{N}}\frac{1}{\sqrt{N+1}}e^{i\frac{\lambda}{N+1}(q_{N+1}-q_0)^2}\\
+    =&\Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}\sqrt{\left(\frac{i\pi}{\frac{m}{2\delta t}}\right)^{N}}\frac{1}{\sqrt{N+1}}e^{i\frac{\frac{m}{2\delta t}}{N+1}(q''-q')^2}\\
+    =&\Bigg(\frac{m}{2\pi i \delta t}\Bigg)^{\frac{N+1}{2}}\left(\frac{2i\pi \delta t}{m}\right)^{\frac{N}{2}}\frac{1}{\sqrt{N+1}}e^{i\frac{m}{2(N+1)\delta t}(q''-q')^2}\\
+    =&\sqrt{\frac{m}{2\pi i (N+1)\delta t}}e^{i\frac{m}{2(N+1)\delta t}(q''-q')^2}\\
+    =&\sqrt{\frac{m}{2\pi i (t''-t')}}e^{\frac{im}{2(t''-t')}(q''-q')^2}, \quad \text{where }t''-t'=(N+1)\delta t.
+\end{align}
+Then restore $\hbar$ by dimensional analysis, we have
+\begin{align}
+    \langle q'',t''| q',t'\rangle =&\sqrt{\frac{m}{2\pi i \hbar (t''-t')}}e^{\frac{im}{2\hbar (t''-t')}(q''-q')^2}.
+\end{align}
+\begin{itemize}
+    \item [(c)] We can also compute $\langle q'',t''| q',t' \rangle$ by inserting a complete set of momentum eigenstates:
+\end{itemize}
+\begin{align}
+    \langle q'',t''| q',t' \rangle =&\langle q''|e^{-iH(t''-t')}|q'\rangle\\
+    =&\int dp \langle q''|e^{-iH(t''-t')}|p\rangle \langle p|q'\rangle\\
+    =&\int \frac{dp}{2\pi} e^{-i\frac{p^2}{2m}(t''-t')}e^{ip(q''-q')},
+\end{align}
+where we have used $H=\frac{p^2}{2m}$ and $\langle p|q'\rangle=\frac{1}{\sqrt{2\pi}}e^{-ipq'}$. Now we can perform the integral over $p$:
+\begin{align}
+    \int_{-\infty}^{+\infty} dp e^{-i\frac{p^2}{2m}(t''-t')}e^{ip(q''-q')}=&\int_{-\infty}^{+\infty} dp e^{-i\frac{t''-t'}{2m}\Big(p^2 - \frac{2m}{t''-t'}(q''-q')p\Big)}\\
+    =&\int_{-\infty}^{+\infty} dp e^{-i\frac{t''-t'}{2m}\Big(p - \frac{m}{t''-t'}(q''-q')\Big)^2 + i\frac{m}{2(t''-t')}(q''-q')^2}\\
+    =&e^{i\frac{m}{2(t''-t')}(q''-q')^2}\int_{-\infty}^{+\infty} dp e^{-i\frac{t''-t'}{2m}\Big(p - \frac{m}{t''-t'}(q''-q')\Big)^2}\\
+    =&e^{i\frac{m}{2(t''-t')}(q''-q')^2}\sqrt{\frac{2m\pi}{i(t''-t')}}.
+\end{align}
+Thus, we have
+\begin{align}
+    \langle q'',t''| q',t' \rangle =&\int \frac{dp}{2\pi} e^{-i\frac{p^2}{2m}(t''-t')}e^{ip(q''-q')}\\
+    =&\frac{1}{2\pi}e^{i\frac{m}{2(t''-t')}(q''-q')^2}\sqrt{\frac{2m\pi}{i(t''-t')}}\\
+    =&\sqrt{\frac{m}{2\pi i (t''-t')}}e^{\frac{im}{2(t''-t')}(q''-q')^2}.
+\end{align}
+This is exactly the same as the result we obtained in part (b). \qed
 \clearpage
 \question{3}{Problem 7.3}
 \begin{itemize}
@@ -93,8 +195,97 @@ First, from eq.~(6.7), we can see that
     \item [(c)] Using your result from part (b), and $a|0\rangle=\langle0|a^\dagger=0$,verify eqs.~(7.16) and (7.17).
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)] First, we can compute $\dot{Q}$ and $\dot{P}$ using the Heisenberg equations of motion:
+\end{itemize}
+\begin{align}
+    \dot{Q}=&i[H,Q]=i\Big[\frac{P^2}{2m}+\frac{1}{2}m\omega^2 Q^2,Q\Big]=i\frac{1}{2m}[P^2,Q]=\frac{P}{m},\\
+    \dot{P}=&i[H,P]=i\Big[\frac{P^2}{2m}+\frac{1}{2}m\omega^2 Q^2,P\Big]=i\frac{1}{2}m\omega^2[Q^2,P]=-m\omega^2 Q.
+\end{align}
+These are the equations of motion for a harmonic oscillator. Now we can solve these equations to get $Q(t)$ and $P(t)$:
+\begin{align}
+    \ddot{Q}(t)=&\frac{\dot{P}}{m}=-\omega^2 Q(t),\\
+    Q(t)=&Q\cos{\omega t}+\frac{P}{m\omega}\sin{\omega t},\\
+    P(t)=&m\dot{Q}(t)=-m\omega Q\sin{\omega t}+P\cos{\omega t}.
+\end{align}
+Note that we have used the initial conditions $Q(0)=Q$ and $P(0)=P$ to determine the integration constants.
+\begin{itemize}
+    \item [(b)] Next, we can write the Schr\"odinger-picture operators $Q$ and $P$ in terms of the creation and annihilation operators $a$ and $a^\dagger$:
+\end{itemize}
+\begin{align}
+    Q=&\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger),\\
+    P=&-i\sqrt{\frac{m\omega\hbar}{2}}(a-a^\dagger).
+\end{align}
+Then, using the result from part (a), we can write the Heisenberg-picture operators $Q(t)$ and $P(t)$ in terms of $a$ and $a^\dagger$:
+\begin{align}
+    Q(t)=& \sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger)\cos{\omega t} + \frac{-i\sqrt{\frac{m\omega\hbar}{2}}(a-a^\dagger)}{m\omega}\sin{\omega t}\\
+    =& \sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger)\cos{\omega t} - i\sqrt{\frac{\hbar}{2m\omega}}(a-a^\dagger)\sin{\omega t}\\
+    =& \sqrt{\frac{\hbar}{2m\omega}}\Big[a(\cos{\omega t}-i\sin{\omega t}) + a^\dagger(\cos{\omega t}+i\sin{\omega t})\Big]\\
+    =& \sqrt{\frac{\hbar}{2m\omega}}\Big[ae^{-i\omega t} + a^\dagger e^{i\omega t}\Big],\\
+    P(t)=& -m\omega \sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger)\sin{\omega t} - i\sqrt{\frac{m\omega\hbar}{2}}(a-a^\dagger)\cos{\omega t}\\
+    =& -\sqrt{\frac{m\omega\hbar}{2}}(a+a^\dagger)\sin{\omega t} - i\sqrt{\frac{m\omega\hbar}{2}}(a-a^\dagger)\cos{\omega t}\\
+    =& -\sqrt{\frac{m\omega\hbar}{2}}\Big[a(\sin{\omega t}+i\cos{\omega t}) + a^\dagger(\sin{\omega t}-i\cos{\omega t})\Big]\\
+    =& -i \sqrt{\frac{m\omega\hbar}{2}}\Big[ a (\cos{\omega t}-i\sin{\omega t}) - a^\dagger(\cos{\omega t}+i\sin{\omega t})\Big]\\
+    =& -i \sqrt{\frac{m\omega\hbar}{2}}\Big[ a e^{-i\omega t} - a^\dagger e^{i\omega t}\Big].
+\end{align}
+\begin{itemize}
+    \item [(c)]Recall eqs.~(7.14),~(7.16) and (7.17):
+\end{itemize}
+\begin{align}
+    G(t-t')=& \frac{i}{2\omega}\exp\Big(-i\omega |t-t'|\Big)\notag\\
+    =& \frac{i}{2\omega} \Big(\theta(t-t')e^{-i\omega(t-t')}+\theta(t'-t)e^{-i\omega(t'-t)}\Big), \tag{7.14}\\
+    \langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right)|0\rangle & =\left.\frac{1}{i} \frac{\delta}{\delta f\left(t_1\right)} \frac{1}{i} \frac{\delta}{\delta f\left(t_2\right)}\langle 0 \mid 0\rangle_f\right|_{f=0}\notag \\
+    & =\left.\frac{1}{i} \frac{\delta}{\delta f\left(t_1\right)}\left[\int_{-\infty}^{+\infty} d t^{\prime} G\left(t_2-t^{\prime}\right) f\left(t^{\prime}\right)\right]\langle 0 \mid 0\rangle_f\right|_{f=0}\notag \\
+    & =\left.\left[\frac{1}{i} G\left(t_2-t_1\right)+\left(\text { term with } f^{\prime} \mathrm{s}\right)\right]\langle 0 \mid 0\rangle_f\right|_{f=0}\notag \\
+    & =\frac{1}{i} G\left(t_2-t_1\right), \tag{7.16}\\    
+    \langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right) Q\left(t_3\right) Q\left(t_4\right)|0\rangle= & \frac{1}{i^2}\left[G\left(t_1-t_2\right) G\left(t_3-t_4\right)\right. \notag\\
+    & +G\left(t_1-t_3\right) G\left(t_2-t_4\right) \notag\\
+    & \left.+G\left(t_1-t_4\right) G\left(t_2-t_3\right)\right] .\tag{7.17}
+\end{align}
+Using the result from part (b), we can compute $\langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right)|0\rangle$:
+\begin{align}
+    \langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right)|0\rangle =& \frac{\hbar}{2m\omega}\langle 0| \mathrm{T} \Big[ a e^{-i\omega t_1} + a^\dagger e^{i\omega t_1} \Big] \Big[ a e^{-i\omega t_2} + a^\dagger e^{i\omega t_2} \Big] |0\rangle\\
+    =& \frac{\hbar}{2m\omega}\langle 0| \mathrm{T} \Big[ aa e^{-i\omega (t_1+t_2)} + aa^\dagger e^{-i\omega t_1}e^{i\omega t_2} + a^\dagger a e^{i\omega t_1}e^{-i\omega t_2} + a^\dagger a^\dagger e^{i\omega (t_1+t_2)} \Big] |0\rangle\\
+    =& \frac{\hbar}{2m\omega}\langle 0| \mathrm{T} \Big[ aa^\dagger e^{-i\omega t_1}e^{i\omega t_2}  \Big] |0\rangle\\
+    =& \frac{\hbar}{2m\omega}\langle 0| \mathrm{T} \Big[ (1+a^\dagger a) e^{-i\omega t_1}e^{i\omega t_2}  \Big] |0\rangle\\
+    =& \frac{\hbar}{2m\omega}\langle 0| \mathrm{T} e^{-i\omega t_1}e^{i\omega t_2} |0\rangle\\
+    =& \frac{\hbar}{2m\omega}\Big[\theta(t_1-t_2)e^{-i\omega (t_1-t_2)} + \theta(t_2-t_1)e^{-i\omega (t_2-t_1)}\Big]\\
+    =& \frac{1}{2\omega}\Big[\theta(t_1-t_2)e^{-i\omega (t_1-t_2)} + \theta(t_2-t_1)e^{-i\omega (t_2-t_1)}\Big] ,\quad \text{by setting } \hbar=m=1,\\
+    =& \frac{1}{2\omega} e^{-i\omega |t_1-t_2|}\\
+    =& \frac{1}{i} G(t_2-t_1)
+\end{align}
+where we have used $a|0\rangle=\langle0|a^\dagger=0$ and the definition of $G(t)$ in eq.~(7.14). This verifies eq.~(7.16). Next, we can compute $\langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right) Q\left(t_3\right) Q\left(t_4\right)|0\rangle$:
 
-
+\begin{align}
+    &\langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right) Q\left(t_3\right) Q\left(t_4\right)|0\rangle \notag\\
+    =& \frac{\hbar^2}{4m^2\omega^2}\langle 0| \mathrm{T} \Big[ a e^{-i\omega t_1} + a^\dagger e^{i\omega t_1} \Big] \Big[ a e^{-i\omega t_2} + a^\dagger e^{i\omega t_2} \Big] \notag\\
+    &\Big[ a e^{-i\omega t_3} + a^\dagger e^{i\omega t_3} \Big] \Big[ a e^{-i\omega t_4} + a^\dagger e^{i\omega t_4} \Big] |0\rangle\\
+    =& \frac{\hbar^2}{4m^2\omega^2}\langle 0| \mathrm{T} \Big[ {\color{red}aaaa} e^{-i\omega (t_1+t_2+t_3+t_4)} + {\color{red}aa a a^\dagger} e^{-i\omega (t_1+t_2+t_3)}e^{i\omega t_4} + {\color{red}aa a^\dagger a} e^{-i\omega (t_1+t_2+t_4)}e^{i\omega t_3} \notag\\
+    &+ {\color{blue}aa a^\dagger a^\dagger} e^{-i\omega (t_1+t_2)}e^{i\omega (t_3+t_4)} + {\color{red}aa^\dagger aa} e^{-i\omega (t_1+t_3+t_4)}e^{i\omega t_2} + {\color{blue}aa^\dagger aa^\dagger} e^{-i\omega (t_1+t_3)}e^{i\omega (t_2+t_4)} \notag\\
+    &+ {\color{red}aa^\dagger a^\dagger a} e^{-i\omega (t_1+t_4)}e^{i\omega (t_2+t_3)} + {\color{red}aa^\dagger a^\dagger a^\dagger} e^{-i\omega t_1}e^{i\omega (t_2+t_3+t_4)} + {\color{red}a^\dagger aaa} e^{-i\omega (t_2+t_3+t_4)}e^{i\omega t_1} \notag\\
+    &+ {\color{red}a^\dagger aa a^\dagger} e^{-i\omega (t_2+t_3)}e^{i\omega (t_1+t_4)} + {\color{red}a^\dagger aa^\dagger a} e^{-i\omega (t_2+t_4)}e^{i\omega (t_1+t_3)} + {\color{red}a^\dagger aa^\dagger a^\dagger} e^{-i\omega t_2}e^{i\omega (t_1+t_3+t_4)} \notag\\
+    &+ {\color{red}a^\dagger a^\dagger aa} e^{-i\omega (t_3+t_4)}e^{i\omega (t_1+t_2)} + {\color{red}a^\dagger a^\dagger aa^\dagger} e^{-i\omega t_3}e^{i\omega (t_1+t_2+t_4)} + {\color{red}a^\dagger a^\dagger a^\dagger a} e^{-i\omega t_4}e^{i\omega (t_1+t_2+t_3)} \notag\\
+    &+ {\color{red}a^\dagger a^\dagger a^\dagger a^\dagger} e^{i\omega (t_1+t_2+t_3+t_4)} \Big] |0\rangle,\quad\text{ red terms vanish but blue terms can survive,}\\
+    =& \frac{\hbar^2}{4m^2\omega^2}\langle 0| \mathrm{T} \Big[ {\color{blue}aa a^\dagger a^\dagger} e^{-i\omega (t_1+t_2)}e^{i\omega (t_3+t_4)} + {\color{blue}aa^\dagger aa^\dagger} e^{-i\omega (t_1+t_3)}e^{i\omega (t_2+t_4)} \Big] |0\rangle
+\end{align}
+\begin{align}
+    &\langle 0|aa a^\dagger a^\dagger |0\rangle=\langle 0|a(1+a^\dagger a)a^\dagger |0\rangle=\langle 0|aa^\dagger |0\rangle +\langle 0|aa^\dagger aa^\dagger |0\rangle \\
+    =&\langle 0|(1+a^\dagger a) |0\rangle+\langle 0|(1+a^\dagger a) (1+a^\dagger a)|0\rangle=2\\
+    &\langle 0|aa^\dagger aa^\dagger |0\rangle=\langle 0|(1+a^\dagger a) (1+a^\dagger a)|0\rangle=1,
+\end{align}
+Hence, we have
+\begin{align}
+    &\langle 0| \mathrm{T} Q\left(t_1\right) Q\left(t_2\right) Q\left(t_3\right) Q\left(t_4\right)|0\rangle \notag\\
+    =& \frac{\hbar^2}{4m^2\omega^2}\langle 0| \mathrm{T} \Big[ 2 e^{-i\omega (t_1+t_2)}e^{i\omega (t_3+t_4)} +  e^{-i\omega (t_1+t_3)}e^{i\omega (t_2+t_4)}  \Big] |0\rangle\\
+    =& \frac{\hbar^2}{4m^2\omega^2}\Big[ \langle 0| \mathrm{T} e^{-i\omega (t_1+t_2)}e^{i\omega (t_3+t_4)} |0\rangle+ \langle 0| \mathrm{T} e^{-i\omega (t_1+t_2)}e^{i\omega (t_3+t_4)} |0\rangle + \langle 0| \mathrm{T} e^{-i\omega (t_1+t_3)}e^{i\omega (t_2+t_4)} |0\rangle  \Big]\\
+    =& \frac{\hbar^2}{4m^2\omega^2}\Big[ \langle 0| \mathrm{T} e^{-i\omega (t_1-t_3)}e^{-i\omega (t_2-t_4)} |0\rangle+ \langle 0| \mathrm{T} e^{-i\omega (t_1-t_4)}e^{-i\omega (t_2-t_3)} |0\rangle + \langle 0| \mathrm{T} e^{-i\omega (t_1-t_2)}e^{-i\omega (t_3-t_4)} |0\rangle  \Big]\\
+    =& \frac{1}{4\omega^2}\Big[ \Big(\theta(t_1-t_3)e^{-i\omega (t_1-t_3)} + \theta(t_3-t_1)e^{-i\omega (t_3-t_1)}\Big)\Big(\theta(t_2-t_4)e^{-i\omega (t_2-t_4)} + \theta(t_4-t_2)e^{-i\omega (t_4-t_2)}\Big) \notag\\
+    & + \Big(\theta(t_1-t_4)e^{-i\omega (t_1-t_4)} + \theta(t_4-t_1)e^{-i\omega (t_4-t_1)}\Big) \Big(\theta(t_2-t_3)e^{-i\omega (t_2-t_3)} + \theta(t_3-t_2)e^{-i\omega (t_3-t_2)}\Big) \notag\\
+    & + \Big(\theta(t_1-t_2)e^{-i\omega (t_1-t_2)} + \theta(t_2-t_1)e^{-i\omega (t_2-t_1)}\Big)\Big(\theta(t_3-t_4)e^{-i\omega (t_3-t_4)} + \theta(t_4-t_3)e^{-i\omega (t_4-t_3)}\Big)\Big],\\
+    &\quad \text{by setting } \hbar=m=1,\notag\\
+    =& \frac{1}{i^2}\Big[ G(t_1-t_3) G(t_2-t_4) + G(t_1-t_4) G(t_2-t_3) + G(t_1-t_2) G(t_3-t_4) \Big]
+\end{align}
+where we have used the definition of $G(t)$ in eq.~(7.14). This verifies eq.~(7.17). \qed
 
 \clearpage
 \question{4}{Problem 7.4}\\
