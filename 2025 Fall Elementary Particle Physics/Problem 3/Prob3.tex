@@ -1,20 +1,83 @@
 \section*{Problem Set 3 due 9:30 AM, Monday, October 13th}
 
 
-\question{1}{}\textbf{p-d reactions}
-
+\question{1}{}\textbf{p-d reactions}\\
 Consider the reactions
 \begin{align}
 p+d \rightarrow \pi^{+}+{ }^3 \mathrm{H}, \quad p+d \rightarrow \pi^0+{ }^3 \mathrm{He} .    
 \end{align}
 Since the deuteron is in a ${ }^3 S_1$ state, it must be an isospin singlet. Therefore, the initial state $p+d$ is a pure $I=\frac{1}{2}$ state. Given that ${ }^3 \mathrm{H}$ and ${ }^3 \mathrm{He}$ form an isodoublet, write down the isospin decomposition of the final states, and from this, the ratio of the two cross sections.
+\answer{}
+First, we can use $I_3$ to decide the isospin for ${}^3 \mathrm{H}$ and ${}^3 \mathrm{He}$. See the initial state $p+d$ has $I_3=+\frac{1}{2}$, so the final state must also have $I_3=+\frac{1}{2}$. Since $\pi^+$ has $I_3=+1$ and $\pi^0$ has $I_3=0$, we can conclude that ${}^3 \mathrm{H}$ has $I_3=-\frac{1}{2}$ and ${}^3 \mathrm{He}$ has $I_3=+\frac{1}{2}$. Therefore, ${}^3 \mathrm{H}$ and ${}^3 \mathrm{He}$ form an isodoublet with $I=\frac{1}{2}$.
+Now we can write down the isospin decomposition of the final states. For the first reaction, we have
+\begin{align}
+|\pi^+ + {}^3 \mathrm{H}\rangle = |\pi^+ \rangle \otimes |{}^3 \mathrm{H}\rangle = |1,1\rangle \otimes |\tfrac{1}{2}, -\tfrac{1}{2}\rangle.
+\end{align}
+Using the Clebsch-Gordan coefficients, we can decompose this into total isospin
+\begin{align}
+|1,1\rangle \otimes |\tfrac{1}{2}, -\tfrac{1}{2}\rangle = \tfrac{1}{\sqrt{3}} |\tfrac{3}{2}, \tfrac{1}{2}\rangle + \sqrt{\tfrac{2}{3}} |\tfrac{1}{2}, \tfrac{1}{2}\rangle.
+\end{align}
+For the second reaction, we have
+\begin{align}
+|\pi^0 + {}^3 \mathrm{He}\rangle = |\pi^0 \rangle \otimes |{}^3 \mathrm{He}\rangle = |1,0\rangle \otimes |\tfrac{1}{2}, \tfrac{1}{2}\rangle.
+\end{align}
+Using the Clebsch-Gordan coefficients, we can decompose this into total isospin
+\begin{align}
+|1,0\rangle \otimes |\tfrac{1}{2}, \tfrac{1}{2}\rangle = \sqrt{\tfrac{2}{3}} |\tfrac{3}{2}, \tfrac{1}{2}\rangle - \tfrac{1}{\sqrt{3}} |\tfrac{1}{2}, \tfrac{1}{2}\rangle.
+\end{align}
+Now, since the initial state $p+d$ is a pure $I=\frac{1}{2}$ state, only the $I=\frac{1}{2}$ component of the final states will contribute to the cross sections. Therefore, we can write the amplitudes for the two reactions as
+\begin{align}
+\mathcal{A}(p+d \rightarrow \pi^+ + {}^3 \mathrm{H}) &\propto \sqrt{\tfrac{2}{3}}, \\
+\mathcal{A}(p+d \rightarrow \pi^0 + {}^3 \mathrm{He}) &\propto -\tfrac{1}{\sqrt{3}}.
+\end{align}
+The cross sections are proportional to the square of the amplitudes, so we have
+\begin{align}
+\sigma(p+d \rightarrow \pi^+ + {}^3 \mathrm{H}) &\propto \left|\sqrt{\tfrac{2}{3}}\right|^2 = \tfrac{2}{3}, \\
+\sigma(p+d \rightarrow \pi^0 + {}^3 \mathrm{He}) &\propto \left|-\tfrac{1}{\sqrt{3}}\right|^2 = \tfrac{1}{3}.
+\end{align}
+Finally, the ratio of the two cross sections is
+\begin{align}
+\frac{\sigma(p+d \rightarrow \pi^+ + {}^3 \mathrm{H})}{\sigma(p+d \rightarrow \pi^0 + {}^3 \mathrm{He})} = \frac{\tfrac{2}{3}}{\tfrac{1}{3}} = 2.
+\end{align}
+\qed
 
 \clearpage
 \question{2}{}
-\textbf{Particle production by strong interactions}
-
+\textbf{Particle production by strong interactions}\\
 Explain why the processes $\pi^{-}+p \rightarrow \pi^{+}+\Sigma^{-}, \quad \pi^{-}+p \rightarrow K^0+n, \quad \pi^{-}+p \rightarrow \Sigma^{+}+K^{-}$ cannot be observed.
-
+\answer{}
+Before we analyze the processes, let's summarize the quantum numbers of the particles involved:
+\begin{itemize}
+    \item $\pi^-$: $I=1$, $I_3=-1$, $S=0$, $B=0$
+    \item $\pi^+$: $I=1$, $I_3=+1$, $S=0$, $B=0$
+    \item $p$: $I=\tfrac{1}{2}$, $I_3=+\tfrac{1}{2}$, $S=0$, $B=1$
+    \item $n$: $I=\tfrac{1}{2}$, $I_3=-\tfrac{1}{2}$, $S=0$, $B=1$
+    \item $\Sigma^-$: $I=1$, $I_3=-1$, $S=-1$, $B=1$
+    \item $\Sigma^+$: $I=1$, $I_3=+1$, $S=-1$, $B=1$
+    \item $K^0$: $I=\tfrac{1}{2}$, $I_3=+\tfrac{1}{2}$, $S=+1$, $B=0$
+    \item $K^-$: $I=\tfrac{1}{2}$, $I_3=-\tfrac{1}{2}$, $S=-1$, $B=0$
+\end{itemize}
+Now, let's analyze each process:
+\begin{itemize}
+    \item [(a)] $\pi^{-}+p \rightarrow \pi^{+}+\Sigma^{-}$:
+    \begin{itemize}
+        \item Initial state: $I_3 = -1 + \tfrac{1}{2} = -\tfrac{1}{2}$, $S = 0 + 0 = 0$, $B = 0 + 1 = 1$
+        \item Final state: $I_3 = +1 - 1 = 0$, $S = 0 - 1 = -1$, $B = 0 + 1 = 1$
+    \end{itemize}
+    The strangeness $S$ changes from 0 to -1, which is not allowed in strong interactions. The isospin $I_3$ also changes from $-\tfrac{1}{2}$ to $0$. Therefore, this process cannot be observed.
+    \item [(b)] $\pi^{-}+p \rightarrow K^0+n$:
+    \begin{itemize}
+        \item Initial state: $I_3 = -1 + \tfrac{1}{2} = -\tfrac{1}{2}$, $S = 0 + 0 = 0$, $B = 0 + 1 = 1$
+        \item Final state: $I_3 = +\tfrac{1}{2} - \tfrac{1}{2} = 0$, $S = +1 + 0 = +1$, $B = 0 + 1 = 1$
+    \end{itemize}
+    The strangeness $S$ changes from 0 to +1, which is not allowed in strong interactions. The isospin $I_3$ also changes from $-\tfrac{1}{2}$ to $0$. Therefore, this process cannot be observed.
+    \item [(c)] $\pi^{-}+p \rightarrow \Sigma^{+}+K^{-}$:
+    \begin{itemize}
+        \item Initial state: $I_3 = -1 + \tfrac{1}{2} = -\tfrac{1}{2}$, $S = 0 + 0 = 0$, $B = 0 + 1 = 1$
+        \item Final state: $I_3 = +1 - \tfrac{1}{2} = +\tfrac{1}{2}$, $S = -1 - 1 = -2$, $B = 1 + 0 = 1$
+    \end{itemize}
+    The strangeness $S$ changes from 0 to -2, which is not allowed in strong interactions. The isospin $I_3$ also changes from $-\tfrac{1}{2}$ to $+\tfrac{1}{2}$. Therefore, this process cannot be observed.
+\end{itemize}\qed
 
 \clearpage
 \question{3}{}
@@ -23,9 +86,47 @@ Explain why the processes $\pi^{-}+p \rightarrow \pi^{+}+\Sigma^{-}, \quad \pi^{
     \item [(a)] Show that $\delta^a{ }_b$ and $\epsilon_{a b}$ are invariant tensors under $\mathrm{SU}(2)$ transformations.
     \item [(b)] The nucleon doublet $N^a=\binom{p}{n}, a=1,2$ transforms as the fundamental 2 of $\mathrm{SU}(2)$, while its conjugate $\bar{N}_a \equiv\left(N^a\right)^{\dagger}=(\bar{p}, \bar{n})$ transforms as $\overline{\mathbf{2}}$. Use $\delta^a{ }_b$ to form an $\mathrm{SU}(2)$ invariant with $N, \bar{N}$ and write it explicitly in terms of the proton and neutron fields.
     \item [(c)] Define $\tilde{N}^b=\epsilon^{b c} \bar{N}_c^T$ which maps the $\overline{\mathbf{2}}$ representation (lower index) into $\mathbf{2}$ (upper index). Construct an $\mathrm{SU}(2)$ invariant with $N, \tilde{N}$ using $\epsilon_{a b}$, and write it in terms of the components. Verify that the result is identical to part (b), demonstrating that the $\mathbf{2}$ and $\overline{\mathbf{2}}$ representations are equivalent (or pseudoreal) in $\mathrm{SU}(2)$ and that any invariant constructed with $\delta^a{ }_b$ can be rewritten using $\epsilon_{a b}$.
-    \item [(d)] Consider $\mathrm{SU}(3)$, with the quark triplet $q^a(a=1,2,3)$ transforming as $\mathbf{3}$ and its conjugate $\bar{q}_a \equiv\left(q^a\right)^{\dagger}$ transforming as $\overline{\mathbf{3}}$. Discuss why a similar mapping using the $\mathrm{SU}(3)$ invariant $\epsilon_{a b c}$ does not make $\mathbf{3}$ and $\overline{\mathbf{3}}$ equivalent. Write down the possible $\mathrm{SU}(3)$ invariants involving $q, \bar{q}$.
+    \item [(d)] Consider $\mathrm{SU}(3)$, with the quark triplet $q^a(a=1,2,3)$ transforming as $\mathbf{3}$ and its conjugate $\overline{q}_a \equiv\left(q^a\right)^{\dagger}$ transforming as $\overline{\mathbf{3}}$. Discuss why a similar mapping using the $\mathrm{SU}(3)$ invariant $\epsilon_{a b c}$ does not make $\mathbf{3}$ and $\overline{\mathbf{3}}$ equivalent. Write down the possible $\mathrm{SU}(3)$ invariants involving $q, \overline{q}$.
 \end{itemize}
-
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+\begin{align}
+    \delta^a{ }_b &\rightarrow =\delta'^{a}{}_{b}= U^a{ }_c \delta^c{ }_d (U^\dagger)^d{ }_b = U^a{ }_c (U^\dagger)^c{ }_b =\mathbf{1}^{a}{}_b= \delta^a{ }_b, \\
+    \epsilon_{a b} &\rightarrow \epsilon'_{a b} = (U^\dagger)^c{ }_a (U^\dagger)^d{}_b \epsilon_{c d} = \det(U^\dagger) \epsilon_{a b} = \epsilon_{a b}.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Using $\delta^a{ }_b$, we can form the invariant
+\begin{align}
+    \bar{N}_a N^a = \delta^a{ }_b \bar{N}_a N^b = \bar{p} p + \bar{n} n.
+\end{align}
+We can verify that this is indeed invariant under $\mathrm{SU}(2)$ transformations:
+\begin{align}
+    \bar{N}_a N^a &\rightarrow \bar{N}'_a N'^a = \bar{N}_b (U^\dagger)^b{ }_a U^a{ }_c N^c = \bar{N}_b \delta^b{ }_c N^c = \bar{N}_a N^a.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Using $\epsilon_{a b}$, we can form the invariant
+\begin{align}
+    \epsilon_{a b} N^a \tilde{N}^b = \epsilon_{a b} N^a \epsilon^{b c} \bar{N}_c^T = \delta_a{ }^c N^a \bar{N}_c^T = N^a \bar{N}_a^T = \bar{N}_a N^a = \bar{p} p + \bar{n} n.    
+\end{align}
+We can verify that this is indeed invariant under $\mathrm{SU}(2)$ transformations:
+\begin{align}
+    \epsilon_{a b} N^a \tilde{N}^b &\rightarrow \epsilon_{a b} N'^a \tilde{N}'^b =\epsilon_{a b} U^a{ }_c N^c U^b{ }_d \tilde{N}^d = \det(U) \epsilon_{c d} N^c \tilde{N}^d = \epsilon_{c d} N^c \tilde{N}^d.
+\end{align}
+This demonstrates that the $\mathbf{2}$ and $\overline{\mathbf{2}}$ representations are equivalent (or pseudoreal) in $\mathrm{SU}(2)$ and that any invariant constructed with $\delta^a{ }_b$ can be rewritten using $\epsilon_{a b}$.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+The possible $\mathrm{SU}(3)$ invariants involving $q$ and $\overline{q}$ are:
+\begin{align}
+    \overline{q}_a q^a, \quad \epsilon_{a b c} q^a q^b q^c, \quad \epsilon^{a b c} \overline{q}_a \overline{q}_b \overline{q}_c.
+\end{align}
+In other words, $\overline{q}_a$ and $\epsilon_{abc}q^a q^b$ can transforming as $\overline{\mathbf{3}}$ representation, but $\epsilon_{abc}q^a q^b$ is a composite object made of two quarks, not a single quark. That means 
 
 \clearpage
 \question{4}{}
@@ -39,3 +140,11 @@ Explain why the processes $\pi^{-}+p \rightarrow \pi^{+}+\Sigma^{-}, \quad \pi^{
     \item [(b)]Show that the charge operator $Q=t_3+t_8 / \sqrt{3}$ is a U-scalar i.e. it has U-spin $U=0$ or $\left[Q, U_i\right]=0$ for $i= \pm 3$. Write the electromagnetic current operator in terms of quark fields.
     \item [(c)] Show that for the meson octet, the ( $U_3=0$ ) component of the U-triplet is $\pi_U^0=\left(-\pi^0+\sqrt{3} \eta\right) / 2$, and the U-singlet is $\eta_U^0=\left(\sqrt{3} \pi^0+\eta\right) / 2$. Since $\pi_U^0$ is a U -spin vector component it cannot couple to the electromagnetic current. Show that for the $2 \gamma$ decay mode, $\left\langle\pi^0 \mid 2 \gamma\right\rangle=\sqrt{3}\langle\eta \mid 2 \gamma\rangle$. How does this U-spin prediction compare with the experimental decay widths?
 \end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+We start with the commutation relations of the $t_i$ generators of $\mathrm{SU}(3)$:
+\begin{align}
+    [t_i, t_j] = i f_{ijk} t_k,
+\end{align}
