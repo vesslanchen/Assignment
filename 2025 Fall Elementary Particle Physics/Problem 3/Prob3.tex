@@ -404,8 +404,19 @@ Now, we can construct the U-triplet and U-singlet components:
     &= \frac{-\frac{1}{\sqrt{2}}(u\overline{u} - d\overline{d}) + \frac{1}{\sqrt{2}}(u\overline{u} + d\overline{d} - 2s\overline{s})}{2} = \frac{2d\overline{d}-2s\overline{s}}{2\sqrt{2}} = \frac{d\overline{d}-s\overline{s}}{\sqrt{2}}, \\
     \eta_U^0 &= \frac{\sqrt{3} \pi^0 + \eta}{2} = \frac{\sqrt{3} \frac{1}{\sqrt{2}}(u\overline{u} - d\overline{d}) + \frac{1}{\sqrt{6}}(u\overline{u} + d\overline{d} - 2s\overline{s})}{2} \\
     &= \frac{1}{2\sqrt{6}}(3u\overline{u} - 3d\overline{d} + u\overline{u} + d\overline{d} - 2s\overline{s}) = \frac{4u\overline{u}-2d\overline{d}-2s\overline{s}}{2\sqrt{6}} = \frac{2u\overline{u}-d\overline{d}-s\overline{s}}{\sqrt{6}}\\
-    &=\frac{2(u\overline{u}+d\overline{d}+s\overline{s})}{\sqrt{6}}-\frac{3d\overline{d}+3s\overline{s}}{\sqrt{6}}=\frac{2(u\overline{u}+d\overline{d}+s\overline{s})}{\sqrt{6}}.
+    &=\frac{2(u\overline{u}+d\overline{d}+s\overline{s})}{\sqrt{6}}-\frac{3d\overline{d}+3s\overline{s}}{\sqrt{6}}.
 \end{align}
+In order to see they are indeed U-triplet and U-singlet, we can analyze their quark content with U-spin quantum numbers:
+\begin{itemize}
+    \item u quark: $U=0$ (U-spin singlet)
+    \item d quark: $U=\tfrac{1}{2}$, $U_3=+\tfrac{1}{2}$
+    \item s quark: $U=\tfrac{1}{2}$, $U_3=-\tfrac{1}{2}$
+    \item $\overline{u}$ quark: $U=0$ (U-spin singlet)
+    \item $\overline{d}$ quark: $U=\tfrac{1}{2}$, $U_3=-\tfrac{1}{2}$
+    \item $-\overline{s}$ quark: $U=\tfrac{1}{2}$, $U_3=+\tfrac{1}{2}$
+\end{itemize}
+For $\overline{s}$ quark, we need to add a minus sign due to the same reason in the isospin $SU(2)$ case. Hence, we can see that $\pi^0_U$ is a U-triplet component with $U=1, U_3=0$, and $\eta^0_U$ is a U-singlet with $U=0$. 
+
 Since $\pi_U^0$ is a U-spin vector component, it cannot couple to the electromagnetic current. Therefore, we have
 \begin{align}
     \langle \pi_U^0 | 2\gamma \rangle = 0 \implies \left\langle \frac{-\pi^0 + \sqrt{3} \eta}{2} | 2\gamma \right\rangle = 0 &\implies -\frac{1}{2} \langle \pi^0 | 2\gamma \rangle + \frac{\sqrt{3}}{2} \langle \eta | 2\gamma \rangle = 0.\\
@@ -429,6 +440,9 @@ Thus, the experimental ratio is
     \frac{\Gamma(\pi^0 \rightarrow 2\gamma)}{\Gamma(\eta \rightarrow 2\gamma)} \approx \frac{7.8 \text{ eV}}{510 \text{ eV}} \approx 0.0153,
 \end{align}
 which is significantly different from the U-spin prediction of 3. \qed\\
+
+\textbf{Remark:} I think the U-singlet should be $\eta_U^0=\frac{d\overline{d}+s\overline{s}}{\sqrt{2}}$, which is different from the one given in the question. It is a more natural choice since it is orthogonal to the U-triplet component $\pi_U^0=\frac{d\overline{d}-s\overline{s}}{\sqrt{2}}$. If we use this definition, we can see that $\eta_U^0$ does not contain any $u\overline{u}$ component. However, using this definition, we cannot express $\eta_U^0$ in terms of $\pi^0$ and $\eta$ as given in the question.\\
+
 \textbf{Remark:} I check the decay widths formula for $\pi^0$ (I quote eq.~(30.14) from Schwarz's QFT book):
 \begin{align}
     \Gamma(\pi^0 \rightarrow 2\gamma) = \frac{\alpha^2 m_{\pi}^3}{64 \pi^3 f_{\pi}^2} \approx 7.73 \text{ eV}.
@@ -438,3 +452,4 @@ It show that $\Gamma$ is proportional to $m^3$, so the mass difference between $
     \frac{\Gamma(\pi^0 \rightarrow 2\gamma)}{\Gamma(\eta \rightarrow 2\gamma)} = 3 \left(\frac{m_{\pi}}{m_{\eta}}\right)^3 =3\left(\frac{139.6\text{ MeV}}{547.862\text{ MeV}}\right)^3\approx 0.049,
 \end{align}
 which is still significantly different from the experimental value of approximately 0.0153. 
+
