@@ -1,1 +1,97 @@
-\section*{HW2 Due to October 21 11:59 PM}
+\section*{HW3 Due to October 21 11:59 PM}
+
+
+\question{1}{Problem 8.7}\\
+Repeat the analysis of this section for the complex scalar field that was introduced in problem 3.5, and further studied in problem 5.1. Write your source term in the form $J^{\dagger} \varphi+J \varphi^{\dagger}$, and find an explicit formula, analogous to eq. (8.10), for $Z_0\left(J^{\dagger}, J\right)$. Write down the appropriate generalization of eq. (8.14), and use it to compute $\langle 0| \mathrm{T} \varphi\left(x_1\right) \varphi\left(x_2\right)|0\rangle$, $\langle 0| \mathrm{T} \varphi^{\dagger}\left(x_1\right) \varphi\left(x_2\right)|0\rangle$, and $\langle 0| \mathrm{T} \varphi^{\dagger}\left(x_1\right) \varphi^{\dagger}\left(x_2\right)|0\rangle$. Then verify your results by using the method of problem 8.4. Finally, give the appropriate generalization of eq. (8.17).
+\answer{}
+
+\clearpage
+\question{2}{Problem 9.1}\\
+Compute the symmetry factor for each diagram in fig.~(9.13). (You can then check your answers by consulting the earlier figures.)
+\answer{}
+
+\clearpage
+\question{3}{Problem 9.5}\\
+The interaction picture. In this problem, we will derive a formula for $\langle 0| \mathrm{T} \varphi\left(x_n\right) \ldots \varphi\left(x_1\right)|0\rangle$ without using path integrals. Suppose we have a hamiltonian density $\mathcal{H}=\mathcal{H}_0+\mathcal{H}_1$, where $\mathcal{H}_0=\frac{1}{2} \Pi^2+\frac{1}{2}(\nabla \varphi)^2+ \frac{1}{2} m^2 \varphi^2$, and $\mathcal{H}_1$ is a function of $\Pi(\mathbf{x}, 0)$ and $\varphi(\mathbf{x}, 0)$ and their spatial derivatives. (It should be chosen to preserve Lorentz invariance, but we will not be concerned with this issue.) We add a constant to $H$ so that $H|0\rangle=0$. Let $|\emptyset\rangle$ be the ground state of $H_0$, with a constant added to $H_0$ so that $H_0|\emptyset\rangle=0$. ( $H_1$ is then defined as $H-H_0$.) The Heisenberg-picture field is
+
+\begin{align}
+    \varphi(\mathbf{x}, t) \equiv e^{i H t} \varphi(\mathbf{x}, 0) e^{-i H t}.\ \tag{9.33}
+\end{align}
+We now define the interaction-picture field
+\begin{align}
+    \varphi_I(\mathbf{x}, t) \equiv e^{i H_0 t} \varphi(\mathbf{x}, 0) e^{-i H_0 t} .
+\tag{9.34}
+\end{align}
+\begin{itemize}
+    \item [(a)] Show that $\varphi_I(x)$ obeys the Klein-Gordon equation, and hence is a free field.
+    \item [(b)] Show that $\varphi(x)=U^{\dagger}(t) \varphi_I(x) U(t)$, where $U(t) \equiv e^{i H_0 t} e^{-i H t}$ is unitary.
+    \item [(c)] Show that $U(t)$ obeys the differential equation $i \frac{d}{d t} U(t)=H_I(t) U(t)$, where $H_I(t)=e^{i H_0 t} H_1 e^{-i H_0 t}$ is the interaction hamiltonian in the interaction picture, and the boundary condition $U(0)=1$.
+    \item [(d)] If $\mathcal{H}_1$ is specified by a particular function for the Schrodinger-picture field $\Pi(\mathbf{x},0)$ and $\varphi(\mathbf{x},0)$, show that $\mathcal{H}_I(t)$ is given by the same function of the interaction-picture fields $\Pi_I(\mathbf{x},t)$ and $\varphi_I(\mathbf{x},t)$.
+    \item [(e)] Show that, for $t>0$,
+    \begin{align}
+        U(t)=T\exp\left[-i\int_0^t dt' H_I(t') \right]    \tag{9.35}
+    \end{align}
+    obeys the differential equation and boundary condition of part (c). What is the comparable expression for $t<0$? Hint: you may need fo define a new ordering symbol.
+    \item [(f)] Define $U(t_2,t_1)=U(t_2)U^\dagger(t_1)$. Show that, for $t_2>t_1$,
+    \begin{align}
+        U(t_2,t_1)=T\exp\left[-i\int_{t_1}^{t_2} dt' H_I(t') \right] \tag{9.36}
+    \end{align}
+    \item [(g)] For any time ordering, show that $U(t_3,t_1)=U(t_3,t_2)U(t_2,t_1)$ and $U(t_1,t_2)=U^\dagger(t_2,t_1)$.
+    \item [(h)]Show that 
+    \begin{align}
+        \varphi(x_n)\cdots\varphi(x_1)=U^\dagger(t_n,0)\varphi_I(x_n)U(t_n,t_{n-1}) \cdots U^\dagger(t_2,t_1)\varphi_I(x_1)U(t_1,0).  \tag{9.37}
+    \end{align}
+    \item [(i)]Show that $U^\dagger(t_n,0)=U^\dagger(\infty,0)U(\infty,t_0)$ and also $U(t_1,0)=U^\dagger(t_1,-\infty)U(-\infty,0)$.
+    \item [(j)] Replace $H_0$ with $(1-i\epsilon)H_0$, and show that $\langle0| U^\dagger(\infty,0)=\langle0|\emptyset\rangle\langle\emptyset|$ and $U(-\infty,0)|0\rangle=|\emptyset\rangle\langle\emptyset|0\rangle$. 
+    \item [(k)] Show that 
+    \begin{align}
+        \langle0|\varphi(x_n)\cdots\varphi(x_1)|0\rangle=\langle\emptyset|U(\infty,t_n)\varphi_I(x_n)U(t_n,t_{n-1})\cdots U(t_2,t_1)\varphi_I(x_1)U(t_1,-\infty)|\emptyset\rangle |\langle0|\emptyset\rangle|^2 \tag{9.38}
+    \end{align}
+    \item [(l)]Show that
+    \begin{align}
+        \langle0|T\varphi(x_n)\cdots\varphi(x_1)|0\rangle=\langle\emptyset|T\varphi(x_n)\cdots\varphi(x_1)\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle |\langle0|\emptyset\rangle|^2.
+        \tag{9.39}
+    \end{align}
+    \item [(m)]Show that
+    \begin{align}
+        |\langle\emptyset|0\rangle|^2=\frac{1}{\langle\emptyset|T\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}. \tag{9.40}    
+    \end{align}
+    Thus we have 
+    \begin{align}
+        \langle0|T\varphi(x_n)\cdots\varphi(x_1)|0\rangle=\frac{\langle\emptyset|T\varphi_I(x_n)\cdots\varphi_I(x_1)\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}{\langle\emptyset|T\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}. \tag{9.41}
+    \end{align}
+    We can now Taylor expand the exponentials on the right-hand sides of eq.~(9.41), and use free-field theory to compute the resulting correlation functions.
+\end{itemize}
+
+\answer{}
+
+\clearpage
+\question{4}{Problem 10.5}\\
+The scattering amplitudes should be unchanged if we make a \textit{field redefinition}. Suppose, for example, we have
+\begin{align}
+    \mathcal{L}=-\frac{1}{2}\partial^\mu\varphi\partial_\mu\varphi-\frac{1}{2}m^2\varphi^2, \tag{10.15}
+\end{align}
+and we make the field redefinition 
+\begin{align}
+    \varphi\to\varphi+c\varphi^2, \tag{10.16}
+\end{align}
+Work out the lagrangian in terms of the redefined field, and the corresponding Feynman rules. Compute (at tree level) the $\varphi\varphi\to\varphi\varphi$ scattering amplitudes. You should get zero, because this is a free-field theory in disguise. (At the loop level, we also have to take into account the transformation of the functional measure $\mathcal{D}\varphi$; see section~85.)
+\answer{}
+
+\clearpage
+\question{5}{Problem 11.2}\\
+Consider \textit{Compton scattering}, in which a massless photon is scattered by an electron, initially at rest. (This is the FT frame.) IN problem 59.1, we will compute $|\mathcal{T}|^2$ for this process (summed over the possible spin states of the scattered photon and electron, and averaged over the possible spin states of the initial photon and electron), with the result
+\begin{align}
+    |\mathcal{T}|^2=32\pi^2\alpha^2\Big[  \frac{m^4+m^2(3s+u)-su}{(m^2-s)^2}+\frac{m^4+m^2(3u+s)-su}{(m^2-u)^2}+\frac{2m^2(s+u+2m^2)}{(m^2-s)(m^2-u)} \Big]+\mathcal{O}(\alpha^4) \tag{11.50}
+\end{align}
+where $\alpha=1/137.036$ is the fine-structure constant.
+\begin{itemize}
+    \item [(a)] Express the Mandelstam variables $s$ and $u$ in terms of the initial and final photon energies $\omega$ and $\omega'$
+    \item [(b)] Express the scattering angle $\theta_{\text{FT}}$ between the initial and final photon three-momenta in terms of $\omega$ and $\omega'$. 
+    \item [(c)] Express the differential scattering cross section $d\sigma/d\Omega_{\text{FT}}$ in terms of $\omega$ and $\omega'$. Show that your result is equivalent to the \textit{Klein-Nishina} formula
+    \begin{align}
+        \frac{d\sigma}{d\Omega_{\text{FT}}}=\frac{\alpha^2}{2m^2}\Big(\frac{\omega'}{\omega}\Big)^2\Big[\frac{\omega}{\omega'}+\frac{\omega'}{\omega}-\sin^2\theta_{\text{FT}}\Big] \tag{11.51}
+    \end{align}
+\end{itemize}
+\answer{}
+

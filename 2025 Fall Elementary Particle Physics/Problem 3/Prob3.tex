@@ -126,7 +126,21 @@ The possible $\mathrm{SU}(3)$ invariants involving $q$ and $\overline{q}$ are:
 \begin{align}
     \overline{q}_a q^a, \quad \epsilon_{a b c} q^a q^b q^c, \quad \epsilon^{a b c} \overline{q}_a \overline{q}_b \overline{q}_c.
 \end{align}
-In other words, $\overline{q}_a$ and $\epsilon_{abc}q^a q^b$ can transforming as $\overline{\mathbf{3}}$ representation, but $\epsilon_{abc}q^a q^b$ is a composite object made of two quarks, not a single quark. That means 
+We can start with the $q^aq^b$,
+\begin{align}
+    q^a q^b = \frac{1}{2}(q^a q^b + q^b q^a) + \frac{1}{2}(q^a q^b - q^b q^a) = S^{ab}+A^{ab},
+\end{align}
+where $S^{ab}$ is symmetric and $A^{ab}$ is antisymmetric. Moreover, for the antisymmetric part, we can use $\epsilon_{abc}$ to lower an index and get
+\begin{align}
+     \theta_c =\epsilon_{abc} A^{ab} = \epsilon_{abc} \frac{1}{2}(q^a q^b - q^b q^a) = \epsilon_{abc} q^a q^b.
+\end{align}
+Now we can see that $\theta_c$ transforms as $\overline{\mathbf{3}}$. In order to see this, we can apply an $\mathrm{SU}(3)$ transformation:
+\begin{align}
+    \theta'_c &= \epsilon_{abc} q'^a q'^b = \epsilon_{abc} U^a{ }_{a'} U^b{ }_{b'} q^{a'}  q^{b'} = \epsilon_{abc'} \delta^{c'}{ }_c U^a{ }_{a'} U^b{ }_{b'} q^{a'}  q^{b'} \\
+    &= \epsilon_{abc'} U^{c'}{}_{k}(U^\dagger)^{k}{}_{c}  U^a{ }_{a'} U^b{ }_{b'} q^{a'}  q^{b'}= \det(U) (U^\dagger)^{k}{}_{c} \epsilon_{a'b'k}  q^{a'}  q^{b'} \\
+    &= (U^\dagger)^{k}{}_{c} \epsilon_{a'b'k} q^{a'}  q^{b'} = (U^\dagger)^{k}{}_{c} \theta_k=(U^\dagger)^{c'}{}_{c} \theta_{c'}.
+\end{align}
+Therefore, $q^a q^b$ can be decomposed into a symmetric part transforming as $\mathbf{6}$ and an antisymmetric part transforming as $\overline{\mathbf{3}}$. This shows that there is no way to map $\overline{\mathbf{3}}$ back to $\mathbf{3}$ using $\epsilon_{abc}$, unlike the case in $\mathrm{SU}(2)$ where we could use $\epsilon_{ab}$ to map between $\mathbf{2}$ and $\overline{\mathbf{2}}$. Hence, the representations $\mathbf{3}$ and $\overline{\mathbf{3}}$ are not equivalent in $\mathrm{SU}(3)$.\qed
 
 \clearpage
 \question{4}{}
@@ -137,14 +151,290 @@ In other words, $\overline{q}_a$ and $\epsilon_{abc}q^a q^b$ can transforming as
     $$
     \left[U_3, U_{ \pm}\right]= \pm U_{ \pm}, \quad\left[U_{+}, U_{-}\right]=2 U_3 .
     $$
-    \item [(b)]Show that the charge operator $Q=t_3+t_8 / \sqrt{3}$ is a U-scalar i.e. it has U-spin $U=0$ or $\left[Q, U_i\right]=0$ for $i= \pm 3$. Write the electromagnetic current operator in terms of quark fields.
+    \item [(b)]Show that the charge operator $Q=t_3+t_8 / \sqrt{3}$ is a U-scalar i.e. it has U-spin $U=0$ or $\left[Q, U_i\right]=0$ for $i= \pm, 3$. Write the electromagnetic current operator in terms of quark fields.
     \item [(c)] Show that for the meson octet, the ( $U_3=0$ ) component of the U-triplet is $\pi_U^0=\left(-\pi^0+\sqrt{3} \eta\right) / 2$, and the U-singlet is $\eta_U^0=\left(\sqrt{3} \pi^0+\eta\right) / 2$. Since $\pi_U^0$ is a U -spin vector component it cannot couple to the electromagnetic current. Show that for the $2 \gamma$ decay mode, $\left\langle\pi^0 \mid 2 \gamma\right\rangle=\sqrt{3}\langle\eta \mid 2 \gamma\rangle$. How does this U-spin prediction compare with the experimental decay widths?
 \end{itemize}
 \answer{}
 \begin{itemize}
     \item [(a)]
 \end{itemize}
-We start with the commutation relations of the $t_i$ generators of $\mathrm{SU}(3)$:
+Here we recap the Gell-Mann matrices $t_3, t_6, t_7, t_8$:
 \begin{align}
-    [t_i, t_j] = i f_{ijk} t_k,
+    t_3 &= \frac{1}{2}\begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & -1 & 0 \\
+    0 & 0 & 0
+    \end{pmatrix}, \quad t_6 = \frac{1}{2}\begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & 0
+    \end{pmatrix}, \\
+    t_7 &= \frac{1}{2}\begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -i \\
+    0 & i & 0
+    \end{pmatrix}, \quad t_8 = \frac{1}{2\sqrt{3}}\begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & -2
+    \end{pmatrix}.
 \end{align}
+Hence, we have 
+\begin{align}
+    U_+ &= t_6 + i t_7 = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix}, \quad U_- = t_6 - i t_7 = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix}, \\
+    U_3 &= \frac{\sqrt{3} t_8 - t_3}{2} =\begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix}.
+\end{align}
+Now we can verify the $\mathrm{SU}(2)$ algebra:
+\begin{align}
+    [U_3, U_+] &= U_3 U_+ - U_+ U_3 = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & \frac{1}{2} \\
+    0 & 0 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -\frac{1}{2} \\
+    0 & 0 & 0
+    \end{pmatrix} = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} = U_+, \\
+    [U_3, U_-] &= U_3 U_- - U_- U_3 = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & -\frac{1}{2} & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0
+    \end{pmatrix} = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & -1 & 0
+    \end{pmatrix} = -U_-, \\
+    [U_+, U_-] &= U_+ U_- - U_- U_+ = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 1
+    \end{pmatrix} = \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+    \end{pmatrix} = 2 U_3.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+First, we write down the charge operator:
+\begin{align}
+    Q=t_3 + \frac{t_8}{\sqrt{3}} = \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix}.
+\end{align}
+Now we can verify that $Q$ is a U-scalar:
+\begin{align}
+    [Q, U_+] &= Q U_+ - U_+ Q = \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+    \end{pmatrix} \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -\frac{1}{3} \\
+    0 & 0 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & -\frac{1}{3} \\
+    0 & 0 & 0
+    \end{pmatrix} = 0, \\
+    [Q, U_-] &= Q U_- - U_- Q = \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 1 & 0
+    \end{pmatrix} \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & -\frac{1}{3} & 0
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & -\frac{1}{3} & 0
+    \end{pmatrix} = 0, \\
+    [Q, U_3] &= Q U_3 - U_3 Q = \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix} \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{1}{2} & 0 \\
+    0 & 0 & -\frac{1}{2}
+    \end{pmatrix} \begin{pmatrix}
+    \frac{2}{3} & 0 & 0 \\
+    0 & -\frac{1}{3} & 0 \\
+    0 & 0 & -\frac{1}{3}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & -\frac{1}{6} & 0 \\
+    0 & 0 & \frac{1}{6}
+    \end{pmatrix} - \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & -\frac{1}{6} & 0 \\
+    0 & 0 & \frac{1}{6}
+    \end{pmatrix} = 0.
+\end{align}
+Thus, we have shown that $[Q, U_i] = 0$ for $i = \pm, 3$, confirming that $Q$ is a U-scalar.
+In QFT, the electormagnetic current operator in terms of fermion fields is given by
+\begin{align}
+    J_\mu^{\text{em}} = \sum_f Q_f \overline{\psi}_f \gamma_\mu \psi_f,
+\end{align}
+where the sum runs over all fermion flavors $f$, $Q_f$ is the electric charge of the fermion in units of the elementary charge, $\psi_f$ is the fermion field, and $\gamma_\mu$ are the gamma matrices. For the quark fields $u, d, s$, the electromagnetic current operator can be explicitly written as
+\begin{align}
+    J_\mu^{\text{em}} = \frac{2}{3} \overline{u} \gamma_\mu u - \frac{1}{3} \overline{d} \gamma_\mu d - \frac{1}{3} \overline{s} \gamma_\mu s.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+First, we can express $\pi^0$ and $\eta$ in terms of quark content:
+\begin{align}
+    \pi^0 &= \frac{1}{\sqrt{2}}(u\overline{u} - d\overline{d}), \\
+    \eta &= \frac{1}{\sqrt{6}}(u\overline{u} + d\overline{d} - 2s\overline{s}).
+\end{align}
+Now, we can construct the U-triplet and U-singlet components:
+\begin{align}
+    \pi_U^0 &= \frac{-\pi^0 + \sqrt{3} \eta}{2} = \frac{-\frac{1}{\sqrt{2}}(u\overline{u} - d\overline{d}) + \sqrt{3} \frac{1}{\sqrt{6}}(u\overline{u} + d\overline{d} - 2s\overline{s})}{2} \\
+    &= \frac{-\frac{1}{\sqrt{2}}(u\overline{u} - d\overline{d}) + \frac{1}{\sqrt{2}}(u\overline{u} + d\overline{d} - 2s\overline{s})}{2} = \frac{2d\overline{d}-2s\overline{s}}{2\sqrt{2}} = \frac{d\overline{d}-s\overline{s}}{\sqrt{2}}, \\
+    \eta_U^0 &= \frac{\sqrt{3} \pi^0 + \eta}{2} = \frac{\sqrt{3} \frac{1}{\sqrt{2}}(u\overline{u} - d\overline{d}) + \frac{1}{\sqrt{6}}(u\overline{u} + d\overline{d} - 2s\overline{s})}{2} \\
+    &= \frac{1}{2\sqrt{6}}(3u\overline{u} - 3d\overline{d} + u\overline{u} + d\overline{d} - 2s\overline{s}) = \frac{4u\overline{u}-2d\overline{d}-2s\overline{s}}{2\sqrt{6}} = \frac{2u\overline{u}-d\overline{d}-s\overline{s}}{\sqrt{6}}\\
+    &=\frac{2(u\overline{u}+d\overline{d}+s\overline{s})}{\sqrt{6}}-\frac{3d\overline{d}+3s\overline{s}}{\sqrt{6}}=\frac{2(u\overline{u}+d\overline{d}+s\overline{s})}{\sqrt{6}}.
+\end{align}
+Since $\pi_U^0$ is a U-spin vector component, it cannot couple to the electromagnetic current. Therefore, we have
+\begin{align}
+    \langle \pi_U^0 | 2\gamma \rangle = 0 \implies \left\langle \frac{-\pi^0 + \sqrt{3} \eta}{2} | 2\gamma \right\rangle = 0 &\implies -\frac{1}{2} \langle \pi^0 | 2\gamma \rangle + \frac{\sqrt{3}}{2} \langle \eta | 2\gamma \rangle = 0.\\
+    &\implies \langle \pi^0 | 2\gamma \rangle = \sqrt{3} \langle \eta | 2\gamma \rangle.
+\end{align}
+The decay width $\Gamma$ is proportional to the square of the amplitude, so we have
+\begin{align}
+    \Gamma(\pi^0 \rightarrow 2\gamma) \propto |\langle \pi^0 | 2\gamma \rangle|^2, \quad \Gamma(\eta \rightarrow 2\gamma) \propto |\langle \eta | 2\gamma \rangle|^2.
+\end{align}
+Using the relation we derived, we find
+\begin{align}
+    \frac{\Gamma(\pi^0 \rightarrow 2\gamma)}{\Gamma(\eta \rightarrow 2\gamma)} \propto \frac{|\langle \pi^0 | 2\gamma \rangle|^2}{|\langle \eta | 2\gamma \rangle|^2} = 3.
+\end{align}
+Here I ignore the mass difference between $\pi^0$ and $\eta$ for simplicity. Experimentally, the decay widths are approximately:
+\begin{align}
+    \Gamma(\pi^0 \rightarrow 2\gamma) &\approx 7.8 \text{ eV}, \\
+    \Gamma(\eta \rightarrow 2\gamma) &\approx 0.51 \text{ keV} = 510 \text{ eV}.
+\end{align}
+Thus, the experimental ratio is
+\begin{align}
+    \frac{\Gamma(\pi^0 \rightarrow 2\gamma)}{\Gamma(\eta \rightarrow 2\gamma)} \approx \frac{7.8 \text{ eV}}{510 \text{ eV}} \approx 0.0153,
+\end{align}
+which is significantly different from the U-spin prediction of 3. \qed\\
+\textbf{Remark:} I check the decay widths formula for $\pi^0$ (I quote eq.~(30.14) from Schwarz's QFT book):
+\begin{align}
+    \Gamma(\pi^0 \rightarrow 2\gamma) = \frac{\alpha^2 m_{\pi}^3}{64 \pi^3 f_{\pi}^2} \approx 7.73 \text{ eV}.
+\end{align}
+It show that $\Gamma$ is proportional to $m^3$, so the mass difference between $\pi^0$ and $\eta$ cannot be ignored. Including the mass difference, we have
+\begin{align}
+    \frac{\Gamma(\pi^0 \rightarrow 2\gamma)}{\Gamma(\eta \rightarrow 2\gamma)} = 3 \left(\frac{m_{\pi}}{m_{\eta}}\right)^3 =3\left(\frac{139.6\text{ MeV}}{547.862\text{ MeV}}\right)^3\approx 0.049,
+\end{align}
+which is still significantly different from the experimental value of approximately 0.0153. 
