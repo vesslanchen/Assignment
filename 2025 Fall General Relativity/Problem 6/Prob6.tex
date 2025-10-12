@@ -13,7 +13,39 @@ and that
     g_{, \gamma}=g g^{\mu \nu} g_{\mu \nu, \gamma}.
 \end{align}
 \answer{}
-By definition of the covariant derivative, we have
+By definition of the covariant derivative, we have 
+\begin{align}
+    g_{\mu\nu;\lambda} = g_{\mu\nu,\lambda} - \Gamma^\sigma_{\mu\lambda}g_{\sigma\nu} - \Gamma^\sigma_{\nu\lambda}g_{\mu\sigma} = 0.
+\end{align}
+Rearranging gives
+\begin{align}
+    g_{\mu\nu,\lambda} =  \Gamma^\sigma_{\nu\lambda}g_{\mu\sigma}+\Gamma^\sigma_{\mu\lambda}g_{\sigma\nu}.
+\end{align}
+Using the definition of $\Gamma_{\mu\nu\lambda}$, we can rewrite this as
+\begin{align}
+    g_{\mu\nu,\lambda} = \Gamma_{\mu\nu\lambda} + \Gamma_{\nu\mu\lambda}.
+\end{align}
+This proves the first part. \\
+
+Second, we have 
+\begin{align}
+    g = -\det(g_{\mu\nu}).
+\end{align}
+In the lecture notes, we showed that for any invertible matrix $M$, the variation of its determinant is given by
+\begin{align}
+    \frac{\partial}{\partial x^\lambda}\ln\det(M) =  \text{Tr}\left(M^{-1}\frac{\partial M}{\partial x^\lambda}\right).
+\end{align}
+Here we can identify $M$ with $g_{\mu\nu}$, and thus $M^{-1}$ with $g^{\mu\nu}$. Therefore, we have
+\begin{align}
+    \frac{\partial}{\partial x^\lambda}\ln(g)=\frac{1}{g}g_{,\lambda} =  g^{\mu\nu}g_{\mu\nu,\lambda}.
+\end{align}
+Rearranging gives
+\begin{align}
+    g_{,\lambda} = g g^{\mu\nu}g_{\mu\nu,\lambda}.
+\end{align}
+This proves the second part.
+\qed
+
 \clearpage
 \question{2}{}
 The metric for the surface of a sphere of radius $a$ is determined by
@@ -24,8 +56,140 @@ The metric for the surface of a sphere of radius $a$ is determined by
     \item [(i)]Calculate the components of the affine connection. It is conventional to denote the components as $\Gamma_{\theta \phi}^\phi$ and similarly for the other ones. In other words, $x^1=\theta$ and $x^2=\phi$.
     \item [(ii)]Referring to figure 3.2 of the textbook, parallel transport a vector along two different paths, starting from a point on the equator $\theta=\pi / 2, \phi=0$, and ending at the north pole. Path A is along a line of fixed longitude $\phi=0$. Path B first goes along the equator to $\phi=\pi / 2$ and then goes north along a line of fixed longitude. Initially the vector you are parallel transporting points in the $-\hat{\theta}$ direction. What is the angle between the two vectors at the north pole? (You must solve the parallel transport equation, just drawing a picture is not sufficient.)
 \end{itemize}
-
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Problem 6/GR-figure3-2.jpeg}
+    \caption{From Sean Carroll's textbook \textit{Spacetime and Geometry}, figure 3.2.}
+\end{figure}
 \answer{}
+\begin{itemize}
+    \item [(i)]
+\end{itemize}
+The metric components are given by
+\begin{align}
+    g_{\theta\theta} = a^2, \quad g_{\phi\phi} = a^2\sin^2\theta, \quad g_{\theta\phi} = g_{\phi\theta} = 0.
+\end{align}
+The inverse metric components are
+\begin{align}
+    g^{\theta\theta} = \frac{1}{a^2}, \quad g^{\phi\phi} = \frac{1}{a^2\sin^2\theta}, \quad g^{\theta\phi} = g^{\phi\theta} = 0.
+\end{align}
+Using the formula for the Christoffel symbols,
+\begin{align}
+    \Gamma^\lambda_{\mu\nu} = \frac{1}{2}g^{\lambda\sigma}\left(g_{\sigma\mu,\nu} + g_{\sigma\nu,\mu} - g_{\mu\nu,\sigma}\right),
+\end{align}
+we can compute the non-zero components of the affine connection:
+\begin{align}
+    \Gamma^\theta_{\phi\phi} &=  \frac{1}{2}g^{\theta\theta}\left(g_{\theta\phi,\phi} + g_{\theta\phi,\phi} - g_{\phi\phi,\theta}\right) =-\frac{1}{2} g^{\theta\theta} g_{\phi\phi,\theta} = -\sin\theta \cos\theta, \\
+    \Gamma^\phi_{\phi\theta}=\Gamma^\phi_{\theta\phi} &=  \frac{1}{2}g^{\phi\phi}\left(g_{\phi\theta,\phi} + g_{\phi\phi,\theta} - g_{\theta\phi,\phi}\right) = \frac{1}{2} g^{\phi\phi} g_{\phi\phi,\theta} = \cot\theta,\\
+    \Gamma^\theta_{\theta\theta} &= \frac{1}{2}g^{\theta\theta}\left(g_{\theta\theta,\theta} + g_{\theta\theta,\theta} - g_{\theta\theta,\theta}\right) = 0, \\
+    \Gamma^\phi_{\phi\phi} &= \frac{1}{2}g^{\phi\phi}\left(g_{\phi\phi,\phi} + g_{\phi\phi,\phi} - g_{\phi\phi,\phi}\right) = 0,\\
+    \Gamma^\theta_{\theta\phi} = \Gamma^\theta_{\phi\theta} &= \frac{1}{2}g^{\theta\theta}\left(g_{\theta\theta,\phi} + g_{\theta\phi,\theta} - g_{\phi\theta,\theta}\right) = 0, \\
+    \Gamma^\phi_{\theta\theta} &= \frac{1}{2}g^{\phi\phi}\left(g_{\phi\theta,\theta} + g_{\phi\theta,\theta} - g_{\theta\theta,\phi}\right) = 0.
+\end{align}
+
+\begin{itemize}
+    \item [(ii)]
+\end{itemize}
+The parallel transport equation is given by
+\begin{align}
+    0=\frac{D V^\mu}{D \tau}=\frac{d V^\mu}{d \tau} + \Gamma^\mu_{\nu\rho} \frac{dx^\nu}{d\tau} V^\rho,
+\end{align}
+where $\tau$ is a parameter along the curve. We will solve this equation for both paths A and B. Initially, the vector points in the $-\hat{\theta}$ direction, so we have
+\begin{align}
+    V^\theta(\tau=0) = -1, \quad V^\phi(\tau=0) = 0.
+\end{align}
+\textbf{Path A:} Along path A, we have $\phi=0$ and $\theta$ varies from $\pi/2$ to $0$. We can choose $\tau = \theta$, so that $d\theta/d\tau = 1$ and $d\phi/d\tau = 0$. The parallel transport equations for the components of $V^\mu$ are then 
+\begin{align}
+    0 &= \frac{d V^\theta}{d \tau} + \Gamma^\theta_{\theta\theta} \frac{d\theta}{d\tau} V^\theta + \Gamma^\theta_{\phi\theta} \frac{d\phi}{d\tau} V^\theta + \Gamma^\theta_{\theta\phi} \frac{d\theta}{d\tau} V^\phi + \Gamma^\theta_{\phi\phi} \frac{d\phi}{d\tau} V^\phi, \\
+    &= \frac{d V^\theta}{d \tau} + 0 + 0 + 0 + 0, \\
+    &= \frac{d V^\theta}{d \tau},
+\end{align}
+and
+\begin{align}
+    0 &= \frac{d V^\phi}{d \tau} + \Gamma^\phi_{\theta\theta} \frac{d\theta}{d\tau} V^\theta + \Gamma^\phi_{\phi\theta} \frac{d\phi}{d\tau} V^\theta + \Gamma^\phi_{\theta\phi} \frac{d\theta}{d\tau} V^\phi + \Gamma^\phi_{\phi\phi} \frac{d\phi}{d\tau} V^\phi, \\
+    &= \frac{d V^\phi}{d \tau} + 0 + 0 + \cot\theta  V^\phi + 0, \\
+    &= \frac{d V^\phi}{d \tau} + \cot\theta V^\phi.
+\end{align}
+The first equation implies that $V^\theta$ is constant along path A. Since it starts at $-1$, we have
+\begin{align}
+    V^\theta(\theta)=V^\theta = -1.
+\end{align}
+The second equation is a first-order linear ordinary differential equation for $V^\phi$. We can solve it using an integrating factor:
+\begin{align}
+    \frac{d V^\phi}{d \tau} + \cot\theta V^\phi =\frac{d V^\phi}{d \theta} + \cot\theta V^\phi  = 0.
+\end{align}
+By \texttt{Mathematica}, we find that
+\begin{align}
+    V^\phi(\theta) = \frac{C}{\sin\theta},
+\end{align}
+where $C$ is an integration constant. Since $V^\phi(\theta=\pi/2)=0$, we have $C=0$. Therefore, along path A, we have
+\begin{align}
+    V^\theta = -1, \quad V^\phi = 0.
+\end{align}
+\textbf{Path B:} Along path B, we first move along the equator from $\phi=0$ to $\phi=\pi/2$ at fixed $\theta=\pi/2$, and then move north along a line of fixed longitude from $\theta=\pi/2$ to $\theta=0$ at fixed $\phi=\pi/2$. We will solve the parallel transport equation in two segments. \\
+\textbf{Segment 1:} Along the equator, we have $\theta=\pi/2$ and $\phi$ varies from $0$ to $\pi/2$. We can choose $\tau = \phi$, so that $d\phi/d\tau = 1$ and $d\theta/d\tau = 0$. The parallel transport equations for the components of $V^\mu$ are then
+\begin{align}
+    0 &= \frac{d V^\theta}{d \tau} + \Gamma^\theta_{\theta\theta} \frac{d\theta}{d\tau} V^\theta + \Gamma^\theta_{\phi\theta} \frac{d\phi}{d\tau} V^\theta + \Gamma^\theta_{\theta\phi} \frac{d\theta}{d\tau} V^\phi + \Gamma^\theta_{\phi\phi} \frac{d\phi}{d\tau} V^\phi, \\
+    &= \frac{d V^\theta}{d \tau} + 0 + 0 + 0 + 0, \\
+    &= \frac{d V^\theta}{d \tau},
+\end{align}
+and
+\begin{align}
+    0 &= \frac{d V^\phi}{d \tau} + \Gamma^\phi_{\theta\theta} \frac{d\theta}{d\tau} V^\theta + \Gamma^\phi_{\phi\theta} \frac{d\phi}{d\tau} V^\theta + \Gamma^\phi_{\theta\phi} \frac{d\theta}{d\tau} V^\phi + \Gamma^\phi_{\phi\phi} \frac{d\phi}{d\tau} V^\phi, \\
+    &= \frac{d V^\phi}{d \tau} + 0 + \cot(\pi/2) \cdot 1 \cdot V^\theta + 0 + 0, \\
+    &= \frac{d V^\phi}{d \tau}.
+\end{align}
+The first equation implies that $V^\theta$ is constant along segment 1. Since it starts at $-1$, we have
+\begin{align}
+    V^\theta(\phi)=V^\theta = -1.
+\end{align}
+The second equation implies that $V^\phi$ is also constant along segment 1. Since it starts at $0$, we have
+\begin{align}
+    V^\phi(\phi)=V^\phi = 0.
+\end{align}
+At the end of segment 1, we have
+\begin{align}
+    V^\theta = -1, \quad V^\phi = 0.
+\end{align}
+\textbf{Segment 2:} similarly, we can apply the same procedure as in path A, and we find that at the end of segment 2, we have
+\begin{align}
+    V^\theta = -1, \quad V^\phi = 0.
+\end{align}
+\textbf{Conclusion:} Both paths A and B yield the same vector along their paths direction at the north pole:
+\begin{align}
+    V^\theta = -1, \quad V^\phi = 0.
+\end{align}
+However, the basis vectors at the north pole are not well-defined in the $\phi$ direction, since all lines of longitude converge there. To find the angle between the two vectors at the north pole, we can consider their projections onto the tangent plane at the north pole in xyz-coordinates. The north pole corresponds to the point $(0,0,a)$ in Cartesian coordinates. The tangent plane at this point is spanned by the vectors $\hat{x}$ and $\hat{y}$. The vector $V$ in spherical coordinates can be expressed in Cartesian coordinates as
+\begin{align}
+    \vec{V} = V_x \hat{x} + V_y \hat{y} + V_z \hat{z},
+\end{align}
+where we have (with $r=a=1$ for simplicity)
+\begin{align}
+    V_x &= V^\theta \frac{\partial x}{\partial \theta} + V^\phi \frac{\partial x}{\partial \phi} = V^\theta \cos\theta \cos\phi - V^\phi  \sin\theta \sin\phi, \\
+    V_y &= V^\theta \frac{\partial y}{\partial \theta} + V^\phi \frac{\partial y}{\partial \phi} = V^\theta \cos\theta \sin\phi + V^\phi  \sin\theta \cos\phi, \\
+    V_z &= V^\theta \frac{\partial z}{\partial \theta} + V^\phi \frac{\partial z}{\partial \phi} = -V^\theta  \sin\theta + V^\phi \cdot 0.
+\end{align}
+For the path A, at the north pole, $\theta=0,\phi=0$, so we have
+\begin{align}
+    V_x^A &= -1 \cdot 1 \cdot 1 - 0 \cdot 0 \cdot 0 = -1, \\
+    V_y^A &= -1 \cdot 1 \cdot 0 + 0 \cdot 0 \cdot 1 = 0, \\
+    V_z^A &= -(-1) \cdot 0 + 0 = 0.
+\end{align}
+For the path B, at the north pole, $\theta=0,\phi=\pi/2$, so we have
+\begin{align}
+    V_x^B &= -1 \cdot 1 \cdot 0 - 0 \cdot 0 \cdot 1 = 0, \\
+    V_y^B &= -1 \cdot 1 \cdot 1 + 0 \cdot 0 \cdot 0 = -1, \\
+    V_z^B &= -(-1) \cdot 0 + 0 = 0.
+\end{align}
+Finally, we can compute the angle $\alpha$ between the two vectors using the dot product. It is straightforward to see that
+\begin{align}
+    \vec{V}^A \cdot \vec{V}^B = V_x^A V_x^B + V_y^A V_y^B + V_z^A V_z^B = 0 + 0 + 0 = 0.
+\end{align}
+Meaning that the two vectors are orthogonal to each other. Therefore, the angle between the two vectors at the north pole is $\alpha = 90^\circ$. \qed\\
+
+\textbf{Remark:} I am not sure if this is the expected answer, since in the textbook it is mentioned that the angle should be $90^\circ$. Also, if I do not convert to Cartesian coordinates, I get the same vector components for both paths at the north pole, which does not make sense since the basis vectors are not well-defined there. However, I still do not know how to get the expected answer of $90^\circ$ for original spherical coordinates. If you have any suggestions, please let me know.
+
+
 \clearpage
 \question{3}{}
 Starting with the energy-momentum tensor of a massless scalar field $\phi$
@@ -33,3 +197,40 @@ Starting with the energy-momentum tensor of a massless scalar field $\phi$
     T_{\mu \nu}=\phi_{, \mu} \phi_{, \nu}-\frac{1}{2} g_{\mu \nu} \phi_{, \sigma} \phi^{, \sigma},
 \end{align}
 derive the equation of motion for $\phi$ in the presence of a gravitational field.
+\answer{}
+First, notice that the normal derivative can be replaced by the covariant derivative for scalar field $\phi$, so this energy-momentum has considered in the presence of a gravitational field. But for clarity, we keep the comma notation for partial derivatives. Next, we can use $g^{\alpha\beta}$ to raise the indices of $T_{\mu\nu}$:
+\begin{align}
+    T^{\mu\nu} = g^{\mu\alpha}g^{\nu\beta}T_{\alpha\beta} = \phi^{,\mu}\phi^{,\nu} - \frac{1}{2}g^{\mu\nu}\phi_{,\sigma}\phi^{,\sigma}.
+\end{align}
+The equation of motion for $\phi$ can be derived from the conservation of the energy-momentum tensor, which states that
+\begin{align}
+    T^{\mu\nu}{}_{;\nu} = 0.
+\end{align}
+Expanding the covariant derivative, we have
+\begin{align}
+    T^{\mu\nu}{}_{;\nu} &= (\phi^{,\mu}\phi^{,\nu})_{;\nu} - \frac{1}{2}(g^{\mu\nu}\phi_{,\sigma}\phi^{,\sigma})_{;\nu}\\
+    &= (\phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu}) - \frac{1}{2}(g^{\mu\nu}{}_{;\nu}\phi_{,\sigma}\phi^{,\sigma} + g^{\mu\nu}(\phi_{,\sigma}\phi^{,\sigma})_{;\nu})\\
+    &= \phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - \frac{1}{2}g^{\mu\nu}(\phi_{,\sigma}\phi^{,\sigma})_{;\nu}\\
+    &= \phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - \frac{1}{2}g^{\mu\nu}(g_{\alpha\beta}\phi^{,\alpha}\phi^{,\beta} )_{;\nu}\\
+    &= \phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - \frac{1}{2}g^{\mu\nu}(g_{\alpha\beta;\nu}\phi^{,\alpha}\phi^{,\beta} + g_{\alpha\beta}\phi^{,\alpha}{}_{;\nu}\phi^{,\beta} + g_{\alpha\beta}\phi^{,\alpha}\phi^{,\beta}{}_{;\nu})\\
+    &= \phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - \frac{1}{2}g^{\mu\nu}(0 + \phi^{,\alpha}{}_{;\nu}\phi_{,\alpha} + \phi^{,\alpha}\phi_{,\alpha;\nu})\\
+    &= \phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - \frac{1}{2}g^{\mu\nu}(2\phi^{,\alpha}\phi_{,\alpha}{}_{;\nu})\\
+    &= \phi^{,\mu}{}_{;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - g^{\mu\nu}\phi^{,\alpha}\phi_{,\alpha}{}_{;\nu}\\
+    &=g^{\alpha\mu}\phi_{,\alpha;\nu}\phi^{,\nu} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - g^{\mu\nu}\phi^{,\alpha}\phi_{,\alpha}{}_{;\nu}\\
+    &= g^{\nu\mu}\phi_{,\nu;\alpha}\phi^{,\alpha} + \phi^{,\mu}\phi^{,\nu}{}_{;\nu} - g^{\mu\nu}\phi^{,\alpha}\phi_{,\alpha}{}_{;\nu},
+\end{align}
+where we rewrite the first term in the last step by swapping the dummy indices $\alpha$ and $\nu$. We have to show that the first and the last terms cancel each other. Indeed, we have
+\begin{align}
+    \phi_{,\nu;\alpha} &= \phi_{,\nu,\alpha} - \Gamma^\sigma_{\nu\alpha}\phi_{,\sigma}\\
+                       &= \phi_{,\alpha,\nu}- \Gamma^\sigma_{\alpha\nu}\phi_{,\sigma}\\
+                       &= \phi_{,\alpha;\nu},
+\end{align}
+Hence, we have 
+\begin{align}
+    g^{\nu\mu}\phi_{,\nu;\alpha}\phi^{,\alpha} = g^{\mu\nu}\phi^{,\alpha}\phi_{,\alpha;\nu}.
+\end{align}
+In the end, we have 
+\begin{align}
+    T^{\mu\nu}{}_{;\nu} = \phi^{,\mu}\phi^{,\nu}{}_{;\nu}=\phi^{,\mu}\phi^{;\nu}{}_{;\nu}.
+\end{align}
+\qed
