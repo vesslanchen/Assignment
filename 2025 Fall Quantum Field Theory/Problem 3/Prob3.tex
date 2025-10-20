@@ -3,16 +3,121 @@
 
 \question{1}{Problem 8.7}\\
 Repeat the analysis of this section for the complex scalar field that was introduced in problem 3.5, and further studied in problem 5.1. Write your source term in the form $J^{\dagger} \varphi+J \varphi^{\dagger}$, and find an explicit formula, analogous to eq. (8.10), for $Z_0\left(J^{\dagger}, J\right)$. Write down the appropriate generalization of eq. (8.14), and use it to compute $\langle 0| \mathrm{T} \varphi\left(x_1\right) \varphi\left(x_2\right)|0\rangle$, $\langle 0| \mathrm{T} \varphi^{\dagger}\left(x_1\right) \varphi\left(x_2\right)|0\rangle$, and $\langle 0| \mathrm{T} \varphi^{\dagger}\left(x_1\right) \varphi^{\dagger}\left(x_2\right)|0\rangle$. Then verify your results by using the method of problem 8.4. Finally, give the appropriate generalization of eq. (8.17).
+\begin{align*}
+    \mathcal{L} = -\partial^\mu \varphi^\dagger \partial_\mu \varphi - m^2 \varphi^\dagger \varphi.
+\end{align*}
+\begin{align}
+    Z_0(J) &= \exp\left[\frac{i}{2}\int d^4x d^4y J \Delta(x-y) J(y)\right] \tag{8.10 }\\
+           &= \exp\left[\frac{i}{2}\int \frac{d^4k}{(2\pi)^4} \frac{\tilde{J}(k)\tilde{J}(-k)}{k^2+m^2-i\epsilon}\right], \nonumber\\
+    \langle 0|T\varphi(x_1)\cdots|0\rangle &= \frac{1}{i} \frac{\delta}{\delta J(x_1)}\cdots Z_0(J)|_{J=0}\tag{8.14}\\       
+    \langle 0|T\varphi(x_1)\cdots\varphi(x_{2n})|0\rangle &=\frac{1}{i^n} \sum_{\text{all parings}} \Delta(x_{i_1}-x_{i_2})\cdots\Delta(x_{i_{2n-1}}-x_{i_{2n}}). \tag{8.17}
+\end{align}
 \answer{}
-
+We start from the lagrangian of complex scalar field:
+\begin{align}
+    \mathcal{L} = -\partial^\mu \varphi^\dagger \partial_\mu \varphi - m^2 \varphi^\dagger \varphi.
+\end{align}
+By fourier transformation, we have
+\begin{align}
+    \varphi(x)= \int \frac{d^4k}{(2\pi)^4} e^{ik\cdot x} \tilde{\varphi}(k), \quad \varphi^\dagger(x)= \int \frac{d^4k}{(2\pi)^4} e^{-ik\cdot x} \tilde{\varphi}^\dagger(k).\\
+    J(x)= \int \frac{d^4k}{(2\pi)^4} e^{ik\cdot x} \tilde{J}(k), \quad J^\dagger(x)= \int \frac{d^4k}{(2\pi)^4} e^{-ik\cdot x} \tilde{J}^\dagger(k).
+\end{align}
+Now we have 
+\begin{align}
+    S_0 &= \int d^4x (\mathcal{L} \nonumber +J\varphi^\dagger + J^\dagger\varphi)\\
+        &= \int d^4x \frac{d^4k}{(2\pi)^4} \frac{d^4k'}{(2\pi)^4} e^{i(k-k')\cdot x} \left[ -\tilde{\varphi}^\dagger(k') (k\cdot k' + m^2) \tilde{\varphi}(k) + \tilde{J}^\dagger(k') \tilde{\varphi}(k) + \tilde{J}(k) \tilde{\varphi}^\dagger(k') \right] \\
+        &= \int \frac{d^4k}{(2\pi)^4} \left[ -\tilde{\varphi}^\dagger(k) (k^2 + m^2) \tilde{\varphi}(k) + \tilde{J}^\dagger(k) \tilde{\varphi}(k) + \tilde{J}(k) \tilde{\varphi}^\dagger(k) \right],
+\end{align}
+where we have used the relation $\int d^4x e^{i(k-k')\cdot x} = (2\pi)^4 \delta^4(k-k')$. Now we consider to change the variable of integration as
+\begin{align}
+    \chi(k)= \tilde{\varphi}(k) - \frac{\tilde{J}(k)}{k^2 + m^2}, \quad \chi^\dagger(k)= \tilde{\varphi}^\dagger(k) - \frac{\tilde{J}^\dagger(k)}{k^2 + m^2}.
+\end{align}
+Then we have
+\begin{align}
+    S_0 &= \int \frac{d^4k}{(2\pi)^4} \left[ -\chi^\dagger(k) (k^2 + m^2) \chi(k) + \frac{\tilde{J}^\dagger(k) \tilde{J}(k)}{k^2 + m^2} \right].
+\end{align}
+Also, the measure is invariant under this shift, i.e. $\mathcal{D}\tilde{\varphi} \mathcal{D}\tilde{\varphi}^\dagger = \mathcal{D}\chi \mathcal{D}\chi^\dagger$. Therefore, the generating functional is given by
+\begin{align}
+    Z_0(J^\dagger, J) &= \int \mathcal{D}\tilde{\varphi} \mathcal{D}\tilde{\varphi}^\dagger \exp\left[i S_0\right] \\
+                     &= \int \mathcal{D}\chi \mathcal{D}\chi^\dagger \exp\left[i \int \frac{d^4k}{(2\pi)^4} \left( -\chi^\dagger(k) (k^2 + m^2) \chi(k) + \frac{\tilde{J}^\dagger(k) \tilde{J}(k)}{k^2 + m^2} \right) \right] \\
+                     &= \exp\left[i \int \frac{d^4k}{(2\pi)^4} \frac{\tilde{J}^\dagger(k) \tilde{J}(k)}{k^2 + m^2 - i\epsilon} \right] \int \mathcal{D}\chi \mathcal{D}\chi^\dagger \exp\left[-i \int \frac{d^4k}{(2\pi)^4} \chi^\dagger(k) (k^2 + m^2 - i\epsilon) \chi(k) \right] \\
+                     &= \exp\left[i \int \frac{d^4k}{(2\pi)^4} \frac{\tilde{J}^\dagger(k) \tilde{J}(k)}{k^2 + m^2 - i\epsilon} \right] Z_0(0,0)\\
+                     &=\exp\left[i \int \frac{d^4k}{(2\pi)^4} \frac{\tilde{J}^\dagger(k) \tilde{J}(k)}{k^2 + m^2 - i\epsilon} \right],
+\end{align}
+where in the last line we have used the normalization condition $Z_0(0,0)=1$, and we introduce a small real number $\epsilon$ to make the integral convergent. Thus we obtain the final result:
+\begin{align}
+    Z_0(J^\dagger, J) = &\exp\left[i \int \frac{d^4k}{(2\pi)^4} \frac{\tilde{J}^\dagger(k) \tilde{J}(k)}{k^2 + m^2 - i\epsilon} \right]\\
+    =& \exp\left[i \int d^4x d^4y J^\dagger(x) \Delta(x-y) J(y) \right],
+\end{align}
+where
+\begin{align}
+    \Delta(x-y) = \int \frac{d^4k}{(2\pi)^4} \frac{e^{ik\cdot (x-y)}}{k^2 + m^2 - i\epsilon}.
+\end{align}
+$\Delta(x-y)$ is the Feynman propagator for complex scalar field. Now we can compute the correlation functions by functional derivatives:
+\begin{align}
+    \langle 0| T \varphi(x_1) \varphi(x_2) |0\rangle &= \left. \frac{1}{i^2} \frac{\delta}{\delta J^\dagger(x_1)} \frac{\delta}{\delta J^\dagger(x_2)} Z_0(J^\dagger, J) \right|_{J=J^\dagger=0} = 0\\
+    &=\frac{1}{i^2} \frac{\delta}{\delta J^\dagger(x_1)} \Big[ i \int d^4y  \Delta(x_2 - y) J(y)\Big] \exp\left[i \int d^4x d^4y J^\dagger(x) \Delta(x-y) J(y) \right]\Big|_{J=J^\dagger=0} \\
+    &= \frac{1}{i^2} \Big[ i \int d^4y  \Delta(x_2 - y) J(y)\Big]  \Big[ i \int d^4z  \Delta(x_1 - z) J(z)\Big] Z_0(J^\dagger, J) \Bigg|_{J=J^\dagger=0}\\
+    &=0,
+\end{align}
+\begin{align}
+    \langle 0| T \varphi^\dagger(x_1) \varphi(x_2) |0\rangle &= \left. \frac{1}{i^2} \frac{\delta}{\delta J(x_2)} \frac{\delta}{\delta J^\dagger(x_1)} Z_0(J^\dagger, J) \right|_{J=J^\dagger=0} \\
+    &= \left. \frac{1}{i^2} \frac{\delta}{\delta J(x_2)} \Big[ i \int d^4y  \Delta(x_1 - y) J(y)\Big] Z_0(J^\dagger, J) \right|_{J=J^\dagger=0} \\
+    &=  \frac{1}{i^2} i \Delta(x_1 - x_2) Z_0(J^\dagger, J)\Bigg|_{J=J^\dagger=0} \\
+    &+ \frac{1}{i^2} \Big[ i \int d^4y  \Delta(x_1 - y) J(y)\Big] \Big[ i \int d^4z  \Delta(x_2 - z)J^\dagger(z)\Big] Z_0(J^\dagger, J) \Bigg|_{J=J^\dagger=0}\\
+    &=\frac{1}{i} \Delta(x_1 - x_2),
+\end{align}
+\begin{align}
+    \langle 0| T \varphi^\dagger(x_1) \varphi^\dagger(x_2) |0\rangle &= \left. \frac{1}{i^2} \frac{\delta}{\delta J(x_1)} \frac{\delta}{\delta J(x_2)} Z_0(J^\dagger, J) \right|_{J=J^\dagger=0} = 0\\
+    &=\frac{1}{i^2} \frac{\delta}{\delta J(x_1)} \Big[ i \int d^4y  \Delta(x_2 - y) J^\dagger(y)\Big] \exp\left[i \int d^4x d^4y J^\dagger(x) \Delta(x-y) J(y) \right]\Big|_{J=J^\dagger=0} \\
+    &= \frac{1}{i^2} \Big[ i \int d^4y  \Delta(x_2 - y) J^\dagger(y)\Big]  \Big[ i \int d^4z  \Delta(x_1 - z) J^\dagger(z)\Big] Z_0(J^\dagger, J) \Bigg|_{J=J^\dagger=0}\\
+    &=0.
+\end{align}
+Write down the appropriate generalization of eq. (8.14), we have
+\begin{align}
+    \langle 0| T \varphi(x_1) \cdots \varphi(x_n) \varphi^\dagger(y_1) \cdots \varphi^\dagger(y_m) |0\rangle = \frac{1}{i^{n+m}} \frac{\delta}{\delta J^\dagger(x_1)} \cdots \frac{\delta}{\delta J^\dagger(x_n)} \frac{\delta}{\delta J(y_1)} \cdots \frac{\delta}{\delta J(y_m)} Z_0(J^\dagger, J) \Bigg|_{J=J^\dagger=0}.
+\end{align}
+For problem~8.4, we use extension equations from eqs.~(3.19), (3.29) and (5.3) to verify eq.(8.15)
+\begin{align}
+    \varphi(x) = \int \widetilde{dk} \Big[ a(\mathbf{k}) e^{ik\cdot x} + b^\dagger(\mathbf{k}) e^{-ik\cdot x} \Big],\quad\widetilde{dk}=\frac{d^3k}{(2\pi)^32\omega} \tag{3.19,3.18}\\
+    [a(\mathbf{k}), a^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^3(\mathbf{k} - \mathbf{k}') \tag{3.29}\\
+    [b(\mathbf{k}), b^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^3(\mathbf{k} - \mathbf{k}') \tag{3.29}\\
+    a(\mathbf{k}) |0\rangle = 0, \quad b(\mathbf{k}) |0\rangle = 0. \tag{5.3}\\
+    \langle0| T \varphi(x_1) \varphi^\dagger(x_2) |0\rangle = \frac{1}{i} \Delta(x_1 - x_2) \tag{8.15}
+\end{align}
+Now we compute
+\begin{align}
+    \langle0| T \varphi(x_1) \varphi^\dagger(x_2) |0\rangle &= \langle0| T \Big[ \int \widetilde{dk_1} ( a(\mathbf{k_1}) e^{ik_1\cdot x_1} + b^\dagger(\mathbf{k_1}) e^{-ik_1\cdot x_1} ) \nonumber \\
+    &\quad \times \int \widetilde{dk_2} ( a^\dagger(\mathbf{k_2}) e^{-ik_2\cdot x_2} + b(\mathbf{k_2}) e^{ik_2\cdot x_2} ) \Big] |0\rangle \\
+    &= \theta(x_1^0 - x_2^0) \langle0| \varphi(x_1) \varphi^\dagger(x_2) |0\rangle + \theta(x_2^0 - x_1^0) \langle0| \varphi^\dagger(x_2) \varphi(x_1) |0\rangle \\
+    &= \theta(x_1^0 - x_2^0) \int \widetilde{dk_1} \widetilde{dk_2} e^{ik_1\cdot x_1} e^{-ik_2\cdot x_2} \langle0| a(\mathbf{k_1}) a^\dagger(\mathbf{k_2}) |0\rangle \\
+    &+ \theta(x_2^0 - x_1^0) \int \widetilde{dk_1} \widetilde{dk_2} e^{ik_2\cdot x_2} e^{-ik_1\cdot x_1} \langle0| b(\mathbf{k_2}) b^\dagger(\mathbf{k_1}) |0\rangle \\
+    &= \theta(x_1^0 - x_2^0) \int \widetilde{dk_1} e^{ik_1\cdot (x_1 - x_2)}  \\
+    &+ \theta(x_2^0 - x_1^0) \int \widetilde{dk_1} e^{-ik_1\cdot (x_1 - x_2)}  \\
+    &= \frac{1}{i} \Delta(x_1 - x_2), \quad\text{by eq(8.13).}
+\end{align}
+Thus we have verified eq.(8.15). Also, since anhilation operators always act on the vacuum state to give zero, we have
+\begin{align}
+    \langle0| T \varphi(x_1) \varphi(x_2) |0\rangle &= 0,\\
+    \langle0| T \varphi^\dagger(x_1) \varphi^\dagger(x_2) |0\rangle &= 0.
+\end{align}
+Last, we give the appropriate generalization of eq. (8.17):
+\begin{align}
+    &\langle 0| T \varphi(x_1) \cdots \varphi(x_n) \varphi^\dagger(y_1) \cdots \varphi^\dagger(y_m) |0\rangle \nonumber \\
+    &= \delta_{nm} \frac{1}{i^{2n}} \sum_{\text{all pairings}} \Delta(x_{i_1} - y_{j_1}) \cdots \Delta(x_{i_n} - y_{j_n}).
+\end{align}
 \clearpage
-\question{2}{Problem 9.1}\\
+\question{2}{Prob1em 9.1}\\
 Compute the symmetry factor for each diagram in fig.~(9.13). (You can then check your answers by consulting the earlier figures.)
 \answer{}
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Problem 3/Prob9-1.pdf}
+    \caption{Feynman diagrams for problem 9.1}
+\end{figure}
 \clearpage
 \question{3}{Problem 9.5}\\
-The interaction picture. In this problem, we will derive a formula for $\langle 0| \mathrm{T} \varphi\left(x_n\right) \ldots \varphi\left(x_1\right)|0\rangle$ without using path integrals. Suppose we have a hamiltonian density $\mathcal{H}=\mathcal{H}_0+\mathcal{H}_1$, where $\mathcal{H}_0=\frac{1}{2} \Pi^2+\frac{1}{2}(\nabla \varphi)^2+ \frac{1}{2} m^2 \varphi^2$, and $\mathcal{H}_1$ is a function of $\Pi(\mathbf{x}, 0)$ and $\varphi(\mathbf{x}, 0)$ and their spatial derivatives. (It should be chosen to preserve Lorentz invariance, but we will not be concerned with this issue.) We add a constant to $H$ so that $H|0\rangle=0$. Let $|\emptyset\rangle$ be the ground state of $H_0$, with a constant added to $H_0$ so that $H_0|\emptyset\rangle=0$. ( $H_1$ is then defined as $H-H_0$.) The Heisenberg-picture field is
+ \textit{The interaction picture}. In this problem, we will derive a formula for $\langle 0| \mathrm{T} \varphi\left(x_n\right) \ldots \varphi\left(x_1\right)|0\rangle$ without using path integrals. Suppose we have a hamiltonian density $\mathcal{H}=\mathcal{H}_0+\mathcal{H}_1$, where $\mathcal{H}_0=\frac{1}{2} \Pi^2+\frac{1}{2}(\nabla \varphi)^2+ \frac{1}{2} m^2 \varphi^2$, and $\mathcal{H}_1$ is a function of $\Pi(\mathbf{x}, 0)$ and $\varphi(\mathbf{x}, 0)$ and their spatial derivatives. (It should be chosen to preserve Lorentz invariance, but we will not be concerned with this issue.) We add a constant to $H$ so that $H|0\rangle=0$. Let $|\emptyset\rangle$ be the ground state of $H_0$, with a constant added to $H_0$ so that $H_0|\emptyset\rangle=0$. ( $H_1$ is then defined as $H-H_0$.) The Heisenberg-picture field is
 
 \begin{align}
     \varphi(\mathbf{x}, t) \equiv e^{i H t} \varphi(\mathbf{x}, 0) e^{-i H t}.\ \tag{9.33}
@@ -29,12 +134,12 @@ We now define the interaction-picture field
     \item [(d)] If $\mathcal{H}_1$ is specified by a particular function for the Schrodinger-picture field $\Pi(\mathbf{x},0)$ and $\varphi(\mathbf{x},0)$, show that $\mathcal{H}_I(t)$ is given by the same function of the interaction-picture fields $\Pi_I(\mathbf{x},t)$ and $\varphi_I(\mathbf{x},t)$.
     \item [(e)] Show that, for $t>0$,
     \begin{align}
-        U(t)=T\exp\left[-i\int_0^t dt' H_I(t') \right]    \tag{9.35}
+        U(t)=\mathcal{T}\exp\left[-i\int_0^t dt' H_I(t') \right]    \tag{9.35}
     \end{align}
     obeys the differential equation and boundary condition of part (c). What is the comparable expression for $t<0$? Hint: you may need fo define a new ordering symbol.
     \item [(f)] Define $U(t_2,t_1)=U(t_2)U^\dagger(t_1)$. Show that, for $t_2>t_1$,
     \begin{align}
-        U(t_2,t_1)=T\exp\left[-i\int_{t_1}^{t_2} dt' H_I(t') \right] \tag{9.36}
+        U(t_2,t_1)=\mathcal{T}\exp\left[-i\int_{t_1}^{t_2} dt' H_I(t') \right] \tag{9.36}
     \end{align}
     \item [(g)] For any time ordering, show that $U(t_3,t_1)=U(t_3,t_2)U(t_2,t_1)$ and $U(t_1,t_2)=U^\dagger(t_2,t_1)$.
     \item [(h)]Show that 
@@ -54,16 +159,182 @@ We now define the interaction-picture field
     \end{align}
     \item [(m)]Show that
     \begin{align}
-        |\langle\emptyset|0\rangle|^2=\frac{1}{\langle\emptyset|T\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}. \tag{9.40}    
+        |\langle\emptyset|0\rangle|^2=\frac{1}{\langle\emptyset|\mathcal{T}\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}. \tag{9.40}    
     \end{align}
     Thus we have 
     \begin{align}
-        \langle0|T\varphi(x_n)\cdots\varphi(x_1)|0\rangle=\frac{\langle\emptyset|T\varphi_I(x_n)\cdots\varphi_I(x_1)\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}{\langle\emptyset|T\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}. \tag{9.41}
+        \langle0|T\varphi(x_n)\cdots\varphi(x_1)|0\rangle=\frac{\langle\emptyset|\mathcal{T}\varphi_I(x_n)\cdots\varphi_I(x_1)\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}{\langle\emptyset|\mathcal{T}\exp\left[-i\int d^4 x H_I(x)\right]|\emptyset\rangle}. \tag{9.41}
     \end{align}
     We can now Taylor expand the exponentials on the right-hand sides of eq.~(9.41), and use free-field theory to compute the resulting correlation functions.
 \end{itemize}
-
+\textbf{Note: We can skip parts in (f), (g).}
 \answer{}
+\begin{itemize}
+    \item [(a)] 
+\end{itemize}
+By the definition of time derivatives in the interaction picture, we have
+\begin{align}
+    \partial_t \varphi_I(\mathbf{x}, t) &= i e^{i H_0 t} [H_0, \varphi(\mathbf{x}, 0)] e^{-i H_0 t} \\
+\end{align}
+Then we can compute the $[H_0, \varphi(\mathbf{x}, 0)]$, with $H_0=\int d^3y \mathcal{H}_0(y)=\int d^3y \Big[\frac{1}{2} \Pi^2(y)+\frac{1}{2}(\nabla \varphi(y))^2+ \frac{1}{2} m^2 \varphi^2(y)\Big]$, and the canonical commutation relation $[\varphi(\mathbf{x},0), \Pi(\mathbf{y},0)] = i \delta^3(\mathbf{x} - \mathbf{y})$:
+\begin{align}
+    [H_0, \varphi(\mathbf{x}, 0)] &= \int d^3y \Big[ \frac{1}{2} [\Pi^2(y), \varphi(\mathbf{x}, 0)] + \frac{1}{2} [(\nabla \varphi(y))^2, \varphi(\mathbf{x}, 0)] + \frac{1}{2} m^2 [\varphi^2(y), \varphi(\mathbf{x}, 0)] \Big] \\
+    &= \int d^3y \Big[ \frac{1}{2} (\Pi(y) [\Pi(y), \varphi(\mathbf{x}, 0)] + [\Pi(y), \varphi(\mathbf{x}, 0)] \Pi(y)) + 0 + 0 \Big] \\
+    &= \int d^3y \Big[ \frac{1}{2} (\Pi(y) (i\delta^3(\mathbf{y} - \mathbf{x})) + (i\delta^3(\mathbf{y} - \mathbf{x})) \Pi(y)) \Big] \\
+    &= i \Pi(\mathbf{x}, 0).
+\end{align}
+Thus we have
+\begin{align}
+    \partial_t \varphi_I(\mathbf{x}, t) &= e^{i H_0 t} \Pi(\mathbf{x}, 0) e^{-i H_0 t} = \Pi_I(\mathbf{x}, t).
+\end{align}
+Taking another time derivative, we have
+\begin{align}
+    \partial_t^2 \varphi_I(\mathbf{x}, t) &= i e^{i H_0 t} [H_0, \Pi(\mathbf{x}, 0)] e^{-i H_0 t}.
+\end{align}
+Now we compute $[H_0, \Pi(\mathbf{x}, 0)]$:
+\begin{align}
+    [H_0, \Pi(\mathbf{x}, 0)] &= \int d^3y \Big[ \frac{1}{2} [\Pi^2(y), \Pi(\mathbf{x}, 0)] + \frac{1}{2} [(\nabla \varphi(y))^2, \Pi(\mathbf{x}, 0)] + \frac{1}{2} m^2 [\varphi^2(y), \Pi(\mathbf{x}, 0)] \Big] \\
+    &= \int d^3y \Bigg[ \frac{1}{2} (\nabla_y [\varphi(y), \Pi(\mathbf{x}, 0)] \cdot \nabla_y \varphi(y) + \nabla_y \varphi(y) \cdot \nabla_y [\varphi(y), \Pi(\mathbf{x}, 0)]) \\
+    & +\frac{1}{2} m^2 (\varphi(y) [\varphi(y), \Pi(\mathbf{x}, 0)] + [\varphi(y), \Pi(\mathbf{x}, 0)] \varphi(y)) \Bigg] \\
+    &= \int d^3y \Bigg[ \frac{1}{2} (\nabla_y (i\delta^3(\mathbf{y} - \mathbf{x})) \cdot \nabla_y \varphi(y) + \nabla_y \varphi(y) \cdot \nabla_y (i\delta^3(\mathbf{y} - \mathbf{x}))) \\
+    &+ \frac{1}{2} m^2 (\varphi(y) (i\delta^3(\mathbf{y} - \mathbf{x})) + (i\delta^3(\mathbf{y} - \mathbf{x})) \varphi(y)) \Bigg] \\
+    &= -i (\nabla_x^2 - m^2) \varphi(\mathbf{x}, 0).
+\end{align}
+Thus we have
+\begin{align}
+    \partial_t^2 \varphi_I(\mathbf{x}, t) &= - e^{i H_0 t} (\nabla_x^2 - m^2) \varphi(\mathbf{x}, 0) e^{-i H_0 t} \\
+    &= (\nabla_x^2 - m^2) \varphi_I(\mathbf{x}, t).
+\end{align}
+Therefore, we have shown that $\varphi_I(x)$ obeys the Klein-Gordon equation:
+\begin{align}
+    (\partial_t^2 - \nabla_x^2 + m^2) \varphi_I(\mathbf{x}, t) =(-\partial^2+m^2)\varphi_I(x) =  0.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+By the definition of interaction picture field, we have
+\begin{align}
+    U^\dagger(t) \varphi_I(\mathbf{x}, t) U(t) &= e^{i H t} e^{-i H_0 t} e^{i H_0 t} \varphi(\mathbf{x}, 0) e^{-i H_0 t} e^{i H_0 t} e^{-i H t} \\
+    &= e^{i H t} \varphi(\mathbf{x}, 0) e^{-i H t} \\
+    &= \varphi(\mathbf{x}, t).
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Taking the time derivative of $U(t)$, we have
+\begin{align}
+    \frac{d}{dt} U(t) &= \frac{d}{dt} \Big( e^{i H_0 t} e^{-i H t} \Big) \\
+    &= i H_0 e^{i H_0 t} e^{-i H t} - e^{i H_0 t} i H e^{-i H t} \\
+    &= -i e^{i H_0 t} (H - H_0) e^{-i H t} \\
+    &= -i H_1(t) U(t).
+\end{align}
+Also, at $t=0$, we have
+\begin{align}
+    U(0) = e^{i H_0 \cdot 0} e^{-i H \cdot 0} = 1.
+\end{align}
+Therefore, we have shown that $U(t)$ obeys the differential equation $i \frac{d}{d t} U(t)=H_1(t) U(t)$ with the boundary condition $U(0)=1$.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+By the definition of interaction picture Hamiltonian density, we have
+\begin{align}
+    \mathcal{H}_I(\mathbf{x}, t) &= e^{i H_0 t} \mathcal{H}_1(\mathbf{x}, 0) e^{-i H_0 t} \\
+    &= \mathcal{H}_1\Big( e^{i H_0 t} \Pi(\mathbf{x}, 0) e^{-i H_0 t}, e^{i H_0 t} \varphi(\mathbf{x}, 0) e^{-i H_0 t}, \nabla (e^{i H_0 t} \varphi(\mathbf{x}, 0) e^{-i H_0 t}) \Big) \\
+    &= \mathcal{H}_1\Big( \Pi_I(\mathbf{x}, t), \varphi_I(\mathbf{x}, t), \nabla \varphi_I(\mathbf{x}, t) \Big).
+\end{align}
+This is because we can insert the identity operator $e^{-i H_0 t} e^{i H_0 t}$ between any functions of $\Pi(\mathbf{x}, 0)$ and $\varphi(\mathbf{x}, 0)$ in $\mathcal{H}_1$.
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+We can verify that $U(t)$ defined in eq.(9.35) obeys the differential equation and boundary condition of part (c). Taking the time derivative of $U(t)$, we have
+\begin{align}
+    \frac{d}{dt} U(t) &= \frac{d}{dt} \mathcal{T}\exp\left[-i\int_0^t dt' H_I(t') \right] \\
+    &= -i H_I(t) \mathcal{T}\exp\left[-i\int_0^t dt' H_I(t') \right] \\
+    &= -i H_I(t) U(t).
+\end{align}
+Also, at $t=0$, we have
+\begin{align}
+    U(0) = \mathcal{T}\exp\left[-i\int_0^0 dt' H_I(t') \right] = 1.
+\end{align}
+Therefore, we have shown that $U(t)$ defined in eq.(9.35) obeys the differential equation $i \frac{d}{d t} U(t)=H_I(t) U(t)$ with the boundary condition $U(0)=1$. For $t<0$, we can define a new ordering symbol $\bar{\mathcal{T}}$ which orders operators with earlier times to the left. Then we have
+\begin{align}
+    U(t) = \bar{\mathcal{T}}\exp\left[-i\int_t^0 dt' H_I(t') \right].
+\end{align}
+\begin{itemize}
+    \item [(f)] \textbf{Skip}
+    \item [(g)] \textbf{Skip}
+\end{itemize}
+\begin{itemize}
+    \item [(h)]
+\end{itemize}
+By repeatedly applying the result from part (b), we have
+\begin{align}
+    \varphi(x_n)\cdots\varphi(x_1) &= U^\dagger(t_n) \varphi_I(x_n) U(t_n) \cdots U^\dagger(t_1) \varphi_I(x_1) U(t_1) \\
+    &= U^\dagger(t_n, 0) \varphi_I(x_n) U(t_n, t_{n-1}) \cdots U^\dagger(t_2, t_1) \varphi_I(x_1) U(t_1, 0),
+\end{align}
+where we have used the definition $U(t_2, t_1) = U(t_2) U^\dagger(t_1)$, and $U^\dagger(t_n)=1 \cdot U^\dagger(t_n)=U(0) U^\dagger(t_n)= (U(t_0)U^\dagger(0))^\dagger = U^\dagger(t_n, 0)$, and similarly for $U(t_1)= U(t_1, 0)$.
+\begin{itemize}
+    \item [(i)]
+\end{itemize}
+By the definition of $U(t_2, t_1)$, we have
+\begin{align}
+    U^\dagger(t_n, 0) &= U(0, t_n) = U(0, \infty) U(\infty, t_n) = U^\dagger(\infty, 0) U(\infty, t_n),\\
+    U(t_1, 0) &= U(t_1, -\infty) U(-\infty, 0).
+\end{align}
+\begin{itemize}
+    \item [(j)]
+\end{itemize}
+By replacing $H_0$ with $(1-i\epsilon)H_0$, we have
+\begin{align}
+    U(-\infty, 0) |0\rangle &= \lim_{t\to -\infty} e^{i (1-i\epsilon) H_0 t} e^{-i  H t} |0\rangle \\
+    &= \lim_{t\to -\infty} e^{i (1-i\epsilon) H_0 t} |0\rangle,\quad\text{by $e^{iHt}|0\rangle=e^0|0\rangle=|0\rangle$} \\
+    &= \lim_{t\to -\infty}\sum_n e^{i (1-i\epsilon) H_0 t} | n\rangle \langle n | 0 \rangle\\
+    &= \lim_{t\to -\infty} \sum_n e^{i E_n t} e^{\epsilon E_n t} | n\rangle \langle n | 0 \rangle \\
+    &= |\emptyset\rangle \langle\emptyset|0\rangle,\quad\text{since $E_n>0$ for excited states $|n\rangle$}.
+\end{align}
+similarly, we have
+\begin{align}
+    \langle0| U^\dagger(\infty, 0) &= \lim_{t\to \infty} \langle0| e^{i H t} e^{-i (1-i\epsilon) H_0 t} \\
+    &= \lim_{t\to \infty} \langle0| e^{-i (1-i\epsilon) H_0 t} \\
+    &= \lim_{t\to \infty} \sum_n \langle0| n\rangle \langle n | e^{-i (1-i\epsilon) H_0 t} \\
+    &= \lim_{t\to \infty} \sum_n \langle0| n\rangle e^{-i E_n t} e^{-\epsilon E_n t} \langle n | \\
+    &= \langle0|\emptyset\rangle \langle\emptyset|,\quad\text{since $E_n>0$ for excited states $|n\rangle$}.
+\end{align}
+\begin{itemize}
+    \item [(k)]
+\end{itemize}
+By substituting the results from parts (h) and (i) into the left-hand side, we have
+\begin{align}
+    \langle0|\varphi(x_n)\cdots\varphi(x_1)|0\rangle &= \langle0| U^\dagger(t_n, 0) \varphi_I(x_n) U(t_n, t_{n-1}) \cdots U^\dagger(t_2, t_1) \varphi_I(x_1) U(t_1, 0) |0\rangle \\
+    &= \langle0| U^\dagger(\infty, 0) U(\infty, t_n) \varphi_I(x_n) U(t_n, t_{n-1}) \cdots U^\dagger(t_2, t_1) \varphi_I(x_1) U(t_1, -\infty) U(-\infty, 0) |0\rangle \\
+    &= \langle0|\emptyset\rangle \langle\emptyset| U(\infty, t_n) \varphi_I(x_n) U(t_n, t_{n-1}) \cdots U^\dagger(t_2, t_1) \varphi_I(x_1) U(t_1, -\infty) |\emptyset\rangle \langle\emptyset|0\rangle \\
+    &= \langle\emptyset| U(\infty, t_n) \varphi_I(x_n) U(t_n, t_{n-1}) \cdots U^\dagger(t_2, t_1) \varphi_I(x_1) U(t_1, -\infty) |\emptyset\rangle |\langle0|\emptyset\rangle|^2.
+\end{align}
+\begin{itemize}
+    \item [(l)]
+\end{itemize}
+By substituting the result from part (f) into the right-hand side of part (k), we have
+\begin{align}
+    \langle0|T\varphi(x_n)\cdots\varphi(x_1)|0\rangle &= \langle\emptyset| \mathcal{T} \varphi_I(x_n) \cdots \varphi_I(x_1) \exp\left[-i\int d^4 x H_I(x)\right] |\emptyset\rangle |\langle0|\emptyset\rangle|^2.
+\end{align}
+By expanding the time-ordered products in part (k), we can see that it is equivalent to the time-ordered product in part (l).
+\begin{itemize}
+    \item [(m)]
+\end{itemize}
+By setting $n=0$ in part (l), we have
+\begin{align}
+    \langle0|T 1 |0\rangle &= \langle\emptyset| \mathcal{T} \exp\left[-i\int d^4 x H_I(x)\right] |\emptyset\rangle |\langle0|\emptyset\rangle|^2.
+\end{align}
+Since the left-hand side is equal to 1, we have
+\begin{align}
+    |\langle\emptyset|0\rangle|^2 = \frac{1}{\langle\emptyset| \mathcal{T} \exp\left[-i\int d^4 x H_I(x)\right] |\emptyset\rangle}.
+\end{align}
+Therefore, we have derived the formula in eq.(9.41):
+\begin{align}
+    \langle0|T\varphi(x_n)\cdots\varphi(x_1)|0\rangle &= \frac{\langle\emptyset| \mathcal{T} \varphi_I(x_n) \cdots \varphi_I(x_1) \exp\left[-i\int d^4 x H_I(x)\right] |\emptyset\rangle}{\langle\emptyset| \mathcal{T} \exp\left[-i\int d^4 x H_I(x)\right] |\emptyset\rangle}.
+\end{align}
+\qed
+
 
 \clearpage
 \question{4}{Problem 10.5}\\
@@ -73,14 +344,36 @@ The scattering amplitudes should be unchanged if we make a \textit{field redefin
 \end{align}
 and we make the field redefinition 
 \begin{align}
-    \varphi\to\varphi+c\varphi^2, \tag{10.16}
+    \varphi\to\varphi+\lambda\varphi^2, \tag{10.16}
 \end{align}
 Work out the lagrangian in terms of the redefined field, and the corresponding Feynman rules. Compute (at tree level) the $\varphi\varphi\to\varphi\varphi$ scattering amplitudes. You should get zero, because this is a free-field theory in disguise. (At the loop level, we also have to take into account the transformation of the functional measure $\mathcal{D}\varphi$; see section~85.)
 \answer{}
+By substituting the field redefinition in eq.(10.16) into the lagrangian in eq.(10.15), we have
+\begin{align}
+    \mathcal{L} &= -\frac{1}{2}\partial^\mu(\varphi+\lambda\varphi^2)\partial_\mu(\varphi+\lambda\varphi^2)-\frac{1}{2}m^2(\varphi+\lambda\varphi^2)^2 \\
+    &= -\frac{1}{2}\partial^\mu\varphi\partial_\mu\varphi - \lambda \partial^\mu\varphi \partial_\mu(\varphi^2) - \frac{\lambda^2}{2} \partial^\mu(\varphi^2) \partial_\mu(\varphi^2) - \frac{1}{2} m^2 \varphi^2 - m^2 \lambda \varphi^3 - \frac{m^2 \lambda^2}{2} \varphi^4\\
+    &= -\frac{1}{2}\partial^\mu\varphi\partial_\mu\varphi - \lambda (2\varphi \partial^\mu\varphi \partial_\mu\varphi) - 2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi - \frac{1}{2} m^2 \varphi^2 - m^2 \lambda \varphi^3 - \frac{m^2 \lambda^2}{2} \varphi^4\\
+    &= -\frac{1}{2}\partial^\mu\varphi\partial_\mu\varphi - \frac{1}{2} m^2 \varphi^2 - 2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi- m^2 \lambda \varphi^3  - 2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi - \frac{m^2 \lambda^2}{2} \varphi^4\\
+    &= \mathcal{L}_0 + \mathcal{L}_1, 
+\end{align}
+where
+\begin{align}
+    \mathcal{L}_0 &= -\frac{1}{2}\partial^\mu\varphi\partial_\mu\varphi - \frac{1}{2} m^2 \varphi^2, \\
+    \mathcal{L}_1 &= - 2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi- m^2 \lambda \varphi^3  - 2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi - \frac{m^2 \lambda^2}{2} \varphi^4\\
+    &=\lambda
+\end{align}
+We can treat the last four terms as interaction terms. The corresponding Feynman rules are:
+\begin{align}
+    &\text{Propagator:} \quad \frac{i}{p^2 - m^2 + i\epsilon}, \\
+    &\text{3-point vertex from } -2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi: \quad -2i\lambda (p_1 \cdot p_2 + p_2 \cdot p_3 + p_3 \cdot p_1), \\
+    &\text{3-point vertex from } -m^2 \lambda \varphi^3: \quad -i m^2 \lambda, \\
+    &\text{4-point vertex from } -2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi: \quad -2i\lambda^2 (p_1 \cdot p_2 + p_1 \cdot p_3 + p_1 \cdot p_4 + p_2 \cdot p_3 + p_2 \cdot p_4 + p_3 \cdot p_4), \\
+    &\text{4-point vertex from } -\frac{m^2 \lambda^2}{2} \varphi^4: \quad -i m^2 \lambda^2.
+\end{align}
 
 \clearpage
 \question{5}{Problem 11.2}\\
-Consider \textit{Compton scattering}, in which a massless photon is scattered by an electron, initially at rest. (This is the FT frame.) IN problem 59.1, we will compute $|\mathcal{T}|^2$ for this process (summed over the possible spin states of the scattered photon and electron, and averaged over the possible spin states of the initial photon and electron), with the result
+Consider \textit{Compton scattering}, in which a massless photon is scattered by an electron, initially at rest. (This is the FT frame.) In problem 59.1, we will compute $|\mathcal{T}|^2$ for this process (summed over the possible spin states of the scattered photon and electron, and averaged over the possible spin states of the initial photon and electron), with the result
 \begin{align}
     |\mathcal{T}|^2=32\pi^2\alpha^2\Big[  \frac{m^4+m^2(3s+u)-su}{(m^2-s)^2}+\frac{m^4+m^2(3u+s)-su}{(m^2-u)^2}+\frac{2m^2(s+u+2m^2)}{(m^2-s)(m^2-u)} \Big]+\mathcal{O}(\alpha^4) \tag{11.50}
 \end{align}
@@ -94,4 +387,103 @@ where $\alpha=1/137.036$ is the fine-structure constant.
     \end{align}
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+In the FT frame, the initial electron is at rest, so its four-momentum is $p = (m, \mathbf{0})$. The initial photon has four-momentum $k = (\omega, \mathbf{k})$, where $|\mathbf{k}| = \omega$. The final electron has four-momentum $p' = (E', \mathbf{p}')$, and the final photon has four-momentum $k' = (\omega', \mathbf{k}')$, where $|\mathbf{k}'| = \omega'$. The Mandelstam variables are defined as:
+\begin{align}
+    s &= -(p + k)^2 = (m + \omega)^2 - |\mathbf{k}|^2 = m^2 + 2m\omega, \\
+    u &= -(p - k')^2 = (m - \omega')^2 - |\mathbf{k}'|^2 = m^2 - 2m\omega'.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The scattering angle $\theta_{\text{FT}}$ between the initial and final photon three-momenta can be expressed in terms of $\omega$ and $\omega'$ using the conservation of four-momentum:
+\begin{align}
+    p + k = p' + k'.
+\end{align}
+Taking the square of both sides, we have
+\begin{align}
+    p'^2 = (p + k - k')^2 = p^2 + k^2 + k'^2 + 2p \cdot (k - k') - 2k \cdot k'.
+\end{align}
+Since $p^2 = m^2$, $k^2 = 0$, and $k'^2 = 0$, we have
+\begin{align}
+    m^2 = m^2 + 2p \cdot (k - k') - 2k \cdot k'.
+\end{align}
+Rearranging, we have
+\begin{align}
+    2p \cdot (k - k') = 2k \cdot k'.
+\end{align}
+We know that
+\begin{align}
+    p \cdot k = -m\omega, \quad p \cdot k' = -m\omega', \quad k \cdot k' = \omega \omega' (\cos\theta_{\text{FT}} -1 ).
+\end{align}
+Substituting these into the previous equation, we have
+\begin{align}
+    2(-m\omega + m\omega') = 2\omega \omega' (\cos\theta_{\text{FT}} -1 ).
+\end{align}
+Rearranging, we have
+\begin{align}
+    \cos\theta_{\text{FT}} = 1 + \frac{m(\omega' - \omega)}{\omega \omega'}= 1 + \frac{m}{\omega} - \frac{m}{\omega'}.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+The differential scattering cross section in the CM frame is given by
+\begin{align}
+    \frac{d\sigma}{dt} = \frac{1}{64\pi s |\mathbf{k}_\text{CM}|^2} |\mathcal{T}|^2\tag{11.34},
+\end{align}
+where $t$ is the Mandelstam variable defined as $$t = -(k - k')^2 = -2\omega \omega' (1 - \cos\theta_{\text{FT}}).$$, and $\mathcal{T}$ is given in eq.(11.50). By eq.~(11.9), we have 
+\begin{align}
+    m |\mathbf{k}_\text{FT}|=\sqrt{s}|\mathbf{k}_\text{CM}|\implies m^2 |\mathbf{k}_\text{FT}|^2=s|\mathbf{k}_\text{CM}|^2 \implies s|\mathbf{k}_\text{CM}|^2 = m^2 |\mathbf{k}_\text{FT}|^2.
+\end{align}
 
+Next, we can express $d\sigma/d\Omega_{\text{FT}}$ in terms of $\omega$ and $\omega'$ using the relation
+\begin{align}
+    \frac{d\sigma}{d\Omega_{\text{FT}}} = \frac{d\sigma}{dt} \frac{dt}{d\Omega_{\text{FT}}}.
+\end{align}
+Also, for $|\mathcal{T}|^2$, we can substitute the expressions for $s$ and $u$ from part (a) into eq.(11.50) to express it in terms of $\omega$ and $\omega'$:
+\begin{align}
+    |\mathcal{T}|^2 &= 32\pi^2\alpha^2\Big[  \frac{m^4+m^2(3(m^2+2m\omega)+m^2-2m\omega')-(m^2+2m\omega)(m^2-2m\omega')}{(m^2-(m^2+2m\omega))^2} \\
+    &+\frac{m^4+m^2(3(m^2-2m\omega')+m^2+2m\omega)-(m^2-2m\omega')(m^2+2m\omega)}{(m^2-(m^2-2m\omega'))^2} \\
+    &+\frac{2m^2((m^2+2m\omega)+(m^2-2m\omega')+2m^2)}{(m^2-(m^2+2m\omega))(m^2-(m^2-2m\omega'))} \Big]\\
+    &=32 \pi^2 \alpha^2 \Big[\frac{m^2}{w^2}-\frac{2 m^2}{w w'}+\frac{m^2}{\left(w'\right)^2}-\frac{2 m}{w'}+\frac{2 m}{w}+\frac{w'}{w}+\frac{w}{w'}\Big],\quad\text{by \texttt{Mathematica}}.
+\end{align}
+Note that 
+\begin{align}
+    &\cos\theta_{\text{FT}} = 1 + \frac{m}{\omega} - \frac{m}{\omega'} \implies \sin^2\theta_{\text{FT}} = 1 - \cos^2\theta_{\text{FT}} = 1 - \Big(1 + \frac{m}{\omega} - \frac{m}{\omega'}\Big)^2\\
+    &\implies \sin^2\theta_{\text{FT}} = \frac{2m}{\omega'} - \frac{2m}{\omega} - \frac{m^2}{\omega^2} - \frac{m^2}{\omega'^2} + \frac{2m^2}{\omega \omega'}.
+\end{align}
+Hence, we have 
+\begin{align}
+    |\mathcal{T}|^2 &= 32 \pi^2 \alpha^2 \Big[\frac{\omega'}{\omega} + \frac{\omega}{\omega'} - \sin^2\theta_{\text{FT}}\Big].
+\end{align}
+Now, we can compute $dt/d\Omega_{\text{FT}}$:
+\begin{align}
+    \frac{dt}{d\Omega_{\text{FT}}} &= \frac{dt}{d\cos\theta_{\text{FT}}} \frac{d\cos\theta_{\text{FT}}}{d\Omega_{\text{FT}}} \\
+    &= \frac{dt}{d\cos\theta_{\text{FT}}} \frac{d\cos\theta_{\text{FT}}}{2\pi d\cos\theta_{\text{FT}}} \\
+    &= \frac{1}{2\pi} \frac{dt}{d\cos\theta_{\text{FT}}}.
+\end{align}
+Hence, we have
+\begin{align}
+    &\frac{dt}{d\cos\theta_{\text{FT}}}  = \frac{d}{d\cos\theta_{\text{FT}}} \Big(-2\omega \omega' (1 - \cos\theta_{\text{FT}})\Big) \\
+    =&2\omega \omega' + (-2\omega )(1 - \cos\theta_{\text{FT}}) \frac{d\omega'}{d\cos\theta_{\text{FT}}}\\
+    =&2\omega \omega' + (-2\omega )(1 - \cos\theta_{\text{FT}})\omega'^2/m ,\quad\text{by differentiating $\cos\theta_{\text{FT}} = 1 + \frac{m}{\omega} - \frac{m}{\omega'}$}\\
+    =&2\omega \omega' - (2\omega )(\frac{m}{\omega'} - \frac{m}{\omega})\omega'^2/m \\
+    =&2\omega'^2.
+\end{align}
+Therefore, we have
+\begin{align}
+    \frac{dt}{d\Omega_{\text{FT}}} &= \frac{1}{2\pi} \cdot 2\omega'^2 = \frac{\omega'^2}{\pi}.
+\end{align}
+Substituting the expressions for $|\mathcal{T}|^2$ and $dt/d\Omega_{\text{FT}}$ into the expression for $d\sigma/d\Omega_{\text{FT}}$, we have
+\begin{align}
+   &\frac{d\sigma}{d\Omega_{\text{FT}}} = \frac{d\sigma}{dt} \frac{dt}{d\Omega_{\text{FT}}}\\
+  =& \frac{1}{64\pi s |\mathbf{k}_\text{CM}|^2} |\mathcal{T}|^2 \cdot \frac{\omega'^2}{\pi} \\
+  =& \frac{1}{64\pi^2 s |\mathbf{k}_\text{CM}|^2} \cdot 32 \pi^2 \alpha^2 \Big[\frac{\omega'}{\omega} + \frac{\omega}{\omega'} - \sin^2\theta_{\text{FT}}\Big] \cdot \omega'^2 \\
+  =& \frac{\alpha^2 \omega'^2}{2 s |\mathbf{k}_\text{CM}|^2} \Big[\frac{\omega'}{\omega} + \frac{\omega}{\omega'} - \sin^2\theta_{\text{FT}}\Big] \\
+  =& \frac{\alpha^2 \omega'^2}{2 m^2 |\mathbf{k}_\text{FT}|^2} \Big[\frac{\omega'}{\omega} + \frac{\omega}{\omega'} - \sin^2\theta_{\text{FT}}\Big],\quad\text{by $s|\mathbf{k}_\text{CM}|^2 = m^2 |\mathbf{k}_\text{FT}|^2$} \\
+  =& \frac{\alpha^2}{2 m^2} \Big(\frac{\omega'}{\omega}\Big)^2 \Big[\frac{\omega'}{\omega} + \frac{\omega}{\omega'} - \sin^2\theta_{\text{FT}}\Big].
+\end{align}
+This is exactly the Klein-Nishina formula in eq.(11.51).
+\qed
