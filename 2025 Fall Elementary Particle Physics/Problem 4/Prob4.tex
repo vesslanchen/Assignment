@@ -1,67 +1,43 @@
 \question{1}{\textbf{Gell-Mann Okubo for the baryon octet}}
 \\
-The generators $t_{a} \ (a=1, \ldots, 8)$ of $\mathrm{SU}(3)$ are normalized as 
-\[
-t_{a} = \frac{\lambda_{a}}{2}
-\]
-with 
-\[
-\operatorname{Tr}\left(t_{a} t_{b}\right) = \frac{1}{2} \delta_{ab},
-\]
-where $\lambda_{a}$ are the Gell-Mann matrices. They satisfy
-\[
-[t_{a}, t_{b}] = i f_{abc} t_{c}
-\]
-and
-\[
-\{t_{a}, t_{b}\} = \frac{1}{3} \delta_{ab} \mathbf{1} + d_{abc} t_{c},
-\]
-where $f_{abc}$ are totally antisymmetric and $d_{abc}$ are totally symmetric structure constants.
+The generators \(t_{a}(a=1, \ldots, 8)\) of \(\mathrm{SU}(3)\) are normalized as \(t_{a}=\frac{\lambda_{a}}{2}\) with \(\operatorname{Tr}\left(t_{a} t_{b}\right)=\frac{1}{2} \delta_{a b}\), where \(\lambda_{a}\) are the Gell-Mann matrices. They satisfy \(\left[t_{a}, t_{b}\right]=i f_{a b c} t_{c}\) and \(\left\{t_{a}, t_{b}\right\}= \frac{1}{3} \delta_{a b} \mathbf{1}+d_{a b c} t_{c}\), where \(f_{a b c}\) are totally antisymmetric and \(d_{a b c}\) are totally symmetric structure constants.
 
-Let $B$ and $\bar{B}$ be the baryon octet $3 \times 3$ traceless matrices, expanded in the generator basis as 
-\[
-B = B^{i} t_{i}, \quad \bar{B} = \bar{B}^{i} t_{i}
-\]
-where $B^{i}, \bar{B}^{i}$ are the adjoint components. Define the two bilinear combinations
-\[
-O_{A} \equiv [\bar{B}, B] = \bar{B} B - B \bar{B}, \quad O_{S} \equiv \{\bar{B}, B\} - \frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B} B).
-\]
 
-\begin{enumerate}
-\item[(a)] Show that both $O_{A}$ and $O_{S}$ are traceless and therefore transform in the adjoint (octet) representation.
-\item[(b)] Expand $O_{A}$ and $O_{S}$ in components using the generator basis and show that
-\[
-O_{A} = i (\bar{B}^{i} B^{j}) f_{ijk} t_{k}, \quad O_{S} = (\bar{B}^{i} B^{j}) d_{ijk} t_{k},
-\]
-so that
-\[
-(O_{A})^{k} = i f_{ijk} \bar{B}^{i} B^{j}, \quad (O_{S})^{k} = d_{ijk} \bar{B}^{i} B^{j}.
-\]
-\item[(c)] Introduce a flavor-breaking spurion $H_{8} = H_{8}^{i} t_{i}$, with real components $H_{8}^{i}$. Construct the two independent $\mathrm{SU}(3)$-invariant mass terms:
-\[
-S_{f} = (O_{A})^{a}_{b} (H_{8})^{b}_{a}, \quad S_{d} = (O_{S})^{a}_{b} (H_{8})^{b}_{a}.
-\]
-Assuming $H_{8}$ points in the 8-direction (i.e. $H_{8}^{i} \propto \delta_{i8}$), argue that $S_{f}$ and $S_{d}$ correspond to the $f$-type and $d$-type symmetry breaking terms in the baryon mass operator, respectively.
-\item[(d)] Given that an adjoint operator $O_{8}$ acts on an octet state $B$ as $O_{8}(B) = [O_{8}, B]$, show that the invariant scalars in (c) are equivalent to the matrix elements
-\[
-S_{f} \propto \langle \bar{B} | t_{8} | B \rangle \equiv \operatorname{Tr}(\bar{B} [t_{8}, B]),
-\]
-\[
-S_{d} \propto \langle \bar{B} | d_{8ij} t_{i} t_{j} | B \rangle \equiv \operatorname{Tr}(\bar{B} [d_{8ij} t_{i} t_{j}, B]).
-\]
-\item[(e)] Hence, argue that
-\[
-S_{f} \propto Y, \quad S_{d} \propto I(I+1) - \frac{Y^{2}}{4}
-\]
-where $I, Y$ are the isospin and hypercharge of the baryon $B$, respectively, thereby reproducing the Gell-Mann-Okubo mass formula for the baryon octet.
-
-\textbf{Hint:} Verify that
-\[
-\left[ \frac{2}{\sqrt{3}} t_{8}, B \right] = Y_{B} B, \quad [d_{8ij} t_{i} t_{j}, B] = \left( I(I+1) - \frac{Y^{2}}{4} \right) B
-\]
-where $B$ is the baryon octet $3 \times 3$ matrix.
-\end{enumerate}
+Let \(B\) and \(\bar{B}\) be the baryon octet \(3 \times 3\) traceless matrices, expanded in the generator basis as \(B=B^{i} t_{i}\) and \(\bar{B}=\bar{B}^{i} t_{i}\) where \(B^{i}, \bar{B}^{i}\) are the adjoint components. Define the two bilinear combinations \(O_{A} \equiv[\bar{B}, B]=\bar{B} B-B \bar{B}\) and \(O_{S} \equiv\{\bar{B}, B\}-\frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B} B)\).
+\begin{itemize}
+    \item [(a)]Show that both \(O_{A}\) and \(O_{S}\) are traceless and therefore transform in the adjoint (octet) representation.
+    \item [(b)] Expand \(O_{A}\) and \(O_{S}\) in components using the generator basis and show that \(O_{A}=i\left(\bar{B}^{i} B^{j}\right) f_{i j k} t_{k}\) and \(O_{S}=\left(\bar{B}^{i} B^{j}\right) d_{i j k} t_{k}\), so that \(\left(O_{A}\right)^{k}=i f_{i j k} \bar{B}^{i} B^{j}\) and \(\left(O_{S}\right)^{k}= d_{i j k} \bar{B}^{i} B^{j}\).
+    \item [(c)]Introduce a flavor-breaking spurion \(H_{8}=H_{8}^{i} t_{i}\), with real components \(H_{8}^{i}\). Construct the two independent \(\mathrm{SU}(3)\)-invariant mass terms:
+    \begin{align}
+        S_{f}=\left(O_{A}\right)_{b}^{a}\left(H_{8}\right)_{a}^{b}, \quad S_{d}=\left(O_{S}\right)_{b}^{a}\left(H_{8}\right)_{a}^{b}
+    \end{align}
+    Assuming \(H_{8}\) points in the 8 -direction (i.e. \(H_{8}^{i} \propto \delta_{i 8}\) ), argue that \(S_{f}\) and \(S_{d}\) correspond to the \(f\)-type and \(d\)-type symmetry breaking terms in the baryon mass operator, respectively.
+    \item [(d)] Given that an adjoint operator \(O_{8}\) acts on an octet state \(B\) as \(O_{8}(B)=\left[O_{8}, B\right]\), show that the invariant scalars in (c) are equivalent to the matrix elements \(S_{f} \propto \langle\bar{B}| t_{8}|B\rangle \equiv \operatorname{Tr}\left(\bar{B}\left[t_{8}, B\right]\right)\) and \(S_{d} \propto\langle\bar{B}| d_{8 i j} t_{i} t_{j}|B\rangle \equiv \operatorname{Tr}\left(\bar{B}\left[d_{8 i j}\left[t_{i},\left[t_{j}, B\right]\right]\right)\right.\).
+     \item [(e)] Hence, argue that for each entry \(B_{i j}\) of the baryon octet matrix, \(S_{f} \propto Y\) and \(S_{d} \propto I(I+1)-Y^{2} / 4\) where \(I, Y\) are the isospin and hypercharge of the baryon \(B\), respectively, thereby reproducing the Gell-Mann-Okubo mass formula for the baryon octet.
+\end{itemize}
+(Hint: Verify, entrywise, that \(\left[\frac{2}{\sqrt{3}} t_{8}, B\right]=Y B\) and the normalized operator \(\frac{2}{\sqrt{3}} d_{8 i j}\left[t_{i},\left[t_{j}, B\right]\right]+ \frac{1}{3}\left[t_{i},\left[t_{i}, B\right]\right]=\left(I(I+1)-Y^{2} / 4\right) B\) acts diagonally on each baryon field. The \(\left[t_{i},\left[t_{i}, B\right]\right]\) term is the adjoint Casimir ( \(S U(3)\) singlet) which just shifts all octet components uniformly so that the \(\Lambda\) eigenvalue becomes 0 . It can be absorbed into the overall singlet part of the GMO formula. On the diagonal remember \(B_{11}, B_{22}\) and \(B_{33}\) mix \(\Sigma^{0}\) and \(\Lambda\), so \(\left.B_{\text {diag }}=\Sigma^{0} \operatorname{diag}(1,-1,0) / \sqrt{2}+\Lambda \operatorname{diag}(1,1,-2) / \sqrt{6}\right)\).
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+To show that both \(O_{A}\) and \(O_{S}\) are traceless, we first understand their definitions:
+\begin{align}
+O_{A} &= [\bar{B}, B] = \bar{B} B - B \bar{B}=[\bar{B}, B]\\
+      &= [\bar{B}^{i} t_{i}, B^{j} t_{j}] = \bar{B}^{i} B^{j} [t_{i}, t_{j}] = i \bar{B}^{i} B^{j} f_{ijk} t_{k}
+\end{align}
+Taking the trace of \(O_{A}\):
+\begin{align}
+\operatorname{Tr}(O_{A}) &= \operatorname{Tr}(iBar{B}^{i} B^{j} f_{ijk} t_{k}) = i \bar{B}^{i} B^{j} f_{ijk} \operatorname{Tr}(t_{k}) = 0.
+\end{align}
+Similarly, for \(O_{S}\):
+\begin{align}
+O_{S} &= \{\bar{B}, B\} - \frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B} B) = \bar{B} B + B \bar{B} - \frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B} B)\\
+      &= (\bar{B}^{i} t_{i})(B^{j} t_{j}) + (B^{j} t_{j})(\bar{B}^{i} t_{i}) - \frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B}^{i} t_{i} B^{j} t_{j})\\
+      &= \bar{B}^{i} B^{j}\{t_{i}, t_{j}\} - \frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B}^{i} B^{j} t_{i} t_{j})\\
+      &= \bar{B}^{i} B^{j}\left(\frac{1}{3}\delta_{ij}\mathbf{1}+d_{ijk}t_{k}\right) - \frac{2}{3}\mathbf{1}\left(\frac{1}{2}\bar{B}^{i} B^{j}\delta_{ij}\right)\\
+      &= \bar{B}^{i} B^{j} d_{ijk} t_{k}
+\end{align}
+
 
 \clearpage
 \question{2}{\textbf{$\rho$-$\omega$ mixing}}

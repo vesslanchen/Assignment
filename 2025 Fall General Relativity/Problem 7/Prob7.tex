@@ -12,8 +12,64 @@ Calculate the Gaussian curvature $K=-\frac{1}{2}R$ for this space. Then calculat
 \end{align}
 where $x^2 + y^2 < 1$. Notice that the distance between two points is unbounded because of the denominators. Can you imagine such a space?
 \answer{}
-
+First, we calculate the Christoffel symbols for the sphere metric by last Assignment's formula:
+\begin{align}
+    \Gamma^\theta_{\phi\phi} &= -\sin\theta \cos\theta, \\
+    \Gamma^\phi_{\theta\phi} &= \Gamma^\phi_{\phi\theta} = \cot\theta.
+\end{align}
+Then we can calculate the Riemann tensor component:
+\begin{align}
+    R^\theta{}_{\phi\theta\phi} &= \partial_\theta \Gamma^\theta_{\phi\phi} - \partial_\phi \Gamma^\theta_{\phi\theta} + \Gamma^\theta_{\theta\lambda}\Gamma^\lambda_{\phi\phi} - \Gamma^\theta_{\phi\lambda}\Gamma^\lambda_{\theta\phi} \\
+    &= \partial_\theta (-\sin\theta \cos\theta) - 0 + 0 - (-\sin\theta \cos\theta)(\cot\theta) \\
+    &= -\cos^2\theta + \sin^2\theta + \cos^2\theta = \sin^2\theta.
+\end{align}
+Raising the first index, we have
+\begin{align}
+    R_{\theta\phi\theta\phi} = g_{\theta\lambda} R^\lambda{}_{\phi\theta\phi} = g_{\theta\theta} R^\theta{}_{\phi\theta\phi} = a^2 \sin^2\theta.
+\end{align}
+Next, we calculate the Ricci tensor component:
+\begin{align}
+    R_{\phi\phi} &= R^\theta{}_{\phi\theta\phi} + R^\phi{}_{\phi\phi\phi} = R^\theta{}_{\phi\theta\phi} = \sin^2\theta, \\
+    R_{\theta\theta} &= R^\theta{}_{\theta\theta\theta} + R^\phi{}_{\theta\phi\theta} = R^\phi{}_{\theta\phi\theta} = g^{\phi\lambda} R_{\lambda\theta\phi\theta} = g^{\phi\phi} R_{\phi\theta\phi\theta} = \frac{1}{a^2 \sin^2\theta} a^2 \sin^2\theta = 1.
+\end{align}
+The Ricci scalar is then
+\begin{align}
+    R = g^{\theta\theta} R_{\theta\theta} + g^{\phi\phi} R_{\phi\phi} = \frac{1}{a^2} + \frac{1}{a^2 \sin^2\theta} \sin^2\theta = \frac{2}{a^2}.
+\end{align}
+Thus, the Gaussian curvature is
+\begin{align}
+    K = -\frac{1}{2} R = -\frac{1}{a^2}.
+\end{align}
+By the definition of Christoffel symbols, we have
+\begin{align}
+    \Gamma^i_{jk} = \frac{1}{2} g^{il} (\partial_j g_{kl} + \partial_k g_{jl} - \partial_l g_{jk}).
+\end{align}
+Next, we calculate the Christoffel symbols for the second metric:
+\begin{align}
+    \Gamma^x_{xx} & = g^{x x} \partial_x g_{x x} + g^{x y} \left( \partial_x g_{x y} - \frac{1}{2} \partial_y g_{x x} \right) = \frac{2x}{1 - x^2 - y^2}, \\
+    \Gamma^x_{yy} & = g^{x x} \left( -\frac{1}{2} \partial_x g_{y y} \right) + g^{x y} \left( \partial_y g_{y y} - \frac{1}{2} \partial_y g_{y y} \right) = -\frac{2x}{1 - x^2 - y^2}, \\
+    \Gamma^x_{xy} & = g^{x x} \left( \frac{1}{2} \partial_y g_{x x} \right) + g^{x y} \left( \frac{1}{2} \partial_x g_{y y} \right) = \frac{2y}{1 - x^2 - y^2}, \\
+    \Gamma^y_{yy} & = g^{y y} \partial_y g_{y y} + g^{y x} \left( \partial_y g_{y x} - \frac{1}{2} \partial_x g_{y y} \right) = \frac{2y}{1 - x^2 - y^2}, \\
+    \Gamma^y_{xx} & = g^{y y} \left( -\frac{1}{2} \partial_y g_{x x} \right) + g^{y x} \left( \partial_x g_{x x} - \frac{1}{2} \partial_x g_{x x} \right) = -\frac{2y}{1 - x^2 - y^2}, \\
+    \Gamma^y_{xy} & = g^{y y} \left( \frac{1}{2} \partial_x g_{y y} \right) + g^{y x} \left( \frac{1}{2} \partial_y g_{x x} \right) = \frac{2x}{1 - x^2 - y^2}.
+\end{align}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{Problem 7/Prob1-math.png}
+    \caption{Calculation of Christoffel symbols, Riemann tensor, Ricci tensor and Ricci scalar in Mathematica}
+\end{figure}
+Using Mathematica to calculate the Riemann tensor, Ricci tensor and Ricci scalar, we find that the Ricci scalar is
+\begin{align}
+    R = -\frac{2}{a^2}.
+\end{align}
+Thus, the Gaussian curvature is
+\begin{align}
+    K = -\frac{1}{2} R = \frac{1}{a^2}.
+\end{align}
+This space is known as the Poincaré disk model of hyperbolic geometry. In this model, the entire hyperbolic plane is represented within the unit disk, and distances increase rapidly as one approaches the boundary of the disk. Although the disk appears finite, the geometry within it is infinite, allowing for unbounded distances between points.
 \clearpage
+
+
 \question{2}{}
 In class we were to led to Einstein's field equation with the inclusion of a cosmological constant. 
 \begin{align}
@@ -21,3 +77,41 @@ In class we were to led to Einstein's field equation with the inclusion of a cos
 \end{align}
 Find the nonrelativistic, static, weak field limit of this equation. The constant $\Lambda$ has dimension of $1/$length$^2$. Calculate the numerical value of $\Lambda$ based on the numerical value of the dark energy inferred from cosmological observations.
 \answer{}
+In the nonrelativistic, static, weak field limit, we can approximate the metric as
+\begin{align}
+    g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu},
+\end{align}
+where $\eta_{\mu\nu}$ is the Minkowski metric and $h_{\mu\nu}$ is a small perturbation. In this limit, the energy-momentum tensor $T_{\mu\nu}$ is dominated by the energy density $\rho$, so we have
+\begin{align}
+    T_{00} \approx \rho, \quad T_{0i} \approx 0, \quad T_{ij} \approx 0.
+\end{align}
+The Ricci tensor and Ricci scalar can be approximated as
+\begin{align}
+    R_{00} &\approx -\frac{1}{2} \nabla^2 h_{00}, \\
+    R &\approx -\nabla^2 h_{00}.
+\end{align}
+Substituting these approximations into Einstein's field equation, we get
+\begin{align}
+    -\frac{1}{2} \nabla^2 h_{00} - \frac{1}{2} \eta_{00} (-\nabla^2 h_{00}) + \Lambda \eta_{00} = -8\pi G \rho.
+\end{align}
+Simplifying this equation, we find
+\begin{align}
+    \nabla^2 h_{00} = 16\pi G \rho - 2\Lambda.
+\end{align}
+In the Newtonian limit, the gravitational potential $\Phi$ is related to $h_{00}$ by
+\begin{align}
+    h_{00} = -2\Phi.
+\end{align}
+Thus, we have
+\begin{align}
+    \nabla^2 \Phi = 4\pi G \rho - \Lambda.
+\end{align}
+This is the modified Poisson equation in the presence of a cosmological constant. For the numerical value of $\Lambda$, we can use the observed value of dark energy density $\rho_\Lambda \approx 6.91 \times 10^{-30} \text{ g/cm}^3$. The relationship between $\Lambda$ and $\rho_\Lambda$ is given by (see equation~(14) in this \href{https://arxiv.org/pdf/astro-ph/0004075}{Paper} by Sean Carroll):
+\begin{align}
+    \Lambda = 8\pi G \rho_\Lambda.
+\end{align}
+Using $G \approx 6.674 \times 10^{-8} \text{ cm}^3 \text{ g}^{-1} \text{ s}^{-2}$, we find
+\begin{align}
+    \Lambda \approx 8\pi (6.674 \times 10^{-8}) (6.91 \times 10^{-30}) \text{ cm}^{-2} \approx 1.19 \times 10^{-56} \text{ cm}^{-2}.
+\end{align}
+Thus, the numerical value of the cosmological constant $\Lambda$ based on the observed dark energy density is approximately $1.19 \times 10^{-56} \text{ cm}^{-2}$.

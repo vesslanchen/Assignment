@@ -359,18 +359,66 @@ By substituting the field redefinition in eq.(10.16) into the lagrangian in eq.(
 where
 \begin{align}
     \mathcal{L}_0 &= -\frac{1}{2}\partial^\mu\varphi\partial_\mu\varphi - \frac{1}{2} m^2 \varphi^2, \\
-    \mathcal{L}_1 &= - 2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi- m^2 \lambda \varphi^3  - 2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi - \frac{m^2 \lambda^2}{2} \varphi^4\\
-    &=\lambda
+    \mathcal{L}_1 &= - 2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi- m^2 \lambda \varphi^3  - 2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi - \frac{m^2 \lambda^2}{2} \varphi^4
 \end{align}
 We can treat the last four terms as interaction terms. The corresponding Feynman rules are:
-\begin{align}
-    &\text{Propagator:} \quad \frac{i}{p^2 - m^2 + i\epsilon}, \\
-    &\text{3-point vertex from } -2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi: \quad -2i\lambda (p_1 \cdot p_2 + p_2 \cdot p_3 + p_3 \cdot p_1), \\
-    &\text{3-point vertex from } -m^2 \lambda \varphi^3: \quad -i m^2 \lambda, \\
-    &\text{4-point vertex from } -2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi: \quad -2i\lambda^2 (p_1 \cdot p_2 + p_1 \cdot p_3 + p_1 \cdot p_4 + p_2 \cdot p_3 + p_2 \cdot p_4 + p_3 \cdot p_4), \\
-    &\text{4-point vertex from } -\frac{m^2 \lambda^2}{2} \varphi^4: \quad -i m^2 \lambda^2.
-\end{align}
+\begin{itemize}
+    \item The propagator is the same as that of a free scalar field:
+    \begin{align}
+        \frac{-i}{p^2 + m^2 - i\epsilon}.
+    \end{align}
+    \item The three-point vertex from the $- m^2 \lambda \varphi^3$ term contributes a factor of $-i m^2 \lambda\times3! = -i 6 m^2 \lambda$.
+    \item The three-point vertex from the $- 2\lambda \varphi \partial^\mu\varphi \partial_\mu\varphi$ term contributes a factor of $i 2\lambda (p_1 \cdot p_2 + p_1 \cdot p_3 + p_2 \cdot p_3)\times2!$, where $p_1, p_2, p_3$ are the momenta of the three legs. However we can apply momenta conservation to rewrite it as $-i2\lambda(p_1^2+p_2^2+p_3^2)$ by $(p_1+p_2+p_3)^2=0$.
+    \item The four-point vertex from the $- \frac{m^2 \lambda^2}{2} \varphi^4$ term contributes a factor of $-i m^2 \lambda^2 / 2\times 4!  = -i 12 m^2 \lambda^2$.
+    \item The four-point vertex from the $- 2\lambda^2 \varphi^2 \partial^\mu\varphi \partial_\mu\varphi$ term contributes a factor of $i 2\lambda^2 (p_1 \cdot p_2 + p_1 \cdot p_3 + p_1 \cdot p_4 + p_2 \cdot p_3 + p_2 \cdot p_4 + p_3 \cdot p_4)\times 2!2! = i 8\lambda^2 (p_1 \cdot p_2 + p_1 \cdot p_3 + p_1 \cdot p_4 + p_2 \cdot p_3 + p_2 \cdot p_4 + p_3 \cdot p_4)$. Similarly, we can apply momenta conservation to rewrite it as $-i4\lambda^2(p_1^2+p_2^2+p_3^2+p_4^2)$ by $(p_1+p_2+p_3+p_4)^2=0$.
+\end{itemize}
+In summary, the Feynman rules are:
+\begin{itemize}
+    \item Propagator: $\frac{-i}{p^2 + m^2 - i\epsilon}$.
+    \item Three-point vertex: $-i6m^2\lambda - i2\lambda(p_1^2+p_2^2+p_3^2)=-i2\lambda(3m^2 + p_1^2 + p_2^2 + p_3^2)$.
+    \item Four-point vertex: $-i12m^2\lambda^2 - i4\lambda^2(p_1^2+p_2^2+p_3^2+p_4^2)= -i4\lambda^2(3m^2 + p_1^2 + p_2^2 + p_3^2 + p_4^2)$.
+\end{itemize}
 
+
+Now we can compute the tree-level $\varphi\varphi\to\varphi\varphi$ scattering amplitude. We assume the initial momenta are $p_1$ and $p_2$, and the final momenta are $p_3$ and $p_4$. The momentum of propagator will be labeled as $q$. Four momenta are all on-shell, so $p_1^2=p_2^2=p_3^2=p_4^2=-m^2$. We also ignore $\epsilon$ in the propagator since the propagator particle is off-shell. The Mandelstam variables are defined as:
+\begin{align}
+    s &= -(p_1 + p_2)^2 = -q^2, \\
+    t &= -(p_1 - p_3)^2, \\
+    u &= -(p_1 - p_4)^2.
+\end{align}
+The contributions to the scattering amplitude are:
+\begin{itemize}
+    \item The s-channel diagram with two three-point vertices:
+    \begin{align}
+        \mathcal{T}_s &= \Big[-i2\lambda(3m^2 + p_1^2 + p_2^2 + q^2)\Big] \frac{-i}{q^2 + m^2} \Big[-i2\lambda(3m^2 + p_3^2 + p_4^2 + q^2)\Big] \\
+        &= \frac{4i\lambda^2 (-s + m^2)^2}{-s + m^2}.
+    \end{align}
+    \item The t-channel diagram with two three-point vertices:
+    \begin{align}
+        \mathcal{T}_t &= \Big[-i2\lambda(3m^2 + p_1^2 + p_3^2 + q^2)\Big] \frac{-i}{q^2 + m^2} \Big[-i2\lambda(3m^2 + p_2^2 + p_4^2 + q^2)\Big] \\
+        &= \frac{4i\lambda^2 (-t + m^2)^2}{-t + m^2}.
+    \end{align}
+    \item The u-channel diagram with two three-point vertices:
+    \begin{align}
+        \mathcal{T}_u &= \Big[-i2\lambda(3m^2 + p_1^2 + p_4^2 + q^2)\Big] \frac{-i}{q^2 + m^2} \Big[-i2\lambda(3m^2 + p_2^2 + p_3^2 + q^2)\Big] \\
+        &= \frac{4i\lambda^2 (-u + m^2)^2}{-u + m^2}.
+    \end{align}
+    \item The four-point vertex diagram:
+    \begin{align}
+        \mathcal{T}_4 &= -i4\lambda^2(3m^2 + p_1^2 + p_2^2 + p_3^2 + p_4^2) = 
+        +4im^2\lambda^2 
+    \end{align}
+\end{itemize}
+Now we can sum up all contributions to get the total scattering amplitude:
+\begin{align}
+    \mathcal{T} &= \mathcal{T}_s + \mathcal{T}_t + \mathcal{T}_u + \mathcal{T}_4 \\
+    &= 4i\lambda^2 \Big[ \frac{(-s + m^2)^2}{-s + m^2} + \frac{(-t + m^2)^2}{-t + m^2} + \frac{(-u + m^2)^2}{-u + m^2} + m^2 \Big] \\
+    &= 4i\lambda^2 \Big[ (-s + m^2) + (-t + m^2) + (-u + m^2) + m^2 \Big] \\
+    &= 4i\lambda^2 \Big[ - (s + t + u) + 4m^2 \Big] \\
+    &= 0, 
+\end{align}
+where we have used the relation $s + t + u = 4m^2$ for $2\to2$ scattering of identical particles. Therefore, we have shown that the tree-level $\varphi\varphi\to\varphi\varphi$ scattering amplitude is zero, as expected for a free-field theory.
+\qed
 \clearpage
 \question{5}{Problem 11.2}\\
 Consider \textit{Compton scattering}, in which a massless photon is scattered by an electron, initially at rest. (This is the FT frame.) In problem 59.1, we will compute $|\mathcal{T}|^2$ for this process (summed over the possible spin states of the scattered photon and electron, and averaged over the possible spin states of the initial photon and electron), with the result
