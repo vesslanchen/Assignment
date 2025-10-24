@@ -1,3 +1,6 @@
+\section*{Problem Set 4 due 9:30 AM, Monday, October 27th}
+
+
 \question{1}{\textbf{Gell-Mann Okubo for the baryon octet}}
 \\
 The generators \(t_{a}(a=1, \ldots, 8)\) of \(\mathrm{SU}(3)\) are normalized as \(t_{a}=\frac{\lambda_{a}}{2}\) with \(\operatorname{Tr}\left(t_{a} t_{b}\right)=\frac{1}{2} \delta_{a b}\), where \(\lambda_{a}\) are the Gell-Mann matrices. They satisfy \(\left[t_{a}, t_{b}\right]=i f_{a b c} t_{c}\) and \(\left\{t_{a}, t_{b}\right\}= \frac{1}{3} \delta_{a b} \mathbf{1}+d_{a b c} t_{c}\), where \(f_{a b c}\) are totally antisymmetric and \(d_{a b c}\) are totally symmetric structure constants.
@@ -37,7 +40,121 @@ O_{S} &= \{\bar{B}, B\} - \frac{2}{3} \mathbf{1} \operatorname{Tr}(\bar{B} B) = 
       &= \bar{B}^{i} B^{j}\left(\frac{1}{3}\delta_{ij}\mathbf{1}+d_{ijk}t_{k}\right) - \frac{2}{3}\mathbf{1}\left(\frac{1}{2}\bar{B}^{i} B^{j}\delta_{ij}\right)\\
       &= \bar{B}^{i} B^{j} d_{ijk} t_{k}
 \end{align}
-
+Taking the trace of \(O_{S}\):
+\begin{align}
+    \operatorname{Tr}(O_{S}) &= \operatorname{Tr}(\bar{B}^{i} B^{j} d_{ijk} t_{k}) = \bar{B}^{i} B^{j} d_{ijk} \operatorname{Tr}(t_{k}) = 0.
+\end{align}
+Thus, both \(O_{A}\) and \(O_{S}\) are traceless and transform in the adjoint (octet) representation.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Expanding \(O_{A}\) and \(O_{S}\) in components using the generator basis, we have already derived:
+\begin{align}
+O_{A} &= i \bar{B}^{i} B^{j} f_{ijk} t_{k}\\
+O_{S} &= \bar{B}^{i} B^{j} d_{ijk} t_{k}
+\end{align}
+Thus, the components are:
+\begin{align}
+(O_{A})^{k} &= i f_{ijk} \bar{B}^{i} B^{j}\\
+(O_{S})^{k} &= d_{ijk} \bar{B}^{i} B^{j}
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Introducing a flavor-breaking spurion \(H_{8} = H_{8}^{i} t_{i}\), with real components \(H_{8}^{i}\), we can construct the two independent \(\mathrm{SU}(3)\)-invariant mass terms:
+\begin{align}
+    S_{f} &= (O_{A})_{b}^{a}(H_{8})_{a}^{b} = \operatorname{Tr}(O_{A} H_{8})\\
+    S_{d} &= (O_{S})_{b}^{a}(H_{8})_{a}^{b} = \operatorname{Tr}(O_{S} H_{8})
+\end{align}
+Assuming \(H_{8}\) points in the 8-direction (i.e., \(H_{8}^{i} \propto \delta_{i8}\)), we can write:
+\begin{align}
+    H_{8} &= H_{8}^{i} t_{i}= H_{8}^{8} t_{8}
+\end{align}
+Substituting this into the expressions for \(S_{f}\) and \(S_{d}\):
+\begin{align}
+    S_{f} &= \operatorname{Tr}(O_{A} H_{8}) = \operatorname{Tr}(if_{ijk} \bar{B}^{i} B^{j} t_{k} H_{8}^{l} t_{l}) = i H_{8}^{8} f_{ij8} \bar{B}^{i} B^{j} \operatorname{Tr}(t_{k} t_{8})= \frac{i}{2} H_{8}^{8} f_{ij8} \bar{B}^{i} B^{j}\\
+    S_{d} &= \operatorname{Tr}(O_{S} H_{8}) = \operatorname{Tr}(d_{ijk} \bar{B}^{i} B^{j} t_{k} H_{8}^{l} t_{l}) = H_{8}^{8} d_{ij8} \bar{B}^{i} B^{j} \operatorname{Tr}(t_{k} t_{8})= \frac{1}{2} H_{8}^{8} d_{ij8} \bar{B}^{i} B^{j}
+\end{align}
+Since \(O_{A}\) and \(O_{S}\) are octet operators, \(S_{f}\) and \(S_{d}\) correspond to the \(f\)-type and \(d\)-type symmetry breaking terms in the baryon mass operator, respectively.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+\begin{align}
+    &\langle\bar{B}| t_{8}|B\rangle \equiv\operatorname{Tr}(\bar{B} [t_{8}, B])\\
+    =& \operatorname{Tr}(\bar{B} (t_{8} B - B t_{8})) = \operatorname{Tr}(\bar{B} t_{8} B) - \operatorname{Tr}(\bar{B} B t_{8})\\
+    =& \operatorname{Tr}(B\bar{B} t_{8} ) - \operatorname{Tr}(\bar{B} B t_{8})\\
+    =& \operatorname{Tr}((\bar{B} B - B \bar{B}) t_{8}) = \operatorname{Tr}(O_{A} t_{8}) \propto S_{f}
+\end{align}
+This is beccause $S_f=\operatorname{Tr}(O_{A} H_{8})=\operatorname{Tr}(O_{A} H_{8}^8t_8)=H_8^8\operatorname{Tr}(O_{A}t_8)$. Similarly, for \(S_{d}\):
+\begin{align}
+    &\langle\bar{B}| d_{8 i j} t_{i} t_{j}|B\rangle \equiv \operatorname{Tr}(\bar{B} d_{8 i j}[t_{i},[t_{j}, B]])\\
+    =& \operatorname{Tr}(\bar{B}^\alpha  B^\beta t_\alpha d_{8 i j} [t_{i},[t_{j}, t_\beta]])\\
+    =& \bar{B}^\alpha B^\beta d_{8 i j} \operatorname{Tr}(t_\alpha  [t_{i},[t_{j}, t_\beta]])\\
+    =& \bar{B}^\alpha B^\beta d_{8 i j} \operatorname{Tr}(t_\alpha [t_i,if_{j \beta \gamma} t_\gamma])\\
+    =& i \bar{B}^\alpha B^\beta d_{8 i j} f_{j \beta \gamma} \operatorname{Tr}(t_\alpha [t_i, t_\gamma])\\
+    =& i \bar{B}^\alpha B^\beta d_{8 i j} f_{j \beta \gamma} if_{i \alpha \delta} \operatorname{Tr}(t_\alpha t_\delta)\\
+    =& - \frac{1}{2} \bar{B}^\alpha B^\beta d_{8 i j} f_{j \beta \gamma} f_{i \alpha \gamma}\\
+    =&- \frac{1}{2} \bar{B}^a B^b d_{8 i j} f_{j b c} f_{i a c}
+\end{align}
+By \texttt{Mathematica}, we have 
+\begin{align}
+    d_{8 i j} f_{j b c} f_{i a c} = 3/2 d_{8 a b}
+\end{align}
+Thus,
+\begin{align}
+    \langle\bar{B}| d_{8 i j} t_{i} t_{j}|B\rangle = - \frac{3}{4} \bar{B}^a B^b d_{8 a b} = - \frac{3}{2} \operatorname{Tr}(O_{S} t_{8}) \propto S_{d}
+\end{align}
+This is because $S_d=\operatorname{Tr}(O_{S} H_{8})=\operatorname{Tr}(O_{S} H_{8}^8t_8)=H_8^8\operatorname{Tr}(O_{S}t_8)$.
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+First, we write down the explicit form of $B$:
+\begin{align}
+    B = \begin{pmatrix}
+    \frac{\Sigma^{0}}{\sqrt{2}} + \frac{\Lambda^0}{\sqrt{6}} & \Sigma^{+} & p \\
+    \Sigma^{-} & -\frac{\Sigma^{0}}{\sqrt{2}} + \frac{\Lambda^0}{\sqrt{6}} & n \\
+    -\Xi^{-} & \Xi^{0} & -\frac{2\Lambda^0}{\sqrt{6}}
+    \end{pmatrix}
+\end{align}
+Next, we write down the hypercharge \(Y\) and isospin \(I\) and $I(I+1)-Y^2/4$ values for each baryon:
+\begin{align}
+    &p: Y=1, I=1/2, I(I+1)-Y^2/4=3/4-1/4=1/2\\
+    &n: Y=1, I=1/2, I(I+1)-Y^2/4=3/4-1/4=1/2\\
+    &\Sigma^{+}: Y=0, I=1, I(I+1)-Y^2/4=2-0=2\\
+    &\Sigma^{0}: Y=0, I=1, I(I+1)-Y^2/4=2-0=2\\
+    &\Sigma^{-}: Y=0, I=1, I(I+1)-Y^2/4=2-0=2\\
+    &\Xi^{0}: Y=-1, I=1/2, I(I+1)-Y^2/4=3/4-1/4=1/2\\
+    &\Xi^{-}: Y=-1, I=1/2, I(I+1)-Y^2/4=3/4-1/4=1/2\\
+    &\Lambda^{0}: Y=0, I=0, I(I+1)-Y^2/4=0-0=0
+\end{align}
+Now, we compute \(\left[\frac{2}{\sqrt{3}} t_{8}, B\right]\), and it can be easily show that (see my \textit{Mathematica} notebook for details):
+\begin{align}
+    [\frac{2}{\sqrt{3}} t_{8}, B] = 
+    \begin{pmatrix}
+    0 & 0 & p \\
+    0 & 0 & n \\
+    -(-\Xi^{-}) & -\Xi^{0} & 0
+    \end{pmatrix}= Y B
+\end{align}
+where \(Y\) is the hypercharge of the baryon \(B\). Next, we compute the normalized operator \(\frac{2}{\sqrt{3}} d_{8 i j}\left[t_{i},\left[t_{j}, B\right]\right]+ \frac{1}{3}\left[t_{i},\left[t_{i}, B\right]\right]\):
+\begin{align}
+    &\frac{2}{\sqrt{3}} d_{8 i j}\left[t_{i},\left[t_{j}, B\right]\right]+ \frac{1}{3}\left[t_{i},\left[t_{i}, B\right]\right] \\
+    =& \begin{pmatrix}
+    \sqrt{2}\Sigma^{0} & 2\Sigma^{+} & \frac{1}{2}p \\
+    2\Sigma^{-} & -\sqrt{2}\Sigma^{0} & \frac{1}{2}n \\
+    \frac{1}{2}(-\Xi^{-}) & \frac{1}{2}\Xi^{0} & 0
+    \end{pmatrix}=\begin{pmatrix}
+    2\frac{\Sigma^{0}}{\sqrt{2}} & 2\Sigma^{+} & \frac{1}{2}p \\
+    2\Sigma^{-} & -2\frac{\Sigma^{0}}{\sqrt{2}} & \frac{1}{2}n \\
+    \frac{1}{2}(-\Xi^{-}) & \frac{1}{2}\Xi^{0} & 0
+    \end{pmatrix} = \left(I(I+1)-\frac{Y^{2}}{4}\right) B
+\end{align}
+where \(I(I+1)-\frac{Y^{2}}{4}\) is the value for each baryon \(B\). Thus, we have shown that for each entry \(B_{ij}\) of the baryon octet matrix, \(S_{f} \propto Y\) and \(S_{d} \propto I(I+1)-Y^{2} / 4\), thereby reproducing the Gell-Mann-Okubo mass formula for the baryon octet, meaning 
+\begin{align}
+    M_B(Y,I) = M_{0} + M_A Y + M_S \left(I(I+1)-\frac{Y^{2}}{4}\right),
+\end{align}
+where \(M_{0}, M_{A}, M_{S}\) are constants.
+\qed
 
 \clearpage
 \question{2}{\textbf{$\rho$-$\omega$ mixing}}
@@ -63,8 +180,12 @@ Compare with the PDG experimental data. How does the inclusion of $\rho$-$\omega
 \end{enumerate}
 
 \answer{}
-\clearpage
+\begin{enumerate}
+\item[(a)]
+\end{enumerate}
 
+
+\clearpage
 \question{3}{\textbf{Baryon magnetic moments}}
 \\
 The octet of spin-$\frac{1}{2}$ baryons has magnetic moments $\mu$. The operator that describes the magnetic moment is an $\mathrm{SU}(3)_{f}$ octet operator which is proportional to the quark charge $Q$. The charge
@@ -96,3 +217,32 @@ Q = \begin{pmatrix}
 Determine all the spin-$\frac{1}{2}$ baryon magnetic moments in terms of $\mu(p)$ and $\mu(n)$ (by eliminating $c_{f,d}$ or $\alpha_{\pm}$) and compare with the PDG experimental values. These predictions were first worked out by Coleman and Glashow in 1961. Note that imposing the full $\mathrm{SU}(6)$ spin-flavor symmetry further predicts $\mu(p) / \mu(n) = -\frac{3}{2}$, which you can ignore in this problem.
 
 \answer{}
+See my \textit{Mathematica} notebook for detailed calculations. The final results are summarized in the table below:
+\begin{itemize}
+    \item $p$: $c_f+\frac{1}{3}c_d$
+    \item $n$: $-\frac{2}{3}c_d$
+    \item $\Lambda$: $-\frac{1}{3}c_d$
+    \item $\Sigma^{+}$: $c_f+\frac{1}{3}c_d$
+    \item $\Sigma^{0}$: $\frac{1}{3}c_d$
+    \item $\Sigma^{-}$: $-c_f+\frac{1}{3}c_d$
+    \item $\Xi^{0}$: $-\frac{2}{3}c_d$
+    \item $\Xi^{-}$: $-c_f+\frac{1}{3}c_d$
+\end{itemize}
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Baryon & Predicted Magnetic Moment ($\mu_N$) & Experimental Magnetic Moment ($\mu_N$) \\
+    \hline
+    $p$ & $\mu(p)$ & $2.793$ \\
+    $n$ & $\mu(n)$ & $-1.913$ \\
+    $\Lambda$ & $\frac{1}{2} \mu(n)$ & $-0.613$ \\
+    $\Sigma^{+}$ & $\mu(p)$ & $2.458$ \\
+    $\Sigma^{0}$ & $-\frac{1}{2} \mu(n)$ & $\approx0$\\
+    $\Sigma^{-}$ & $-(\mu(p) + \mu(n))$ & $-1.160$ \\
+    $\Xi^{0}$ & $\mu(n)$ & $-1.250$ \\
+    $\Xi^{-}$ & $-(\mu(p) + \mu(n))$ & $-0.651$ \\
+    \hline
+    \end{tabular}
+\end{center}
+The predictions are in good agreement with the experimental values, demonstrating the effectiveness of the $\mathrm{SU}(3)_f$ symmetry approach in describing baryon magnetic moments except for $\Sigma^0$ where the experimental value is not well matched.
+\qed
