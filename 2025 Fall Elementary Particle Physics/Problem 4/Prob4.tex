@@ -180,9 +180,146 @@ Compare with the PDG experimental data. How does the inclusion of $\rho$-$\omega
 \end{enumerate}
 
 \answer{}
-\begin{enumerate}
-\item[(a)]
-\end{enumerate}
+Before we start, we declare the notation for physical states and pure isospin states as follows:
+\begin{align}
+    |\rho^0\rangle &= \cos\theta |\rho^0_I\rangle + \sin\theta |\omega_I\rangle,\\
+    |\omega\rangle &= -\sin\theta |\rho^0_I\rangle + \cos\theta |\omega_I\rangle,\\
+    |\rho^0_I\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle - |d\bar{d}\rangle)=|I=1, I_3=0\rangle,\\
+    |\omega_I\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle + |d\bar{d}\rangle)=|I=0, I_3=0\rangle.
+\end{align}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+The decay amplitude for $\omega \rightarrow \pi^+ \pi^-$ and $\rho^0 \rightarrow \pi^+ \pi^-$ can be written as:
+\begin{align}
+    \mathcal{M}(\omega \rightarrow \pi^+ \pi^-) &= \langle \pi^+ \pi^- | H | \omega \rangle\\
+    &= \langle \pi^+ \pi^- | H | -\sin\theta |\rho^0_I\rangle + \cos\theta |\omega_I\rangle \\  
+    &= -\sin\theta \langle \pi^+ \pi^- | H | \rho^0_I \rangle + \cos\theta \langle \pi^+ \pi^- | H | \omega_I \rangle\\
+    \mathcal{M}(\rho^0 \rightarrow \pi^+ \pi^-) &= \langle \pi^+ \pi^- | H | \rho^0 \rangle\\
+    &= \langle \pi^+ \pi^- | H | \cos\theta |\rho^0_I\rangle + \sin\theta |\omega_I\rangle \\
+    &= \cos\theta \langle \pi^+ \pi^- | H | \rho^0_I \rangle + \sin\theta \langle \pi^+ \pi^- | H | \omega_I \rangle.
+\end{align}
+Actually, since both of \(\rho^0\) and \(\omega\) are vector mesons with \(J^{PC}=1^{--}\) and \(\pi^+\pi^-\) is a pseudoscalar meson pair with \(J^{PC}=0^{-+}\), the decay must proceed via a P-wave to conserve angular momentum and parity due to strong interaction. Thus the spatial wave function of \(\pi^+\pi^-\) must be antisymmetric under exchange of the two pions. Since pions are bosons, the total wave function must be symmetric under exchange of the two pions. Therefore, the isospin wave function of \(\pi^+\pi^-\) must also be antisymmetric under exchange of the two pions. This means that the \(\pi^+\pi^-\) state can only be in an isospin \(I=1\) state, since the \(I=0\) and \(I=2\) states are symmetric under exchange of the two pions. Thus, by Clebsch-Gordan decomposition, we only have: 
+\begin{align}
+    |\pi^+ \pi^- \rangle_{\text{anti-sym}} &=\frac{1}{\sqrt{2}}\Big( |\pi^+\rangle| \pi^- \rangle- |\pi^-\rangle| \pi^+ \rangle\Big)\\
+    &=  |I=1, I_3=0\rangle.
+\end{align}
+Using this, we can evaluate the matrix elements:
+\begin{align}
+    \langle \pi^+ \pi^- | H | \rho^0_I \rangle &\propto \langle I=1, I_3=0 | H | I=1, I_3=0 \rangle = A,\\
+    \langle \pi^+ \pi^- | H | \omega_I \rangle &\propto \langle I=1, I_3=0 | H | I=0, I_3=0 \rangle = 0,
+\end{align}
+where \(A\) is the amplitude for the isospin-conserving decay. Thus, the decay amplitudes become:
+\begin{align}
+    \mathcal{M}(\omega \rightarrow \pi^+ \pi^-) &= -\sin\theta A,\\
+    \mathcal{M}(\rho^0 \rightarrow \pi^+ \pi^-) &= \cos\theta A.
+\end{align}
+The decay rates are proportional to the square of the amplitude:
+\begin{align}
+    \Gamma(\omega \rightarrow \pi^+ \pi^-) &\propto |\mathcal{M}(\omega \rightarrow \pi^+ \pi^-)|^2 = \sin^2\theta |A|^2,\\
+    \Gamma(\rho^0 \rightarrow \pi^+ \pi^-) &\propto |\mathcal{M}(\rho^0 \rightarrow \pi^+ \pi^-)|^2 = \cos^2\theta |A|^2.
+\end{align}
+Note that we ignore the phase space factors since \(m_\omega \approx m_{\rho^0}\). Taking the ratio of the decay rates, we have:
+\begin{align}
+    \frac{\Gamma(\omega \rightarrow \pi^+ \pi^-)}{\Gamma(\rho^0 \rightarrow \pi^+ \pi^-)} &= \frac{\sin^2\theta}{\cos^2\theta} = \tan^2\theta.  
+\end{align}
+Using the experimental values from PDG:
+\begin{align}
+    \Gamma(\omega \rightarrow \pi^+ \pi^-) &\approx 0.133 \text{ MeV},\\
+    \Gamma(\rho^0 \rightarrow \pi^+ \pi^-) &\approx 147.1 \text{ MeV},
+\end{align}
+we can solve for \(\theta\):
+\begin{align}
+    \tan^2\theta &= \frac{0.133}{147.1},\\
+    \theta &\approx  0.0301 \text{ radians} \approx 1.72^\circ.
+\end{align}
+The error in the value of the mixing angle can be estimated by propagating the uncertainties in the decay rates. However, since the uncertainties in the decay rates are relatively small compared to their values, the error in \(\theta\) will also be small. For simplicity, we can estimate the error as:
+\begin{align}
+    \Delta \theta &\approx \frac{1}{2} \frac{\Delta \Gamma(\omega \rightarrow \pi^+ \pi^-)}{\Gamma(\rho^0 \rightarrow \pi^+ \pi^-)} \frac{1}{\tan\theta}.
+\end{align}
+Using the uncertainties from PDG, $\Delta \Gamma(\omega \rightarrow \pi^+ \pi^-)$ is about $0.01$ MeV, we find:
+\begin{align}
+    \Delta \theta &\approx \frac{1}{2} \frac{0.01}{147.1} \frac{1}{\tan(0.0301)} \approx 0.00113041 \text{ radians} \approx 0.065^\circ.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+We can draw the Feynman diagram for the decay of a vector meson into an electron-positron pair via a virtual photon. The amplitude for the decay can be written as:
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (p1) at (-2,  1) {\(q\)};
+      \vertex (p2) at (-2, -1) {\(\bar{q}\)};
+
+      % 中間交換點
+      \vertex (c)  at (-1,  0) ;
+      \vertex (d)  at (1, 0);
+
+      % 右邊出射粒子
+      \vertex (p1p) at ( 2,  1) {\(e^+\)};
+      \vertex (p2p) at ( 2, -1) {\(e^-\)};
+
+      % 畫圖
+      \diagram* {
+        (p1) -- [fermion] (c) -- [fermion] (p2),
+        (p1p) -- [fermion] (d) -- [fermion] (p2p),
+        (c) -- [boson, edge label=\(\gamma\)] (d), % 可改成 gluon, Z, h ...
+      };
+  \end{feynman}
+\end{tikzpicture}
+    \caption{The Feynman diagram for $q\bar{q}\to e^+e^-$ .}
+    \label{HW4-plt:qq-to-ee}
+\end{figure}
+\begin{align}
+    \mathcal{M}(V \rightarrow e^+ e^-) &\propto \langle e^+ e^- | H | V \rangle,
+\end{align}
+where \(V\) represents either \(\rho^0\) or \(\omega\). The quark content of the vector mesons is:
+\begin{align}
+    |\rho^0_I\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle - |d\bar{d}\rangle),\\
+    |\omega_I\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle + |d\bar{d}\rangle).
+\end{align}
+The amplitude for the decay can be expressed in terms of the quark charges:
+\begin{align}
+    \mathcal{M}(\rho^0_I \rightarrow e^+ e^-) &\propto \frac{1}{\sqrt{2}} (Q_u - Q_d) = \frac{1}{\sqrt{2}} \left(\frac{2}{3} - \left(-\frac{1}{3}\right)\right) = \frac{1}{\sqrt{2}} \cdot 1 = \frac{1}{\sqrt{2}},\\
+    \mathcal{M}(\omega_I \rightarrow e^+ e^-) &\propto \frac{1}{\sqrt{2}} (Q_u + Q_d) = \frac{1}{\sqrt{2}} \left(\frac{2}{3} + \left(-\frac{1}{3}\right)\right) = \frac{1}{\sqrt{2}} \cdot \frac{1}{3} = \frac{1}{3\sqrt{2}}.
+\end{align}
+Using the mixing relations, we can write the amplitudes for the physical states:
+\begin{align}
+    \mathcal{M}(\rho^0 \rightarrow e^+ e^-) &= \cos\theta \mathcal{M}(\rho^0_I \rightarrow e^+ e^-) + \sin\theta \mathcal{M}(\omega_I \rightarrow e^+ e^-)\\
+    &= \cos\theta \cdot \frac{1}{\sqrt{2}} + \sin\theta \cdot \frac{1}{3\sqrt{2}},\\
+    \mathcal{M}(\omega \rightarrow e^+ e^-) &= -\sin\theta \mathcal{M}(\rho^0_I \rightarrow e^+ e^-) + \cos\theta \mathcal{M}(\omega_I \rightarrow e^+ e^-)\\
+    &= -\sin\theta \cdot \frac{1}{\sqrt{2}} + \cos\theta \cdot \frac{1}{3\sqrt{2}}.
+\end{align}
+The decay rates are proportional to the square of the amplitudes:
+\begin{align}
+    \Gamma(\rho^0 \rightarrow e^+ e^-) &\propto \left|\cos\theta \cdot \frac{1}{\sqrt{2}} + \sin\theta \cdot \frac{1}{3\sqrt{2}}\right|^2,\\
+    \Gamma(\omega \rightarrow e^+ e^-) &\propto \left|-\sin\theta \cdot \frac{1}{\sqrt{2}} + \cos\theta \cdot \frac{1}{3\sqrt{2}}\right|^2.
+\end{align}
+Substituting the value of \(\theta \approx 0.0301\) radians, we can calculate the decay rates:
+\begin{align}
+    \Gamma(\rho^0 \rightarrow e^+ e^-) &\propto \left|\cos(0.0301) \cdot \frac{1}{\sqrt{2}} + \sin(0.0301) \cdot \frac{1}{3\sqrt{2}}\right|^2 \approx 0.5009,\\ 
+    \Gamma(\omega \rightarrow e^+ e^-) &\propto \left|-\sin(0.0301) \cdot \frac{1}{\sqrt{2}} + \cos(0.0301) \cdot \frac{1}{3\sqrt{2}}\right|^2 \approx 0.046.
+\end{align}
+Taking the ratio of the decay rates, we have:
+\begin{align}
+    \frac{\Gamma(\rho^0 \rightarrow e^+ e^-)}{\Gamma(\omega \rightarrow e^+ e^-)} &\approx \frac{0.5009}{0.046} \approx 11.09.
+\end{align}
+Using the experimental values from PDG: 
+\begin{align}
+    \frac{\Gamma(\rho^0 \rightarrow e^+ e^-)}{\Gamma(\omega \rightarrow e^+ e^-)} &\approx \frac{6.99 \text{ keV}}{0.64 \text{ keV}} \approx 10.86,
+\end{align}
+we see that our prediction is in good agreement with the experimental data.
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+The decay amplitude for the transition \((q\bar{q}) \rightarrow (q\bar{q}) + \gamma\) can be written as:
+\begin{align}
+    \mathcal{M}(V \rightarrow P + \gamma) &\propto \langle P \gamma | H | V \rangle,
+\end{align}
+where \(V\) represents either \(\rho^0\) or \(\omega\), and \(P\) represents either \(\pi^0\) or \(\eta\). The quark content of the pseudoscalar mesons is: 
+
 
 
 \clearpage
@@ -217,7 +354,7 @@ Q = \begin{pmatrix}
 Determine all the spin-$\frac{1}{2}$ baryon magnetic moments in terms of $\mu(p)$ and $\mu(n)$ (by eliminating $c_{f,d}$ or $\alpha_{\pm}$) and compare with the PDG experimental values. These predictions were first worked out by Coleman and Glashow in 1961. Note that imposing the full $\mathrm{SU}(6)$ spin-flavor symmetry further predicts $\mu(p) / \mu(n) = -\frac{3}{2}$, which you can ignore in this problem.
 
 \answer{}
-See my \textit{Mathematica} notebook for detailed calculations. The final results are summarized in the table below:
+See my \textit{Mathematica} notebook for detailed calculations. I also impose the normalized condition to simplify the result. The final results are summarized in the table below:
 \begin{itemize}
     \item $p$: $c_f+\frac{1}{3}c_d$
     \item $n$: $-\frac{2}{3}c_d$
