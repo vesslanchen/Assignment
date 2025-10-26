@@ -244,8 +244,6 @@ Using the uncertainties from PDG, $\Delta \Gamma(\omega \rightarrow \pi^+ \pi^-)
 \begin{itemize}
     \item [(b)]
 \end{itemize}
-We can draw the Feynman diagram for the decay of a vector meson into an electron-positron pair via a virtual photon. The amplitude for the decay can be written as:
-
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}
@@ -260,9 +258,8 @@ We can draw the Feynman diagram for the decay of a vector meson into an electron
       % 右邊出射粒子
       \vertex (p1p) at ( 2,  1) {\(e^+\)};
       \vertex (p2p) at ( 2, -1) {\(e^-\)};
-
       % 畫圖
-      \diagram* {
+      \diagram {
         (p1) -- [fermion] (c) -- [fermion] (p2),
         (p1p) -- [fermion] (d) -- [fermion] (p2p),
         (c) -- [boson, edge label=\(\gamma\)] (d), % 可改成 gluon, Z, h ...
@@ -272,6 +269,8 @@ We can draw the Feynman diagram for the decay of a vector meson into an electron
     \caption{The Feynman diagram for $q\bar{q}\to e^+e^-$ .}
     \label{HW4-plt:qq-to-ee}
 \end{figure}
+We can draw the Feynman diagram in Figure~\ref{HW4-plt:qq-to-ee} for the decay of a vector meson into an electron-positron pair via a virtual photon. The amplitude for the decay can be written as:
+
 \begin{align}
     \mathcal{M}(V \rightarrow e^+ e^-) &\propto \langle e^+ e^- | H | V \rangle,
 \end{align}
@@ -319,8 +318,55 @@ The decay amplitude for the transition \((q\bar{q}) \rightarrow (q\bar{q}) + \ga
     \mathcal{M}(V \rightarrow P + \gamma) &\propto \langle P \gamma | H | V \rangle,
 \end{align}
 where \(V\) represents either \(\rho^0\) or \(\omega\), and \(P\) represents either \(\pi^0\) or \(\eta\). The quark content of the pseudoscalar mesons is: 
-
-
+\begin{align}
+    |\rho^0_I\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle - |d\bar{d}\rangle),\\
+    |\omega_I\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle + |d\bar{d}\rangle),\\
+    |\pi^0\rangle &= \frac{1}{\sqrt{2}} (|u\bar{u}\rangle - |d\bar{d}\rangle),\\
+    |\eta\rangle &= \frac{1}{\sqrt{6}} (|u\bar{u}\rangle + |d\bar{d}\rangle - 2|s\bar{s}\rangle).
+\end{align}
+The amplitude for the decay can be expressed in terms of the quark charges:
+\begin{align}
+    \mathcal{M}(\rho^0_I \rightarrow \pi^0 + \gamma) &\propto Q_u \langle u \bar{u}|u \bar{u}\rangle + Q_d \langle d \bar{d}|d \bar{d}\rangle =  \frac{2}{3} + \left(-\frac{1}{3}\right) = \frac{1}{3},\\
+    \mathcal{M}(\omega_I \rightarrow \pi^0 + \gamma) &\propto Q_u \langle u \bar{u}|u \bar{u}\rangle - Q_d \langle d \bar{d}|d \bar{d}\rangle =  \frac{2}{3} - \left(-\frac{1}{3}\right) = 1,\\
+    \mathcal{M}(\rho^0_I \rightarrow \eta + \gamma) &\propto Q_u \langle u \bar{u}|u \bar{u}\rangle - Q_d \langle d \bar{d}|d \bar{d}\rangle =  \frac{2}{3} - \left(-\frac{1}{3}\right) = 1,\\
+    \mathcal{M}(\omega_I \rightarrow \eta + \gamma) &\propto Q_u \langle u \bar{u}|u \bar{u}\rangle + Q_d \langle d \bar{d}|d \bar{d}\rangle =  \frac{2}{3} + \left(-\frac{1}{3}\right) = \frac{1}{3}.
+\end{align}
+Using the mixing relations, we can write the amplitudes for the physical states:
+\begin{align}
+    \mathcal{M}(\rho^0 \rightarrow \pi^0 + \gamma) &= \cos\theta \mathcal{M}(\rho^0_I \rightarrow \pi^0 + \gamma) + \sin\theta \mathcal{M}(\omega_I \rightarrow \pi^0 + \gamma)\\
+    &= \cos\theta \cdot \frac{1}{3} + \sin\theta \cdot 1,\\
+    \mathcal{M}(\omega \rightarrow \pi^0 + \gamma) &= -\sin\theta \mathcal{M(\rho^0_I \rightarrow \pi^0 + \gamma) + \cos\theta \mathcal{M}(\omega_I \rightarrow \pi^0 + \gamma)}\\
+    &= -\sin\theta \cdot \frac{1}{3} + \cos\theta \cdot 1,\\
+    \mathcal{M}(\rho^0 \rightarrow \eta + \gamma) &= \cos\theta \mathcal{M(\rho^0_I \rightarrow \eta + \gamma) + \sin\theta \mathcal{M}(\omega_I \rightarrow \eta + \gamma)}\\
+    &= \cos\theta \cdot 1 + \sin\theta \cdot \frac{1}{3},\\
+    \mathcal{M}(\omega \rightarrow \eta + \gamma) &= -\sin\theta \mathcal{M(\rho^0_I \rightarrow \eta + \gamma) + \cos\theta \mathcal{M}(\omega_I \rightarrow \eta + \gamma)}\\
+    &= -\sin\theta \cdot 1 + \cos\theta \cdot \frac{1}{3}.
+\end{align}
+The decay rates are proportional to the square of the amplitudes:
+\begin{align}
+    \Gamma(\rho^0 \rightarrow \pi^0 + \gamma) &\propto \left|\cos\theta \cdot \frac{1}{3} + \sin\theta \cdot 1\right|^2,\\
+    \Gamma(\omega \rightarrow \pi^0 + \gamma) &\propto \left|-\sin\theta \cdot \frac{1}{3} + \cos\theta \cdot 1\right|^2,\\
+    \Gamma(\rho^0 \rightarrow \eta + \gamma) &\propto \left|\cos\theta \cdot 1 + \sin\theta \cdot \frac{1}{3}\right|^2,\\
+    \Gamma(\omega \rightarrow \eta + \gamma) &\propto \left|-\sin\theta \cdot 1 + \cos\theta \cdot \frac{1}{3}\right|^2.
+\end{align}
+Hence, the ratios of the decay rates are:
+\begin{align}
+    \frac{\Gamma(\rho^0 \rightarrow \pi^0 + \gamma)}{\Gamma(\omega \rightarrow \pi^0 + \gamma)} &\approx \Bigg(\frac{\cos\theta+3\sin\theta}{3\cos\theta-\sin\theta}\Bigg)^2\\
+    \frac{\Gamma(\rho^0 \rightarrow \eta + \gamma)}{\Gamma(\omega \rightarrow \eta + \gamma)} &\approx \Bigg(\frac{3\cos\theta+\sin\theta}{\cos\theta-3\sin\theta}\Bigg)^2.
+\end{align}
+Hence, we can have 
+\begin{align}
+    \frac{\Gamma(\rho^0 \rightarrow \pi^0 + \gamma)}{\Gamma(\omega \rightarrow \pi^0 + \gamma)}\Bigg|_{\theta=0} &= \Bigg(\frac{1+0}{3-0}\Bigg)^2 = \frac{1}{9} \approx 0.111,\\
+    \frac{\Gamma(\rho^0 \rightarrow \pi^0 + \gamma)}{\Gamma(\omega \rightarrow \pi^0 + \gamma)}\Bigg|_{\theta=0.0301} &\approx 0.135,\\
+    \frac{\Gamma(\rho^0 \rightarrow \eta + \gamma)}{\Gamma(\omega \rightarrow \eta + \gamma)}\Bigg|_{\theta=0} &= \Bigg(\frac{3+0}{1-0}\Bigg)^2 = 9,\\
+    \frac{\Gamma(\rho^0 \rightarrow \eta + \gamma)}{\Gamma(\omega \rightarrow \eta + \gamma)}\Bigg|_{\theta=0.0301} &\approx 11.1.
+\end{align}
+Compare with the experimental data from PDG:
+\begin{align}
+    \frac{\Gamma(\rho^0 \rightarrow \pi^0 + \gamma)}{\Gamma(\omega \rightarrow \pi^0 + \gamma)} &\approx \frac{69.3 \text{ keV}}{723 \text{ keV}} \approx 0.096,\\
+    \frac{\Gamma(\rho^0 \rightarrow \eta + \gamma)}{\Gamma(\omega \rightarrow \eta + \gamma)} &\approx \frac{44.22 \text{ keV}}{3.9 \text{ keV}} \approx 11.32.
+\end{align}
+ \textbf{Hence, we see that the inclusion of \(\rho\)-\(\omega\) mixing improves the agreement with the experimental data for the \(\rho^0 \rightarrow \eta + \gamma\) decay, while it worsens the agreement for the \(\rho^0 \rightarrow \pi^0 + \gamma\) decay.}\qed
 
 \clearpage
 \question{3}{\textbf{Baryon magnetic moments}}
@@ -381,5 +427,5 @@ See my \textit{Mathematica} notebook for detailed calculations. I also impose th
     \hline
     \end{tabular}
 \end{center}
-The predictions are in good agreement with the experimental values, demonstrating the effectiveness of the $\mathrm{SU}(3)_f$ symmetry approach in describing baryon magnetic moments except for $\Sigma^0$ where the experimental value is not well matched.
+\textbf{The predictions are in good agreement with the experimental values, demonstrating the effectiveness of the $\mathrm{SU}(3)_f$ symmetry approach in describing baryon magnetic moments except for $\Sigma^0$ where the experimental value is not well matched.}
 \qed
