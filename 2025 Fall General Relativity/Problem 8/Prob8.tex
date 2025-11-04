@@ -5,12 +5,41 @@
 In lecture we showed that $P^0=M$ for the Schwarzschild solution in standard coordinates. Calculate $P^z$ and show that it is zero. Since the metric is isotropic this shows that all components of the $3$-momentum are zero.
 
 \answer{}
+\begin{align}
+    P^j =&\frac{-1}{16\pi G} \int \Bigg(-\partial_t h_{kk}\delta_{ij}+ \partial_t h_{ij} + \partial_k h_{0k}\delta_{ij} - \partial_i h_{0j} \Bigg) n^i r^2 d\Omega \\
+    =&\frac{-1}{16\pi G} \int \Bigg(-\partial_t h_{kk}\delta_{ij}+ \partial_t h_{ij} + \partial_k h_{0k}\delta_{ij} - \partial_i h_{0j} \Bigg) \frac{x^i}{r} r^2 d\Omega \\
+    =&\frac{-1}{16\pi G} \int \Bigg(-\partial_t h_{kk}\delta_{ij}+ \partial_t h_{ij} + \partial_k h_{0k}\delta_{ij} - \partial_i h_{0j} \Bigg) x^i r d\Omega \\
+    =&\frac{-1}{16\pi G} \int \Bigg(-\partial_t h_{kk}\delta_{ij} x^i + \partial_t h_{ij} x^i + \partial_k h_{0k}\delta_{ij} x^i - \partial_i h_{0j} x^i \Bigg) r d\Omega \\
+    =&\frac{-1}{16\pi G} \int \Bigg(-\partial_t h_{kk} x^j + \partial_t h_{ij} x^i + \partial_k h_{0k} x^j - \partial_i h_{0j} x^i \Bigg) r d\Omega \\
+    =&\frac{-1}{16\pi G} \int \Bigg(-\partial_t h_{kk} x^j + \partial_t h_{ij} x^i  \Bigg) r d\Omega \quad \text{(since } h_{0j} =h_{0k}= 0 \text{ for Schwarzschild metric)} \\
+    =& 0 \quad \text{(since } h_{\mu\nu} \text{ is time-independent for Schwarzschild metric)} \qed 
+\end{align}
+
+
 
 
 \clearpage
 \question{2}{}
 In lecture we were given the components of the affine connection $\Gamma_{\mu \nu}^\lambda$ for the Scharzschild solution in standard coordinates. Using these, calculate one component of the Riemann-Christoffel curvature tensor, namely $R_{r t r}^t$. This is nonvanishing everywhere and goes to zero as $r \rightarrow \infty$. This shows that space is curved even though both the Ricci tensor and curvature scalar vanish.
 \answer{}
+By the definition of the Riemann-Christoffel curvature tensor, we have
+\begin{align}
+    R^\lambda{}_{\mu \nu \rho} = \partial_\nu \Gamma^\lambda_{\mu \rho} - \partial_\rho \Gamma^\lambda_{\mu \nu} + \Gamma^\lambda_{\nu \sigma} \Gamma^\sigma_{\mu \rho} - \Gamma^\lambda_{\rho \sigma} \Gamma^\sigma_{\mu \nu}.
+\end{align}
+Thus, we have
+\begin{align}
+    R^t{}_{r t r} &= \partial_t \Gamma^t_{r r} - \partial_r \Gamma^t_{r t} + \Gamma^t_{t \sigma} \Gamma^\sigma_{r r} - \Gamma^t_{r \sigma} \Gamma^\sigma_{r t}.
+\end{align}
+From the lecture notes, we have
+\begin{align}
+    \Gamma^t_{r t} = \Gamma^t_{t r} = \frac{M}{r^2} \left( 1 - \frac{2M}{r} \right)^{-1}, \quad \Gamma^t_{r r} = 0.
+\end{align}
+Thus, we have (by Mathematica)
+\begin{align}
+    R_{r t r}^t &= -\partial_r \Gamma^t_{r t} + \Gamma^t_{t t} \Gamma^t_{r r} + \Gamma^t_{t r} \Gamma^r_{r r} - \Gamma^t_{r t} \Gamma^t_{r t} - \Gamma^t_{r r} \Gamma^r_{r t} \\
+     &= \frac{2M}{r^2(r-2M)}
+\end{align}
+We can see that $R_{r t r}^t$ is nonvanishing everywhere and it goes to zero as $r \rightarrow \infty$. \qed
 
 \clearpage
 \question{3}{}
@@ -21,8 +50,137 @@ A photon moves in the Schwarzschild metric in the equatorial plane $\theta=\pi /
 \end{align}
 
 where $w=G M / r$. Assuming that $|w| \ll 1$, solve this equation iteratively to find the deflection angle $\Delta \phi$, and show that it agrees with the answer obtained in class by other means.
+\answer{}
+For a photon moving in the Schwarzschild metric in the equatorial plane $\theta=\pi / 2$, we have the following equations of motion:
+\begin{align}
+    \left( \frac{dr}{d\lambda} \right)^2 &= E^2 - \left( 1 - \frac{2GM}{r} \right) \frac{L^2}{r^2}, \\
+    \frac{d\phi}{d\lambda} &= \frac{L}{r^2},
+\end{align}
+where $\lambda$ is an affine parameter along the photon's trajectory, $E$ is the energy per unit mass, and $L$ is the angular momentum per unit mass. Dividing the first equation by the square of the second equation, we have
+\begin{align}
+    \left( \frac{dr}{d\phi} \right)^2 = \frac{r^4}{L^2} \left( E^2 - \left( 1 - \frac{2GM}{r} \right) \frac{L^2}{r^2} \right).
+\end{align}
+Rearranging this equation, we have
+\begin{align}
+    \left( \frac{dr}{d\phi} \right)^2 = \frac{r^4 E^2}{L^2} - r^2 + 2GM r.
+\end{align}
+Next, we introduce the variable $w = \frac{GM}{r}$. Thus, we have $r = \frac{GM}{w}$ and $\frac{dr}{d\phi} = -\frac{GM}{w^2} \frac{dw}{d\phi}$. Substituting these into the previous equation, we have
+\begin{align}
+    \left( -\frac{GM}{w^2} \frac{dw}{d\phi} \right)^2 = \frac{\left( \frac{GM}{w} \right)^4 E^2}{L^2} - \left( \frac{GM}{w} \right)^2 + 2GM \left( \frac{GM}{w} \right).
+\end{align}
+Simplifying this equation, we have
+\begin{align}
+    \left( \frac{dw}{d\phi} \right)^2 = \frac{E^2 (GM)^2}{L^2} - w^2 + 2 w^3.
+\end{align}
+Taking the derivative of both sides with respect to $\phi$, we have
+\begin{align}
+    2 \frac{dw}{d\phi} \frac{d^2 w}{d\phi^2} = -2 w \frac{dw}{d\phi} + 6 w^2 \frac{dw}{d\phi}.
+\end{align}
+Dividing both sides by $2 \frac{dw}{d\phi}$, we have
+\begin{align}
+    \frac{d^2 w}{d\phi^2} = -w + 3 w^2.
+\end{align}
+Rearranging this equation, we have
+\begin{align}
+    \frac{d^2 w}{d\phi^2} + w = 3 w^2.
+\end{align}
+To solve this equation iteratively, we first solve the homogeneous equation:
+\begin{align}
+    \frac{d^2 w_0}{d\phi^2} + w_0 = 0.
+\end{align}
+The general solution to this equation is
+\begin{align}
+    w_0(\phi) = A \cos\phi + B \sin\phi,
+\end{align}
+where $A$ and $B$ are constants determined by initial conditions. By considering a photon coming from infinity, we set $A =\frac{GM}{b}$ and $B = 0$, where $b$ is the impact parameter. In other words,
+\begin{align}
+    w_0(0) = \frac{GM}{b}, \quad \frac{dw_0}{d\phi} \bigg|_{\phi=0} = 0.
+\end{align} Thus, we have
+\begin{align}
+    w_0(\phi) = \frac{GM}{b} \cos\phi.
+\end{align}
+Next, we substitute $w_0$ into the right-hand side of the original equation to find the first-order correction $w_1$:
+\begin{align}
+    \frac{d^2 w_1}{d\phi^2} + w_1 = 3 w_0^2 = 3 \left( \frac{GM}{b} \cos\phi \right)^2 = 3 \left( \frac{GM}{b} \right)^2 \cos^2\phi.
+\end{align}
+Using the identity $\cos^2\phi = \frac{1 + \cos 2\phi}{2}$, we have
+\begin{align}
+    \frac{d^2 w_1}{d\phi^2} + w_1 = \frac{3}{2} \left( \frac{GM}{b} \right)^2 (1 + \cos 2\phi).
+\end{align}
+By considering a photon coming from infinity, we have 
+\begin{align}
+    w_1(0) = 0, \quad \frac{dw_1}{d\phi} \bigg|_{\phi=0} = 0.
+\end{align}
+Thus, we have (by mathematica)
+\begin{align}
+    w_1(\phi) &= \frac{2 G^2 M^2 \sin ^2\left(\frac{\phi }{2}\right) (\cos (\phi )+2)}{b^2}\\
+    &= \frac{G^2 M^2}{2 b^2} (3-2 \cos\phi - \cos 2\phi).
+\end{align}
+Hence the approximate solution up to first order is
+\begin{align}
+    w(\phi) = w_0(\phi) + w_1(\phi) = \frac{GM}{b} \cos\phi + \frac{G^2 M^2}{2 b^2} (3-2 \cos\phi - \cos 2\phi).
+\end{align}
+To find the deflection angle $\Delta \phi$, we set $w(\phi) = 0$ and solve for $\phi$ when the photon is far away from the mass. Thus, we have
+\begin{align}
+    0 = \frac{GM}{b} \cos\phi + \frac{G^2 M^2}{2 b^2} (3-2 \cos\phi - \cos 2\phi).
+\end{align}
+Expanding $\cos 2\phi = 2 \cos^2\phi - 1$, we have
+\begin{align}
+    0 =& \frac{GM}{b} \cos\phi + \frac{G^2 M^2}{2 b^2} (4 - 4 \cos\phi + 2 \cos^2\phi)\\
+    =& \frac{G^2 M^2}{b^2} \cos^2\phi + \left( \frac{GM}{b} - \frac{2 G^2 M^2}{b^2} \right) \cos\phi + \frac{2 G^2 M^2}{b^2}\\
+    \approx& \frac{G^2 M^2}{b^2} \cos^2\phi + \frac{GM}{b} \cos\phi + \frac{2 G^2 M^2}{b^2}.
+\end{align}
+Solving this quadratic equation for $\cos\phi$, we have
+\begin{align}
+    \cos\phi = \frac{-\frac{GM}{b} \pm \sqrt{\left( \frac{GM}{b} \right)^2 - 8 \left(\frac{G M}{b}\right)^4}}{2 \frac{G^2 M^2}{b^2}}\approx -2\frac{GM}{b}
+\end{align}
+Thus, we have
+\begin{align}
+    \phi \approx \frac{\pi}{2} + 2\frac{GM}{b}.
+\end{align}
+Since the photon comes from infinity and goes back to infinity, the total deflection angle is
+\begin{align}
+    \Delta \phi = 2 \left( \phi - \frac{\pi}{2} \right) = \frac{4GM}{b}.
+\end{align}
+This agrees with the answer obtained in class by other means. \qed
+
 
 \clearpage
 \question{4}{}
 The deflection of light by a spherical static body whose physical radius is smaller than its Schwarzschild radius should produce comet-like orbits suffering substantial deflection before returning to infinite radius if the distance of closest approach $r_0$ becomes comparable to the Schwarzschild radius. Using the differential equation in problem 1 show that there is a critical orbit $w_c(\phi)$, corresponding to a critical radius $r_c$. Explain what happens when $r_0>r_c, r_0=r_c$, and $r_0<r_c$. Draw some orbits for illustration. This phenomenon was observed by the "Event Horizon Telescope".
 \answer{}
+From problem 3, we have the differential equation
+\begin{align}
+    \frac{d^2 w}{d\phi^2} + w = 3 w^2,
+\end{align}
+where $w = \frac{GM}{r}$. To find the critical orbit $w_c(\phi)$, we look for a circular orbit where $w$ is constant. Thus, we set $\frac{d^2 w}{d\phi^2} = 0$.
+Thus, we have
+\begin{align}
+    w_c = 3 w_c^2.
+\end{align}
+Solving this equation, we have
+\begin{align}
+    w_c = 0 \quad \text{or} \quad w_c = \frac{{1}}{{3}}.
+\end{align}
+The solution $w_c = 0$ corresponds to an orbit at infinite radius, which is not physically interesting. The solution $w_c = \frac{1}{3}$ corresponds to a critical radius
+\begin{align}
+    r_c = 3 GM.
+\end{align}
+When the distance of closest approach $r_0$ is greater than the critical radius $r_c$ ($r_0 > r_c$), the photon will be deflected but will eventually escape to infinity, resulting in a hyperbolic-like orbit. When $r_0$ is equal to the critical radius $r_c$ ($r_0 = r_c$), the photon will spiral around the mass at the critical radius, resulting in a circular orbit. When $r_0$ is less than the critical radius $r_c$ ($r_0 < r_c$), the photon will be captured by the mass and will spiral inward, eventually falling into the black hole. This results in a trajectory that does not return to infinity. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Problem 8/r<r_c.pdf}
+    \caption{Orbit for $r_0 < r_c$, photon spirals inward and falls into the black hole.}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Problem 8/r=r_c.pdf}
+    \caption{Orbit for $r_0 = r_c$, photon spirals around the mass at the critical radius.}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Problem 8/r>r_c.pdf}
+    \caption{Orbit for $r_0 > r_c$, photon is deflected but escapes to infinity.}
+\end{figure}
+\qed
