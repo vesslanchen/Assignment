@@ -7,12 +7,44 @@ constituent masses and couplings in the two cases. For charmonium assume a color
 Coulomb potential $V(r)=-C_F \frac{\alpha_s}{r}$ with $C_F=4/3$. Estimate the strong force coupling
 $\alpha_S$, needed to reproduce the observed splitting.
 \answer{}
+For a two-body system with equal masses m, we can reduce it to a one-body problem with reduced mass $\mu = m/2$. The energy levels for a hydrogen-like atom are given by:
+\begin{align}
+E_n = -\frac{\mu \alpha^2}{2n^2},
+\end{align}
+where $n$ is the principal quantum number. We first derive this equation for our system. We can apply classical mechanics to find the energy levels. The circular orbit condition and quantization of angular momentum give:
+\begin{align}
+    &\frac{\mu v^2}{r} = \frac{\alpha}{r^2} \implies \mu rv^2 = \alpha,\\
+    &\mu vr = n\hbar =n.
+\end{align}
+We can have $v=\alpha/n$, then the total energy is:
+\begin{align}
+    E_n=-\frac{1}{2} \mu v^2 = -\frac{\mu \alpha^2}{2n^2}.
+\end{align}
+For positronium, the coupling constant is the fine-structure constant $\alpha \approx 1/137$. The energy difference between the $2^3S$ and $1^3S$ states is:
+\begin{align}
+\Delta E_{pos} = E_2 - E_1 = -\frac{\mu \alpha^2}{8} + \frac{\mu \alpha^2}{2} = \frac{3\mu \alpha^2}{8}.
+\end{align}
+Substituting $\mu = m_e/2$ (where $m_e=511$ keV is the electron mass) and $\alpha \approx 1/137$, we find:
+\begin{align}
+\Delta E_{pos} \approx \frac{3 \cdot (511 \text{ keV}/2) \cdot (1/137)^2}{8} \approx 5 \text{ eV}. 
+\end{align}
+For charmonium, we use the color-Coulomb potential with $C_F = 4/3$ and the strong coupling constant $\alpha_S$. The energy difference between the $2^3S$ and $1^3S$ states is:
+\begin{align}
+\Delta E_{charm} = \frac{3\mu (C_F \alpha_S)^2}{8}.
+\end{align}
+Given that $\Delta E_{charm} \approx 600$ MeV, we can solve for $\alpha_S$:
+\begin{align}
+600 \text{ MeV} = \frac{3 \cdot (m_c/2) \cdot (4/3 \alpha_S)^2}{8},
+\end{align}
+where $m_c \approx 1.27$ GeV is the charm quark mass. Rearranging gives $\alpha_S\approx1.2$. \qed
+\\
+\\
+\textbf{Remark: }The typical value of the strong coupling constant $\alpha_S$ at the charmonium scale is around 0.3 to 0.4, which is significantly lower than the estimated value of 1.2 obtained from this simple Coulombic model. This is not a physically reasonable value for $\alpha_S$ at the charmonium scale, indicating that the simple Coulombic model is insufficient to describe the charmonium system accurately. More sophisticated models that include confinement and relativistic effects are necessary for a better description.
 
 \clearpage
-
 \question{2}{\textbf{Quarkonia}}\\
 \begin{itemize}
-    \item [(a)] Meson such as the $phi(s\bar{s})$, $J/\psi(c\bar{c})$ and $\Upsilon(b\bar{b})$ are comparatively narrow hadronic resonances, even though they are strongly interacting. Explain, using qualitative arguments, why these quarkonium state do \textit{not} readily decay into lighter flavor mesons such as $Q\bar{q}$ and $\bar{Q}q$ (where $Q=c,b$ and $q=u,d,s$). Discuss how the mass of each resonance with respect to the lowest threshold (e.g. $K\bar{K},D\bar{D},B\bar{B}$) controls whether strong decays are allowed.\\
+    \item [(a)] Meson such as the $\phi(s\bar{s})$, $J/\psi(c\bar{c})$ and $\Upsilon(b\bar{b})$ are comparatively narrow hadronic resonances, even though they are strongly interacting. Explain, using qualitative arguments, why these quarkonium state do \textit{not} readily decay into lighter flavor mesons such as $Q\bar{q}$ and $\bar{Q}q$ (where $Q=c,b$ and $q=u,d,s$). Discuss how the mass of each resonance with respect to the lowest threshold (e.g. $K\bar{K},D\bar{D},B\bar{B}$) controls whether strong decays are allowed.\\
     \textbf{Hint}: Model a $Q\bar{Q}$ ground state with the Cornell potential and include a kinetic term via the uncertainties principle $p\sim1/r$ to obtain: 
     \begin{align}
         E(r)=\frac{1}{2\mu r^2} - \frac{A}{r}+kr,
@@ -22,6 +54,80 @@ $\alpha_S$, needed to reproduce the observed splitting.
     \item [(b)] The vector quarkonia $\phi(s\bar{s})$, $J/\psi(c\bar{c})$ and $\Upsilon(b\bar{b})$ follow an approximate factor-of-three scaling in mass from one flavor to the next. Before the discovery of the top quark in 1995, this scaling was used to estimate the "toponium" mass. Determine this mass and estimate whether this fictional top-antitop ($t\bar{t}$) pair would have had time to form a bound state before decaying? Compare with the real top quark which has a mass $m_t\approx173$~GeV.
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+By Mathematica, we can minimize $E(r)$ with respect to $r$ and obtain the ground state size $r_*$ for each quarkonium system:
+\begin{align}
+    r_{s\bar{s}} &\approx 2.05 \text{ GeV}^{-1}=0.40 \text{ fm}, E(r_{s\bar{s}}) \approx 0.288 \text{ GeV},\\
+    r_{c\bar{c}} &\approx 1.42 \text{ GeV}^{-1}=0.28 \text{ fm}, E(r_{c\bar{c}}) \approx 0.239 \text{ GeV},\\
+    r_{b\bar{b}} &\approx 0.67 \text{ GeV}^{-1}=0.13 \text{ fm}, E(r_{b\bar{b}}) \approx -0.198 \text{ GeV}.
+\end{align}
+Hence, we can estimate each piece in $E(r)$:
+\begin{align}
+    E_{s\bar{s}} &:\frac{1}{2\mu r_*^2} \approx 0.53 \text{ GeV}, -\frac{A}{r_*} \approx -0.65 \text{ GeV}, kr_* \approx 0.41 \text{ GeV},\\
+    E_{c\bar{c}} &:\frac{1}{2\mu r_*^2} \approx 0.32 \text{ GeV}, -\frac{A}{r_*} \approx -0.38 \text{ GeV}, kr_* \approx 0.28 \text{ GeV},\\
+    E_{b\bar{b}} &:\frac{1}{2\mu r_*^2} \approx 0.47 \text{ GeV}, -\frac{A}{r_*} \approx -0.80 \text{ GeV}, kr_* \approx 0.13 \text{ GeV}.
+\end{align}
+By comparing $c\bar{c}$ with $b\bar{b}$, we can see that the kinetic term, while the Coulomb term decreases in magnitude. This is because as the quark mass increases, the quarkonium system becomes more tightly bound, leading to a smaller size $r_*$. A smaller size results in a higher kinetic energy due to the uncertainty principle, and a stronger Coulomb attraction due to the reduced distance between the quarks. The linear confinement term also decreases as the size decreases. It's hard to compare $s\bar{s}$ with the other two systems since its coupling constant is much larger, but we can still see that the kinetic term is the largest among the three systems, indicating a relatively larger size.
+
+With the bounding energies estimated above, we can estimate the total masses of each quarkonium system:
+\begin{align}
+    M_{s\bar{s}} &\approx 2m_s + E(r_{s\bar{s}}) \approx 1.188 \text{ GeV},\\  
+    M_{c\bar{c}} &\approx 2m_c + E(r_{c\bar{c}}) \approx 3.239 \text{ GeV},\\
+    M_{b\bar{b}} &\approx 2m_b + E(r_{b\bar{b}}) \approx 9.402 \text{ GeV}.
+\end{align}
+Compared to the actual masses of $\phi(1.019)$, $J/\psi(3.097)$ and $\Upsilon(9.460)$, our estimates are reasonably close.
+
+Next, we consider the decay of these quarkonium states into lighter flavor mesons. For strong decays to occur, the mass of the quarkonium state must be greater than the sum of the masses of the decay products. The relevant thresholds are:
+\begin{align}
+    K\bar{K} &\approx 0.494 \text{ GeV} \times 2 = 0.988 \text{ GeV},\\
+    D\bar{D} &\approx 1.865 \text{ GeV} \times 2 = 3.730 \text{ GeV},\\
+    B\bar{B} &\approx 5.280 \text{ GeV} \times 2 = 10.560 \text{ GeV}.
+\end{align}
+Comparing these thresholds with the estimated masses:
+\begin{align}
+    M_{s\bar{s}} &\approx 1.188 \text{ GeV} > K\bar{K} \text{ (allowed)},\\  
+    M_{c\bar{c}} &\approx 3.239 \text{ GeV} < D\bar{D} \text{ (not allowed)},\\
+    M_{b\bar{b}} &\approx 9.402 \text{ GeV} < B\bar{B} \text{ (not allowed)}.
+\end{align}
+Thus, the $\phi(s\bar{s})$ can decay into $K\bar{K}$, while the $J/\psi(c\bar{c})$ and $\Upsilon(b\bar{b})$ cannot decay into $D\bar{D}$ and $B\bar{B}$ respectively. This explains why $J/\psi$ and $\Upsilon$ are comparatively narrow resonances, as they do not have strong decay channels available.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Using the approximate factor-of-three scaling in mass, we can estimate the mass of the fictional toponium ($t\bar{t}$) state:
+\begin{align}
+    M_{t\bar{t}} \approx 3 \times M_{b\bar{b}} \approx 3 \times 9.460 \text{ GeV} \approx 28.380 \text{ GeV}.
+\end{align}
+We can define the constituent mass of the top quark as half of the toponium mass:
+\begin{align}
+    m_t \approx \frac{M_{t\bar{t}}}{2} \approx \frac{28.380 \text{ GeV}}{2} \approx 14.190 \text{ GeV}.
+\end{align}
+To determine whether the toponium state would have time to form a bound state before decaying, we need to compare the lifetime of the top quark with the timescale for bound state formation. The typical time to form a bound state is on the order of the inverse of the binding energy, which can be estimated from the strong interaction scale, roughly $\Lambda_{QCD} \sim 200$ MeV. Thus, the timescale for bound state formation is approximately:
+\begin{align}
+    \tau_{form} \sim \frac{1}{\Lambda_{QCD}} \sim \frac{1}{250 \text{ MeV}} \approx 2.6 \times 10^{-24} \text{ s}.
+\end{align}
+Here we try to estimate the lifetime of the top quark. Using the equation provided in the lecture notes:
+\begin{align}
+    \Gamma_t \approx G_F m_{t}^3= 1.166\times10^{-5} \text{ GeV}^{-2} 
+    \times (14.190 \text{ GeV})^3 \approx 33.3 \text{ MeV}.
+\end{align}
+Thus, the lifetime of the toponium state is:
+\begin{align}
+    \tau_{t,fictional} \sim \frac{1}{\Gamma_t} \sim \frac{1}{33.3 \text{ MeV}} \approx 1.98 \times 10^{-23} \text{ s}.
+\end{align}
+Comparing the two timescales, we find that $\tau_{t,fictional} \gg \tau_{form}$, indicating that the toponium state would have had time to form a bound state before decaying. Now we can compare this with the real top quark mass $m_t \approx 173$ GeV:
+\begin{align}
+    \Gamma_t \approx G_F m_{t}^3= 1.166\times10^{-5} \text{ GeV}^{-2} 
+    \times (173 \text{ GeV})^3 \approx 60.4 \text{ GeV}.
+\end{align}
+Thus, the lifetime of the real top quark is:
+\begin{align}
+    \tau_{t,real} \sim \frac{1}{\Gamma_t} \sim \frac{1}{60.4 \text{ GeV}} \approx 1.09 \times 10^{-26} \text{ s}.
+\end{align}
+Comparing this with the bound state formation timescale, we find that $\tau_{t,real} \ll \tau_{form}$, indicating that the real top quark decays too quickly to form a bound state. \qed
+
+
 
 \clearpage
 \question{3}{\textbf{Regge trajectories}}\\
@@ -32,3 +138,79 @@ In the string model of hadrons a meson (quark-antiquark pair) can be thought of 
     \item [(b)] Draw a Chew-Frautschi plot (i.e. $J$ vs. $M^2$) of the following mesons $\rho(770)$, $f_2(1270)$, $\rho_3(1690)$, $f_4(2050)$, $\rho_5(2350)$ and $f_6(2510)$ and baryons $\Delta(1232)$, $\Delta(1950)$, $\Delta(2420)$, $\Delta(2950)$. From your plot, determine the experimental value of the string tension $k$. Compare the meson and baryon values and discuss whether a universal string tension describes both within errors.
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+Consider a rotating string of length $2r_0$ with string tension $k$. The mass element $dm$ of the string at a distance $r$ from the center and moving with velocity $v$ can be expressed as:
+\begin{align}
+    dm &= k \, dr,\\
+    v&=\omega r=\frac{c}{r_0} r, 
+\end{align}
+where $\omega = c/r_0$ is the angular velocity. The relativistic factor $\gamma$ is given by:
+\begin{align}
+    \gamma = \frac{1}{\sqrt{1-(v/c)^2}} = \frac{1}{\sqrt{1-(r/r_0)^2}}.
+\end{align}
+The total mass $M$ of the string can be calculated by integrating the mass element over the length of the string:
+\begin{align}
+    E=Mc^2=\int dE =\int \gamma c^2 dm = \int_{-r_0}^{r_0} \frac{kc^2}{\sqrt{1-(r/r_0)^2}} dr= \pi kc^2 r_0.
+\end{align}
+Thus, the total mass of the rotating string is:
+\begin{align}
+    M=\pi kr_0.
+\end{align}
+Next, we calculate the orbital angular momentum $J$ of the string. The angular momentum element $dJ$ at a distance $r$ from the center is given by:
+\begin{align}
+    dJ =\gamma r  v  dm = \frac{1}{\sqrt{1-(r/r_0)^2}} r \frac{c}{r_0} r k dr= \frac{kc}{r_0} \frac{r^2}{\sqrt{1-(r/r_0)^2}} dr.
+\end{align}
+Integrating this over the length of the string gives:
+\begin{align}
+    J = \int dJ = \int_{-r_0}^{r_0} \frac{kc}{r_0} \frac{r^2}{\sqrt{1-(r/r_0)^2}} dr=\frac{\pi}{2}ckr_0^2=\frac{\pi}{2}kr_0^2,
+\end{align}
+where we set $c=1$ in the last step. Hence, the orbital angular momentum of the rotating string is:
+\begin{align}
+    J=\frac{1}{2}\pi k r_0^2.   
+\end{align}
+Now, we can eliminate $r_0$ to find the relation between $J$ and $M^2$:
+\begin{align}
+    r_0 = \frac{M}{\pi k} \implies J = \frac{1}{2}\pi k \left(\frac{M}{\pi k}\right)^2 = \frac{M^2}{2\pi k}.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Using the relation derived in part (a), we can plot $J$ vs. $M^2$ for the given mesons and baryons. The data points are as follows:
+\begin{itemize}
+    \item Mesons:
+    \begin{align*}
+        \rho(770): & J=1, M^2=(0.770 \text{ GeV})^2=0.593 \text{ GeV}^2,\\
+        f_2(1270): & J=2, M^2=(1.275 \text{ GeV})^2=1.626 \text{ GeV}^2,\\
+        \rho_3(1690): & J=3, M^2=(1.689 \text{ GeV})^2=2.852 \text{ GeV}^2,\\
+        f_4(2050): & J=4, M^2=(2.018 \text{ GeV})^2=4.072 \text{ GeV}^2,\\
+        \rho_5(2350): & J=5, M^2=(2.330 \text{ GeV})^2=5.4289 \text{ GeV}^2,\\
+        f_6(2510): & J=6, M^2=(2.470 \text{ GeV})^2=6.1009 \text{ GeV}^2.
+    \end{align*}
+    \item Baryons:
+    \begin{align*}
+        \Delta(1232): & J=3/2, M^2=(1.232 \text{ GeV})^2=1.518 \text{ GeV}^2,\\
+        \Delta(1950): & J=7/2, M^2=(1.930 \text{ GeV})^2=3.7249 \text{ GeV}^2,\\
+        \Delta(2420): & J=11/2, M^2=(2.450 \text{ GeV})^2=6.0025 \text{ GeV}^2,\\
+        \Delta(2950): & J=15/2, M^2=(2.990 \text{ GeV})^2=8.9401 \text{ GeV}^2.
+    \end{align*}
+\end{itemize}
+Figure~\ref{HW5-fig:regge} shows the Chew-Frautschi plot of $J$ vs. $M^2$ for the mesons and baryons. From the linear fit of the data points, we can determine the slope of the line, which is given by:
+\begin{align}
+    \text{slope} = \frac{1}{2\pi k}.
+\end{align}
+From the linear fit of the meson data, we find the slope to be approximately $0.8 \text{ GeV}^{-2}$, leading to:
+\begin{align}
+    k_{meson} \approx 0.184 \text{ GeV}^2\\
+    k_{baryon} \approx 0.196 \text{ GeV}^2.
+\end{align}
+The values of the string tension $k$ for mesons and baryons are quite close, suggesting that a universal string tension can describe both systems within experimental errors. This supports the idea that the underlying dynamics of quark confinement in hadrons can be effectively modeled using a common string tension parameter. \qed
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Problem 5/Chew-Frautschi.pdf}
+    \caption{Chew-Frautschi plot of mesons and baryons.}
+    \label{HW5-fig:regge}
+\end{figure}
+
