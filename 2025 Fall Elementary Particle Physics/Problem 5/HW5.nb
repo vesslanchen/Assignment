@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    294047,       6023]
-NotebookOptionsPosition[    289100,       5948]
-NotebookOutlinePosition[    289515,       5965]
-CellTagsIndexPosition[    289472,       5962]
+NotebookDataLength[    294119,       6024]
+NotebookOptionsPosition[    289172,       5949]
+NotebookOutlinePosition[    289587,       5966]
+CellTagsIndexPosition[    289544,       5963]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -5042,14 +5042,15 @@ Cell[BoxData[
      "\:66f4\:5df2\:95b1\:8b80"}], "*)"}], 
    RowBox[{"BaseStyle", "->", 
     RowBox[{"{", 
-     RowBox[{"FontSize", "->", "12"}], "}"}]}], ",", 
+     RowBox[{"FontSize", "->", "15"}], "}"}]}], ",", 
    RowBox[{"ImageSize", "->", "Large"}]}], "]"}]], "Input",
  CellChangeTimes->{
   3.971637564340288*^9, {3.971637609995767*^9, 3.971637619203533*^9}, {
-   3.971637665939557*^9, 3.9716376729806767`*^9}},
+   3.971637665939557*^9, 3.9716376729806767`*^9}, {3.971637869322462*^9, 
+   3.971637869441331*^9}},
  NumberMarks->False,
  CellLabel->
-  "In[142]:=",ExpressionUUID->"83a85c43-a818-475d-b896-4a19d1f440db"],
+  "In[143]:=",ExpressionUUID->"83a85c43-a818-475d-b896-4a19d1f440db"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -5677,7 +5678,7 @@ LOXxRgq19i2Ts7M0QovTE868pPAfNnEmQg==
     Axes -> {True, True}, AxesLabel -> {
       FormBox["\"M\.b2 (GeV\.b2)\"", TraditionalForm], 
       FormBox["\"J\"", TraditionalForm]}, AxesOrigin -> {0, 0}, 
-    BaseStyle -> {FontSize -> 12}, 
+    BaseStyle -> {FontSize -> 15}, 
     DefaultBaseStyle -> {"PlotGraphics", "Graphics"}, DisplayFunction -> 
     Identity, Frame -> {{False, False}, {False, False}}, 
     FrameLabel -> {{None, None}, {None, None}}, 
@@ -5941,9 +5942,9 @@ LOXxRgq19i2Ts7M0QovTE868pPAfNnEmQg==
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
  CellChangeTimes->{3.971629755883469*^9, 3.971637566703536*^9, 
-  3.971637619829648*^9, 3.971637673548558*^9},
+  3.971637619829648*^9, 3.971637673548558*^9, 3.971637870651383*^9},
  CellLabel->
-  "Out[142]=",ExpressionUUID->"94f6b825-675b-4cc7-9126-268e6bf8e667"]
+  "Out[143]=",ExpressionUUID->"e60cf47b-2bf6-4e0e-8c71-3a33564c3252"]
 }, Open  ]]
 },
 WindowSize->{1680, 991},
@@ -6019,11 +6020,11 @@ Cell[208825, 4239, 328, 6, 33, "Output",ExpressionUUID->"abfc164e-c529-4d53-a71f
 Cell[209156, 4247, 330, 6, 33, "Output",ExpressionUUID->"c1f1a758-fe2f-4502-ae9f-094f87e46012"],
 Cell[209489, 4255, 246, 4, 33, "Output",ExpressionUUID->"cd10858f-f612-4c19-8454-c02717231518"],
 Cell[209738, 4261, 247, 4, 33, "Output",ExpressionUUID->"30ea1578-7eb2-4478-a255-34565af7d7be"],
-Cell[209988, 4267, 33138, 694, 248, "Output",ExpressionUUID->"2f4f8650-acd2-4a52-91b8-6c5eeadbef2d"]
+Cell[209988, 4267, 33138, 694, 267, "Output",ExpressionUUID->"2f4f8650-acd2-4a52-91b8-6c5eeadbef2d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[243163, 4966, 3165, 85, 157, "Input",ExpressionUUID->"83a85c43-a818-475d-b896-4a19d1f440db"],
-Cell[246331, 5053, 42753, 892, 380, "Output",ExpressionUUID->"94f6b825-675b-4cc7-9126-268e6bf8e667"]
+Cell[243163, 4966, 3215, 86, 157, "Input",ExpressionUUID->"83a85c43-a818-475d-b896-4a19d1f440db"],
+Cell[246381, 5054, 42775, 892, 382, "Output",ExpressionUUID->"e60cf47b-2bf6-4e0e-8c71-3a33564c3252"]
 }, Open  ]]
 }
 ]

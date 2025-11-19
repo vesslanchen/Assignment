@@ -1,0 +1,136 @@
+\section*{Assignment 9 due on Monday November 10 at 10PM}
+\question{1}{}
+Find the metric for the Scharzschild solution in terms of harmonic coordinates $t$ and 
+\begin{align}
+    X_1=R(r) \cos\phi\sin\theta, \quad X_2=R(r) \sin\phi\sin\theta, \quad X_3=R(r) \cos\theta, 
+\end{align}
+by solving for the function $R(r)$. The metric should be in the form 
+\begin{align}
+    d\tau^2 = P(R)dt^2 -Q(R) d\bold{X}^2- S(R) (\bold{X}\cdot d\bold{X})^2.
+\end{align}
+\answer{}
+First we write the Schwarzschild metric in the usual coordinates:
+\begin{align}
+    d\tau^2 = \left(1-\frac{2GM}{r}\right)dt^2 -\left(1-\frac{2GM}{r}\right)^{-1} dr^2 - r^2 d\Omega^2,
+\end{align}
+where $d\Omega^2 = d\theta^2 + \sin^2\theta d\phi^2$.
+
+To find $R(r)$, we impose the harmonic coordinate condition $\partial_\mu (\sqrt{-g} g^{\mu\nu}) = 0$. Calculating $\sqrt{-g}=r^2 \sin\theta$ and $g^{\mu\nu}$ from the metric, we find that the harmonic condition leads to the differential equation:
+\begin{align}
+    \frac{d}{dr} \left(r^2 \left(1-\frac{2GM}{r}\right) \frac{dR}{dr}\right) - 2R = 0.
+\end{align}
+This also comes from the equation 8.1.15 in Weinberg's Gravitation and Cosmology book:
+\begin{align}
+    \frac{d}{dr}\Bigg(r^2 B^{1/2} A^{-1/2} \frac{dR}{dr}\Bigg) - 2 A^{1/2} B^{1/2} R = 0,
+\end{align}
+where $A = 1 - \frac{2GM}{r}$ and $B = \left(1 - \frac{2GM}{r}\right)^{-1}$. By Mathematica, the solution to this differential equation is:
+\begin{align}
+    R(r)= \frac{2 c_2 (r-G M) \coth ^{-1}\left(\frac{G M}{r-G M}\right)-2 (c_1+c_2) G M+2 c_1 r}{2 G M}
+\end{align}
+where $c_1$ and $c_2$ are integration constants. To ensure that $R(r)\to r$ as $r\to\infty$, we set $c_1=GM$ and $c_2=0$. Thus, the final solution is:
+\begin{align}
+    R(r) = r - GM\implies r = R + GM.
+\end{align}
+Substituting this back into the Schwarzschild metric, we get:
+\begin{align}
+    d\tau^2 =& \left(1-\frac{2GM}{R+GM}\right)dt^2 -\left(1-\frac{2GM}{R+GM}\right)^{-1} dR^2 - (R+GM)^2 d\Omega^2\\
+    =&\frac{R-GM}{R+GM}dt^2 -\frac{R+GM}{R-GM} dR^2 - (R+GM)^2 d\Omega^2\\
+    =&P(R)dt^2 -Q(R) d\bold{X}^2- S(R) (\bold{X}\cdot d\bold{X})^2
+\end{align}
+Next, we express $dR^2 + R^2 d\Omega^2$ in terms of $d\bold{X}^2$ and $(\bold{X}\cdot d\bold{X})^2$:
+\begin{align}
+    d\bold{X}^2 &= dX_1^2 + dX_2^2 + dX_3^2 = dR^2 + R^2 d\Omega^2,\\
+    (\bold{X}\cdot d\bold{X})^2 &= R^2 dR^2.
+\end{align}
+Hence, 
+\begin{align}
+    d\tau^2 =&P(R)dt^2 -Q(R) d\bold{X}^2- S(R) (\bold{X}\cdot d\bold{X})^2\\
+    =&P(R)dt^2 -Q(R)(dR^2 + R^2 d\Omega^2) - S(R) R^2 dR^2\\
+    =&P(R)dt^2 -\left(Q(R) + S(R) R^2\right) dR^2 - Q(R) R^2 d\Omega^2.
+\end{align}
+Comparing coefficients, we find:
+\begin{align}
+    P(R) &= \frac{R-GM}{R+GM},\\
+    Q(R)+ S(R) R^2 &= \frac{R+GM}{R-GM},\\
+    Q(R) R^2 &= (R+GM)^2.
+\end{align}
+Solving these equations, we obtain:
+\begin{align}
+    Q(R) &= \frac{(R+GM)^2}{R^2}=(1+\frac{GM}{R})^2,\\
+    S(R) &=  (G^2 M^2 (G M + R))/(R^4 (-G M + R))=\frac{G^2 M^2 (R+GM)}{R^4 (R - G M)}.
+\end{align}
+Hence, the Schwarzschild metric in harmonic coordinates is:
+\begin{align}
+    d\tau^2 = \frac{R-GM}{R+GM}dt^2 -\left(1+\frac{GM}{R}\right)^2 d\bold{X}^2 - \frac{G^2 M^2 (R+GM)}{R^4 (R - G M)} (\bold{X}\cdot d\bold{X})^2.
+\end{align} 
+This is identical to equation~8.2.15 in Weinberg's Gravitation and Cosmology book.
+\qed
+
+\clearpage
+\question{2}{}
+Consider a gravitational action of the form
+\begin{align}
+    I_G=-\frac{1}{16\pi G} \int d^4x \sqrt{g} f(R),
+\end{align}
+where $f(R)$ is a smooth differentiable fucntion of the scalar curvature $R$.
+In the limit $R\to0$, we should require $f(R)\to R$ so as to recover the well-tested weak field limit of Einstein's gravity. Find the equation of motion that follows from this action, which is a generalization of 
+\begin{align}
+    R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=-8\pi G T_{\mu\nu}.
+\end{align}
+\answer{}
+We have known that the variation of the matter action gives (see equation~12.2.2 in Weinberg's Gravitation and Cosmology book):
+\begin{align}
+    \delta I_M = \frac{1}{2} \int d^4x \sqrt{g} T^{\mu\nu} \delta g_{\mu\nu}.
+\end{align}
+Next, we calculate the variation of the gravitational action:
+\begin{align}
+    \delta I_G =& -\frac{1}{16\pi G} \int d^4x \left( \delta \sqrt{g} f(R) + \sqrt{g} f'(R) \delta R \right)\\
+    =& -\frac{1}{16\pi G} \int d^4x \sqrt{g} \left( -\frac{1}{2} g_{\mu\nu} f(R) \delta g^{\mu\nu} + f'(R) \delta R \right)\\
+    =& -\frac{1}{16\pi G} \int d^4x \sqrt{g} \left( \frac{1}{2} g^{\mu\nu} f(R) \delta g_{\mu\nu} + f'(R) \delta R \right)
+\end{align}
+where $f'(R) = \frac{df}{dR}$ and $\delta \sqrt{g} = -\frac{1}{2} \sqrt{g} g_{\mu\nu} \delta g^{\mu\nu}= \frac{1}{2} \sqrt{g} g^{\mu\nu} \delta g_{\mu\nu}$. To find $\delta R$, we use the relation:
+\begin{align}
+    \delta R = R_{\mu\nu} \delta g^{\mu\nu} + g^{\mu\nu} \delta R_{\mu\nu}= -R^{\mu\nu} \delta g_{\mu\nu} + g^{\mu\nu} \delta R_{\mu\nu}
+\end{align}
+Then we have 
+\begin{align}
+    \delta I_G =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Bigg(\frac{1}{2} g^{\mu\nu} f(R) \delta g_{\mu\nu} - f'(R)  R^{\mu\nu} \delta g_{\mu\nu} + f'(R) g^{\mu\nu} \delta R_{\mu\nu} \Bigg)\\
+    =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Bigg(\Big(\frac{1}{2} g^{\mu\nu} f(R) - f'(R)  R^{\mu\nu}\Big) \delta g_{\mu\nu} + f'(R) g^{\mu\nu} \delta R_{\mu\nu} \Bigg)
+\end{align}
+The term $\delta R_{\mu\nu}$ can be expressed as (see \textit{Palatini identity} equation~10.9.3 in Weinberg's Gravitation and Cosmology book):
+\begin{align}
+    \delta R_{\mu\nu} = \frac{1}{2} g^{\lambda\sigma} \Big( \delta g_{\lambda\sigma ; \mu;\nu} + \delta g_{\mu\nu ; \lambda;\sigma} - \delta g_{\mu\lambda ; \nu;\sigma} - \delta g_{\nu\lambda ; \mu;\sigma} \Big)
+\end{align}
+Substituting this into the expression for $\delta I_G$, we get:
+\begin{align}
+    \delta I_G =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Bigg(\Big(\frac{1}{2} g^{\mu\nu} f(R) - f'(R)  R^{\mu\nu}\Big) \delta g_{\mu\nu} \\
+    &+ \frac{1}{2} f'(R) g^{\mu\nu} g^{\lambda\sigma} \Big( \delta g_{\lambda\sigma ; \mu;\nu} + \delta g_{\mu\nu ; \lambda;\sigma} - \delta g_{\mu\lambda ; \nu;\sigma} - \delta g_{\nu\lambda ; \mu;\sigma} \Big) \Bigg)
+\end{align}
+The second line can be simplified using integration by parts and the fact that the covariant derivative of the metric tensor vanishes. That means:
+\begin{align}
+    \delta I_G =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \frac{1}{2} f'(R) g^{\mu\nu} g^{\lambda\sigma} \Big( \delta g_{\lambda\sigma ; \mu;\nu} + \delta g_{\mu\nu ; \lambda;\sigma} - \delta g_{\mu\lambda ; \nu;\sigma} - \delta g_{\nu\lambda ; \mu;\sigma} \Big)\\
+    =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \frac{1}{2} f'(R) \Big( g^{\lambda\sigma} g^{\mu\nu} \delta g_{\lambda\sigma ; \mu;\nu} + g^{\mu\nu} g^{\lambda\sigma} \delta g_{\mu\nu ; \lambda;\sigma} - g^{\mu\lambda} g^{\nu\sigma} \delta g_{\mu\lambda ; \nu;\sigma} - g^{\nu\lambda} g^{\mu\sigma} \delta g_{\nu\lambda ; \mu;\sigma} \Big)\\
+    =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \frac{1}{2} f'(R) \Big( g^{\lambda\sigma} g^{\mu\nu} \delta g_{\lambda\sigma ; \mu;\nu} + g^{\mu\nu} g^{\lambda\sigma} \delta g_{\mu\nu ; \lambda;\sigma} - 2 g^{\mu\lambda} g^{\nu\sigma} \delta g_{\mu\lambda ; \nu;\sigma} \Big)\\
+    =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \frac{1}{2} f'(R) \Big( \Box (g^{\lambda\sigma} \delta g_{\lambda\sigma}) + \Box (g^{\mu\nu} \delta g_{\mu\nu}) - 2 (g^{\mu\lambda} g^{\nu\sigma} \delta g_{\mu\lambda})_{;\nu;\sigma} \Big)\\
+    =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Big( f'(R) \Box (g^{\mu\nu} \delta g_{\mu\nu}) - f'(R) (g^{\mu\lambda} g^{\nu\sigma} \delta g_{\mu\lambda})_{;\nu;\sigma} \Big)\\
+    =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Big( g^{\mu\nu} \Box f'(R) \delta g_{\mu\nu} - f'(R)^{;\mu;\nu} \delta g_{\mu\nu} \Big),
+\end{align}
+where we have used integration by parts and dropped the boundary terms. Hence, we have:
+\begin{align}
+    \delta I_G =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Bigg(\Big(\frac{1}{2} g^{\mu\nu} f(R) - f'(R)  R^{\mu\nu}\Big) \delta g_{\mu\nu} \\
+    &+ \Big(g^{\mu\nu} \Box f'(R) - f'(R)^{;\mu;\nu}\Big) \delta g_{\mu\nu} \Bigg)
+\end{align}
+Combining terms, we have:
+\begin{align}
+    \delta I_G =& -\frac{1}{16\pi G} \int d^4x  \sqrt{g} \Bigg(\Big(\frac{1}{2} g^{\mu\nu} f(R) - f'(R)  R^{\mu\nu} + g^{\mu\nu} \Box f'(R) - f'(R)^{;\mu;\nu}\Big) \delta g_{\mu\nu} \Bigg)
+\end{align}
+Setting the total variation $\delta I_G + \delta I_M = 0$ for arbitrary $\delta g_{\mu\nu}$, we obtain the equation of motion:
+\begin{align}
+    f'(R) R^{\mu\nu} - \frac{1}{2} g^{\mu\nu} f(R) - g^{\mu\nu} \Box f'(R) + f'(R)^{;\mu;\nu} = -8\pi G T^{\mu\nu}
+\end{align}
+or equivalently,
+\begin{align}
+    f'(R) R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} f(R) - g_{\mu\nu} \Box f'(R) + f'(R)_{;\mu;\nu} = -8\pi G T_{\mu\nu}
+\end{align}
+This is the generalized Einstein equation for the action with $f(R)$ gravity.
+\qed

@@ -1,0 +1,380 @@
+\section*{HW5 Due to November 18 11:59 PM}
+\question{1}{Problem 18.1}\\
+In any number $d$ of spacetime dimensions, a \textit{Dirac field} $\Psi_\alpha$ carries a spin index $\alpha$, and has a kinetic term of the form $i\overline{\Psi} \gamma^\mu \partial_\mu \Psi$, where we have suppressed the spin indices; the \textit{gamma matrices} $\gamma^\mu$ are dimensionless, and $\overline{\Psi}=\Psi^\dagger \gamma^0$.
+\begin{itemize}
+    \item [(a)] What is the mass dimension $[\Psi]$ of the field $\Psi$.
+    \item [(b)] Consider interaction of the form $g_n(\overline{\Psi} \Psi)^n$, where $n\geq2$ is an integer. What is the mass dimension $[g_n]$ of $g_n$? 
+    \item [(c)] Consider interaction of the form $g_{m,n}\varphi^m(\overline{\Psi} \Psi)^n$, where $\varphi$ is a scalar field, and $m,n>0$ are integers. What is the mass dimension $[g_{m,n}]$ of $g_{m,n}$?
+    \item [(d)] In $d=4$ spacetime dimensions, which of these interactions are allowed in a renormalizable theory?
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+We have in $d$ spacetime dimensions, the action is dimensionless, so the Lagrangian density has mass dimension $[ \mathcal{L} ] = d$. The kinetic term for the Dirac field is given by:
+\begin{align}
+    \mathcal{L}_{\text{kin}} = i \overline{\Psi } \gamma^\mu \partial_\mu \Psi.
+\end{align}
+The derivative $\partial_\mu$ has mass dimension $1$, and the gamma matrices $\gamma^\mu$ are dimensionless. Therefore, we can write:
+\begin{align}
+    [\mathcal{L}_{\text{kin}}] = [\overline{\Psi}] + [\partial_\mu] + [\Psi] = 2[\Psi] + 1.
+\end{align}
+Setting this equal to the mass dimension of the Lagrangian density, we have:
+\begin{align}
+    2[\Psi] + 1 = d \implies [\Psi] = \frac{d - 1}{2}.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The interaction term is given by:
+\begin{align}
+    \mathcal{L}_{\text{int}} = g_n (\overline{\Psi} \Psi)^n.
+\end{align}
+The mass dimension of this term is:
+\begin{align}
+    [\mathcal{L}_{\text{int}}] = [g_n] + n([\overline{\Psi}] + [\Psi]) = [g_n] + 2n[\Psi].
+\end{align}
+Setting this equal to the mass dimension of the Lagrangian density, we have:
+\begin{align}
+    [g_n] + 2n[\Psi] = d \implies [g_n] = d - 2n[\Psi] = d - 2n \left(\frac{d - 1}{2}\right) = d - n(d - 1) = d(1 - n) + n.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+The interaction term is given by:
+\begin{align}
+    \mathcal{L}_{\text{int}} = g_{m,n} \varphi^m (\overline{\Psi} \Psi)^n.
+\end{align}
+The mass dimension of this term is:
+\begin{align}
+    [\mathcal{L}_{\text{int}}] = [g_{m,n}] + m[\varphi] + n([\overline{\Psi}] + [\Psi]) = [g_{m,n}] + m[\varphi] + 2n[\Psi].
+\end{align}
+Setting this equal to the mass dimension of the Lagrangian density, we have:
+\begin{align}
+    [g_{m,n}] + m[\varphi] + 2n[\Psi] = d \implies [g_{m,n}] = d - m[\varphi]- 2n[\Psi].
+\end{align}
+The mass dimension of the scalar field $\varphi$ in $d$ dimensions is given by:
+\begin{align}
+    [\varphi] = \frac{d - 2}{2}.
+\end{align}
+Substituting this and the expression for $[\Psi]$ into the equation for $[g_{m,n}]$, we get:
+\begin{align}
+    [g_{m,n}] = d - m\left(\frac{d - 2}{2}\right) - 2n\left(\frac{d - 1}{2}\right) = d - \frac{m(d - 2)}{2} - n(d - 1).
+\end{align}
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+In $d=4$ spacetime dimensions, we have:
+\begin{align}
+    [\Psi] = \frac{4 - 1}{2} = \frac{3}{2}.
+\end{align}
+For the interaction $g_n (\overline{\Psi} \Psi)^n$, we have:
+\begin{align}
+    [g_n] = 4(1 - n) + n = 4 - 3n.
+\end{align}
+For the interaction $g_{m,n} \varphi^m (\overline{\Psi} \Psi)^n$, we have:
+\begin{align}
+    [g_{m,n}] = 4 - m\left(\frac{4 - 2}{2}\right) - 2n\left(\frac{4 - 1}{2}\right) = 4 - m - 3n.
+\end{align}
+For a theory to be renormalizable, the coupling constants must have non-negative mass dimensions. Therefore:
+\begin{itemize}
+    \item For $g_n$:
+    \begin{align}
+        4 - 3n \geq 0 \implies n \leq \frac{4}{3}.
+    \end{align}
+    Since $n$ is an integer and $n \geq 2$, there are no renormalizable interactions of this form.
+    \item For $g_{m,n}$:
+    \begin{align}
+        4 - m - 3n \geq 0 \implies m + 3n \leq 4.
+    \end{align}
+    The possible integer pairs $(m,n)$ that satisfy this inequality with $m,n > 0$ are:
+    \begin{itemize}
+        \item $(m,n) = (1,1)$
+        \item $(m,n) = (2,1)$
+        \item $(m,n) = (1,2)$
+    \end{itemize}
+\end{itemize}
+\qed
+
+
+
+\clearpage
+\question{2}{Problem 20.2}\\
+Compute the $\mathcal{O}(\alpha)$ correction to the two-particle scattering amplitude at \textit{threshold}, that is, for $s = 4m^2$ and $t= u = 0$, corresponding to zero three-momentum for both the incoming and outgoing particles.\\
+\textbf{Hint:} for 20.2, do not ues Eq.~(20.12)-(20.19) they are in different unit.
+\answer{}
+Starting with the equation~(20.2) in the Srednicki's textbook, we have 
+\begin{align}
+    i\mathcal{T}_{1-loop}=\frac{1}{i}\Big( i[\bold{V}_3(s)]^2 \widetilde{\bold{\Delta}}(-s)+ i[\bold{V}_3(t)]^2 \widetilde{\bold{\Delta}}(-t)+ i[\bold{V}_3(u)]^2 \widetilde{\bold{\Delta}}(-u) \Big)+ i\bold{V}_4(s,t,u),
+\end{align}
+where
+\begin{align}
+\tilde{\bold{\Delta}}(-s) & =\frac{1}{-s+m^2-\Pi(-s)} \\
+\Pi(-s) & =\frac{1}{2} \alpha \int_0^1 d x D_2(s) \ln \left(D_2(s) / D_0\right)-\frac{1}{12} \alpha\left(-s+m^2\right) \\
+\mathbf{V}_3(s) / g & =1-\frac{1}{2} \alpha \int d F_3 \ln \left(D_3(s) / m^2\right) \\
+\mathbf{V}_4(s, t, u) & =\frac{1}{6} g^2 \alpha \int d F_4\left[\frac{1}{D_4(s, t)}+\frac{1}{D_4(t, u)}+\frac{1}{D_4(u, s)}\right].
+\end{align}
+Also, we have 
+\begin{align}
+D_2(s) & =-x(1-x) s+m^2 \\
+D_0 & =+[1-x(1-x)] m^2 \\
+D_3(s) & =-x_1 x_2 s+\left[1-\left(x_1+x_2\right) x_3\right] m^2 \\
+D_4(s, t) & =-x_1 x_2 s-x_3 x_4 t+\left[1-\left(x_1+x_2\right)\left(x_3+x_4\right)\right] m^2
+\end{align}
+and the integration measures are given by
+\begin{align}
+\int d F_3 & =2 \int_0^1 d x_1 \int_0^1 d x_2 \int_0^1 d x_3 \delta\left(x_1+x_2+x_3-1\right) \\    
+\int d F_4 & =6 \int_0^1 d x_1 \int_0^1 d x_2 \int_0^1 d x_3 \int_0^1 d x_4 \delta\left(x_1+x_2+x_3+x_4-1\right).
+\end{align}
+
+By \textit{Mathematica} calculation, we have the following results at threshold $s=4m^2$ and $t=u=0$:
+\begin{align}
+    \tilde{\bold{\Delta}}(-4m^2)&=-\frac{12}{\left(\left(2 \sqrt{3} \pi -9\right) \alpha +36\right) m^2},\\
+    \mathbf{V}_3(4m^2)&=g -g\alpha\Big(-\frac{4}{3}+\frac{5 i \pi }{12}+\frac{11 \pi }{4 \sqrt{3}}\Big),\\
+    \tilde{\bold{\Delta}}(0)&=\frac{12}{\left(\left(2 \sqrt{3} \pi -11\right) \alpha +12\right) m^2},\\
+    \mathbf{V}_3(0)&=g-g\alpha\Big(\frac{\pi }{2 \sqrt{3}}-1\Big),\\
+    \mathbf{V}_4(4m^2,0,0)&=g^2\alpha\Bigg( \frac{-6+6 i \pi +13 \sqrt{3} \pi }{18 m^2} \Bigg)
+\end{align}
+Thus, substituting these results into the expression for $i\mathcal{T}_{1-loop}$, we obtain:
+\begin{align}
+    i\mathcal{T}_{1-loop}=&\frac{5 g^2}{3 m^2}+\frac{\left((525-36 i)+\pi  \left((-36+30 i)-(40-78 i) \sqrt{3}\right)\right) \alpha  g^2}{108 m^2}\\
+    =&\frac{1.66667 g^2}{m^2}+\frac{(1.79858\, +4.46923 i) \alpha  g^2}{m^2}
+\end{align}
+Second line is numerical result.\\
+\textbf{Remark:} My detail calculation in Mathematica.
+\qed
+
+
+
+
+
+\clearpage
+\question{3}{Problem 27.1}\\
+Suppose that we have a theory with 
+\begin{align}
+    \beta(\alpha)&=b_1 \alpha^2 + \mathcal{O}(\alpha^3),\\
+    \gamma_m(\alpha)&=c_1 \alpha + \mathcal{O}(\alpha^2).
+\end{align}
+Neglecting the higher-order terms, show that 
+\begin{align}
+    m(\mu_2)= \left(\frac{\alpha(\mu_2)}{\alpha(\mu_1)}\right)^{c_1/b_1} m(\mu_1).
+\end{align}
+\answer{}
+The gamma and beta function are given by:
+\begin{align}
+    \gamma_m(\alpha) &=  \frac{d}{d \ln \mu} \ln m(\mu) = c_1 \alpha,\\
+    \beta(\alpha) &= \frac{d }{d \ln \mu}  \alpha = b_1 \alpha^2.
+\end{align}
+We can rearrange the beta function to express $d \ln \mu$ in terms of $d\alpha$:
+\begin{align}
+    d \ln \mu = \frac{d\alpha}{\beta(\alpha)} = \frac{d\alpha}{b_1 \alpha^2}.
+\end{align}
+Substituting this into the expression for $\gamma_m(\alpha)$, we have:
+\begin{align}
+    \frac{d}{d \ln \mu} \ln m(\mu) = c_1 \alpha \implies d \ln m(\mu) = c_1 \alpha \, d \ln \mu = c_1 \alpha \cdot \frac{d\alpha}{b_1 \alpha^2} = \frac{c_1}{b_1} \frac{d\alpha}{\alpha}.
+\end{align}
+Integrating both sides from $\mu_1$ to $\mu_2$, we get:
+\begin{align}
+    \int_{m(\mu_1)}^{m(\mu_2)} d \ln m(\mu) = \frac{c_1}{b_1} \int_{\alpha(\mu_1)}^{\alpha(\mu_2)} \frac{d\alpha}{\alpha}.
+\end{align}
+This gives:
+\begin{align}
+    \ln \left( \frac{m(\mu_2)}{m(\mu_1)} \right) = \frac{c_1}{b_1} \ln \left( \frac{\alpha(\mu_2)}{\alpha(\mu_1)} \right).
+\end{align}
+Exponentiating both sides, we obtain:
+\begin{align}
+    \frac{m(\mu_2)}{m(\mu_1)} = \left( \frac{\alpha(\mu_2)}{\alpha(\mu_1)} \right)^{c_1/b_1}.
+\end{align}
+Thus, we have shown that:
+\begin{align}
+    m(\mu_2) = \left( \frac{\alpha(\mu_2)}{\alpha(\mu_1)} \right)^{c_1/b_1} m(\mu_1).
+\end{align}
+\qed
+
+\clearpage
+\question{4}{Problem 28.1}\\
+Consider $\varphi^4$ theory ,
+\begin{align}
+    \mathcal{L}=-Z_{\varphi} \frac{1}{2}(\partial^\mu \varphi)(\partial_\mu \varphi) - Z_m \frac{1}{2} m^2 \varphi^2 - Z_\lambda \frac{\lambda \widetilde{\mu}^\epsilon}{4!} \varphi^4,
+\end{align}
+in $d=4-\epsilon$ spacetime dimensions. Compute the beta function to $\mathcal{O}(\lambda^2)$, the anomalous dimension of $m$ to $\mathcal{O}(\lambda)$, and the anomalous dimension of $\varphi$ to $\mathcal{O}(\lambda)$.
+\answer{}
+We first write down the Lagrangian for $\phi^4$ theory in $d=4-\epsilon$ dimensions:
+\begin{align}
+    \mathcal{L} = -Z_\varphi \frac{1}{2} (\partial^\mu \varphi)(\partial_\mu \varphi) - Z_m \frac{1}{2} m^2 \varphi^2 - Z_\lambda \frac{\lambda \widetilde{\mu}^\epsilon}{4!} \varphi^4,
+\end{align}
+where $Z_\varphi$, $Z_m$, and $Z_\lambda$ are the renormalization constants for the field, mass, and coupling constant, respectively. We also write down the Lagrangian in terms of bare quantities:
+\begin{align}
+    \mathcal{L} = -\frac{1}{2} (\partial^\mu \varphi_0)(\partial_\mu \varphi_0) - \frac{1}{2} m_0^2 \varphi_0^2 - \frac{\lambda_0}{4!} \varphi_0^4,
+\end{align}
+where the bare quantities are related to the renormalized quantities by:
+\begin{align}
+    \varphi_0 &= Z_\varphi^{1/2} \varphi,\\
+    m_0^2 &= Z_m Z_\varphi^{-1} m^2,\\
+    \lambda_0 &= Z_\lambda Z_\varphi^{-2} \lambda \widetilde{\mu}^\epsilon.
+\end{align}
+From our previous calculations in $\phi^4$ theory, we have the following results for the renormalization constants to the required orders:
+\begin{align}
+    Z_\varphi &= 1 + \mathcal{O}(\lambda^2)=1+\sum_{n=1}^\infty \frac{a_n(\lambda)}{\epsilon^n},\\
+    Z_m &= 1 + \frac{\lambda}{16\pi^2 \epsilon} + \mathcal{O}(\lambda^2)=1+\sum_{n=1}^\infty \frac{b_n(\lambda)}{\epsilon^n},\\
+    Z_\lambda &= 1 + \frac{3\lambda}{16\pi^2 \epsilon} + \mathcal{O}(\lambda^2)=1+\sum_{n=1}^\infty \frac{c_n(\lambda)}{\epsilon^n}.
+\end{align}
+We know $a_1(\lambda)=0+\mathcal{O}(\lambda^2)$, $b_1(\lambda)=\frac{\lambda}{16\pi^2}+\mathcal{O}(\lambda^2)$, and $c_1(\lambda)=\frac{3\lambda}{16\pi^2}+\mathcal{O}(\lambda^2)$.
+ Using these results, we can compute the beta function and anomalous dimensions. 
+\begin{align}
+    \ln \lambda_0 &= \ln (Z_\lambda Z_\varphi^{-2}) + \ln \lambda + \epsilon \ln \widetilde{\mu},\\
+    0 &= \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \ln \mu} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \ln \mu} + \frac{1}{\lambda} \frac{d \lambda}{d \ln \mu} + \epsilon,\\
+    \beta(\lambda) &\equiv \frac{d \lambda}{d \ln \mu} = \lambda \left( -\epsilon - \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \ln \mu} + \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \ln \mu} \right).
+\end{align}
+
+To compute $\frac{d Z_\lambda}{d \ln \mu}$ and $\frac{d Z_\varphi}{d \ln \mu}$, we use the chain rule:
+\begin{align}
+    \frac{d Z_\lambda}{d \ln \mu} &= \frac{d Z_\lambda}{d \lambda} \frac{d \lambda}{d \ln \mu} = \frac{d Z_\lambda}{d \lambda} \beta(\lambda),\\
+    \frac{d Z_\varphi}{d \ln \mu} &= \frac{d Z_\varphi}{d \lambda} \frac{d \lambda}{d \ln \mu} = \frac{d Z_\varphi}{d \lambda} \beta(\lambda).
+\end{align}
+Substituting these into the expression for $\beta(\lambda)$, we have:
+\begin{align}
+    \beta(\lambda) &= \lambda \left( -\epsilon - \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} \beta(\lambda) + \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \beta(\lambda) \right)\\
+    &= \lambda \left( -\epsilon - \beta(\lambda) \left( \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right) \right).
+\end{align}
+We can solve for $\beta(\lambda)$:
+\begin{align}
+    \beta(\lambda) \left( 1 + \lambda \left( \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right) \right) = -\lambda \epsilon.
+\end{align}
+In the limit $\epsilon \to 0$, we have:
+\begin{align}
+    \beta(\lambda) =& -\lambda \epsilon \left( 1 + \lambda \left( \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right) \right)^{-1}\\
+    =& -\lambda \epsilon \left( 1 - \lambda \left( \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right) + \mathcal{O}(\lambda^2) \right)\\
+    =& -\lambda \epsilon + \lambda^2 \epsilon \left( \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right) + \mathcal{O}(\lambda^3)\\
+    =& -\lambda \epsilon+\lambda^2 \epsilon \left( \frac{1}{Z_\lambda} \frac{d Z_\lambda}{d \lambda} - \frac{2}{Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right) + \mathcal{O}(\lambda^3)\\
+    =&-\lambda \epsilon+\lambda^2 \epsilon \left( \frac{d}{d \lambda} \left( \frac{3\lambda}{16\pi^2 \epsilon} \right) - 0 \right) + \mathcal{O}(\lambda^3)\\
+    =&-\lambda \epsilon+ \lambda^2 \epsilon \left( \frac{3}{16\pi^2 \epsilon} \right) + \mathcal{O}(\lambda^3).
+\end{align}
+Expanding to $\mathcal{O}(\lambda^2)$, we find:
+\begin{align}
+    \beta(\lambda) =-\lambda \epsilon+ \frac{3\lambda^2}{16\pi^2} + \mathcal{O}(\lambda^3).
+\end{align}
+Next, we compute the anomalous dimension of the mass $m$:
+\begin{align}
+0=& \frac{d}{d \ln \mu} \ln m_0 = \frac{d}{d \ln \mu} \ln (Z_m^{1/2} Z_\varphi^{-1/2} m)\\
+=& \frac{1}{2 Z_m} \frac{d Z_m}{d \ln \mu} - \frac{1}{2 Z_\varphi} \frac{d Z_\varphi}{d \ln \mu} + \frac{1}{m} \frac{d m}{d \ln \mu}\\
+=& \frac{1}{2 Z_m} \frac{d Z_m}{d \lambda} \beta(\lambda) - \frac{1}{2 Z_\varphi} \frac{d Z_\varphi}{d \lambda} \beta(\lambda) + \frac{1}{m} \frac{d m}{d \ln \mu}.
+\end{align}
+Solving for $\frac{d m}{d \ln \mu}$, we have:
+\begin{align}
+    \frac{d m}{d \ln \mu} = -m \beta(\lambda) \left( \frac{1}{2 Z_m} \frac{d Z_m}{d \lambda} - \frac{1}{2 Z_\varphi} \frac{d Z_\varphi}{d \lambda} \right).
+\end{align}
+Substituting the expressions for $Z_m$ and $Z_\varphi$, we find:
+\begin{align}
+    \frac{d m}{d \ln \mu} =& -m \left( -\lambda \epsilon + \frac{3\lambda^2}{16\pi^2} \right) \left( \frac{1}{2} \frac{d}{d \lambda} \left( \frac{\lambda}{16\pi^2 \epsilon} \right) - 0 \right) + \mathcal{O}(\lambda^2)\\
+    =& -m \left( -\lambda \epsilon + \frac{3\lambda^2}{16\pi^2} \right) \left( \frac{1}{2} \cdot \frac{1}{16\pi^2 \epsilon} \right) + \mathcal{O}(\lambda^2)\\
+    =& -m \left( -\frac{\lambda}{32\pi^2} + \frac{3\lambda^2}{32\pi^4 \epsilon} \right) + \mathcal{O}(\lambda^2)\\
+    =& \frac{\lambda m}{32\pi^2} + \mathcal{O}(\lambda^2).
+\end{align}
+Thus, the anomalous dimension of the mass $m$ to $\mathcal{O}(\lambda)$ is:
+\begin{align}
+    \gamma_m(\lambda) =\frac{1 }{m} \frac{d m}{d \ln \mu} = \frac{\lambda }{32\pi^2} + \mathcal{O}(\lambda^2).
+\end{align}
+Finally, we compute the anomalous dimension of the field $\varphi$:
+\begin{align}
+0=& \frac{d}{d \ln \mu} \ln \varphi_0 = \frac{d}{d \ln \mu} \ln (Z_\varphi^{1/2} \varphi)\\
+=& \frac{1}{2 Z_\varphi} \frac{d Z_\varphi}{d \ln \mu} + \frac{1}{\varphi} \frac{d \varphi}{d \ln \mu}\\    
+=& \frac{1}{2 Z_\varphi} \frac{d Z_\varphi}{d \lambda} \beta(\lambda) + \frac{1}{\varphi} \frac{d \varphi}{d \ln \mu}.
+\end{align}
+Solving for $\frac{d \varphi}{d \ln \mu}$ ($\varphi= Z_\varphi^{-1/2} \varphi_0$), we have:
+\begin{align}
+    \frac{d \varphi}{d \ln \mu} = -\varphi \cdot \frac{1}{2 Z_\varphi} \frac{d Z_\varphi}{d \lambda} \beta(\lambda).    
+\end{align}
+Substituting the expressions for $Z_\varphi$ and $\beta(\lambda)$, we find:
+\begin{align}
+    \frac{d \varphi}{d \ln \mu} =& -\varphi \cdot \frac{1}{2} \cdot 0 \cdot \left( -\lambda \epsilon + \frac{3\lambda^2}{16\pi^2} \right) + \mathcal{O}(\lambda^2)\\
+    =& 0 + \mathcal{O}(\lambda^2).
+\end{align}
+Thus, the anomalous dimension of the field $\varphi$ to $\mathcal{O}(\lambda)$ is:
+\begin{align}
+    \gamma_\varphi(\lambda) = \frac{1}{\varphi} \frac{d \varphi}{d \ln \mu} = 0 + \mathcal{O}(\lambda^2).
+\end{align}
+In summary, we have:
+\begin{align}
+    \beta(\lambda) &= -\lambda \epsilon + \frac{3\lambda^2}{16\pi^2} + \mathcal{O}(\lambda^3),\\
+    \gamma_m(\lambda) &= \frac{\lambda }{32\pi^2} + \mathcal{O}(\lambda^2),\\
+    \gamma_\varphi(\lambda) &= 0 + \mathcal{O}(\lambda^2).
+\end{align}
+\qed
+
+
+
+
+\clearpage
+\question{5}{Extra Problem}\\
+Dirac equation: Use find solutions of the matrices $\alpha_i$ and $\beta$ of Dirac equation,
+\begin{align}
+    i\hbar \frac{\partial }{\partial t}\Psi_a = \left( i\hbar c (\alpha^i)_{ab} \partial_i + (\beta)_{ab} m c^2 \right) \Psi_b,
+\end{align}
+which makes the wavefunction $\Psi$ satisfy the Klein-Gordon equation. (This is how Dirac discovered his equation.) 
+
+\begin{itemize}
+    \item [(a)] What are the lowest dimensional matrices $\alpha^i$ and $\beta$ for $m=0$? Derive the solutions.
+    \item [(b)] Is the above solution unique? f not, can you write down another one of the same dimension?
+    \item [(c)] What are the lowest dimensional matrices $\alpha^i$ and $\beta$ for $m \neq 0$? Derive the solutions.
+    \item [(d)] Is the above solution unique? If not, can you write down another one of the same dimension?
+\end{itemize}
+\answer{}
+Starting with the Dirac equation:
+\begin{align}
+    i\hbar \frac{\partial }{\partial t}\Psi_a = \left( i\hbar c (\alpha^i)_{ab} \partial_i + (\beta)_{ab} m c^2 \right) \Psi_b,
+\end{align}
+we want to find matrices $\alpha^i$ and $\beta$ such that the wavefunction $\Psi$ satisfies the Klein-Gordon equation:
+\begin{align}
+    \left( \frac{1}{c^2} \frac{\partial^2 }{\partial t^2} - \nabla^2 + \frac{m^2 c^2}{\hbar^2} \right) \Psi = 0.
+\end{align}
+\begin{itemize}
+    \item [(a)] 
+\end{itemize}
+For $m=0$, the Dirac equation simplifies to:
+\begin{align}
+    i\hbar \frac{\partial }{\partial t}\Psi_a = i\hbar c (\alpha^i)_{ab} \partial_i \Psi_b.
+\end{align}
+To ensure that $\Psi$ satisfies the Klein-Gordon equation, we require that the matrices $\alpha^i$ satisfy the anticommutation relations:
+\begin{align}
+    \{ \alpha^i, \alpha^j \} = 2 \delta^{ij} I,
+\end{align}
+where $I$ is the identity matrix. The lowest dimensional matrices that satisfy these relations are the Pauli matrices, which are $2 \times 2$ matrices. Therefore, we can choose:
+\begin{align}
+    \alpha^1 = \sigma_x, \quad \alpha^2 = \sigma_y, \quad \alpha^3 = \sigma_z,
+\end{align}
+where $\sigma_x$, $\sigma_y$, and $\sigma_z$ are the Pauli matrices.
+\begin{itemize}
+    \item [(b)] 
+\end{itemize}
+The solution is not unique. Another set of $2 \times 2$ matrices that satisfy the same anticommutation relations can be obtained by multiplying the Pauli matrices by a unitary transformation. For example, we can choose:
+\begin{align}
+    \alpha^1 = U \sigma_x U^\dagger, \quad \alpha^2 = U \sigma_y U^\dagger, \quad \alpha^3 = U \sigma_z U^\dagger,
+\end{align}
+where $U$ is any $2 \times 2$ unitary matrix.
+\begin{itemize}
+    \item [(c)] 
+\end{itemize}
+For $m \neq 0$, the Dirac equation is:
+\begin{align}
+    i\hbar \frac{\partial }{\partial t}\Psi_a = \left( i\hbar c (\alpha^i)_{ab} \partial_i + (\beta)_{ab} m c^2 \right) \Psi_b.
+\end{align}
+To ensure that $\Psi$ satisfies the Klein-Gordon equation, we require that the matrices $\alpha^i$ and $\beta$ satisfy the following relations:
+\begin{align}
+    \{ \alpha^i, \alpha^j \} = 2 \delta^{ij} I, \quad \{ \alpha^i, \beta \} = 0, \quad \beta^2 = I.
+\end{align}
+The lowest dimensional matrices that satisfy these relations are the $4 \times 4$ Dirac matrices. This is because we need to accommodate both the spin and particle-antiparticle degrees of freedom. A common choice is:
+\begin{align}
+    \alpha^i = \begin{pmatrix}0 & \sigma^i \\ \sigma^i & 0 \end{pmatrix}, \quad \beta = \begin{pmatrix}I & 0 \\ 0 & -I \end{pmatrix},
+\end{align}
+where $\sigma^i$ are the Pauli matrices and $I$ is the $2 \times 2$ identity matrix.
+\begin{itemize}
+    \item [(d)] 
+\end{itemize}
+The solution is not unique. Another set of $4 \times 4$ matrices that satisfy the same relations can be obtained by multiplying the Dirac matrices by a unitary transformation. For example, we can choose:
+\begin{align}
+    \alpha^i = U \begin{pmatrix}0 & \sigma^i \\ \sigma^i & 0 \end{pmatrix} U^\dagger, \quad \beta = U \begin{pmatrix}I & 0 \\ 0 & -I \end{pmatrix} U^\dagger,
+\end{align}
+where $U$ is any $4 \times 4$ unitary matrix.\\
+\textbf{Remark:} This representation is known as the Dirac representation. Other representations, such as the Weyl or Majorana representations, can also be used to express the Dirac matrices.
+\qed

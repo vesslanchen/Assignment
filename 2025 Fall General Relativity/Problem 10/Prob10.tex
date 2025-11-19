@@ -1,0 +1,178 @@
+\section*{Assignment 10 due on Monday November 17 at 10PM}
+\question{1}{}
+The Lagrangian density for a scalar field $\phi$ is givesn by
+\begin{align}
+    \mathcal{L} = -\frac{1}{2} g^{\mu\nu} \partial_\mu \phi \partial_\nu \phi - \frac{1}{2} m^2 \phi^2-U(\phi),
+\end{align}
+where $U(\phi)$ is a potential, typically $\lambda\phi^4$, and the metric is given. The action is 
+\begin{align}
+    I_\phi= \int d^4 x \sqrt{g} \mathcal{L}.
+\end{align}
+There are two ways to calculate the eneergy-momentum tensor.
+
+\begin{itemize}
+    \item [(a)] In field theory, it is usually calculated by varying the cation with respect to the field, yielding the formula
+    \begin{align}
+        T^{\mu\nu} = g^{\mu\nu} \mathcal{L} - \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \partial_\kappa \phi g^{\kappa \nu}.
+    \end{align}
+    similar to classical mechanics. Calculate it this way.
+    \item [(b)] As discussed in lecture, it can also be calculated by varying the action with respect to the metric via the formula
+    \begin{align}
+        \delta I_\phi = \frac{1}{2} \int d^4 x \sqrt{g} T_{\mu\nu} \delta g^{\mu\nu}.
+    \end{align}
+    Calculate it this way. Does it agree with part (a)?
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+We have
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} = -\frac{1}{2} g^{\alpha\beta} \left(\delta^\mu_\alpha \partial_\beta \phi + \partial_\alpha \phi \delta^\mu_\beta \right) = - g^{\mu\beta} \partial_\beta \phi.
+\end{align}
+Hence,
+\begin{align}
+    T^{\mu\nu} =& g^{\mu\nu} \mathcal{L} - \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \partial_\kappa \phi g^{\kappa \nu}\\
+    =& g^{\mu\nu} \left(-\frac{1}{2} g^{\alpha\beta} \partial_\alpha \phi \partial_\beta \phi - \frac{1}{2} m^2 \phi^2-U(\phi)\right) + g^{\mu\beta} \partial_\beta \phi \partial_\kappa \phi g^{\kappa \nu}\\
+    =& g^{\mu\nu} \left(-\frac{1}{2} g^{\alpha\beta} \partial_\alpha \phi \partial_\beta \phi - \frac{1}{2} m^2 \phi^2-U(\phi)\right) + \partial^\mu \phi \partial^\nu \phi.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+We have
+\begin{align}
+    \delta I_\phi =& \int d^4 x \left( \delta \sqrt{g} \mathcal{L} + \sqrt{g} \delta \mathcal{L} \right)\\
+    =& \int d^4 x \sqrt{g} \left( \frac{1}{2} g^{\mu\nu} \mathcal{L} \delta g_{\mu\nu} + \delta \mathcal{L} \right)
+\end{align}
+where we have used $\delta \sqrt{g} = \frac{1}{2} \sqrt{g} g^{\mu\nu} \delta g_{\mu\nu}$ (equation on page 364 in Weinberg's Gravitation and Cosmology). Next, we calculate $\delta \mathcal{L}$:
+\begin{align}
+    \delta \mathcal{L} =& -\frac{1}{2} \delta g^{\mu\nu} \partial_\mu \phi \partial_\nu \phi - \frac{1}{2} g^{\mu\nu} \delta (\partial_\mu \phi \partial_\nu \phi) - \frac{1}{2} m^2 \delta (\phi^2) - \delta U(\phi)\\
+    =& -\frac{1}{2} \delta g^{\mu\nu} \partial_\mu \phi \partial_\nu \phi\\
+    =& \frac{1}{2} g^{\mu\alpha} g^{\nu\beta} \delta g_{\alpha\beta} \partial_\mu \phi \partial_\nu \phi \\
+    =& \frac{1}{2} \delta g_{\alpha\beta} \partial^\alpha \phi \partial^\beta \phi\\
+    =& \frac{1}{2} \delta g_{\mu\nu} \partial^\mu \phi \partial^\nu \phi,
+\end{align}
+since the other terms do not depend on the metric. Therefore, we have
+\begin{align}
+    \delta I_\phi =& \int d^4 x \sqrt{g} \left( \frac{1}{2} g^{\mu\nu} \mathcal{L} \delta g_{\mu\nu} + \frac{1}{2} \delta g_{\mu\nu} \partial^\mu \phi \partial^\nu \phi \right)\\
+    =& \frac{1}{2} \int d^4 x \sqrt{g} \left( g^{\mu\nu} \mathcal{L} + \partial^\mu \phi \partial^\nu \phi \right) \delta g_{\mu\nu}.
+\end{align}
+Comparing this with
+\begin{align}
+    \delta I_\phi = \frac{1}{2} \int d^4 x \sqrt{g} T^{\mu\nu} \delta g_{\mu\nu},
+\end{align}
+we find
+\begin{align}
+    T^{\mu\nu} = g^{\mu\nu} \mathcal{L} + \partial^\mu \phi \partial^\nu \phi,
+\end{align}
+which agrees with the result from part (a).
+\qed
+
+\clearpage
+\question{2}{}
+In Newtonian mechanics a space probe in a circular orbit of radius $r$ about the sun (for example) with mass $M$ has a period given by
+\begin{align}
+    t_N=2\pi \sqrt{\frac{r^3}{GM}}.
+\end{align}
+Consider a space probe in a circular orbit of radius $r>\frac{3}{2}GM$ in the plane $\theta=\frac{\pi}{2}$ in standard coordinates about Schwarzschild black hole of mass $M$ . We need to solve the geodesic equation 
+\begin{align}
+    \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau}=0
+\end{align}
+for $\mu = t, r, \theta, \phi$. Yes, all four! The affine connection/Christoffel symbol can be found in various sources, but be sure their conventions align with ours. When solving these equations use the initial condition $t = 0$ and $\phi=0$ at $\tau = 0$. Note that in this situation 
+\begin{align}
+    d\tau^2=\left(1-\frac{R_s}{r}\right) dt^2 - r^2 d\phi^2.
+\end{align}
+\begin{itemize}
+    \item [(a)] What is the period $\tau_p$ as measured by a clock in the space probe? How does it relate to $t_N$ ? What happens as $r \to \frac{3}{2}R_s$?
+    \item [(b)] What is the period $t_p$ in standard coordinates? How does it relate to $t_N$? 
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+We first write down the non-zero Christoffel symbols in Schwarzschild coordinates:
+\begin{align}
+    \Gamma^t_{tr} &= \Gamma^t_{rt} = \frac{GM}{r(r-2GM)},\\
+    \Gamma^r_{tt} &= \frac{GM(r-2GM)}{r^3},\\
+    \Gamma^r_{rr} &= -\frac{GM}{r(r-2GM)},\\
+    \Gamma^r_{\theta\theta} &= -(r-2GM),\\
+    \Gamma^r_{\phi\phi} &= -(r-2GM) \sin^2\theta,\\
+    \Gamma^\theta_{r\theta} &= \Gamma^\theta_{\theta r} = \frac{1}{r},\\
+    \Gamma^\theta_{\phi\phi} &= -\sin\theta \cos\theta,\\
+    \Gamma^\phi_{r\phi} &= \Gamma^\phi_{\phi r} = \frac{1}{r},\\
+    \Gamma^\phi_{\theta\phi} &= \Gamma^\phi_{\phi\theta} = \cot\theta.
+\end{align}
+For a circular orbit, we have $r = \text{constant}$ and $\theta = \frac{\pi}{2}$. Therefore, the geodesic equations for $\mu = t, r, \theta,\phi$ reduce to
+\begin{align}
+    \frac{d^2 t}{d\tau^2} + 2 \Gamma^t_{tr} \frac{dt}{d\tau} \frac{dr}{d\tau} &= 0, \quad \text{ t component},\\
+    \Gamma^r_{tt} \left(\frac{dt}{d\tau}\right)^2 + \Gamma^r_{\phi\phi} \left(\frac{d\phi}{d\tau}\right)^2 &= 0, \quad \text{ r component},\\
+    \Gamma^\theta_{\phi\phi} \left(\frac{d\phi}{d\tau}\right)^2 &= 0, \quad \text{ $\theta$ component},\\
+    \frac{d^2 \phi}{d\tau^2} + 2 \Gamma^\phi_{r\phi} \frac{dr}{d\tau} \frac{d\phi}{d\tau} &= 0, \quad \text{ $\phi$ component}.
+\end{align}
+The $t$ and $\phi$ components are automatically satisfied since $dr/d\tau = 0$. The solution for $t$ is straightforward:
+\begin{align}
+    \frac{d^2 t}{d\tau^2} = 0 \implies \frac{dt}{d\tau} = \text{constant}.
+\end{align}
+The solution for $\phi$ is also straightforward:
+\begin{align}
+    \frac{d^2 \phi}{d\tau^2} = 0 \implies \frac{d\phi}{d\tau} = \text{constant}.
+\end{align}
+The $\theta$ component is automatically satisfied since $\Gamma^\theta_{\phi\phi} = 0$ at $\theta = \frac{\pi}{2}$. The $r$ component gives
+\begin{align}
+    \frac{GM(r-2GM)}{r^3} \left(\frac{dt}{d\tau}\right)^2 - (r-2GM) \left(\frac{d\phi}{d\tau}\right)^2 &= 0.
+\end{align}
+Rearranging, we find
+\begin{align}
+    \left(\frac{d\phi}{d\tau}\right)^2 &= \frac{GM}{r^3} \left(\frac{dt}{d\tau}\right)^2.
+\end{align}
+Next, we use the relation
+\begin{align}
+    d\tau^2 = \left(1 - \frac{2GM}{r}\right) dt^2 - r^2 d\phi^2,
+\end{align}
+to express $d\tau$ in terms of $dt$ and $d\phi$. Dividing both sides by $d\tau^2$, we get
+\begin{align}
+    1 = \left(1 - \frac{2GM}{r}\right) \left(\frac{dt}{d\tau}\right)^2 - r^2 \left(\frac{d\phi}{d\tau}\right)^2.
+\end{align} 
+Substituting the expression for $\left(\frac{d\phi}{d\tau}\right)^2$, we have
+\begin{align}
+    1 = \left(1 - \frac{2GM}{r}\right) \left(\frac{dt}{d\tau}\right)^2 - r^2 \cdot \frac{GM}{r^3} \left(\frac{dt}{d\tau}\right)^2.
+\end{align}
+Simplifying, we find
+\begin{align}
+    1 = \left(1 - \frac{3GM}{r}\right) \left(\frac{dt}{d\tau}\right)^2.
+\end{align}
+Solving for $\frac{dt}{d\tau}$, we get
+\begin{align}
+    \frac{dt}{d\tau} &= \frac{1}{\sqrt{1 - \frac{3GM}{r}}}= \frac{1}{\sqrt{1 - \frac{3R_s/2}{r}}},\\
+    \implies \frac{d\phi}{d\tau} &= \sqrt{\frac{GM}{r^3}} \cdot \frac{1}{\sqrt{1 - \frac{3R_s/2}{r}}}.
+\end{align}
+The period $\tau_p$ as measured by a clock in the space probe is given by
+\begin{align}
+    \tau_p = \frac{2\pi}{\frac{d\phi}{d\tau}}.
+\end{align} Using the relation between $\frac{d\phi}{d\tau}$ and $\frac{dt}{d\tau}$, we find
+\begin{align}
+    \tau_p = 2\pi \sqrt{\frac{r^3}{GM}} \sqrt{1 - \frac{3R_s/2}{r}} = t_N \sqrt{1 - \frac{3R_s/2}{r}}.
+\end{align}
+As $r \to \frac{3}{2}R_s$, we see that $\tau_p \to 0$. As $r\gg R_s$, we have $\tau_p \approx t_N$. 
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The period $t_p$ in standard coordinates is given by
+\begin{align}
+    t_p = \frac{2\pi}{\frac{d\phi}{dt}}.
+\end{align} Using the chain rule, we have
+\begin{align}
+    \frac{d\phi}{dt} = \frac{d\phi}{d\tau} \cdot \frac{d\tau}{dt} = \frac{d\phi}{d\tau} \cdot \frac{1}{\frac{dt}{d\tau}}.
+\end{align} 
+Therefore,
+\begin{align}
+    \frac{d\phi}{dt} &= \sqrt{\frac{GM}{r^3}} \cdot \frac{1}{\sqrt{1 - \frac{3R_s/2}{r}}} \cdot \sqrt{1 - \frac{3R_s/2}{r}}\\
+    &= \sqrt{\frac{GM}{r^3}}.
+\end{align}
+Thus, we find
+\begin{align}
+    t_p = 2\pi \sqrt{\frac{r^3}{GM}} = t_N.
+\end{align}
+\qed
+
