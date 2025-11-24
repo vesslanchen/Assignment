@@ -1,0 +1,306 @@
+\section*{Problem Set 6 due 9:30 AM, Monday, November 24}
+
+
+\question{1}{\textbf{Three-photon decay of a scalar particle}}
+\\
+Consider the decay $X \to 3\gamma$, where $X$ is a scalar particle of mass $M$. Assume the decay amplitude $M_{fi}$ is approximately constant (i.e. independent of photon energies and angles) and can be written as $M_{fi}= A$ . This is a good approximation for the decay of orthopositronium in its ground state.
+\begin{itemize}
+    \item [(a)] Derive the differential decay rate $\frac{d\Gamma}{d w}$ corresponding to the measured energy $\omega$ of a single photon in the rest frame of $X$.
+    \item [(b)] Express the total decay rate $\Gamma$ in terms of the constant amplitude $A$.
+\end{itemize}
+\answer{}
+We can start from the general expression for the decay rate of a particle decaying into three massless particles:
+\begin{align}
+    d\Gamma = \frac{1}{2M}\frac{1}{3!} |\mathcal{M}_{fi}|^2 d\tau_3,
+\end{align}
+where $d\tau_3$ is the three-body phase space element, $M$ is the mass of the decaying particle, $1/3!$ accounts for the identical photons in the final state and $\mathcal{M}_{fi}=A$ is the invariant matrix element. The three-body phase space element for massless particles can be expressed as:
+\begin{align}
+    d\tau_3 = (2\pi)^4 \delta^4(P - p_1 - p_2 - p_3) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{d^3p_2}{(2\pi)^3 2E_2} \frac{d^3p_3}{(2\pi)^3 2E_3},
+\end{align}
+where $P$ is the four-momentum of the decaying particle, and $p_i$ and $E_i$ are the momenta and energies of the final state photons, respectively. If we consider the rest frame of the decaying particle, we have $P = (M, 0, 0, 0)$. Besides, we can apply the splitting formula for three-body phase space:
+\begin{align}
+    d\tau_3 = d\tau_2(M \to p_1 + q) \frac{d q^2}{2\pi} d\tau_2(q \to p_2 + p_3),
+\end{align}
+where $q = p_2 + p_3$ is the combined four-momentum of photons 2 and 3. The two-body phase space elements can be expressed as:
+\begin{align}
+    d\tau_2(M \to p_1 + q) &= (2\pi)^4 \delta^4(P - p_1 - q) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{d^3q}{(2\pi)^3 2E_q}, \\
+    d\tau_2(q \to p_2 + p_3) &= (2\pi)^4 \delta^4(q - p_2 - p_3) \frac{d^3p_2}{(2\pi)^3 2E_2} \frac{d^3p_3}{(2\pi)^3 2E_3}.
+\end{align}
+To find the differential decay rate with respect to the energy of one photon, say $\omega = E_1$, we can integrate over the other variables. The total energy conservation gives us:
+\begin{align}
+    M = E_1 + E_2 + E_3.
+\end{align}
+Since the photons are massless, we have $E_i = |\vec{p}_i|$. 
+\begin{align}
+    d \Gamma &= \frac{1}{2M} \frac{1}{3!} |A|^2 d\tau_3 \\
+    &= \frac{1}{2M} \frac{1}{3!} |A|^2 d\tau_2(M \to p_1 + q) \frac{d q^2}{2\pi} d\tau_2(q \to p_2 + p_3).
+\end{align}
+The two-body phase space elements can be evaluated in their respective rest frames. In this frame, $q = (\sqrt{q^2}, 0, 0, 0)$, and the energies of the photons are $E_2 = |\vec{p}_2|$ and $E_3 = |\vec{p}_3|$.
+\begin{align}
+    \int d\tau_2 (q\to p_2 + p_3) &= \int (2\pi)^4 \delta(\sqrt{q^2} - E_2 - E_3) \delta^3(\vec{0} - \vec{p}_2 - \vec{p}_3) \frac{d^3p_2}{(2\pi)^3 2E_2} \frac{d^3p_3}{(2\pi)^3 2E_3} \\
+    &=\int (2\pi)^4 \delta(\sqrt{q^2} - E_2 - E_3) \frac{d^3 p_2}{(2\pi)^3 2E_2} \frac{1}{(2\pi)^3 2E_2}\\
+    &= \int (2\pi)^4 \delta(\sqrt{q^2} - 2E_2) \frac{4\pi E_2^2 dE_2}{(2\pi)^3 2E_2} \frac{1}{(2\pi)^3 2E_2}\\
+    &= \int (2\pi)^4 \delta(\sqrt{q^2} - 2E_2) \frac{4\pi}{4(2\pi)^6} dE_2 \\
+    &=  (2\pi)^4\frac{\pi}{(2\pi)^6} \frac{1}{2}\\
+    &=  \frac{1}{8\pi},
+\end{align}
+where we have used the delta function to perform the integral over $E_2$ to get extra factor of $1/2$. Next, we evaluate the other two-body phase space element, and we can evaluate in the rest frame of $M$. In this frame, $P = (M, 0, 0, 0)$, and the energies are $p_1^\mu=(\omega, \vec{p}_1)$ and $q^\mu = (M - \omega, \vec{q})=(E_q, \vec{q})$.
+\begin{align}
+    \int d\tau_2 (M\to p_1 + q) &= \int (2\pi)^4 \delta(M - E_1 - E_q) \delta^3(\vec{0} - \vec{p}_1 - \vec{q}) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{d^3q}{(2\pi)^3 2E_q}\\
+    &= \int (2\pi)^4 \delta(M - \omega - E_q) \frac{d^3p_1}{(2\pi)^3 2\omega} \frac{1}{(2\pi)^3 2E_q}\\
+    &= \int (2\pi)^4 \delta(M - \omega - E_q) \frac{4\pi \omega^2 d\omega}{(2\pi)^3 2\omega} \frac{1}{(2\pi)^3 2E_q}\\
+    &= \frac{4\pi}{4(2\pi)^2} \int \delta(M - \omega - E_q) \frac{\omega}{ E_q} d\omega\\
+    &= \frac{1}{4\pi}\int \delta(M - \omega - E_q) \frac{\omega}{ E_q} d\omega.
+\end{align}
+Thus, we have
+\begin{align}
+    \int d\tau_2 (M\to p_1 + q) &= \frac{1}{4\pi} \int \delta(M - \omega - E_q) \frac{\omega}{ E_q} d\omega .
+\end{align}
+Now we can combine the results to get the differential decay rate:
+\begin{align}
+    d\Gamma &= \frac{1}{2M} \frac{1}{3!} |A|^2 \left(\frac{1}{4\pi} \int \delta(M - \omega - E_q) \frac{\omega}{ E_q} d\omega \right) \frac{d q^2}{2\pi} \left(\frac{1}{8\pi}\right)\\
+    &= \frac{|A|^2}{768\pi^3 M} \int \delta(M - \omega - E_q) \frac{\omega}{ E_q} d\omega d q^2.
+\end{align}
+We have to be careful when we use the delta function to perform the integral over $\omega$ since $E_q =\sqrt{(\vec{q})^2+q^2}=\sqrt{\omega^2 + q^2}$
+\begin{align}
+    \frac{d}{dq^2}(\omega+E_q) = \frac{d}{dq^2}(\omega + \sqrt{\omega^2 + q^2}) = \frac{1}{2\sqrt{\omega^2 + q^2}} = \frac{1}{2E_q}.
+\end{align}
+Thus, we have
+\begin{align}
+    d\Gamma &= \frac{|A|^2}{768\pi^3 M} \int \delta(M - \omega - E_q) \frac{\omega}{ E_q} d\omega d q^2 \\
+    &= \frac{|A|^2}{768\pi^3 M} \frac{\omega}{E_q}2E_q d\omega\\
+    &= \frac{|A|^2}{384\pi^3 M} \omega d\omega.
+\end{align}
+However, we cannot disthinguish which photon we are measuring, so we have to multiply by a factor of 3. Therefore, the final expression for the differential decay rate is:
+\begin{align}
+    \frac{d\Gamma}{d\omega} = \frac{|A|^2}{128\pi^3 M} \omega, \quad 0 \leq \omega \leq \frac{M}{2}.
+\end{align}
+To find the total decay rate, we can integrate over the allowed range of $\omega$:
+\begin{align}
+    \Gamma &= \int_0^{M/2} \frac{d\Gamma}{d\omega} d\omega \\
+    &= \int_0^{M/2} \frac{|A|^2}{128\pi^3 M} \omega d\omega \\
+    &= \frac{|A|^2}{128\pi^3 M} \left[\frac{\omega^2}{2}\right]_0^{M/2} \\
+    &= \frac{|A|^2}{128\pi^3 M} \frac{M^2}{8} \\
+    &= \frac{|A|^2 M}{1024\pi^3}.
+\end{align}\qed
+
+
+
+
+\clearpage
+\question{2}{}
+Find the total Lorentz-invariant three-body phase space $\tau_3$ for a final state containing one particle of mass $m$ and two massless particles, produced from an initial particle of mass $M$. Express your final result in terms of the Mandelstam variable $s$ and $m$.
+\answer{}
+From the definition of the three-body phase space, we have
+\begin{align}
+    \tau_3 &= \int (2\pi)^4 \delta^4(P - p_1 - p_2 - p_3) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{d^3p_2}{(2\pi)^3 2E_2} \frac{d^3p_3}{(2\pi)^3 2E_3},
+\end{align}
+where $P$ is the four-momentum of the initial particle, $p_1$ is the four-momentum of the massive particle with mass $m$, and $p_2$ and $p_3$ are the four-momenta of the two massless particles. We can use the splitting formula for three-body phase space:
+\begin{align}
+    \tau_3 = \int d\tau_2(M \to p_1 + q) \frac{d q^2}{2\pi} d\tau_2(q \to p_2 + p_3),
+\end{align}
+where $q = p_2 + p_3$ is the combined four-momentum of the two massless particles. The two-body phase space elements can be expressed as:
+\begin{align}
+    d\tau_2(M \to p_1 + q) &= (2\pi)^4 \delta^4(P - p_1 - q) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{d^3q}{(2\pi)^3 2E_q}, \\
+    d\tau_2(q \to p_2 + p_3) &= (2\pi)^4 \delta^4(q - p_2 - p_3) \frac{d^3p_2}{(2\pi)^3 2E_2} \frac{d^3p_3}{(2\pi)^3 2E_3}.
+\end{align}
+For the second two-body phase space element, we can quote the result from the previous problem, since both particles are massless:
+\begin{align}
+    \int d\tau_2 (q\to p_2 + p_3) = \frac{1}{8\pi}.
+\end{align}
+Next, we evaluate the other two-body phase space element, and we can evaluate in the rest frame of $M$. In this frame, $P = (M, 0, 0, 0)$, and the energies are $E_1 = \sqrt{|\vec{p}_1|^2 + m^2}$ and $E_q = M - E_1=\sqrt{|\vec{q}|^2+q^2}$.
+\begin{align}
+    \int d\tau_2 (M\to p_1 + q) &= \int (2\pi)^4 \delta(M - E_1 - E_q) \delta^3(\vec{0} - \vec{p}_1 - \vec{q}) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{d^3q}{(2\pi)^3 2E_q}\\
+    &= \int (2\pi)^4 \delta(M - E_1 - E_q) \frac{d^3p_1}{(2\pi)^3 2E_1} \frac{1}{(2\pi)^3 2E_q}\\
+    &= \int (2\pi)^4 \delta(M - E_1 - E_q) \frac{4\pi |\vec{p}_1|^2 d|\vec{p}_1|}{(2\pi)^3 2E_1} \frac{1}{(2\pi)^3 2E_q}\\
+    &= \frac{4\pi}{4(2\pi)^2} \int \delta(M - E_1 - E_q) \frac{|\vec{p}_1|^2}{ E_1 E_q} d|\vec{p}_1|\\
+    &= \frac{1}{4\pi}\int \delta(M - E_1 - E_q) \frac{|\vec{p}_1|^2}{ E_1 E_q} d|\vec{p}_1|.
+\end{align}
+Thus, we have
+\begin{align}
+    \int d\tau_2 (M\to p_1 + q) &= \frac{1}{4\pi} \int \delta(M - E_1 - E_q) \frac{|\vec{p}_1|^2}{ E_1 E_q} d|\vec{p}_1| .
+\end{align}
+Now we can combine the results to get the total three-body phase space:
+\begin{align}
+    \tau_3 &= \int d\tau_2(M \to p_1 + q) \frac{d q^2}{2\pi} d\tau_2(q \to p_2 + p_3)\\
+    &= \int \left(\frac{1}{4\pi} \int \delta(M - E_1 - E_q) \frac{|\vec{p}_1|^2}{ E_1 E_q} d|\vec{p}_1| \right) \frac{d q^2}{2\pi} \left(\frac{1}{8\pi}\right)\\
+    &= \frac{1}{64\pi^3} \int \delta(M - E_1 - E_q) \frac{|\vec{p}_1|^2}{ E_1 E_q} d|\vec{p}_1| d q^2.
+\end{align}
+To perform the integral over $|\vec{p}_1|$, we need to express $E_q$ in terms of $|\vec{p}_1|$ and $q^2$:
+\begin{align}
+    E_q &= \sqrt{|\vec{q}|^2 + q^2} = \sqrt{|\vec{p}_1|^2 + q^2}\\
+    E_1 &= \sqrt{|\vec{p}_1|^2 + m^2}.
+\end{align}
+We also need to compute the derivative of $(E_1 + E_q)$ with respect to $|\vec{p}_1|$:
+\begin{align}
+    \frac{d}{d|\vec{p}_1|}(E_1 + E_q) =& \frac{d}{d|\vec{p}_1|}\left(\sqrt{|\vec{p}_1|^2 + m^2} + \sqrt{|\vec{p}_1|^2 + q^2}\right) = \frac{|\vec{p}_1|}{\sqrt{|\vec{p}_1|^2 + m^2}} + \frac{|\vec{p}_1|}{\sqrt{|\vec{p}_1|^2 + q^2}} = \frac{|\vec{p}_1|}{E_1} + \frac{|\vec{p}_1|}{E_q}\\
+    =& |\vec{p}_1| \left(\frac{E_1 + E_q}{E_1 E_q}\right)= |\vec{p}_1| \left(\frac{M}{E_1 E_q}\right).
+\end{align}
+Thus, we have
+\begin{align}
+    \tau_3 &= \frac{1}{64\pi^3} \int \delta(M - E_1 - E_q) \frac{|\vec{p}_1|^2}{ E_1 E_q} d|\vec{p}_1| d q^2 \\
+    &= \frac{1}{64\pi^3} \int  \frac{|\vec{p}_1|^2}{ E_1 E_q} \frac{E_1 E_q}{M |\vec{p}_1|} d q^2\\
+    &= \frac{1}{64\pi^3 M} \int |\vec{p}_1| d q^2.
+\end{align}
+We can apply the relation between $q^2$ and $|\vec{p}_1|$ to change the integration variable in the  rest frame of $M$, where $P^\mu = (M, 0, 0, 0)$ and $p_1^\mu = (E_1, \vec{p}_1)$, $q^\mu=P^\mu - p_1^\mu$:
+\begin{align}
+    q^2 &= (P - p_1)^2 = M^2 + m^2 - 2M E_1 = M^2 + m^2 - 2M \sqrt{|\vec{p}_1|^2 + m^2},\\
+    \frac{d q^2}{d |\vec{p}_1|} &= -2M \frac{|\vec{p}_1|}{\sqrt{|\vec{p}_1|^2 + m^2}} = -2M \frac{|\vec{p}_1|}{E_1}.
+\end{align}
+By $E_1^2=|\vec{p}_1|^2 + m^2$, we have $dE_1 = \frac{|\vec{p}_1|}{E_1} d|\vec{p}_1|$. Thus, we have
+\begin{align}
+    \tau_3 &= \frac{1}{64\pi^3 M} \int_{q_{min}}^{q_{max}} |\vec{p}_1| d q^2 \\
+    &= \frac{1}{64\pi^3 M} \int_{|\vec{p}_1|_{max}}^{|\vec{p_1}|_{min}} |\vec{p}_1| \left(-2M \frac{|\vec{p}_1|}{E_1}\right) d |\vec{p}_1|\\
+    &= \frac{1}{32\pi^3} \int_{|\vec{p}_1|_{min}}^{|\vec{p_1}|_{max}} \frac{|\vec{p}_1|^2}{E_1} d |\vec{p}_1|\\
+    &= \frac{1}{32\pi^3} \int_{E_{1,min}}^{E_{1,max}} \sqrt{E_1^2 - m^2} d E_1.
+\end{align}
+The limits of integration for $E_1$ can be found from the kinematic constraints. The minimum energy occurs when the two massless particles are emitted back-to-back with maximum energy, and the maximum energy occurs when the massive particle is at rest:
+\begin{align}
+    E_{1,min} &= m, \\
+    E_{1,max} &= \frac{M^2 + m^2}{2M}=\frac{s+m^2}{2\sqrt{s}}, \text{ from } q^2_{min} = 0 \Rightarrow M^2 + m^2 - 2M E_{1,max} = 0.
+\end{align}
+Thus, we have (by \textit{Mathematica})
+\begin{align}
+    \tau_3 &=  \frac{1}{32\pi^3}\int_{m}^{\frac{s+m^2}{2\sqrt{s}}} \sqrt{E_1^2 - m^2} d E_1 \\
+    &=\frac{1}{32 \pi ^3}\frac{-m^4+2 m^2 s \log \left(\frac{m^2}{s}\right)+s^2}{8 s}\\
+    &= \frac{-m^4+2 m^2 s \log \left(\frac{m^2}{s}\right)+s^2}{256 \pi ^3 s}.
+\end{align}
+\qed
+
+
+
+\clearpage
+\question{3}{\textbf{Hadronic Transitions in Quarkonium}}
+\begin{itemize}
+    \item [(a)] The decay amplitude for the transition $\psi(2S)\to J/\psi(1S)\pi^+\pi^-$ can be approximated by
+    \begin{align}
+        M_{fi}=a_\psi \sqrt{4m_{\psi(2S)}m_{J/\psi}}(q^2-4.5m_\pi^2),
+    \end{align}
+    where $q$  is the total four-momentum of the emitted pion pair, and $a_\psi$ is a dimensionful coupling constant. Using the experimental decay rate (performing a numerical phase-space integration if necessary), determine the absolute value $|a_\psi |$ in appropriate units of GeV.
+    \item [(b)] Perform the same analysis for the decay $\Upsilon(2S)\to\Upsilon(1S)\pi^+\pi^-$, for which the phenomenological amplitude is
+    \begin{align}
+        M_{fi}=a_\Upsilon \sqrt{4m_{\Upsilon(2S)}m_{\Upsilon(1S)}}(q^2-3.2m_\pi^2).
+    \end{align}
+    Compare the extracted magnitudes of $|a_\psi|$ and $|a_\Upsilon|$. What can you infer about the relative spatial extent of the charmonium and bottomonium bound states? \\
+    Note: The constants $a_\psi$ and $a_\Upsilon$ reflect overlap integrals between the $2S$ and $1S$ quarkonium wavefunctions and scale with the mean-square radius $\langle r^2\rangle$ of the bound state.
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+The decay rate for the process $\psi(2S)\to J/\psi(1S)\pi^+\pi^-$ can be expressed as:
+\begin{align}
+    d\Gamma = \frac{1}{2m_{\psi(2S)}}  |M_{fi}|^2 d\tau_3,
+\end{align}
+where $d\tau_3$ is the three-body phase space element for the final state particles. The three-body phase space element can be expressed as:
+\begin{align}
+    d\tau_3 = (2\pi)^4 \delta^4(P - p_{J/\psi} - p_{\pi^+} - p_{\pi^-}) \frac{d^3p_{J/\psi}}{(2\pi)^3 2E_{J/\psi}} \frac{d^3p_{\pi^+}}{(2\pi)^3 2E_{\pi^+}} \frac{d^3p_{\pi^-}}{(2\pi)^3 2E_{\pi^-}},
+\end{align}
+where $P$ is the four-momentum of the initial $\psi(2S)$ particle, and $p_{J/\psi}$, $p_{\pi^+}$, and $p_{\pi^-}$ are the four-momenta of the final state particles. In the rest frame of $\psi(2S)$, we have $P = (m_{\psi(2S)}, 0, 0, 0)$. The invariant matrix element is given by:
+\begin{align}
+    M_{fi}=a_\psi \sqrt{4m_{\psi(2S)}m_{J/\psi}}(q^2-4.5m_\pi^2),  
+\end{align}
+where $q = p_{\pi^+} + p_{\pi^-}$ is the combined four-momentum of the pion pair. To find the total decay rate, we need to integrate over the three-body phase space:
+\begin{align}
+    \Gamma = \int d\Gamma = \frac{1}{2m_{\psi(2S)}} |a_\psi|^2 4m_{\psi(2S)}m_{J/\psi} \int (q^2 - 4.5m_\pi^2)^2 d\tau_3.
+\end{align}
+For $d\tau_3$, we can use the splitting formula for three-body phase space:
+\begin{align}
+    d\tau_3 = d\tau_2(m_{\psi(2S)} \to p_{J/\psi} + q) \frac{d q^2}{2\pi} d\tau_2(q \to p_{\pi^+} + p_{\pi^-}),
+\end{align}
+where $q = p_{\pi^+} + p_{\pi^-}$ is the combined four-momentum of the pion pair. The two-body phase space elements can be expressed as:
+\begin{align}
+    d\tau_2(m_{\psi(2S)} \to p_{J/\psi} + q) &= (2\pi)^4 \delta^4(P - p_{J/\psi} - q) \frac{d^3p_{J/\psi}}{(2\pi)^3 2E_{J/\psi}} \frac{d^3q}{(2\pi)^3 2E_q}, \\
+    d\tau_2(q \to p_{\pi^+} + p_{\pi^-}) &= (2\pi)^4 \delta^4(q - p_{\pi^+} - p_{\pi^-}) \frac{d^3p_{\pi^+}}{(2\pi)^3 2E_{\pi^+}} \frac{d^3p_{\pi^-}}{(2\pi)^3 2E_{\pi^-}}.
+\end{align}
+Now we have to evaluate the two-body phase space elements. For the second two-body phase space element, and we can set $q = (\sqrt{q^2}, 0, 0, 0)$,
+\begin{align}
+    &\int d\tau_2 (q\to p_{\pi^+} + p_{\pi^-}) =\int (2\pi)^4 \delta^4(q - p_{\pi^+} - p_{\pi^-}) \frac{d^3p_{\pi^+}}{(2\pi)^3 2E_{\pi^+}} \frac{d^3p_{\pi^-}}{(2\pi)^3 2E_{\pi^-}}\\
+    =& \int (2\pi)^4 \delta(\sqrt{q^2} - E_{\pi^+} - E_{\pi^-}) \delta^3(\vec{0} - \vec{p}_{\pi^+} - \vec{p}_{\pi^-}) \frac{d^3p_{\pi^+}}{(2\pi)^3 2E_{\pi^+}} \frac{d^3p_{\pi^-}}{(2\pi)^3 2E_{\pi^-}} \\
+    =&\int (2\pi)^4 \delta(\sqrt{q^2} - E_{\pi^+} - E_{\pi^-}) \frac{d^3 p_{\pi^+}}{(2\pi)^3 2E_{\pi^+}} \frac{1}{(2\pi)^3 2E_{\pi^-}},\quad\text{where } E_{\pi^+}=E_{\pi^-}\\ 
+    =& \int (2\pi)^4 \delta(\sqrt{q^2} - 2E_{\pi^+}) \frac{4\pi |p|^2 d|p|}{(2\pi)^3 2E_{\pi^+}} \frac{1}{(2\pi)^3 2E_{\pi^+}},\quad\text{where }|p|=|\vec{p}_{\pi^+}|\\
+    =& \frac{4\pi}{4(2\pi)^2} \int \delta(\sqrt{q^2} - 2E_\pi) \frac{|p|^2}{ E^2} dp,\quad E=E_{\pi^+}\\
+    =& \frac{1}{4\pi}\int \delta(\sqrt{q^2} - 2E_\pi) \frac{|p|^2}{ E^2} dp\\
+    =&\frac{1}{4\pi}\int \delta(\sqrt{q^2} - 2E_\pi) \frac{|p|^2}{ E^2} \frac{E}{|p|} dE \quad \text{using } dE = \frac{|p|}{E} dp\\
+    =& \frac{1}{4\pi}\int \delta(\sqrt{q^2} - 2E_\pi) \frac{\sqrt{E^2 - m_\pi^2}}{ E} dE\\
+    =& \frac{1}{4\pi} \frac{\sqrt{\frac{q^2}{4} - m_\pi^2}}{\frac{q^2}{2}}\frac{1}{2} \quad \text{using } E = \frac{\sqrt{q^2}}{2}\\
+    =& \frac{1}{8\pi} \sqrt{1 - \frac{4m_\pi^2}{q^2}}.
+\end{align}
+Next, we evaluate the other two-body phase space element, and we can evaluate in the rest frame of $\psi(2S)$. In this frame, $P = (m_{\psi(2S)}, 0, 0, 0)$, and the energies are $E_{J/\psi} = \sqrt{|\vec{p}_{J/\psi}|^2 + m_{J/\psi}^2}$ and $E_q = m_{\psi(2S)} - E_{J/\psi}=\sqrt{|\vec{q}|^2+q^2}$.
+\begin{align}
+    &\int d\tau_2 (m_{\psi(2S)}\to p_{J/\psi} + q) = \int (2\pi)^4 \delta(m_{\psi(2S)} - E_{J/\psi} - E_q) \delta^3(\vec{0} - \vec{p}_{J/\psi} - \vec{q}) \frac{d^3p_{J/\psi}}{(2\pi)^3 2E_{J/\psi}} \frac{d^3q}{(2\pi)^3 2E_q}\\
+    =& \int (2\pi)^4 \delta(m_{\psi(2S)} - E_{J/\psi} - E_q) \frac{d^3p_{J/\psi}}{(2\pi)^3 2E_{J/\psi}} \frac{1}{(2\pi)^3 2E_q}\\
+    =& \int (2\pi)^4 \delta(m_{\psi(2S)} - E_{J/\psi} - E_q) \frac{4\pi |\vec{p}_{J/\psi}|^2 d|\vec{p}_{J/\psi}|}{(2\pi)^3 2E_{J/\psi}} \frac{1}{(2\pi)^3 2E_q}\\
+    =& \frac{4\pi}{4(2\pi)^2} \int \delta(m_{\psi(2S)} - E_{J/\psi} - E_q) \frac{|\vec{p}_{J/\psi}|^2}{ E_{J/\psi} E_q} d|\vec{p}_{J/\psi}|\\
+    =& \frac{1}{4\pi}\int \delta(m_{\psi(2S)} - E_{J/\psi} - E_q) \frac{|\vec{p}_{J/\psi}|^2}{ E_{J/\psi} E_q} d|\vec{p}_{J/\psi}| .
+\end{align}
+$E_{J/\psi}$ and $E_q$ can be expressed in terms of $|\vec{p}_{J/\psi}|$ and $q^2$:
+\begin{align}
+    E_q &= \sqrt{|\vec{q}|^2 + q^2} = \sqrt{|\vec{p}_{J/\psi}|^2 + q^2},\\
+    E_{J/\psi} &= \sqrt{|\vec{p}_{J/\psi}|^2 + m_{J/\psi}^2}.
+\end{align}
+We also need to compute the derivative of $(E_{J/\psi} + E_q)$ with respect to $|\vec{p}_{J/\psi}|$:
+\begin{align}
+    \frac{d}{d|\vec{p}_{J/\psi}|}(E_{J/\psi} + E_q) =& \frac{d}{d|\vec{p}_{J/\psi}|}\left(\sqrt{|\vec{p}_{J/\psi}|^2 + m_{J/\psi}^2} + \sqrt{|\vec{p}_{J/\psi}|^2 + q^2}\right)\\
+     =& \frac{|\vec{p}_{J/\psi}|}{\sqrt{|\vec{p}_{J/\psi}|^2 + m_{J/\psi}^2}} + \frac{|\vec{p}_{J/\psi}|}{\sqrt{|\vec{p}_{J/\psi}|^2 + q^2}} = \frac{|\vec{p}_{J/\psi}|}{E_{J/\psi}} + \frac{|\vec{p}_{J/\psi}|}{E_q}\\
+    =& |\vec{p}_{J/\psi}| \left(\frac{E_{J/\psi} + E_q}{E_{J/\psi} E_q}\right)= |\vec{p}_{J/\psi}| \left(\frac{m_{\psi(2S)}}{E_{J/\psi} E_q}\right).
+\end{align}
+Thus, we have
+\begin{align}
+    &\frac{1}{4\pi}\int \delta(m_{\psi(2S)} - E_{J/\psi} - E_q) \frac{|\vec{p}_{J/\psi}|^2}{ E_{J/\psi} E_q} d|\vec{p}_{J/\psi}|\\
+    =& \frac{1}{4\pi} \frac{|\vec{p}_{J/\psi}|^2}{ E_{J/\psi} E_q} \frac{E_{J/\psi} E_q}{m_{\psi(2S)} |\vec{p}_{J/\psi}|} \\
+    =& \frac{1}{4\pi} \frac{|\vec{p}_{J/\psi}|}{m_{\psi(2S)}}.
+\end{align}
+Now we can combine the results to get the total three-body phase space:
+\begin{align}
+    &d \Gamma =\frac{1}{2m_{\psi(2S)}} |a_\psi|^2 4m_{\psi(2S)}m_{J/\psi} \int \left(\frac{1}{4\pi} \frac{|\vec{p}_{J/\psi}|}{m_{\psi(2S)}} \right) \frac{d q^2}{2\pi} \left(\frac{1}{8\pi} \sqrt{1 - \frac{4m_\pi^2}{q^2}}\right) (q^2 - 4.5m_\pi^2)^2\\
+    =& \frac{|a_\psi|^2 m_{J/\psi}}{32 \pi^3 m_{\psi(2S)}} \int |\vec{p}_{J/\psi}| \sqrt{1 - \frac{4m_\pi^2}{q^2}} (q^2 - 4.5m_\pi^2)^2 d q^2.
+\end{align}
+We can express $|\vec{p}_{J/\psi}|$ in terms of $q^2$:
+\begin{align}
+    m_{J/\psi}^2 = E_{J/\psi}^2 - |\vec{p}_{J/\psi}|^2 = (m_{\psi(2S)} - E_q)^2 - |\vec{p}_{J/\psi}|^2 = (m_{\psi(2S)} - \sqrt{|\vec{p}_{J/\psi}|^2 + q^2})^2 - |\vec{p}_{J/\psi}|^2,
+\end{align}
+which gives (by \textit{Mathematica}):
+\begin{align}
+    &|\vec{p}_{J/\psi}| = \frac{\sqrt{(M-(m-q)) (M+(m-q)) (M-(m+q)) (M+(m+q))}}{2 M}\\
+    =& \frac{\sqrt{(M^2-(m+q)^2)(M^2-(m-q)^2)}}{2 M}, \quad \text{where } M = m_{\psi(2S)}, m = m_{J/\psi}, q = \sqrt{q^2}\\
+    =& \frac{\sqrt{(m_{\psi(2S)}^2-(m_{J/\psi}+\sqrt{q^2})^2)(m_{\psi(2S)}^2-(m_{J/\psi}-\sqrt{q^2})^2)}}{2 m_{\psi(2S)}}.
+\end{align}
+We can discuss the limits of integration for $q^2$. $q^2=(p_{\pi^+} + p_{\pi^-})^2=(p_{\psi(2S)} - p_{J/\psi})^2$, which is the invariant mass squared of the pion pair. The minimum value of $q^2$ occurs when the two pions are produced at rest in their center-of-mass frame, which gives:
+\begin{align}
+    q^2_{min} = (2m_\pi)^2 = 4m_\pi^2.
+\end{align} The maximum value of $q^2$ occurs when the $J/\psi$ is produced at rest in the $\psi(2S)$ rest frame, which gives:
+\begin{align}
+    q^2_{max} = (m_{\psi(2S)} - m_{J/\psi})^2.
+\end{align}
+Thus, we have with ($m_{J/\psi} = 3.096$ GeV, $m_{\psi(2S)} = 3.686$ GeV, $m_\pi = 0.13957$ GeV, and the experimental decay rate $\Gamma_{exp} = 101.64$ keV = $1.01\times 10^{-4}$ GeV):
+\begin{align}
+    &\Gamma = \frac{|a_\psi|^2 m_{J/\psi}}{32 \pi^3 m_{\psi(2S)}} \int_{4m_\pi^2}^{(m_{\psi(2S)} - m_{J/\psi})^2} |\vec{p}_{J/\psi}| \sqrt{1 - \frac{4m_\pi^2}{q^2}} (q^2 - 4.5m_\pi^2)^2 d q^2\\
+    =&|a_\psi|^2 \times 8.82391\times10^{-7} \text{GeV}^5= 1.01\times 10^{-4} \text{ GeV}\\
+    \Rightarrow& |a_\psi| = 10.6987 \text{ GeV}^{-3}.
+\end{align}
+\begin{itemize}
+    \item [(b)] 
+\end{itemize}
+We can perform a similar analysis for the decay $\Upsilon(2S)\to\Upsilon(1S)\pi^+\pi^-$. The decay rate can be expressed as:
+\begin{align}
+    &\Gamma = \frac{1}{2m_{\Upsilon(2S)}} |a_\Upsilon|^2 4m_{\Upsilon(2S)}m_{\Upsilon(1S)} \int \left(\frac{1}{4\pi} \frac{|\vec{p}_{\Upsilon(1S)}|}{m_{\Upsilon(2S)}} \right) \frac{d q^2}{2\pi} \left(\frac{1}{8\pi} \sqrt{1 - \frac{4m_\pi^2}{q^2}}\right) (q^2 - 3.2m_\pi^2)^2\\
+    =& \frac{|a_\Upsilon|^2 m_{\Upsilon(1S)}}{32 \pi^3 m_{\Upsilon(2S)}} \int |\vec{p}_{\Upsilon(1S)}| \sqrt{1 - \frac{4m_\pi^2}{q^2}} (q^2 - 3.2m_\pi^2)^2 d q^2.
+\end{align}
+We can express $|\vec{p}_{\Upsilon(1S)}|$ in terms of $q^2$:
+\begin{align}
+    &|\vec{p}_{\Upsilon(1S)}| = \frac{\sqrt{(m_{\Upsilon(2S)}^2-(m_{\Upsilon(1S)}+\sqrt{q^2})^2)(m_{\Upsilon(2S)}^2-(m_{\Upsilon(1S)}-\sqrt{q^2})^2}}{2 m_{\Upsilon(2S)}}.
+\end{align}
+The limits of integration for $q^2$ are:
+\begin{align}
+    q^2_{min} = 4m_\pi^2, \\
+    q^2_{max} = (m_{\Upsilon(2S)} - m_{\Upsilon(1S)})^2.
+\end{align}
+With ($m_{\Upsilon(1S)} = 9.460$ GeV, $m_{\Upsilon(2S)} = 10.023$ GeV, $m_\pi = 0.13957$ GeV, and the experimental decay rate $\Gamma_{exp} = 5.71$ keV = $5.71\times 10^{-6}$ GeV):
+\begin{align}
+    &\Gamma = \frac{|a_\Upsilon|^2 m_{\Upsilon(1S)}}{32 \pi^3 m_{\Upsilon(2S)}} \int_{4m_\pi^2}^{(m_{\Upsilon(2S)} - m_{\Upsilon(1S)})^2} |\vec{p}_{\Upsilon(1S)}| \sqrt{1 - \frac{4m_\pi^2}{q^2}} (q^2 - 3.2m_\pi^2)^2 d q^2\\
+    =&|a_\Upsilon|^2 \times 9.36631\times10^-7 \text{GeV}^5= 5.71\times 10^{-6} \text{ GeV}\\
+    \Rightarrow& |a_\Upsilon| = 2.46907 \text{ GeV}^{-3}.
+\end{align}
+Comparing the extracted magnitudes of $|a_\psi|$ and $|a_\Upsilon|$, we find that $|a_\psi|$ is significantly larger than $|a_\Upsilon|$. Since the constants $a_\psi$ and $a_\Upsilon$ reflect overlap integrals between the $2S$ and $1S$ quarkonium wavefunctions and scale with the mean-square radius $\langle r^2\rangle$ of the bound state, we can infer that the charmonium bound state (associated with $a_\psi$) has a larger spatial extent compared to the bottomonium bound state (associated with $a_\Upsilon$). This suggests that charmonium states are more loosely bound and have a larger size than bottomonium states, which are more tightly bound and compact.\qed
+
