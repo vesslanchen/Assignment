@@ -216,9 +216,11 @@ Thus,
         \sigma^j & 0 \\ 0 & -\sigma^j
     \end{pmatrix} = - \begin{pmatrix}
         \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} & 0 \\ 0 & -\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}
-    \end{pmatrix}
+    \end{pmatrix},
 \end{align}
-Now we want to prove $\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}$ has eigenvalues $\pm 1$, since $\hat{\mathbf{p}}$ is a unit vector. The characteristic polynomial of $\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}$ is given by
+where $\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}=\begin{pmatrix}
+    \hat{p}_3 & \hat{p}_1 - i\hat{p}_2 \\ \hat{p}_1 + i\hat{p}_2 & -\hat{p}_3
+\end{pmatrix}$. Now we want to prove $\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}$ has eigenvalues $\pm 1$, since $\hat{\mathbf{p}}$ is a unit vector. The characteristic polynomial of $\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}$ is given by
 \begin{align}
     \det(\hat{\mathbf{p}}\cdot\boldsymbol{\sigma} - \lambda I) = \det\begin{pmatrix}
         \hat{p}_3 - \lambda & \hat{p}_1 - i\hat{p}_2 \\ \hat{p}_1 + i\hat{p}_2 & -\hat{p}_3 - \lambda
@@ -236,14 +238,120 @@ Thus, $\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}$ has eigenvalues $\pm 1$. Conseq
 \begin{align}
     \exp(cA) = \cosh(c) + A \sinh(c)
 \end{align}
-where $c$ is an arbitrary complex number. Applying this to our case with $A = 2i\hat{\mathbf{p}}\cdot\mathbf{K}$ and $c = i\eta/2$, we have
+where $c$ is an arbitrary complex number. Applying this to our case with $A = 2i\hat{\mathbf{p}}\cdot\mathbf{K}$ and $c = \eta/2$, we have
 \begin{align}
-    \exp(i\eta \hat{\mathbf{p}}\cdot\mathbf{K}) =& \cosh\left(\frac{i\eta}{2}\right) + (2i\hat{\mathbf{p}}\cdot\mathbf{K}) \sinh\left(\frac{i\eta}{2}\right)\\
-    =& \cos\left(\frac{\eta}{2}\right) + i(2i\hat{\mathbf{p}}\cdot\mathbf{K}) \sin\left(\frac{\eta}{2}\right)\\
-    =& \cos\left(\frac{\eta}{2}\right) - 2(\hat{\mathbf{p}}\cdot\mathbf{K}) \sin\left(\frac{\eta}{2}\right)
+    &\exp(i\eta \hat{\mathbf{p}}\cdot\mathbf{K}) = \cosh\left(\frac{\eta}{2}\right) + (2i\hat{\mathbf{p}}\cdot\mathbf{K}) \sinh\left(\frac{\eta}{2}\right)\\
+    =& \cosh\left(\frac{\eta}{2}\right) - \begin{pmatrix}
+        \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} & 0 \\ 0 & -\hat{\mathbf{p}}\cdot\boldsymbol{\sigma}
+    \end{pmatrix} \sinh\left(\frac{\eta}{2}\right)\\
+    =& \begin{pmatrix}
+        \cosh\left(\frac{\eta}{2}\right) - \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right) & 0 \\ 0 & \cosh\left(\frac{\eta}{2}\right) + \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)
+    \end{pmatrix}
 \end{align}
-
-
+Now, we can compute $u_s(\mathbf{p})$, 
+\begin{align}
+    u_same(\mathbf{p})=&\exp{(i\eta \hat{\mathbf{p}}\cdot\mathbf{K})}u_s(\mathbf{0})\\
+    =& \begin{pmatrix}
+        \cosh\left(\frac{\eta}{2}\right) - \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right) & 0 \\ 0 & \cosh\left(\frac{\eta}{2}\right) + \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)
+    \end{pmatrix} \begin{pmatrix}
+        \sqrt{m} \,\xi_s \\ \sqrt{m} \,\xi_s
+    \end{pmatrix}\\
+    =& \sqrt{m} \begin{pmatrix}
+        \left(\cosh\left(\frac{\eta}{2}\right) - \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)\right) \xi_s \\ \left(\cosh\left(\frac{\eta}{2}\right) + \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)\right) \xi_s
+    \end{pmatrix},
+\end{align}
+where $\xi_{+}=\begin{pmatrix}
+    1 \\ 0
+\end{pmatrix}$ and $\xi_{-}=\begin{pmatrix}
+    0 \\ 1
+\end{pmatrix}$. Hence, we have
+\begin{align}
+    u_{+}(\mathbf{p})=& \sqrt{m} \begin{pmatrix}
+        \cosh\left(\frac{\eta}{2}\right) - \hat{p}_3 \sinh\left(\frac{\eta}{2}\right) \\ - (\hat{p}_1 + i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right) \\ 
+        \cosh\left(\frac{\eta}{2}\right) + \hat{p}_3 \sinh\left(\frac{\eta}{2}\right) \\ (\hat{p}_1 + i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right)
+    \end{pmatrix}\\
+    u_{-}(\mathbf{p})=& \sqrt{m} \begin{pmatrix}
+        - (\hat{p}_1 - i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right) \\ \cosh\left(\frac{\eta}{2}\right) + \hat{p}_3 \sinh\left(\frac{\eta}{2}\right) \\ 
+        (\hat{p}_1 - i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right) \\ \cosh\left(\frac{\eta}{2}\right) - \hat{p}_3 \sinh\left(\frac{\eta}{2}\right)
+    \end{pmatrix}
+\end{align}
+Similarly, we can compute $v_s(\mathbf{p})$,
+\begin{align}
+    v_s(\mathbf{p})=&\exp{(i\eta \hat{\mathbf{p}}\cdot\mathbf{K})}v_s(\mathbf{0})\\
+    =& \begin{pmatrix}
+        \cosh\left(\frac{\eta}{2}\right) - \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right) & 0 \\ 0 & \cosh\left(\frac{\eta}{2}\right) + \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)
+    \end{pmatrix} \begin{pmatrix}
+        \sqrt{m} \,\xi_s \\ -\sqrt{m} \,\xi_s
+    \end{pmatrix}\\
+    =& \sqrt{m} \begin{pmatrix}
+        \left(\cosh\left(\frac{\eta}{2}\right) - \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)\right) \xi_s \\ -\left(\cosh\left(\frac{\eta}{2}\right) + \hat{\mathbf{p}}\cdot\boldsymbol{\sigma} \sinh\left(\frac{\eta}{2}\right)\right) \xi_s
+    \end{pmatrix},
+\end{align}
+where $\xi_{+}=\begin{pmatrix}
+    0 \\ 1
+\end{pmatrix}$ and $\xi_{-}=\begin{pmatrix}
+    -1 \\ 0
+\end{pmatrix}$. Hence, we have
+\begin{align}
+    v_{+}(\mathbf{p})=& \sqrt{m} \begin{pmatrix}
+        - (\hat{p}_1 - i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right) \\ \cosh\left(\frac{\eta}{2}\right) + \hat{p}_3 \sinh\left(\frac{\eta}{2}\right) \\ 
+        (\hat{p}_1 - i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right) \\ -\left(\cosh\left(\frac{\eta}{2}\right) - \hat{p}_3 \sinh\left(\frac{\eta}{2}\right)\right)
+    \end{pmatrix}\\
+    v_{-}(\mathbf{p})=& \sqrt{m} \begin{pmatrix}
+        \cosh\left(\frac{\eta}{2}\right) - \hat{p}_3 \sinh\left(\frac{\eta}{2}\right) \\ - (\hat{p}_1 + i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right) \\ 
+        -\left(\cosh\left(\frac{\eta}{2}\right) + \hat{p}_3 \sinh\left(\frac{\eta}{2}\right)\right) \\ -(\hat{p}_1 + i\hat{p}_2) \sinh\left(\frac{\eta}{2}\right)
+    \end{pmatrix}
+\end{align}
+Now, we can express $\cosh\left(\frac{\eta}{2}\right)$ and $\sinh\left(\frac{\eta}{2}\right)$ in terms of energy $E_\mathbf{p}$ and mass $m$. We know that
+\begin{align}
+    \cosh(\eta) = \frac{E_\mathbf{p}}{m}, \quad \sinh(\eta) = \frac{|\mathbf{p}|}{m}
+\end{align}
+Using the half-angle formulas for hyperbolic functions, we have
+\begin{align}
+    \cosh\left(\frac{\eta}{2}\right) = \sqrt{\frac{E_\mathbf{p} + m}{2m}}, \quad \sinh\left(\frac{\eta}{2}\right) = \sqrt{\frac{E_\mathbf{p} - m}{2m}}
+\end{align}
+Substituting these back into the expressions for $u_s(\mathbf{p})$ and $v_s(\mathbf{p})$, we get
+\begin{align}
+    u_{+}(\mathbf{p})=& \begin{pmatrix}
+        \sqrt{\frac{E_\mathbf{p} + m}{2}} - \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ - (\hat{p}_1 + i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ 
+        \sqrt{\frac{E_\mathbf{p} + m}{2}} + \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ (\hat{p}_1 + i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}}
+    \end{pmatrix}\\
+    u_{-}(\mathbf{p})=& \begin{pmatrix}
+        - (\hat{p}_1 - i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ \sqrt{\frac{E_\mathbf{p} + m}{2}} + \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ 
+        (\hat{p}_1 - i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ \sqrt{\frac{E_\mathbf{p} + m}{2}} - \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}}
+    \end{pmatrix}\\
+    v_{+}(\mathbf{p})=& \begin{pmatrix}
+        - (\hat{p}_1 - i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ \sqrt{\frac{E_\mathbf{p} + m}{2}} + \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ 
+        (\hat{p}_1 - i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ -\left(\sqrt{\frac{E_\mathbf{p} + m}{2}} - \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}}\right)
+    \end{pmatrix}\\
+    v_{-}(\mathbf{p})=& \begin{pmatrix}
+        \sqrt{\frac{E_\mathbf{p} + m}{2}} - \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ - (\hat{p}_1 + i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}} \\ 
+        -\left(\sqrt{\frac{E_\mathbf{p} + m}{2}} + \hat{p}_3 \sqrt{\frac{E_\mathbf{p} - m}{2}}\right) \\ -(\hat{p}_1 + i\hat{p}_2) \sqrt{\frac{E_\mathbf{p} - m}{2}}
+    \end{pmatrix}
+\end{align}
+In the large energy limit $E_\mathbf{p} \gg m$, we have
+\begin{align}
+    \sqrt{\frac{E_\mathbf{p} + m}{2}} \approx \sqrt{\frac{E_\mathbf{p}}{2}}, \quad \sqrt{\frac{E_\mathbf{p} - m}{2}} \approx \sqrt{\frac{E_\mathbf{p}}{2}}
+\end{align}
+Thus, the expressions for $u_s(\mathbf{p})$ and $v_s(\mathbf{p})$ simplify to
+\begin{align}
+    u_{+}(\mathbf{p}) \approx& \sqrt{\frac{E_\mathbf{p}}{2}} \begin{pmatrix}
+        1 - \hat{p}_3 \\ - (\hat{p}_1 + i\hat{p}_2) \\ 
+        1 + \hat{p}_3 \\ (\hat{p}_1 + i\hat{p}_2)
+    \end{pmatrix}\\
+    u_{-}(\mathbf{p}) \approx& \sqrt{\frac{E_\mathbf{p}}{2}} \begin{pmatrix}
+        - (\hat{p}_1 - i\hat{p}_2) \\ 1 + \hat{p}_3 \\ 
+        (\hat{p}_1 - i\hat{p}_2) \\ 1 - \hat{p}_3
+    \end{pmatrix}\\
+    v_{+}(\mathbf{p}) \approx& \sqrt{\frac{E_\mathbf{p}}{2}} \begin{pmatrix}
+        - (\hat{p}_1 - i\hat{p}_2) \\ 1 + \hat{p}_3 \\ 
+        (\hat{p}_1 - i\hat{p}_2) \\ - (1 - \hat{p}_3)
+    \end{pmatrix}\\
+    v_{-}(\mathbf{p}) \approx& \sqrt{\frac{E_\mathbf{p}}{2}} \begin{pmatrix}
+        1 - \hat{p}_3 \\ - (\hat{p}_1 + i\hat{p}_2) \\ 
+        - (1 + \hat{p}_3) \\ -(\hat{p}_1 + i\hat{p}_2)
+    \end{pmatrix}
+\end{align}\qed
 
 
 \clearpage
@@ -254,6 +362,330 @@ Use the Feynman rules to write down (at tree level) $i\mathcal{T}$ for the proce
     \mathcal{L}= -\frac{1}{2} \partial_\mu \varphi \partial^\mu \varphi - \frac{1}{2} m^2_\varphi \varphi^2 + \overline{\Psi}(i  \slashed{\partial} - m)\Psi + g\varphi \overline{\Psi}\Psi.
 \end{align}
 \answer{}
+\begin{figure}[!h]
+    \centering
+    % t-channel
+    \begin{subfigure}{0.48\textwidth} % 佔據文本寬度的 48%
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(p_2\)};
+            \vertex (f1) at ( 2,1) {\(k_1\)};
+            \vertex (f2) at ( 2,-1) {\(k_2\)};
+
+            % 頂點
+            \vertex (v1) at (0,+0.5);
+            \vertex (v2) at (0,-0.5);
+            
+            % 繪製傳播子 (t-channel: 粒子直線傳播)
+            \diagram*{
+                (f1) -- [fermion] (v1) -- [fermion] (i1), % p1 -> k1
+                (f2) -- [fermion] (v2) -- [fermion] (i2), % p2 -> k2
+                (v1) -- [scalar,momentum={\(q_t=p_{1}-k_{1}\)}] (v2), % 中間傳播子
+            };
+            
+            \node[above=3pt of v1] {\(ig\)};
+            \node[below=3pt of v2] {\(ig\)};
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{t-channel diagram.}
+        \label{HW6:pairs-ee-ee-t-channel}
+    \end{subfigure}
+    %\hfill % 在兩個子圖形之間插入最大的水平空間
+    % u-channel
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子 (External Particles)
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(p_2\)};
+            \vertex (f1) at ( 2.5,1) {\(k_1\)};
+            \vertex (f2) at ( 2.5,-1) {\(k_2\)};
+
+            % 頂點 (Vertices)
+            \vertex (v1) at (0,+0.5);
+            \vertex (v2) at (0,-0.5);
+            
+            % 繪製傳播子 (u-channel: 粒子交叉傳播)
+            \diagram*{
+                (f1) -- [fermion] (v1) -- [fermion] (i2), % p1 -> k2
+                (f2) -- [fermion] (v2) -- [fermion] (i1), % p2 -> k1
+                (v2) -- [scalar, momentum'={\(q_u=p_{1}-k_{2}\)}] (v1), % 中間傳播子
+            };
+            
+            % 標記耦合常數
+            \node[above=3pt of v1] {\(ig\)};
+            \node[below=3pt of v2] {\(ig\)};
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{u-channel diagram.}
+        \label{HW6:pairs-ee-ee-u-channel}
+    \end{subfigure}
+    \caption{Feynman diagrams for $e^+e^+\to e^+e^+$ at tree level (t and u channels).}
+    \label{HW6:fig:e^+e^+_to_e^+e^+_channels}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    % 第一個子圖
+    \begin{subfigure}{0.32\textwidth} % 佔據文本寬度的 48%
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(p_2\)};
+            \vertex (f1) at ( 2,0.5) {\(k_1\)};
+            \vertex (f2) at ( 2,-1) {\(k_2\)};
+            \vertex (phi3) at ( 2,1.5) {\(k_3\)};
+
+            % 頂點
+            \vertex (v1) at (0,1);
+            \vertex (v2) at (0,-1);
+            \vertex (v3) at (1,1);
+            
+            % 繪製線
+            \diagram*{
+                (i1) -- [scalar] (v1) ,
+                (f2)-- [fermion] (v2)--[fermion,momentum= {\(q_2=p_{2}-k_{2}\)}] (v1)--[fermion,momentum= {\(q_1=k_1+k_3\)}] (v3)--[fermion] (f1),
+                (i2) -- [scalar] (v2) ,
+                (v3) -- [scalar] (phi3),
+                };
+        
+            \node[above=3pt of v1] ;
+            \node[below=3pt of v2] ;
+            \node[above=3pt of v3] ;
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{Diagram 1 for $\varphi\varphi\to e^+e^-\varphi$.}
+        \label{HW6:phiphi-to-pair-e-phi-diagram1}
+    \end{subfigure}
+    \hfill % 在兩個子圖形之間插入最大的水平空間
+    % 第二個子圖
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(p_2\)};
+            \vertex (f1) at ( 2,0.5) {\(k_2\)};
+            \vertex (f2) at ( 2,-1) {\(k_1\)};
+            \vertex (phi3) at ( 2,1.5) {\(k_3\)};
+
+            % 頂點
+            \vertex (v1) at (0,1);
+            \vertex (v2) at (0,-1);
+            \vertex (v3) at (1,1);
+            
+            % 繪製線
+            \diagram*{
+                (i1) -- [scalar] (v1) ,
+                (f1) -- [fermion] (v3)--[fermion, momentum'={\(q_2=-k_2-k_3\)}] (v1)--[fermion, momentum'={\(q_1=k_1-p_2\)}] (v2)-- [fermion] (f2),
+                (i2) -- [scalar] (v2) ,
+                (v3) -- [scalar] (phi3),
+                };
+        
+            \node[above=3pt of v1] ;
+            \node[below=3pt of v2] ;
+            \node[above=3pt of v3] ;
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{Diagram 2 for $\varphi\varphi\to e^+e^-\varphi$.}
+        \label{HW6:phiphi-to-pair-e-phi-diagram2}
+    \end{subfigure}
+    \hfill % 在兩個子圖形之間插入最大的水平空間
+\begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(p_2\)};
+            \vertex (f1) at ( 2,1) {\(k_2\)};
+            \vertex (f2) at ( 2,-1) {\(k_1\)};
+            \vertex (phi3) at ( 2,0) {\(k_3\)};
+
+            % 頂點
+            \vertex (v1) at (0,1);
+            \vertex (v2) at (0,-1);
+            \vertex (v3) at (0,0);
+            
+            % 繪製線
+            \diagram*{
+                (i1) -- [scalar] (v1) ,
+                (f1) -- [fermion] (v1)--[fermion,momentum'={\(q_2=p_1-k_2\)}] (v3)--[fermion,momentum'={\(q_1=k_1-p_2\)}] (v2)-- [fermion] (f2),
+                (i2) -- [scalar] (v2) ,
+                (v3) -- [scalar] (phi3),
+                };
+        
+            \node[above=3pt of v1] ;
+            \node[below=3pt of v2] ;
+            \node[left=3pt of v3] ;
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{Diagram 3 for $\varphi\varphi\to e^+e^-\varphi$.}
+        \label{HW6:phiphi-to-pair-e-phi-diagram3}
+    \end{subfigure}\\
+    \begin{subfigure}{0.32\textwidth} % 佔據文本寬度的 48%
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_2\)};
+            \vertex (i2) at (-2,-1) {\(p_1\)};
+            \vertex (f1) at ( 2,0.5) {\(k_1\)};
+            \vertex (f2) at ( 2,-1) {\(k_2\)};
+            \vertex (phi3) at ( 2,1.5) {\(k_3\)};
+
+            % 頂點
+            \vertex (v1) at (0,1);
+            \vertex (v2) at (0,-1);
+            \vertex (v3) at (1,1);
+            
+            % 繪製線
+            \diagram*{
+                (i1) -- [scalar] (v1) ,
+                (f2)-- [fermion] (v2)--[fermion,momentum= {\(q_2=p_{1}-k_{2}\)}] (v1)--[fermion,momentum= {\(q_1=k_1+k_3\)}] (v3)--[fermion] (f1),
+                (i2) -- [scalar] (v2) ,
+                (v3) -- [scalar] (phi3),
+                };
+        
+            \node[above=3pt of v1] ;
+            \node[below=3pt of v2] ;
+            \node[above=3pt of v3] ;
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{Diagram 1 for $\varphi\varphi\to e^+e^-\varphi$.}
+        \label{HW6:phiphi-to-pair-e-phi-diagram4}
+    \end{subfigure}
+    \hfill % 在兩個子圖形之間插入最大的水平空間
+    % 第二個子圖
+    \begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_2\)};
+            \vertex (i2) at (-2,-1) {\(p_1\)};
+            \vertex (f1) at ( 2,0.5) {\(k_2\)};
+            \vertex (f2) at ( 2,-1) {\(k_1\)};
+            \vertex (phi3) at ( 2,1.5) {\(k_3\)};   
+            % 頂點
+            \vertex (v1) at (0,1);
+            \vertex (v2) at (0,-1);
+            \vertex (v3) at (1,1);  
+            % 繪製線
+            \diagram*{
+                (i1) -- [scalar] (v1) ,
+                (f1) -- [fermion] (v3)--[fermion, momentum'={\(q_2=-k_2-k_3\)}] (v1)--[fermion, momentum'={\(q_1=k_1-p_1\)}] (v2)-- [fermion] (f2),
+                (i2) -- [scalar] (v2) ,
+                (v3) -- [scalar] (phi3),
+                };
+
+            \node[above=3pt of v1] ;
+            \node[below=3pt of v2] ;
+            \node[above=3pt of v3] ;
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{Diagram 2 for $\varphi\varphi\to e^+e^-\varphi$.}
+        \label{HW6:phiphi-to-pair-e-phi-diagram5}
+    \end{subfigure}
+    \hfill % 在兩個子圖形之間插入最大的水平空間
+\begin{subfigure}{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_2\)};
+            \vertex (i2) at (-2,-1) {\(p_1\)};
+            \vertex (f1) at ( 2,1) {\(k_2\)};
+            \vertex (f2) at ( 2,-1) {\(k_1\)};
+            \vertex (phi3) at ( 2,0) {\(k_3\)};
+            % 頂點
+            \vertex (v1) at (0,1);
+            \vertex (v2) at (0,-1);
+            \vertex (v3) at (0,0);
+            % 繪製線
+            \diagram*{
+                (i1) -- [scalar] (v1) ,
+                (f1) -- [fermion] (v1)--[fermion,momentum'={\(q_2=p_2-k_2\)}] (v3)--[fermion,momentum'={\(q_1=k_1-p_1\)}] (v2)-- [fermion] (f2),
+                (i2) -- [scalar] (v2) ,
+                (v3) -- [scalar] (phi3),
+                };
+            
+            \node[above=3pt of v1] ;
+            \node[below=3pt of v2] ;
+            \node[left=3pt of v3] ;
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{Diagram 3 for $\varphi\varphi\to e^+e^-\varphi$.}
+        \label{HW6:phiphi-to-pair-e-phi-diagram6}
+    \end{subfigure}
+    \caption{Two Feynman diagrams for $\varphi\varphi\to e^+e^-\varphi$ at tree level.}
+    \label{HW6:phiphi-to-pair-e-phi}
+\end{figure}
+\begin{itemize}
+    \item  \textbf{For the process $ e^+ e^+ \to e^+ e^+ $:}
+\end{itemize}
+The tree-level amplitude for the process $ e^+ e^+ \to e^+ e^+ $ consists of two diagrams: the t-channel and u-channel exchanges of a scalar particle. The total amplitude is given by the sum of the contributions from both channels. The amplitude for the t-channel diagram (Figure~\ref{HW6:pairs-ee-ee-t-channel}) is 
+\begin{align}
+    i\mathcal{T}_t = (ig)^2 \left[\overline{v}(p_2)  v(k_2)\right]\frac{-i}{(p_1 - k_1)^2 + m_\varphi^2 - i\epsilon} \left[\overline{v}(p_1) v(k_1)\right].
+\end{align}
+Similarly, the amplitude for the u-channel diagram (Figure~\ref{HW6:pairs-ee-ee-u-channel}) is
+\begin{align}
+    i\mathcal{T}_u = (ig)^2 \left[\overline{v}(p_1)  v(k_2)\right]\frac{-i}{(p_1 - k_2)^2 + m_\varphi^2 - i\epsilon} \left[\overline{v}(p_2) v(k_1)\right]. 
+\end{align}
+Thus, the total amplitude for the process \( e^+ e^+ \to e^+ e^+ \) is
+\begin{align}
+    &i\mathcal{T} = i\mathcal{T}_t - i\mathcal{T}_u\\
+    =&(ig^2) \left[\overline{v}(p_2)  v(k_2)\right]\frac{-i}{(p_1 - k_1)^2 + m_\varphi^2 - i\epsilon} \left[\overline{v}(p_1) v(k_1)\right] \\
+    - &(ig^2) \left[\overline{v}(p_1)  v(k_2)\right]\frac{-i}{(p_1 - k_2)^2 + m_\varphi^2 - i\epsilon} \left[\overline{v}(p_2) v(k_1)\right].
+\end{align}
+The minus sign arises due to the antisymmetry of the fermionic wavefunctions under exchange.
+\begin{itemize}
+    \item  \textbf{For the process $\varphi \varphi \to e^+ e^- \varphi$:}
+\end{itemize}
+The tree-level amplitude for the process $\varphi \varphi \to e^+ e^- \varphi$ consists of three diagrams, as shown in Figure~\ref{HW6:phiphi-to-pair-e-phi}. The total amplitude is given by the sum of the contributions from all three diagrams. The amplitude for Diagram 1 (Figure~\ref{HW6:phiphi-to-pair-e-phi-diagram1}) is
+\begin{align}
+    i\mathcal{T}_1 = (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{q}_1 + m)}{q_1^2 + m^2 - i\epsilon} \frac{-i(-\slashed{q}_2 + m)}{q_2^2 + m^2 - i\epsilon} v(k_2)\right],
+\end{align}
+where $q_1=k_1+k_3$ and $q_2=p_2 - k_2$. The amplitude for Diagram 2 (Figure~\ref{HW6:phiphi-to-pair-e-phi-diagram2}) is
+\begin{align}
+    i\mathcal{T}_2 = (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{q}_1 + m)}{q_1^2 + m^2 - i\epsilon} \frac{-i(-\slashed{q}_2 + m)}{q_2^2 + m^2 - i\epsilon} v(k_2)\right],
+\end{align}
+where $q_1=k_1 - p_2$ and $q_2=-k_2 - k_3$. The amplitude for Diagram 3 (Figure~\ref{HW6:phiphi-to-pair-e-phi-diagram3}) is
+\begin{align}
+    i\mathcal{T}_3 = (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{q}_1 + m)}{q_1^2 + m^2 - i\epsilon} \frac{-i(-\slashed{q}_2 + m)}{q_2^2 + m^2 - i\epsilon} v(k_2)\right],
+\end{align}
+where $q_1=k_1 - p_2$ and $q_2=p_1 - k_2$. The amplitude for Diagram 4 (Figure~\ref{HW6:phiphi-to-pair-e-phi-diagram4}) is
+\begin{align}
+    i\mathcal{T}_4 = (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{q}_1 + m)}{q_1^2 + m^2 - i\epsilon} \frac{-i(-\slashed{q}_2 + m)}{q_2^2 + m^2 - i\epsilon} v(k_2)\right],
+\end{align}
+where $q_1=k_1+k_3$ and $q_2=p_1 - k_2$. The amplitude for Diagram 5 (Figure~\ref{HW6:phiphi-to-pair-e-phi-diagram5}) is
+\begin{align}
+    i\mathcal{T}_5 = (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{q}_1 + m)}{q_1^2 + m^2 - i\epsilon} \frac{-i(-\slashed{q}_2 + m)}{q_2^2 + m^2 - i\epsilon} v(k_2)\right],
+\end{align}
+where $q_1=k_1 - p_1$ and $q_2=-k_2 - k_3$. The amplitude for Diagram 6 (Figure~\ref{HW6:phiphi-to-pair-e-phi-diagram6}) is
+\begin{align}
+    i\mathcal{T}_6 = (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{q}_1 + m)}{q_1^2 + m^2 - i\epsilon} \frac{-i(-\slashed{q}_2 + m)}{q_2^2 + m^2 - i\epsilon} v(k_2)\right],
+\end{align}
+where $q_1=k_1 - p_1$ and $q_2=p_2 - k_2$. Thus, the total amplitude for the process $\varphi \varphi \to e^+ e^- \varphi$ is
+\begin{align}
+    &i\mathcal{T} = i\mathcal{T}_1 + i\mathcal{T}_2 + i\mathcal{T}_3+ i\mathcal{T}_4 + i\mathcal{T}_5 + i\mathcal{T}_6 \\
+    =& (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{k}_1 - \slashed{k}_3 + m)}{(k_1 + k_3)^2 + m^2 - i\epsilon} \frac{-i(-\slashed{p}_2 + \slashed{k}_2 + m)}{(p_2 - k_2)^2 + m^2 - i\epsilon} v(k_2)\right] \\
+    +& (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{k}_1 + \slashed{p}_2 + m)}{(k_1 - p_2)^2 + m^2 - i\epsilon} \frac{-i(\slashed{k}_2 + \slashed{k}_3 + m)}{(-k_2 - k_3)^2 + m^2 - i\epsilon} v(k_2)\right] \\
+    +& (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{k}_1 + \slashed{p}_2 + m)}{(k_1 - p_2)^2 + m^2 - i\epsilon} \frac{-i(-\slashed{p}_1 + \slashed{k}_2 + m)}{(p_1 - k_2)^2 + m^2 - i\epsilon} v(k_2)\right]\\
+    +& (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{k}_1 - \slashed{k}_3 + m)}{(k_1 + k_3)^2 + m^2 - i\epsilon} \frac{-i(-\slashed{p}_1 + \slashed{k}_2 + m)}{(p_1 - k_2)^2 + m^2 - i\epsilon} v(k_2)\right] \\
+    +& (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{k}_1 + \slashed{p}_1 + m)}{(k_1 - p_1)^2 + m^2 - i\epsilon} \frac{-i(\slashed{k}_2 + \slashed{k}_3 + m)}{(-k_2 - k_3)^2 + m^2 - i\epsilon} v(k_2)\right] \\
+    +& (ig)^3 \left[\overline{u}(k_1) \frac{-i(-\slashed{k}_1 + \slashed{p}_1 + m)}{(k_1 - p_1)^2 + m^2 - i\epsilon} \frac{-i(-\slashed{p}_2 + \slashed{k}_2 + m)}{(p_2 - k_2)^2 + m^2 - i\epsilon} v(k_2)\right].
+\end{align}
+\qed
+
+
 
 \clearpage
 \question{4}{48.2}\\
@@ -263,3 +695,204 @@ Compute $\langle|\mathcal{T}|^2\rangle$ for $e^+e^-\to \varphi\varphi$. You shou
     \mathcal{L}= -\frac{1}{2} \partial_\mu \varphi \partial^\mu \varphi - \frac{1}{2} m^2_\varphi \varphi^2 + \overline{\Psi}(i  \slashed{\partial} - m)\Psi + g\varphi \overline{\Psi}\Psi.
 \end{align}
 \answer{}
+\begin{figure}[!h]
+    \centering
+    % t-channel
+    \begin{subfigure}{0.48\textwidth} % 佔據文本寬度的 48%
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(k_1\)};
+            \vertex (f1) at ( 2,1) {\(p_2\)};
+            \vertex (f2) at ( 2,-1) {\(k_2\)};
+
+            % 頂點
+            \vertex (v1) at (-1,0);
+            \vertex (v2) at (1,0);
+            
+            % 繪製傳播子 (t-channel: 粒子直線傳播)
+            \diagram*{
+                (i1)--[fermion](v1), 
+                (i2)--[scalar](v1),
+                (v2)--[fermion](f1),
+                (v2)--[scalar](f2), 
+                (v1) -- [fermion,momentum={\(q_s=p_{1}+k_{1}\)}] (v2), % 中間傳播子
+            };
+            
+            \node[left=5pt of v1] {\(ig\)};
+            \node[right=5pt of v2] {\(ig\)};
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{s-channel diagram.}
+        \label{HW6:ephi-ephi-s-channel}
+    \end{subfigure}
+    %\hfill % 在兩個子圖形之間插入最大的水平空間
+    % u-channel
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子 (External Particles)     
+            \vertex (i1) at (-2,1) {\(p_1\)};
+            \vertex (i2) at (-2,-1) {\(k_1\)};
+            \vertex (f1) at ( 2,1) {\(p_2\)};
+            \vertex (f2) at ( 2,-1) {\(k_2\)};
+            % 頂點 (Vertices)
+            \vertex (v1) at (0,0.5);
+            \vertex (v2) at (0,-0.5);
+            % 繪製傳播子 (u-channel: 粒子交叉傳播)
+            \diagram*{
+                (i1)--[fermion](v1), 
+                (i2)--[scalar](v2),
+                (v2)--[fermion](f1),
+                (v1)--[scalar](f2), 
+                (v1) -- [fermion, momentum'={\(q_u=p_{1}-k_{2}\)}] (v2), % 中間傳播子
+            };
+
+            % 標記耦合常數
+            \node[above=5pt of v1] {\(ig\)};
+            \node[below=5pt of v2] {\(ig\)};
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{u-channel diagram.}
+        \label{HW6:ephi-ephi-u-channel}
+    \end{subfigure}
+    \caption{Feynman diagrams for $e^-\varphi\to e^-\varphi$ at tree level (s and u channels).}
+    \label{HW6:ephi-ephi}
+\end{figure}
+The tree-level amplitude for the process $ e^- \varphi \to e^- \varphi $ consists of two diagrams: the s-channel and u-channel exchanges of a fermion. The total amplitude is given by the sum of the contributions from both channels. The amplitude for the s-channel diagram (Figure~\ref{HW6:ephi-ephi-s-channel}) is
+\begin{align}
+    i\mathcal{T}_s = (ig)^2 \left[\overline{u}(p_2) \frac{-i(-\slashed{q}_s + m)}{q_s^2 + m^2 - i\epsilon} u(p_1)\right],
+\end{align}
+where $q_s = p_1 + k_1$. Similarly, the amplitude for the u-channel diagram (Figure~\ref{HW6:ephi-ephi-u-channel}) is
+\begin{align}
+    i\mathcal{T}_u = (ig)^2 \left[\overline{u}(p_2) \frac{-i(-\slashed{q}_u + m)}{q_u^2 + m^2 - i\epsilon} u(p_1)\right],
+\end{align}
+where $q_u = p_1 - k_2$. Thus, the total amplitude for the process $e^- \varphi \to e^- \varphi$ is 
+\begin{align}
+    &i\mathcal{T} = i\mathcal{T}_s + i\mathcal{T}_u\\
+    =&(ig^2) \left[\overline{u}(p_2) \frac{-i(-\slashed{q}_s + m)}{q_s^2 + m^2 - i\epsilon} u(p_1)\right] \\
+    + &(ig^2) \left[\overline{u}(p_2) \frac{-i(-\slashed{q}_u + m)}{q_u^2 + m^2 - i\epsilon} u(p_1)\right].
+\end{align}
+To compute $\langle|\mathcal{T}|^2\rangle$, we average over initial spins and sum over final spins:
+\begin{align}
+    \langle|\mathcal{T}|^2\rangle = \frac{1}{2} \sum_{\text{spins}} |\mathcal{T}|^2.
+\end{align}
+We define $\mathcal{A}$ as
+\begin{align}
+    \mathcal{A} &=  \left[\overline{u}_{s_2}(p_2) \frac{(-\slashed{q}_s + m)}{q_s^2 + m^2} u_{s_1}(p_1)\right]+  \left[\overline{u}_{s_2}(p_2) \frac{(-\slashed{q}_u + m)}{q_u^2 + m^2} u_{s_1}(p_1)\right]\\
+    &=\left[ \overline{u}_{s_2}(p_2) \left(\frac{-\slashed{q}_s + m}{q_s^2 + m^2} + \frac{-\slashed{q}_u + m}{q_u^2 + m^2}\right) u_{s_1}(p_1)\right]\\
+    &=\left[ \overline{u}_{s_2}(p_2) \left(\frac{-(\slashed{p}_1 + \slashed{k}_1) + m}{(p_1 + k_1)^2 + m^2} + \frac{-(\slashed{p}_1 - \slashed{k}_2) + m}{(p_1 - k_2)^2 + m^2}\right) u_{s_1}(p_1)\right]\\
+    &=\left[ \overline{u}_{s_2}(p_2) \left(\frac{-\slashed{p}_1 - \slashed{k}_1 + m}{-s + m^2} + \frac{-\slashed{p}_1 + \slashed{k}_2 + m}{-u + m^2}\right) u_{s_1}(p_1)\right]\\
+    &=\left[ \overline{u}_{s_2}(p_2) \left(\frac{ - \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_1}(p_1)\right]
+\end{align}
+and its Hermitian conjugate $\mathcal{A}^\dagger$ as
+\begin{align}
+    \mathcal{A}^\dagger &=  \left[\overline{u}_{s_1}(p_1) \frac{-\slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2} u_{s_2}(p_2)\right]
+\end{align}
+where $s_1$ and $s_2$ are the spin indices for the initial and final electrons, respectively, and we have used the Mandelstam variables:
+\begin{align}
+    s = -(p_1 + k_1)^2, \quad u = -(p_1 - k_2)^2.
+\end{align} 
+Also, we apply the identity:
+\begin{align}
+    (\slashed{p} + m) u_s(p) = 0 \implies -\slashed{p} u_s(p) = +m u_s(p).
+\end{align}
+Then, we have
+\begin{align}
+    \langle|\mathcal{T}|^2\rangle = \frac{g^4}{2} \sum_{s_1,s_2} A A^\dagger.
+\end{align}
+Hence,
+\begin{align}
+    \sum_{s_1,s_2} \mathcal{A} \mathcal{A}^\dagger =& \sum_{s_1,s_2} \left[ \overline{u}_{s_2}(p_2) \left(\frac{ - \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_1}(p_1)\right] \\
+    &\times \left[ \overline{u}_{s_1}(p_1) \left(\frac{- \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_2}(p_2)\right]\\
+    =& \sum_{s_1,s_2} \Bigg[ \overline{u}_{s_2}(p_2) \left(\frac{ - \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_1}(p_1) \overline{u}_{s_1}(p_1) \\
+    &\times \left(\frac{- \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_2}(p_2)\Bigg]\\
+    =& \text{Tr}\Bigg[  \left(\frac{ - \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_1}(p_1) \overline{u}_{s_1}(p_1) \\
+    &\times \left(\frac{- \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) u_{s_2}(p_2)\overline{u}_{s_2}(p_2)\Bigg]\\
+    =& \text{Tr}\Bigg[  \left(\frac{ - \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) (-\slashed{p}_1 + m) \\
+    &\times \left(\frac{- \slashed{k}_1 + 2m}{-s + m^2} + \frac{ + \slashed{k}_2 + 2m}{-u + m^2}\right) (-\slashed{p}_2 + m)\Bigg]
+\end{align}
+where we have used the completeness relation for spinors:
+\begin{align}
+    \sum_s u_s(p) \overline{u}_s(p) = -\slashed{p} + m.
+\end{align}
+Since only even numbers of gamma matrices contribute to the trace, we find
+\begin{align}
+    \sum_{s_1,s_2} \mathcal{A} \mathcal{A}^\dagger &=\frac{1}{(-s+m^2)^2} \text{Tr}\Big[ (- \slashed{k}_1 + 2m)(-\slashed{p}_1 + m)(- \slashed{k}_1 + 2m)(-\slashed{p}_2 + m)\Big] \\
+    &+ \frac{1}{(-u+m^2)^2} \text{Tr}\Big[ ( + \slashed{k}_2 + 2m)(-\slashed{p}_1 + m)( + \slashed{k}_2 + 2m)(-\slashed{p}_2 + m)\Big] \\
+    &+ \frac{1}{(-s+m^2)(-u+m^2)} \text{Tr}\Big[ (- \slashed{k}_1 + 2m)(-\slashed{p}_1 + m)( + \slashed{k}_2 + 2m)(-\slashed{p}_2 + m)\Big]\\
+    &+\frac{1}{(-u+m^2)(-s+m^2)} \text{Tr}\Big[ ( + \slashed{k}_2 + 2m)(-\slashed{p}_1 + m)( - \slashed{k}_1 + 2m)(-\slashed{p}_2 + m)\Big]\\
+    &=\frac{1}{(s - m^2)^2} \text{Tr}\Big[ (\slashed{k}_1 - 2m)(\slashed{p}_1 - m)(\slashed{k}_1 - 2m)(\slashed{p}_2 - m)\Big] \\
+    &+ \frac{1}{(u - m^2)^2} \text{Tr}\Big[ ( \slashed{k}_2 + 2m)(\slashed{p}_1 - m)(  \slashed{k}_2 + 2m)(\slashed{p}_2 - m)\Big] \\
+    &+ \frac{-1}{(s - m^2)(u - m^2)} \text{Tr}\Big[ (\slashed{k}_1 - 2m)(\slashed{p}_1 - m)( + \slashed{k}_2 + 2m)(\slashed{p}_2 - m)\Big]\\
+    &+ \frac{-1}{(u - m^2)(s - m^2)} \text{Tr}\Big[ ( \slashed{k}_2 + 2m)(\slashed{p}_1 - m)( \slashed{k}_1 - 2m)(\slashed{p}_2 - m)\Big].
+\end{align}
+Now, we compute each trace term separately:
+\begin{align}
+    \text{First term: }&\text{Tr}\Big[ (\slashed{k}_1 - 2m)(\slashed{p}_1 - m)(\slashed{k}_1 - 2m)(\slashed{p}_2 - m)\Big] \\
+    =& \text{Tr}\Big[ \slashed{k}_1 \slashed{p}_1 \slashed{k}_1 \slashed{p}_2 +4m^2 \slashed{p}_1 \slashed{p}_2 +m^2 \slashed{k}_1 \slashed{k}_1 +4m^2 \slashed{k}_1 \slashed{p}_2+4m^2 \slashed{p}_1 \slashed{k}_1 +4m^4 \Big]\\
+    \text{Second term: }&\text{Tr}\Big[ ( \slashed{k}_2 + 2m)(\slashed{p}_1 - m)(  \slashed{k}_2 + 2m)(\slashed{p}_2 - m)\Big] \\
+    =& \text{Tr}\Big[ \slashed{k}_2 \slashed{p}_1 \slashed{k}_2 \slashed{p}_2 +4m^2 \slashed{p}_1 \slashed{p}_2 +m^2 \slashed{k}_2 \slashed{k}_2 -4m^2 \slashed{k}_2 \slashed{p}_2 -4m^2 \slashed{p}_1 \slashed{k}_2 +4m^4 \Big]\\
+    \text{Third term: }&\text{Tr}\Big[ (\slashed{k}_1 - 2m)(\slashed{p}_1 - m)(  \slashed{k}_2 + 2m)(\slashed{p}_2 - m)\Big] \\
+    =& \text{Tr}\Big[ \slashed{k}_1 \slashed{p}_1 \slashed{k}_2 \slashed{p}_2 +m^2 \slashed{k}_1 \slashed{k}_2 -2m^2\slashed{k}_1 (\slashed{p}_1+\slashed{p}_2) +2m^2 \slashed{k}_2 (\slashed{p}_1+\slashed{p}_2) -4m^2 \slashed{p}_1 \slashed{p}_2 -4m^4 \Big]\\
+    \text{Fourth term: }&\text{Tr}\Big[ ( \slashed{k}_2 + 2m)(\slashed{p}_1 - m)( \slashed{k}_1 - 2m)(\slashed{p}_2 - m)\Big] \\
+    =& \text{Tr}\Big[ \slashed{k}_2 \slashed{p}_1 \slashed{k}_1 \slashed{p}_2 +m^2 \slashed{k}_2 \slashed{k}_1 -2m^2\slashed{k}_2 (\slashed{p}_1+\slashed{p}_2) +2m^2 \slashed{k}_1 (\slashed{p}_1+\slashed{p}_2) -4m^2 \slashed{p}_1 \slashed{p}_2 -4m^4 \Big].
+\end{align}
+Using the trace identities: 
+\begin{align}
+    \text{Tr}[\slashed{a}\slashed{b}\slashed{c}\slashed{d}] = 4[(ad)(bc)-(ac)(bd)+(ab)(cd)], \quad \text{Tr}[\slashed{a}\slashed{b}] = -4(ab), \quad \text{Tr}[\mathcal{I}]=4,
+\end{align}
+and the on-shell conditions $p_1^2 = p_2^2 = -m^2$ and $k_1^2=k_2^2=-m_\varphi^2$, we find
+\begin{align}
+    \text{First term: }&\text{Tr}\Big[ \slashed{k}_1 \slashed{p}_1 \slashed{k}_1 \slashed{p}_2 +4m^2 \slashed{p}_1 \slashed{p}_2 +m^2 \slashed{k}_1 \slashed{k}_1 +4m^2 \slashed{k}_1 \slashed{p}_2+4m^2 \slashed{p}_1 \slashed{k}_1 +4m^4 \Big]\\
+    =& 4\Big[\textcolor{blue}{(k_1p_2)(p_1k_1)}-\textcolor{red}{(k_1k_1)(p_1p_2)}+\textcolor{blue}{(k_1p_1)(k_1p_2)}-\textcolor{red}{4m^2(p_1p_2)}\\
+    -&m^2(k_1k_1)-4m^2(k_1p_2)-4m^2(p_1k_1)+4m^2 \Big]  \\
+    =& 4\Big[2(k_1 p_2)(p_1 k_1) + (m_\varphi^2-4m^2) (p_1 p_2) +m^2 m_\varphi^2 -4m^2 (k_1 p_2)-4m^2 (p_1 k_1) +4m^4 \Big]\\
+    \text{Second term: }&\text{Tr}\Big[ \slashed{k}_2 \slashed{p}_1 \slashed{k}_2 \slashed{p}_2 +4m^2 \slashed{p}_1 \slashed{p}_2 +m^2 \slashed{k}_2 \slashed{k}_2 -4m^2 \slashed{k}_2 \slashed{p}_2 -4m^2 \slashed{p}_1 \slashed{k}_2 +4m^4 \Big]\\
+    =& 4\Big[\textcolor{blue}{(k_2p_2)(p_1k_2)}-\textcolor{red}{(k_2k_2)(p_1p_2)}+\textcolor{blue}{(k_2p_1)(k_2p_2)}-\textcolor{red}{4m^2(p_1p_2)}\\
+    -&m^2(k_2k_2)+4m^2(k_2p_2)+4m^2(p_1k_2)+4m^2 \Big]  \\
+    =& 4\Big[2(k_2 p_2)(p_1 k_2) + (m_\varphi^2-4m^2) (p_1 p_2) +m^2 m_\varphi^2 +4m^2 (k_2 p_2)+4m^2 (p_1 k_2) +4m^4 \Big]\\
+    \text{Third term: }&\text{Tr}\Big[ \slashed{k}_1 \slashed{p}_1 \slashed{k}_2 \slashed{p}_2 +m^2 \slashed{k}_1 \slashed{k}_2 -2m^2\slashed{k}_1 (\slashed{p}_1+\slashed{p}_2) +2m^2 \slashed{k}_2 (\slashed{p}_1+\slashed{p}_2) -4m^2 \slashed{p}_1 \slashed{p}_2 -4m^4 \Big] \\
+    =& 4\Big[(k_1p_2)(p_1k_2) -(k_1k_2)(p_1p_2)+ (k_1p_1)(k_2p_2) -m^2 (k_1k_2) +2m^2 (k_1(p_1+p_2)) \\
+    &-2m^2 (k_2(p_1+p_2)) +4m^2 (p_1p_2) -4m^4 \Big]\\
+    =&4\Big[ (k_1p_2)(p_1k_2) -(k_1k_2)(p_1p_2)+ (k_1p_1)(k_2p_2)-m^2 (k_1k_2) \\
+    +&2m^2 (k_1p_1+k_1p_2-k_2p_1-k_2p_2) -4m^2 (p_1p_2) -4m^4\Big]\\
+    \text{Fourth term: }&\text{Tr}\Big[ \slashed{k}_2 \slashed{p}_1 \slashed{k}_1 \slashed{p}_2 +m^2 \slashed{k}_2 \slashed{k}_1 -2m^2\slashed{k}_2 (\slashed{p}_1+\slashed{p}_2) +2m^2 \slashed{k}_1 (\slashed{p}_1+\slashed{p}_2) +4m^2 \slashed{p}_1 \slashed{p}_2 -4m^4 \Big] \\
+    =& 4\Big[(k_2p_2)(p_1k_1) -(k_2k_1)(p_1p_2)+ (k_2p_1)(k_1p_2) -m^2 (k_2k_1) +2m^2 (k_2(p_1+p_2)) \\
+    &-2m^2 (k_1(p_1+p_2)) +4m^2 (p_1p_2) -4m^4 \Big ]\\
+    =&4\Big[ (k_2p_2)(p_1k_1) -(k_2k_1)(p_1p_2)+ (k_2p_1)(k_1p_2)-m^2 (k_2k_1) \\
+    +&2m^2 (k_2p_1+k_2p_2-k_1p_1-k_1p_2) +4m^2 (p_1p_2) -4m^4\Big].
+\end{align}
+We can express the dot products in terms of the Mandelstam variables:
+\begin{align}
+    s = -(p_1 + k_1)^2&=-(p_2 + k_2)^2= m^2 + m_\varphi^2 - 2(p_1 k_1)= m^2 + m_\varphi^2 - 2(p_2 k_2), \\
+    u = -(p_1 - k_2)^2&=-(p_2 - k_1)^2= m^2 + m_\varphi^2 + 2(k_2 p_1)= m^2 + m_\varphi^2 + 2(k_1 p_2), \\
+    t = -(k_1 - k_2)^2&= -(p_1 - p_2)^2= 2m^2 + 2(p_1 p_2)= 2m_\varphi^2 + 2(k_1 k_2).
+\end{align}
+Thus, by $s+t+u = 2m^2 + 2m_\varphi^2$, we have
+\begin{align}
+    (p_1 k_1) &= \frac{m^2 + m_\varphi^2 - s}{2}, \\
+    (p_2 k_2) &= \frac{m^2 + m_\varphi^2 - s}{2}, \\
+    (k_2 p_1) &= \frac{u - m^2 - m_\varphi^2}{2}, \\
+    (k_1 p_2) &= \frac{u - m^2 - m_\varphi^2}{2}, \\
+    (p_1 p_2) &= \frac{t - 2m^2}{2}= \frac{-(s+u) + 2m_\varphi^2}{2}, \\
+    (k_1 k_2) &= \frac{t - 2m_\varphi^2}{2}= \frac{-(s+u) + 2m^2}{2}.
+\end{align}
+Substituting these expressions back into the sum, we find (by Mathematica):
+\begin{align}
+    \sum_{s_1,s_2} \mathcal{A} \mathcal{A}^\dagger = 2\times&\Bigg[\frac{7 m^4+m^2 \left(-8 m_{\varphi}^2+9 s+u\right)+m_{\varphi}^4-s u}{\left(m^2-s\right)^2} \\
+    &+ \frac{7 m^4+m^2 \left(-8 m_{\varphi}^2+s+9 u\right)+m_{\varphi}^4-s u}{\left(m^2-u\right)^2} \\
+    &+\frac{2 \left(9 m^4+m^2 \left(3 (s+u)-8 m_{\varphi}^2\right)-m_{\varphi}^4+s u\right)}{\left(m^2-s\right) \left(m^2-u\right)}\Bigg].
+\end{align}
+Therefore, the final result for $\langle|\mathcal{T}|^2\rangle$ is
+\begin{align}
+    \langle|\mathcal{T}|^2\rangle =& \frac{g^4}{2} \sum_{s_1,s_2} \mathcal{A} \mathcal{A}^\dagger \\
+    =& g^4 \Bigg[\frac{7 m^4+m^2 \left(-8 m_{\varphi}^2+9 s+u\right)+m_{\varphi}^4-s u}{\left(m^2-s\right)^2} \\
+    &+ \frac{7 m^4+m^2 \left(-8 m_{\varphi}^2+s+9 u\right)+m_{\varphi}^4-s u}{\left(m^2-u\right)^2} \\
+    &+\frac{2 \left(9 m^4+m^2 \left(3 (s+u)-8 m_{\varphi}^2\right)-m_{\varphi}^4+s u\right)}{\left(m^2-s\right) \left(m^2-u\right)}\Bigg].
+\end{align}
+\qed
+
