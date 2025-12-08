@@ -1,0 +1,30 @@
+\section*{Assignment 13 due on Monday December 8 at 10PM}
+The metric for an electrically charged and rotating black hole is called the Kerr-Newman metric. It is a simple extension of the Kerr metric but with the addition of the electromagnetic field. Read pp.~261-267 of Carroll before starting this problem.
+\question{1}{}
+In class we derived the thermodynamic-like relationship
+\begin{align}
+    \delta M = \frac{\kappa}{8\pi G} \delta A + \Omega_H \delta J,
+\end{align}
+for the Kerr solution. For the Kerr-Newman solution, there should be another term on the right hand sides of the form $\mu \delta Q$. In this case, what are $\kappa$, $\Omega_H$, and $\mu$? 
+\answer{}
+We start from the Kerr-Newman metric in Boyer-Lindquist coordinates:
+\begin{align}
+    ds^2 &= -\left(1 - \frac{2GM r - GQ^2}{\rho^2}\right) dt^2 - \frac{2a(2GM r - GQ^2) \sin^2\theta}{\rho^2} dt d\phi \\
+    &+ \frac{\rho^2}{\Delta} dr^2 + \rho^2 d\theta^2 + \left(r^2 + a^2 + \frac{(2GM r - GQ^2)a^2 \sin^2\theta}{\rho^2}\right) \sin^2\theta d\phi^2,
+\end{align}
+where $\rho^2 = r^2 + a^2 \cos^2\theta$, $\Delta = r^2 - 2GM r + a^2 + GQ^2$, and $a= \frac{J}{M}$ is the specific angular momentum. The event horizon is located at $r_+ = GM + \sqrt{(GM)^2 - a^2 - GQ^2}$. The surface gravity $\kappa$ is given by
+\begin{align}
+    \kappa = \frac{r_+ - GM}{r_+^2 + a^2}=\frac{\sqrt{(GM)^2 - a^2 - GQ^2}}{r_+^2 + a^2}.
+\end{align}
+The angular velocity of the horizon $\Omega_H$ is
+\begin{align}
+    \Omega_H = \frac{a}{r_+^2 + a^2}.
+\end{align}
+The electrostatic potential $\mu$ at the horizon is given by
+\begin{align}
+    \mu = \frac{Q r_+}{r_+^2 + a^2}.
+\end{align}
+Thus, the first law of black hole mechanics for the Kerr-Newman black hole is
+\begin{align}
+    \delta M = \frac{\kappa}{8\pi G} \delta A + \Omega_H \delta J + \mu \delta Q.
+\end{align} 

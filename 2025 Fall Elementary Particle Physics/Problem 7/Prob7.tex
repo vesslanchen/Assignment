@@ -1,0 +1,183 @@
+\section*{Problem Set 10 due 9:30 AM, Wednesday, December 10}
+
+\question{1}{\textbf{Color Structure and One-Gluon Exchange}}\\
+\begin{itemize}
+    \item [(a)] The color force between quarks is mediated by a color-anticolor octet of vector gauge bosons called gluons. Denoting the three color charges by $R$ (red), $G$ (green) and $B$ (blue) write down the color combinations of the gluon octet states in analogy with the meson flavor-antiflavor octet of $SU(3)_f$.
+    \item [(b)] A quark-antiquark meson is a color singlet with wavefunction $Q\overline{Q}= \frac{1}{\sqrt{3}}(R \overline{R} + G \overline{G} + B \overline{B})$. At short distances, the potential between quarks is approximately Coulombic $V (r) = \xi \frac{g^2}{r}$ , arising from one-gluon exchange with coupling $g$ between the gluon and the quark pair. Determine the color factor $\xi$ for the color-singlet meson state. Is the potential attractive or repulsive?
+    \item [(c)] For two quarks, the color states combines as $\mathbf{3} \otimes \mathbf{3} = \overline{\mathbf{3}} \oplus \mathbf{6}$. Write down the color wavefunction for the antisymmetric $\overline{\mathbf{3}}$ and symmetric $6$ states using the color basis $\{R, G, B\}$. Use one-gluon exchange arguments to determine which color configuration corresponding ot an attractive potential. Explain qualitatively how this leads to stable color-singlet baryons: two quarks attract  in the $\overline{\mathbf{3}}$ channel, which then combines with the third quark $(\mathbf{3})$ to form a color singlet (using the result from (b)).\\
+    \textbf{Hint: }You can obtain the color diquark wavefunctions by recalling that $\overline{\mathbf{3}_i}\propto \epsilon_{ijk}Q_jQ_k$ and $\mathbf{6} \propto Q_iQ_j + Q_jQ_i$.
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+The eight gluon color states can be written as ($u\to R$, $d \to G$, $s \to B$):
+\begin{align}
+    g_1 = 
+\end{align}
+This set of states forms the adjoint representation (octet) of the $SU(3)_c$ color group. 
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The color factor $\xi$ for the color-singlet meson state can be determined by calculating the expectation value of the color operator in the meson state. The color operator for one-gluon exchange is given by:
+\begin{align}
+    \hat{C} = \sum_{a=1}^{8} T^a \otimes T^a,
+\end{align}
+where $T^a$ are the generators of the $SU(3)_c$ color group. For a color-singlet meson state, the expectation value of the color operator is:
+\begin{align}
+    \xi = \langle Q\overline{Q} | \hat{C} | Q\overline{Q} \rangle = -\frac{4}{3}.
+\end{align}
+
+\clearpage
+\question{2}{\textbf{Inverse Fourier Transform of Form Factors}}\\
+Hadronic form factors $F (Q^2)$ are measured in elastic scattering, where the exchanged momentum is off-shell. In this regime no real particle is produced by the probe, and the form factor encodes information about the spatial distribution of charge and current within the target. It is conventional to define $Q^2 = - q^2$.
+\begin{itemize}
+    \item [(a)] In the nonrelativistic (static) limit ($v \ll c$), explain why the energy transfer $q^0$ can be neglected relative to the spatial momentum $|\mathbf{q}|$. Show that this implies $Q^2 = |\mathbf{q}|^2>0$, corresponding to spacelike momentum exchange.
+    \item [(b)] In this limit the \textbf{spatial charge density} $\rho(r)$ is obtain as the inverse three-dimensionful Fourier transform of the form factor:
+    \begin{align}
+        \rho(r) = \int \frac{d^3 \mathbf{q}}{(2\pi)^3} e^{i \mathbf{q} \cdot \mathbf{r}} F (Q^2).
+    \end{align}
+    Evaluate $\rho(r)$ for the following model form factors:
+    \begin{align}
+        F(Q^2)= \frac{1}{1 + Q^2/\Lambda^2} \quad \text{and} \quad F(Q^2) = e^{-Q^2/ \Lambda^2},
+    \end{align}
+    and show that they yield, respectively a Yukawa form $\propto e^{-\Lambda r}/r$ and a Gaussian form $\propto e^{-\Lambda^2 r^2/4}$.
+    \item [(c)] Compare the spatial falloff of these two distributions. What does each imply about the effective range and shape of the hadronic charge density?
+\end{itemize}
+
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+We can define $q^\mu = (q^0, \mathbf{q})=p_f^\mu - p_i^\mu$, where $p_i^\mu$ and $p_f^\mu$ are the initial and final four-momenta of the target hadron, respectively. In the nonrelativistic limit ($v \ll c$), the kinetic energy of the hadron is much smaller than its rest mass energy, so we can approximate:
+\begin{align}
+    q^0 = E_f - E_i \approx \frac{\mathbf{p}_f^2}{2m} - \frac{\mathbf{p}_i^2}{2m} \ll |\mathbf{q}| = |\mathbf{p}_f - \mathbf{p}_i|.
+\end{align}
+Thus, we can neglect $q^0$ relative to $|\mathbf{q}|$, leading to:
+\begin{align}
+    Q^2 = -q^2 = -(q^0)^2 + |\mathbf{q}|^2 \approx |\mathbf{q}|^2 > 0,
+\end{align}
+which corresponds to spacelike momentum exchange.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+To evaluate the spatial charge density $\rho(r)$ for the given form factors, we start with the integral:
+\begin{align}
+    \rho(r) = \int \frac{d^3 \mathbf{q}}{(2\pi)^3} e^{i \mathbf{q} \cdot \mathbf{r}} F (Q^2).
+\end{align}
+For the first form factor $F(Q^2)= \frac{1}{1 + Q^2/\Lambda^2}$, we have:
+\begin{align}
+    \rho(r) &= \int \frac{d^3 \mathbf{q}}{(2\pi)^3} e^{i \mathbf{q} \cdot \mathbf{r}} \frac{1}{1 + |\mathbf{q}|^2/\Lambda^2} \\
+    &= \int \frac{d\phi d\cos\theta dq}{(2\pi)^3} q^2 e^{i q r \cos\theta} \frac{1}{1 + q^2/\Lambda^2} \\
+    &= \frac{2\pi}{(2\pi)^3} \int_0^\infty dq \frac{q^2}{1 + q^2/\Lambda^2} \int_{-1}^1 d\cos\theta e^{i q r \cos\theta}, \quad \text{after integrating over } \phi \\
+    &= \frac{1}{(2\pi)^2} \int_0^\infty dq \frac{q^2}{1 + q^2/\Lambda^2} \left( \frac{2\sin(qr)}{qr} \right), \quad \text{after integrating over } \cos\theta \\
+    &= \frac{1}{2\pi^2 r} \int_0^\infty dq \frac{q \sin(qr)}{1 + q^2/\Lambda^2}\\
+    &= \frac{1}{2\pi^2 r} \frac{\pi  \Lambda ^2 r e^{-\frac{\sqrt{r^2}}{\sqrt{\frac{1}{\Lambda ^2}}}}}{2 \sqrt{r^2}}, \quad \text{by Mathematica} \\
+    &= \frac{\Lambda^2}{4\pi} \frac{e^{-\Lambda r}}{r}.
+\end{align}
+For the second form factor $F(Q^2) = e^{-Q^2/ \Lambda^2}$, we have:
+\begin{align}
+    \rho(r) &= \int \frac{d^3 \mathbf{q}}{(2\pi)^3} e^{i \mathbf{q} \cdot \mathbf{r}} e^{-|\mathbf{q}|^2/ \Lambda^2} \\
+    &= \int \frac{d\phi d\cos\theta dq}{(2\pi)^3} q^2 e^{i q r \cos\theta} e^{-q^2/ \Lambda^2} \\
+    &= \frac{2\pi}{(2\pi)^3} \int_0^\infty dq q^2 e^{-q^2/ \Lambda^2} \int_{-1}^1 d\cos\theta e^{i q r \cos\theta}, \quad \text{after integrating over } \phi \\
+    &= \frac{1}{(2\pi)^2} \int_0^\infty dq q^2 e^{-q^2/ \Lambda^2} \left( \frac{2\sin(qr)}{qr} \right), \quad \text{after integrating over } \cos\theta \\
+    &= \frac{1}{2\pi^2 r} \int_0^\infty dq q e^{-q^2/ \Lambda^2} \sin(qr)\\
+    &= \frac{1}{2\pi^2 r} \frac{\sqrt{\pi } r e^{-\frac{1}{4} \Lambda ^2 r^2}}{4 \left(\frac{1}{\Lambda ^2}\right)^{3/2}}, \quad \text{by Mathematica} \\
+    &= \frac{\Lambda^3}{8\pi^{3/2}} e^{-\frac{\Lambda^2 r^2}{4}}.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+The spatial falloff of the two distributions can be compared as follows:
+\begin{itemize}
+    \item The Yukawa form $\rho(r) \propto \frac{e^{-\Lambda r}}{r}$ indicates a long-range interaction that decays exponentially with distance $r$. The presence of the $1/r$ factor suggests that the charge density has a significant contribution even at larger distances, although it decreases rapidly due to the exponential term. This form is characteristic of interactions mediated by massive particles, where $\Lambda$ can be interpreted as the mass scale of the exchanged particle.
+    \item The Gaussian form $\rho(r) \propto e^{-\frac{\Lambda^2 r^2}{4}}$ indicates a short-range interaction that decays very rapidly with distance $r$. The Gaussian decay implies that the charge density is highly localized around the origin, with negligible contributions at larger distances. This form is characteristic of interactions where the charge distribution is tightly confined, leading to a rapid falloff.
+\end{itemize}
+In summary, the Yukawa form suggests a more extended charge distribution with a longer effective range, while the Gaussian form indicates a highly localized charge distribution with a very short effective range.
+\qed
+
+
+\clearpage
+\question{3}{\textbf{Deep Inelastic Structure Functions and the Gottfried Sum Rule}}\\
+In deep inelastic electron–nucleon scattering, the nucleon structure functions $F^p
+_2(x)$ and $F^n_2 (x)$ describe the momentum distributions of quarks carrying a fraction $x$ of the nucleon’s momentum.
+\begin{itemize}
+    \item [(a)] Using the quark–parton model and the fact that quark distributions are positive definite, verify that the structure functions satisfy 
+    \begin{align}
+        \frac{1}{4} \leq \frac{F^n_2 (x)}{F^p_2 (x)} \leq 4.
+    \end{align}
+    \item [(b)] In the limit $x \to 0$, the sea quarks dominate and may be taken as $SU(2)$-flavor symmetric. What limit do you expect for the ratio $F^n_2 (x)/F^p_2 (x)$ in this case?
+    \item [(c)] The \textit{Gottfried sum rule} is defined through the integral 
+    \begin{align}
+        I_G(x) = \int^1_x \frac{F^p_2 (x') - F^n_2 (x')}{x'} dx'.
+    \end{align}
+    Assuming an $SU(2)$ flavor-symmetric sea, what value do you predict for $I_G(0)$? Compare your result with the experimental measurement $I_G(0) = 0.235 \pm 0.026$ at $Q^2=4$ GeV$^2$, first reported by the NMC collaboration at CERN in 1991. Is this surprising?
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+In the quark-parton model, the structure functions for the proton and neutron can be expressed in terms of the quark distribution functions as follows:
+\begin{align}
+    F^p_2(x) &= x \left[ \frac{4}{9} (u(x) + \overline{u}(x)) + \frac{1}{9} (d(x) + \overline{d}(x)) + \frac{1}{9} (s(x) + \overline{s}(x)) \right], \\
+    F^n_2(x) &= x \left[ \frac{4}{9} (d(x) + \overline{d}(x)) + \frac{1}{9} (u(x) + \overline{u}(x)) + \frac{1}{9} (s(x) + \overline{s}(x)) \right].
+\end{align}
+To find the ratio $\frac{F^n_2(x)}{F^p_2(x)}$, we can write:
+\begin{align}
+    \frac{F^n_2(x)}{F^p_2(x)} &= \frac{\frac{4}{9} (d(x) + \overline{d}(x)) + \frac{1}{9} (u(x) + \overline{u}(x)) + \frac{1}{9} (s(x) + \overline{s}(x))}{\frac{4}{9} (u(x) + \overline{u}(x)) + \frac{1}{9} (d(x) + \overline{d}(x)) + \frac{1}{9} (s(x) + \overline{s}(x))}.
+\end{align}
+Since the quark distribution functions are positive definite, we can analyze the extremes of this ratio. The minimum value occurs when $d(x) + \overline{d}(x)$ is minimized and $u(x) + \overline{u}(x)$ is maximized, leading to:
+\begin{align}
+    \frac{F^n_2(x)}{F^p_2(x)} \geq \frac{\frac{1}{9} (u(x) + \overline{u}(x))}{\frac{4}{9} (u(x) + \overline{u}(x))} = \frac{1}{4}.
+\end{align}
+The maximum value occurs when $d(x) + \overline{d}(x)$ is maximized and $u(x) + \overline{u}(x)$ is minimized, leading to:
+\begin{align}
+    \frac{F^n_2(x)}{F^p_2(x)} \leq \frac{\frac{4}{9} (d(x) + \overline{d}(x))}{\frac{1}{9} (d(x) + \overline{d}(x))} = 4.
+\end{align}
+Thus, we have verified that:
+\begin{align}
+    \frac{1}{4} \leq \frac{F^n_2 (x)}{F^p_2 (x)} \leq 4.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+In the limit $x \to 0$, the sea quarks dominate the structure functions, and we can assume $SU(2)$-flavor symmetry, which implies:
+\begin{align}
+    \overline{u}(x) \approx \overline{d}(x).
+\end{align}
+Under this assumption, the structure functions simplify to:
+\begin{align}
+    F^p_2(x) &\approx x \left[ \frac{4}{9} \overline{u}(x) + \frac{1}{9} \overline{d}(x) + \frac{1}{9} (s(x) + \overline{s}(x)) \right] = x \left[ \frac{5}{9} \overline{u}(x) + \frac{1}{9} (s(x) + \overline{s}(x)) \right], \\
+    F^n_2(x) &\approx x \left[ \frac{4}{9} \overline{d}(x) + \frac{1}{9} \overline{u}(x) + \frac{1}{9} (s(x) + \overline{s}(x)) \right] = x \left[ \frac{5}{9} \overline{u}(x) + \frac{1}{9} (s(x) + \overline{s}(x)) \right].
+\end{align}
+Thus, in this limit, we find:
+\begin{align}
+    \frac{F^n_2 (x)}{F^p_2 (x)} \approx 1.
+\end{align}
+\begin{itemize}
+    \item [(c)]     
+\end{itemize}
+The Gottfried sum rule is given by:
+\begin{align}
+    I_G(0) = \int^1_0 \frac{F^p_2 (x') - F^n_2 (x')}{x'} dx'.
+\end{align}
+Assuming an $SU(2)$ flavor-symmetric sea, we have:
+\begin{align}
+    F^p_2 (x) - F^n_2 (x) &= x \left[ \frac{4}{9} (u(x) + \overline{u}(x)) + \frac{1}{9} (d(x) + \overline{d}(x)) - \left( \frac{4}{9} (d(x) + \overline{d}(x)) + \frac{1}{9} (u(x) + \overline{u}(x)) \right) \right] \\
+    &= x \left[ \frac{1}{3} (u(x) - d(x)) \right].
+\end{align}
+Substituting this into the Gottfried sum rule, we get:
+\begin{align}
+    I_G(0) &= \int^1_0 \frac{x \left[ \frac{1}{3} (u(x) - d(x)) \right]}{x} dx' \\
+    &= \frac{1}{3} \int^1_0 (u(x) - d(x)) dx'.
+\end{align}
+Using the quark number sum rules for the proton, we know that:
+\begin{align}
+    \int^1_0 u(x) dx = 2, \quad \int^1_0 d(x) dx = 1.
+\end{align}
+Thus, we find:
+\begin{align}
+    I_G(0) &= \frac{1}{3} (2 - 1) = \frac{1}{3}.
+\end{align}
+The experimental measurement of $I_G(0) = 0.235 \pm 0.026$ is significantly lower than the predicted value of $\frac{1}{3} \approx 0.333$. This discrepancy is indeed surprising and suggests that the assumption of an $SU(2)$ flavor-symmetric sea may not hold true in reality. The experimental result indicates an asymmetry in the sea quark distributions, specifically that $\overline{d}(x) > \overline{u}(x)$, which has important implications for our understanding of the nucleon structure and the dynamics of quark-antiquark pairs in the nucleon sea.  
+\qed

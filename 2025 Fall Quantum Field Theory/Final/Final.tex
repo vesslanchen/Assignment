@@ -1,0 +1,98 @@
+\section*{Final Due to December 16 11:59 PM}
+\question{1}{Problem 48.5}\\
+The charged pion $\pi^-$ is represented by a complex scalar field $\varphi$, the
+\textit{muon} $\mu^-$ by a Dirac field $\mathcal{M}$, and the \textit{muon neutrino} $\nu_\mu$ by a spin-projected Dirac field $P_L \mathcal{N}$, where $P_L=\frac{1}{2}(1-\gamma_5)$. The charged pion can decay to a muon and a muon antineutrino via the interaction
+\begin{align}
+    \mathcal{L}_1=c_1G_F f_\pi \partial_\mu \varphi \bar{\mathcal{M}} \gamma^\mu P_L \mathcal{N} + h.c,
+\end{align}
+where $c_1$ is the consine of the \textit{Cabibbo angle}, $G_F$ is the \textit{Fermi constant}, and $f_\pi$ is the \textit{pion decay constant}. 
+\begin{itemize}
+    \item [(a)] Compute the charged pion decay rate $\Gamma$.
+    \item [(b)] The charged pion mass is $m_\pi=139.6$ MeV, the muon mass is $m_\mu=105.7$ MeV, and the muon neutrino mass is massless. The Fermi constant is $G_F=1.166\times 10^{-5}$ GeV$^{-2}$, and the cosine of the Cabibbo angle is measured in nuclear beta decays to be $c_1=0.974$. The measured value of the charged pion life time is $\tau=2.6033\times 10^{-8}$ s. Determine the value of $f_\pi$ in MeV. Your result is too large by 0.8\%, due to neglect of electromagnetic loop corrections.
+    \item [(c)] The previous parts assume $\pi^-$ always decay into $\mu^-\bar{\nu}_\mu$, but actually $\pi^-$ can also decay into $e^-\bar{\nu}_e$. The charged pion, electron by a Dirac field $\mathcal{M}_e,$ and the electron neutrino by a spin-projected Dirac field $P_L \mathcal{N}_e$ have the form of interaction
+    \begin{align}
+        \mathcal{L}_2=c_2G_F f_\pi \partial_\mu \varphi \bar{\mathcal{M}}_e \gamma^\mu P_L \mathcal{N}_e + h.c.
+    \end{align}
+    Given the decay branching ratio of $\pi^-\to e^-\bar{\nu}_e$ is $1.230\times 10^{-4}$, the decay branching ratio of $\pi^-\to \mu^-\bar{\nu}_\mu$ is $99.9877\%$. Find the value of $c_2$. For example, the electronic decay branching ratio is 
+    \begin{align}
+        \text{Br}(\pi^-\to e^-\bar{\nu}_e)=\frac{\Gamma(\pi^-\to e^-\bar{\nu}_e)}{\Gamma(\pi^-\to \mu^-\bar{\nu}_\mu)+\Gamma(\pi^-\to e^-\bar{\nu}_e)}.
+    \end{align}
+    The coupling of pion-electron is similar with the coupling of pion-muon, why pion favoring decay into muon instead of electron? ($m_e=0.511$ MeV.)
+\end{itemize}
+\answer{}
+
+\clearpage
+\question{2}{}
+Consider QED with both electron and muon: 
+\begin{align}
+    \mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\sum_{l=e,\mu}  (i\bar{\Psi}_l\slashed{\partial} \Psi_l -m_l \bar{\Psi}_l \Psi_l+\frac{g}{2} \bar{\Psi}_l \gamma^\mu  \Psi_l A_\mu),
+\end{align}
+where both $\Psi_e$ and $\Psi_\mu$ are Dirac fields. Compute the $\langle |\mathcal{T}^2|\rangle$ for $e^+e^-\to \mu^+\mu^-$. Then, compute its cross section $\sigma$. Eq.~(11.22) and Eq.~(11.30) should be useful.
+\answer{}
+
+
+\clearpage
+\question{3}{}
+Consider classical field theory with two real scalar fields in (3+1)-dimension spacetime: 
+\begin{align}
+    \mathcal{L}(x)&=\sum_{a=1}^2 \Big(-\frac{1}{2}\partial^\mu\phi_a \partial_\mu \phi_a\Big)-V(x),\\
+    V(x)&=-\sum_{a=1}^2 \Big(\frac{1}{2}\mu^2 \phi_a\phi_a\Big)+\frac{\lambda}{4}(\phi_1^2+\phi_2^2)^2,
+\end{align}
+where $\mu$ and $\lambda$ are positive real constants.
+\begin{itemize}
+    \item [(a)] Show that the Lagrangian has an $SO(2)$ transformation symmetry:
+    \begin{align}
+        \phi_1(x)\to \phi_1'(x)&=\phi_1(x)\cos\alpha_0 -\phi_2(x)\sin\alpha_0,\\
+        \phi_2(x)\to \phi_2'(x)&=\phi_1(x)\sin\alpha_0 +\phi_2(x)\cos\alpha_0,
+    \end{align}
+    \item [(b)] Find the conjugate momentum $\Pi_1(x)$, $\Pi_2(x)$ of $\phi_1(x)$, $\phi_2(x)$. Find the Hamiltonian density $\mathcal{H}(x)$ in the terms of $\phi_a(x)$, $\Pi_a(x)$, and $\partial_i \phi_a(x)$.
+    \item [(c)] Find the ground state in the basis of $\{\phi_r(x),\phi_\theta(x) \}$ where 
+    \begin{align}
+        \phi_1(x)&=\phi_r(x)\cos(\phi_\theta(x)),\\
+        \phi_2(x)&=\phi_r(x)\sin(\phi_\theta(x)),
+    \end{align}
+    with $\phi_r(x)\geq 0$ and $\phi_\theta(x)\in [0,2\pi)$. Is the Lagrangian $\mathcal{L}$ invariant under a continuous shift symmetry of $\phi_\theta(x)\to \phi_\theta(x)+\alpha_0$?\\
+    \textbf{Hint: }In general, finding the ground state is to find $\phi(x)$ s.t. minimize $H=\int\mathcal{H}(x)d^3x$; but for this problem, finding $\phi(x)$ to minimize $\mathcal{H}(x)$ is the same. If you have trouble with the above procedure, given the Lagrangian of this problem, one can simply find $\phi(x)$ s.t. minimize $V(x)$, which is the same as minimizing $\mathcal{H}$ for this problem.
+    \item [(d)] Now let's study the system's dynamics around the ground state.\\ $\phi_r(x)$ should fluctuate around $\sqrt{\frac{\mu^2}{\lambda}}$: $\phi_r(x)=\sqrt{\frac{\mu^2}{\lambda}}+f_r(x)$. $\phi_\theta(x)$ should fluctuate within $[0,2\pi)$. \\
+    Show that $f_r(x)$ is a massive field and find its mass. Taking $f_\theta(x)\equiv \sqrt{\frac{\mu^2}{\lambda}}\phi_\theta(x)$ as the other scalar field, does $f_\theta(x)$ have a mass? Does $\mathcal{L}$ have a continuous shift symmetry of $f_\theta(x)\to f_\theta(x)+\Lambda_0$?\\
+    \textbf{Remark: }This problem paves the road for your understanding of spontaneous symmetry breaking. We also see again that the symmetry groups of $SO(2)$ and $U(1)$ are isomorphic.\\
+    \textbf{Remark: }More to think about after solving the problems above: Note that we reparametrized the field into a non-linear realization, where you see the $U (1)$ symmetry explicitly. How do you interpret the kinetic term? How do you interpret the $f_r(x)$ field-dependent kinetic terms for $f_\theta(x)$? Is it canonically normalized? How does the field $f_\theta(x)$ relate to the original $SO(2)$ field  $\phi_a(x)$? And again, is the ratio of the field a linear redefinition of the field configuration? It is a non-linear realization because all powers of $f_\theta(x)/\sqrt{\frac{\mu^2}{\lambda}}$ need to enter. There is only a region of validity, that is $f_r(x)\ll \sqrt{\frac{\mu^2}{\lambda}}$  
+\end{itemize}
+\answer{}
+
+\clearpage
+\question{4}{Problem 66.3}\\
+Use the result of problem 66.2 to compute the anomalous dimension of $m$ and the beta function for $e$ in spionor electrodynamics in $R_\xi$ gauge. You should find that the results are independent of $\xi$.\\
+\textbf{Remark: }
+\begin{align}
+    \widetilde{\Delta}^{\mu\nu}(k)= \frac{g^{\mu\nu}+(\xi-1)k^\mu k^\nu/k^2}{k^2-i\epsilon}
+\end{align}
+The book only choose the Feynman gauge $(\xi=1)$ to show the loop calculation and get $Z_{1,2,3,m}$. For arbitrary gauge choice $\xi$, we can repeat the calculation and get:
+\begin{align}
+    Z_3=& 1 -\frac{e^2}{6\pi^2}\Big(\frac{1}{\epsilon}+\text{finite}\Big)+\mathcal{O}(e^4),\quad\text{derived from photon propagator loop correction}\\
+    Z_2=& 1 -\xi\frac{e^2}{8\pi^2}\Big(\frac{1}{\epsilon}+\text{finite}\Big)+\mathcal{O}(e^4),\quad\text{derived from fermion propagator loop correction}\\
+    Z_m=&1-(3+\xi)\frac{e^2}{8\pi^2}\Big(\frac{1}{\epsilon}+\text{finite}\Big)+\mathcal{O}(e^4),\quad\text{derived from fermion mass loop correction}\\
+    Z_1=&1 -\xi\frac{e^2}{8\pi^2}\Big(\frac{1}{\epsilon}+\text{finite}\Big)+\mathcal{O}(e^4),\quad\text{derived from vertex loop correction}
+\end{align}
+Use the above to finish this problem.
+\answer{}
+
+\clearpage
+\question{5}{}
+Consider the following theory:
+\begin{align}
+    &\mathcal{L}=\mathcal{L}_\phi^0+\mathcal{L}_\Psi^0+\mathcal{L}_A^0+\mathcal{L}_I\\
+    =& -\frac{1}{2} \partial^\mu \phi \partial_\mu \phi -\frac{1}{2} m_\phi^2 \phi^2 + \bar{\Psi}(i\slashed{D} -m_\Psi) -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} +y\phi \bar{\Psi}\Psi.
+\end{align}
+The Dirac field $\Psi$ is charged under a $U(1)$ gauge symmetry with a charge $Q$, and the gauge interaction strength is $e$. The $U(1)$ gauge field is $A_\mu$, whose kinetic term is $\mathcal{L}_A^0=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$. (This is part of the real-world calculation for the discovery mode for the Higgs boson, which gone through heroic phenomenological studies on predicting the Higgs properties.)
+\begin{itemize}
+    \item [(a)] Draw the leading diagrams that enable $\phi\to \gamma\gamma$ decay. (The gauge field $A_\mu$ is identified as the photon field $\gamma$.)
+    \item [(b)] In the $\phi$ rest frame, write down the amplitude in the general $d$ dimension. No need to carry out the loop intergral at this point, but need to simplify the trace. (Notice that $k_\mu\epsilon^\mu(k)=0$ in Lorenz gauge.)
+    \item [(c)] Does the integral have a UV divergence in $d=4$ dimension (loop momentum goes to $\infty$)? Answer Yes or No with a few lines of argument.
+    \item [(d)] Does the integral have a singularity in $d=4$ dimension when the Euclidean loop momentum squared $\overline{q}^2$ go to $-D$? Answer Yes or No with a few lines of argument. (For simplicity, assume that $D$ is real and can be zero for some configuration of $x_1,x_2,x_3$.)
+    \item [(e)] For $m_\Phi=0$, calculate using dimensional regularization in $d=4-\epsilon$. Write down your final answer in the simplest form. (The final answer would be short.)
+    \item [(f)] Carry out the full calculation of the amplitude in Part~b using dimensional regularization in $d=4-\epsilon$. Write down your final answer in the simplest form. (The full answer would be a long calculateion.)\\
+    \textbf{Hint: }The following few equations, identities, and tricks, and the discussion around them might be helpful for you: Eq.~(62.18), Eq.~(47.18), Eq.~(67.2).\\
+    \textbf{Remark: } No need to answer this, but one can think about it for fun. Recall that taking $\epsilon\to0$ (from plus or minus direction?) get you back to d = 4. In such a limit, contrast your result in Part~f and Part~c and think about why.
+\end{itemize}
+\answer{}
