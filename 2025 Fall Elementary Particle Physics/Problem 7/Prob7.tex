@@ -4,30 +4,90 @@
 \begin{itemize}
     \item [(a)] The color force between quarks is mediated by a color-anticolor octet of vector gauge bosons called gluons. Denoting the three color charges by $R$ (red), $G$ (green) and $B$ (blue) write down the color combinations of the gluon octet states in analogy with the meson flavor-antiflavor octet of $SU(3)_f$.
     \item [(b)] A quark-antiquark meson is a color singlet with wavefunction $Q\overline{Q}= \frac{1}{\sqrt{3}}(R \overline{R} + G \overline{G} + B \overline{B})$. At short distances, the potential between quarks is approximately Coulombic $V (r) = \xi \frac{g^2}{r}$ , arising from one-gluon exchange with coupling $g$ between the gluon and the quark pair. Determine the color factor $\xi$ for the color-singlet meson state. Is the potential attractive or repulsive?
-    \item [(c)] For two quarks, the color states combines as $\mathbf{3} \otimes \mathbf{3} = \overline{\mathbf{3}} \oplus \mathbf{6}$. Write down the color wavefunction for the antisymmetric $\overline{\mathbf{3}}$ and symmetric $6$ states using the color basis $\{R, G, B\}$. Use one-gluon exchange arguments to determine which color configuration corresponding ot an attractive potential. Explain qualitatively how this leads to stable color-singlet baryons: two quarks attract  in the $\overline{\mathbf{3}}$ channel, which then combines with the third quark $(\mathbf{3})$ to form a color singlet (using the result from (b)).\\
+    \item [(c)] For two quarks, the color states combines as $\mathbf{3} \otimes \mathbf{3} = \overline{\mathbf{3}} \oplus \mathbf{6}$. Write down the color wavefunction for the antisymmetric $\overline{\mathbf{3}}$ and symmetric $\mathbf{6}$ states using the color basis $\{R, G, B\}$. Use one-gluon exchange arguments to determine which color configuration corresponding ot an attractive potential. Explain qualitatively how this leads to stable color-singlet baryons: two quarks attract  in the $\overline{\mathbf{3}}$ channel, which then combines with the third quark $(\mathbf{3})$ to form a color singlet (using the result from (b)).\\
     \textbf{Hint: }You can obtain the color diquark wavefunctions by recalling that $\overline{\mathbf{3}_i}\propto \epsilon_{ijk}Q_jQ_k$ and $\mathbf{6} \propto Q_iQ_j + Q_jQ_i$.
 \end{itemize}
 \answer{}
 \begin{itemize}
     \item [(a)]
 \end{itemize}
-The eight gluon color states can be written as ($u\to R$, $d \to G$, $s \to B$):
+The eight gluon color states can be written as ($u\to R$, $d \to G$, $s \to B$): 
 \begin{align}
-    g_1 = 
+    g_1 &= \frac{1}{\sqrt{2}} (R \overline{G} + G \overline{R}), \quad
+    g_2 = \frac{-i}{\sqrt{2}} (R \overline{G} - G \overline{R}), \quad
+    g_3 = \frac{1}{\sqrt{2}} (R \overline{R} - G \overline{G}), \\
+    g_4 &= \frac{1}{\sqrt{2}} (R \overline{B} + B \overline{R}), \quad
+    g_5 = \frac{-i}{\sqrt{2}} (R \overline{B} - B \overline{R}), \quad
+    g_6 = \frac{1}{\sqrt{2}} (G \overline{B} + B \overline{G}), \\
+    g_7 &= \frac{-i}{\sqrt{2}} (G \overline{B} - B \overline{G}), \quad
+    g_8 = \frac{1}{\sqrt{6}} (R \overline{R} + G \overline{G} - 2 B \overline{B}).
 \end{align}
-This set of states forms the adjoint representation (octet) of the $SU(3)_c$ color group. 
 \begin{itemize}
     \item [(b)]
 \end{itemize}
-The color factor $\xi$ for the color-singlet meson state can be determined by calculating the expectation value of the color operator in the meson state. The color operator for one-gluon exchange is given by:
+We start from the QCD interaction Lagrangian:
 \begin{align}
-    \hat{C} = \sum_{a=1}^{8} T^a \otimes T^a,
+    \mathcal{L}_{\text{int}} = g \overline{\psi} \gamma^\mu T^a \psi A^a_\mu,
 \end{align}
-where $T^a$ are the generators of the $SU(3)_c$ color group. For a color-singlet meson state, the expectation value of the color operator is:
+where $T^a$ are the generators of the $SU(3)$ color group in the adjoint representation, and $A^a_\mu$ are the gluon fields. We can write the transition amplitude for one-gluon exchange between a quark and an antiquark as:
 \begin{align}
-    \xi = \langle Q\overline{Q} | \hat{C} | Q\overline{Q} \rangle = -\frac{4}{3}.
+    \mathcal{M} \propto g^2 \left( \overline{u}_\alpha(p_f) \gamma^\mu T^a_{\alpha\beta} u_\beta(p_i) \right) \frac{-i g_{\mu\nu}}{q^2} \left( \overline{v}_\gamma(k_i) \gamma^\nu \overline{T}^a_{\gamma\delta} v_\delta(k_f) \right),
 \end{align}
-
+where $\alpha, \beta, \gamma, \delta$ are color indices, $q$ is the four-momentum transfer, $u$ and $v$ are the quark and antiquark spinors, respectively, $\overline{T}$ is the antiquark representation of the color generators, and $p_i$, $p_f$, $k_i$, $k_f$ are the initial and final momenta of the quark and antiquark, respectively. The color factor $\xi$ arises from the contraction of the color indices:
+\begin{align}
+    \xi =\langle\psi|\mathcal{C}|\psi\rangle= T^a_{\alpha\beta} \overline{T}^a_{\gamma\delta} \langle Q_\alpha \overline{Q}_\gamma | Q_\beta \overline{Q}_\delta \rangle,
+\end{align}
+where $|\psi\rangle = |Q \overline{Q}\rangle$ is the color-singlet meson state, and $\mathcal{C} = T^a \otimes \overline{T}^a$ is the color operator for one-gluon exchange. Applying the relation $\overline{T}^a = - (T^a)^T$, we have:
+\begin{align}
+    \xi = - T^a_{\alpha\beta} T^a_{\delta\gamma} \langle Q_\alpha \overline{Q}_\gamma | Q_\beta \overline{Q}_\delta \rangle.
+\end{align}
+For the color-singlet meson state, we have:
+\begin{align}
+    |Q \overline{Q}\rangle = \frac{1}{\sqrt{3}} (R \overline{R} + G \overline{G} + B \overline{B}).
+\end{align}
+Applying $\langle Q_\alpha \overline{Q}_\gamma | Q_\beta \overline{Q}_\delta \rangle= \frac{1}{3} \delta_{\alpha\beta} \delta_{\gamma\delta}$, we find:
+\begin{align}
+    \xi &= - \frac{1}{3} T^a_{\alpha\beta} T^a_{\beta\alpha} \\
+    &= - \frac{1}{3} \text{Tr}(T^a T^a) \\
+    &= - \frac{1}{3} \cdot \frac{1}{2} \cdot 8 \quad \text{(since } \text{Tr}(T^a T^b) = \frac{1}{2} \delta^{ab} \text{ and } a=1,\ldots,8) \\
+    &= -\frac{4}{3}.
+\end{align}
+Thus, the color factor for the color-singlet meson state is $\xi = -\frac{4}{3}$, indicating that the potential is attractive.
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Now we can write down: 
+\begin{align}
+    \xi = \langle\psi_{\alpha \gamma} |\mathcal{C}_{\alpha \gamma, \beta \delta} |\psi_{\beta \delta}\rangle = T^a_{\alpha\beta} T^a_{\delta\gamma} \langle \psi_{\alpha \gamma} | \psi_{\beta \delta} \rangle,
+\end{align}
+where $\alpha, \beta, \gamma, \delta$ are color indices. We can apply Fierz identity for the generators of $SU(3)$:
+\begin{align}
+    T^a_{\alpha\beta} T^a_{\delta\gamma} = \frac{1}{2} \left( \delta_{\alpha\gamma} \delta_{\beta\delta} - \frac{1}{3} \delta_{\alpha\beta} \delta_{\delta\gamma} \right).
+\end{align}
+Now we can have:
+\begin{align}
+    \xi &= \frac{1}{2} \left( \langle \psi_{\alpha \gamma} | \psi_{\gamma \alpha} \rangle - \frac{1}{3} \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle \right).
+\end{align}
+First, if $|\psi\rangle$ is in the antisymmetric $\overline{\mathbf{3}}$ representation, we have:
+\begin{align}
+    |\psi_{\alpha \gamma}\rangle = - |\psi_{\gamma \alpha}\rangle,
+\end{align}
+which leads to:
+\begin{align}
+    \xi_{\overline{3}} &= \frac{1}{2} \left( - \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle - \frac{1}{3} \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle \right) \\
+    &= -\frac{2}{3} \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle= -\frac{2}{3}.
+\end{align}
+Next, if $|\psi\rangle$ is in the symmetric $\mathbf{6}$ representation, we have:
+\begin{align}
+    |\psi_{\alpha \gamma}\rangle = |\psi_{\gamma \alpha}\rangle,
+\end{align}
+which leads to:
+\begin{align}
+    \xi_{6} &= \frac{1}{2} \left( \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle - \frac{1}{3} \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle \right) \\
+    &= \frac{1}{3} \langle \psi_{\alpha \gamma} | \psi_{\alpha \gamma} \rangle= \frac{1}{3}.
+\end{align}
+Thus, the color factor for the antisymmetric $\overline{\mathbf{3}}$ state is $\xi_{\overline{3}} = -\frac{2}{3}$, indicating an attractive potential, while the color factor for the symmetric $\mathbf{6}$ state is $\xi_{6} = \frac{1}{3}$, indicating a repulsive potential. This attraction in the $\overline{\mathbf{3}}$ channel allows two quarks to form a stable diquark state, which can then combine with a third quark in the $\mathbf{3}$ representation to form a color-singlet baryon, as the combination $\overline{\mathbf{3}} \otimes \mathbf{3}$ contains a singlet representation.
+\qed
 \clearpage
 \question{2}{\textbf{Inverse Fourier Transform of Form Factors}}\\
 Hadronic form factors $F (Q^2)$ are measured in elastic scattering, where the exchanged momentum is off-shell. In this regime no real particle is produced by the probe, and the form factor encodes information about the spatial distribution of charge and current within the target. It is conventional to define $Q^2 = - q^2$.
@@ -161,23 +221,29 @@ The Gottfried sum rule is given by:
 \begin{align}
     I_G(0) = \int^1_0 \frac{F^p_2 (x') - F^n_2 (x')}{x'} dx'.
 \end{align}
-Assuming an $SU(2)$ flavor-symmetric sea, we have:
+We can express all quark distributions in terms of valence and sea components:
 \begin{align}
-    F^p_2 (x) - F^n_2 (x) &= x \left[ \frac{4}{9} (u(x) + \overline{u}(x)) + \frac{1}{9} (d(x) + \overline{d}(x)) - \left( \frac{4}{9} (d(x) + \overline{d}(x)) + \frac{1}{9} (u(x) + \overline{u}(x)) \right) \right] \\
-    &= x \left[ \frac{1}{3} (u(x) - d(x)) \right].
+    u(x) &= u_v(x)+u_s(x), \quad d(x) = d_v(x)+d_s(x), \\
+    \overline{u}(x) &= \overline{u}_s(x), \quad \overline{d}(x) = \overline{d}_s(x), \quad
+    s(x)= s_s(x), \quad \overline{s}(x) = \overline{s}_s(x).
+\end{align}
+Assuming an $SU(2)$ flavor-symmetric sea, giving $\overline{u}_s(x) = \overline{d}_s(x)=u_s(x)=d_s(x)$, we can simplify the difference between the proton and neutron structure functions:
+\begin{align}
+    F^p_2 (x) - F^n_2 (x) &= x \left[ \frac{4}{9} (u_v(x) - d_v(x)) + \frac{1}{9} (d_v(x) - u_v(x)) \right] \\
+    &= x \left[ \frac{1}{3} (u_v(x) - d_v(x)) \right] 
 \end{align}
 Substituting this into the Gottfried sum rule, we get:
 \begin{align}
-    I_G(0) &= \int^1_0 \frac{x \left[ \frac{1}{3} (u(x) - d(x)) \right]}{x} dx' \\
-    &= \frac{1}{3} \int^1_0 (u(x) - d(x)) dx'.
+    I_G(0) &= \int^1_0 \frac{x \left[ \frac{1}{3} (u_v(x) - d_v(x)) \right]}{x} dx' \\
+    &= \frac{1}{3} \int^1_0 (u_v(x) - d_v(x)) dx'.
 \end{align}
-Using the quark number sum rules for the proton, we know that:
+The integrals of the valence quark distributions over the range $[0,1]$ give the total number of valence quarks in the proton:
 \begin{align}
-    \int^1_0 u(x) dx = 2, \quad \int^1_0 d(x) dx = 1.
+    \int^1_0 u_v(x) dx' = 2, \quad \int^1_0 d_v(x) dx' = 1.
 \end{align}
 Thus, we find:
 \begin{align}
     I_G(0) &= \frac{1}{3} (2 - 1) = \frac{1}{3}.
 \end{align}
-The experimental measurement of $I_G(0) = 0.235 \pm 0.026$ is significantly lower than the predicted value of $\frac{1}{3} \approx 0.333$. This discrepancy is indeed surprising and suggests that the assumption of an $SU(2)$ flavor-symmetric sea may not hold true in reality. The experimental result indicates an asymmetry in the sea quark distributions, specifically that $\overline{d}(x) > \overline{u}(x)$, which has important implications for our understanding of the nucleon structure and the dynamics of quark-antiquark pairs in the nucleon sea.  
+Comparing this result with the experimental measurement $I_G(0) = 0.235 \pm 0.026$, we see that the experimental value is significantly lower than the predicted value of $\frac{1}{3} \approx 0.333$. This discrepancy suggests that the assumption of an $SU(2)$ flavor-symmetric sea may not hold true in reality. The lower experimental value indicates an asymmetry in the sea quark distributions, specifically that there are more $\overline{d}$ quarks than $\overline{u}$ quarks in the proton. 
 \qed
