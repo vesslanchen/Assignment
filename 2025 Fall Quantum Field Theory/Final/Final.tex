@@ -3,23 +3,213 @@
 The charged pion $\pi^-$ is represented by a complex scalar field $\varphi$, the
 \textit{muon} $\mu^-$ by a Dirac field $\mathcal{M}$, and the \textit{muon neutrino} $\nu_\mu$ by a spin-projected Dirac field $P_L \mathcal{N}$, where $P_L=\frac{1}{2}(1-\gamma_5)$. The charged pion can decay to a muon and a muon antineutrino via the interaction
 \begin{align}
-    \mathcal{L}_1=c_1G_F f_\pi \partial_\mu \varphi \bar{\mathcal{M}} \gamma^\mu P_L \mathcal{N} + h.c,
+    \mathcal{L}_1=2c_1G_F f_\pi \partial_\mu \varphi \overline{\mathcal{M}} \gamma^\mu P_L \mathcal{N} + h.c,
 \end{align}
 where $c_1$ is the consine of the \textit{Cabibbo angle}, $G_F$ is the \textit{Fermi constant}, and $f_\pi$ is the \textit{pion decay constant}. 
 \begin{itemize}
     \item [(a)] Compute the charged pion decay rate $\Gamma$.
     \item [(b)] The charged pion mass is $m_\pi=139.6$ MeV, the muon mass is $m_\mu=105.7$ MeV, and the muon neutrino mass is massless. The Fermi constant is $G_F=1.166\times 10^{-5}$ GeV$^{-2}$, and the cosine of the Cabibbo angle is measured in nuclear beta decays to be $c_1=0.974$. The measured value of the charged pion life time is $\tau=2.6033\times 10^{-8}$ s. Determine the value of $f_\pi$ in MeV. Your result is too large by 0.8\%, due to neglect of electromagnetic loop corrections.
-    \item [(c)] The previous parts assume $\pi^-$ always decay into $\mu^-\bar{\nu}_\mu$, but actually $\pi^-$ can also decay into $e^-\bar{\nu}_e$. The charged pion, electron by a Dirac field $\mathcal{M}_e,$ and the electron neutrino by a spin-projected Dirac field $P_L \mathcal{N}_e$ have the form of interaction
+    \item [(c)] The previous parts assume $\pi^-$ always decay into $\mu^-\overline{\nu}_\mu$, but actually $\pi^-$ can also decay into $e^-\overline{\nu}_e$. The charged pion, electron by a Dirac field $\mathcal{M}_e,$ and the electron neutrino by a spin-projected Dirac field $P_L \mathcal{N}_e$ have the form of interaction
     \begin{align}
-        \mathcal{L}_2=c_2G_F f_\pi \partial_\mu \varphi \bar{\mathcal{M}}_e \gamma^\mu P_L \mathcal{N}_e + h.c.
+        \mathcal{L}_2=2c_2G_F f_\pi \partial_\mu \varphi \overline{\mathcal{M}}_e \gamma^\mu P_L \mathcal{N}_e + h.c.
     \end{align}
-    Given the decay branching ratio of $\pi^-\to e^-\bar{\nu}_e$ is $1.230\times 10^{-4}$, the decay branching ratio of $\pi^-\to \mu^-\bar{\nu}_\mu$ is $99.9877\%$. Find the value of $c_2$. For example, the electronic decay branching ratio is 
+    Given the decay branching ratio of $\pi^-\to e^-\overline{\nu}_e$ is $1.230\times 10^{-4}$, the decay branching ratio of $\pi^-\to \mu^-\overline{\nu}_\mu$ is $99.9877\%$. Find the value of $c_2$. For example, the electronic decay branching ratio is 
     \begin{align}
-        \text{Br}(\pi^-\to e^-\bar{\nu}_e)=\frac{\Gamma(\pi^-\to e^-\bar{\nu}_e)}{\Gamma(\pi^-\to \mu^-\bar{\nu}_\mu)+\Gamma(\pi^-\to e^-\bar{\nu}_e)}.
+        \text{Br}(\pi^-\to e^-\overline{\nu}_e)=\frac{\Gamma(\pi^-\to e^-\overline{\nu}_e)}{\Gamma(\pi^-\to \mu^-\overline{\nu}_\mu)+\Gamma(\pi^-\to e^-\overline{\nu}_e)}.
     \end{align}
     The coupling of pion-electron is similar with the coupling of pion-muon, why pion favoring decay into muon instead of electron? ($m_e=0.511$ MeV.)
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+\begin{figure}[!h]
+    \centering
+    % t-channel
+    \begin{subfigure}{0.48\textwidth} % 佔據文本寬度的 48%
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,0) {\(\pi^-\)};
+            \vertex (f1) at ( 1,1) {\(\mu^-\)};
+            \vertex (f2) at ( 1,-1) {\(\overline{\nu}_\mu\)};
+
+            % 頂點
+            \vertex (v1) at (0,0);
+            \vertex (v2) at (1,0);
+            
+            % 繪製傳播子 (t-channel: 粒子直線傳播)
+            \diagram*{
+                (i1)--[scalar, momentum={\(k^\mu\)}](v1),
+                (v1)--[fermion, momentum={\(p_1^\mu\)}](f1),
+                (f2)--[fermion, reversed momentum={\(p_2^\mu=k^\mu-p_1^\mu\)}](v1),
+            };
+            
+            \node[right=5pt of v1] {\(2ic_1G_Ff_\pi k^\mu\)};
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{$\pi^-$ decay diagram.}
+        \label{Final:pion-decay-muon}
+    \end{subfigure}
+    %\hfill % 在兩個子圖形之間插入最大的水平空間
+    % u-channel
+    \begin{subfigure}{0.48\textwidth} % 佔據文本寬度的 48%
+        \centering
+        \begin{tikzpicture}
+        \begin{feynman}
+            % 外部粒子
+            \vertex (i1) at (-2,0) {\(\pi^-\)};
+            \vertex (f1) at ( 1,1) {\(e^-\)};
+            \vertex (f2) at ( 1,-1) {\(\overline{\nu}_e\)};
+
+            % 頂點
+            \vertex (v1) at (0,0);
+            
+            % 繪製傳播子 (t-channel: 粒子直線傳播)
+            \diagram*{
+                (i1)--[scalar, momentum={\(k^\mu\)}] (v1),
+                (v1)--[fermion, momentum={\(p_1^\mu\)}](f1),
+                (f2)--[fermion, reversed momentum={\(p_2^\mu=k^\mu-p_1^\mu\)}](v1),
+            };
+            
+            \node[right=5pt of v1] {\(2ic_2G_Ff_\pi k^\mu\)};
+        \end{feynman}
+        \end{tikzpicture}
+        \caption{$\pi^-$ decay diagram.}
+        \label{Final:pion-decay-electron}
+    \end{subfigure}
+    \caption{Feynman diagram for $\pi^-$ decay into (a) muon and muon antineutrino; (b) electron and electron antineutrino.}
+    \label{Final:pi-decay}
+\end{figure}
+First, we analyze the decay $\pi^-\to \mu^-\overline{\nu}_\mu$. The Feynman diagram is shown in Fig.~\ref{Final:pion-decay-muon}. Now, we can write down the amplitude:
+\begin{align}
+    i\mathcal{T}&=2ic_1G_F f_\pi k^\mu \overline{u}_{s_1}(p_1)\gamma_\mu P_L v_{s_2}(p_2)\\
+    &=2ic_1G_F f_\pi\overline{u}_{s_1}(p_1)\slashed{k} P_L v_{s_2}(p_2)\\
+    &= ic_1G_F f_\pi \overline{u}_{s_1}(p_1)\slashed{k} (1-\gamma_5) v_{s_2}(p_2),
+\end{align}
+where $k^\mu$, $p_1^\mu$, and $p_2^\mu$ are the four-momenta of $\pi^-$, $\mu^-$, and $\overline{\nu}_\mu$, respectively. $s_1$ and $s_2$ are the spin indices of $\mu^-$ and $\overline{\nu}_\mu$. We can write $k^\mu=p_1^\mu+p_2^\mu$ due to momentum conservation. Thus, the amplitude can be further simplified as:
+\begin{align}
+    i \mathcal{T}&= ic_1G_F f_\pi \overline{u}_{s_1}(p_1)(\slashed{p}_1+\slashed{p}_2)(1-\gamma_5) v_{s_2}(p_2)\\
+    & = ic_1G_F f_\pi \Big[\overline{u}_{s_1}(p_1)\slashed{p}_1(1-\gamma_5) v_{s_2}(p_2)+\overline{u}_{s_1}(p_1)\slashed{p}_2(1-\gamma_5) v_{s_2}(p_2)\Big]\\
+    & = ic_1G_F f_\pi \Big[(-m) \overline{u}_{s_1}(p_1)(1-\gamma_5) v_{s_2}(p_2)+0\Big]
+\end{align}
+where we have used the Dirac equation $\overline{u}_{s_1}(p_1)(\slashed{p}_1 + m)=0$ and the massless neutrino condition $\slashed{p}_2 v_{s_2}(p_2)=0$. Therefore, the amplitude becomes:
+\begin{align}
+    i\mathcal{T}=-i c_1G_F f_\pi m \overline{u}_{s_1}(p_1)(1-\gamma_5) v_{s_2}(p_2).
+\end{align} 
+Next, we can write down the Hermitian conjugate of the amplitude:
+\begin{align}
+    -i\mathcal{T}^*&= i c_1G_F f_\pi m \Big[\overline{u}_{s_1}(p_1)(1-\gamma_5) v_{s_2}(p_2)\Big]^\dagger\\
+    &= i c_1G_F f_\pi m \Big[v_{s_2}^\dagger(p_2)(1-\gamma_5)^\dagger \overline{u}_{s_1}^\dagger(p_1)\Big]\\
+    &= i c_1G_F f_\pi m \Big[v_{s_2}^\dagger(p_2)\gamma^0(1-\gamma_5)^\dagger \gamma^0 u_{s_1}(p_1)\Big]\\
+    &= i c_1G_F f_\pi m \Big[\overline{v}_{s_2}(p_2)(1+\gamma_5) u_{s_1}(p_1)\Big],
+\end{align}
+where we have used the relation $\overline{u}=\ u^\dagger \gamma^0$ and the Hermitian property of $\gamma_5$ (that is, $\gamma_5^\dagger=\gamma_5$) to get the last line. Now, we can compute the squared amplitude averaged over initial spins and summed over final spins:
+\begin{align}
+    \langle |\mathcal{T}|^2 \rangle &=\frac{1}{1}\sum_{s_1,s_2} \mathcal{T}\mathcal{T}^*\\
+    &= c_1^2 G_F^2 f_\pi^2 m^2 \sum_{s_1,s_2} \Big[\overline{u}_{s_1}(p_1)(1-\gamma_5) v_{s_2}(p_2)\Big] \Big[\overline{v}_{s_2}(p_2)(1+\gamma_5) u_{s_1}(p_1)\Big]\\
+    &= c_1^2 G_F^2 f_\pi^2 m^2 \sum_{s_1,s_2} \text{Tr}\Big[(1+\gamma_5) u_{s_1}(p_1)\overline{u}_{s_1}(p_1)(1-\gamma_5) v_{s_2}(p_2)\overline{v}_{s_2}(p_2)\Big]\\
+    &= c_1^2 G_F^2 f_\pi^2 m^2 \text{Tr}\Big[(1+\gamma_5)(-\slashed{p}_1 + m)(1-\gamma_5)(-\slashed{p}_2)\Big]
+\end{align}
+where we have used the completeness relations for spinors and the trace properties of gamma matrices:
+\begin{align}
+    \sum_s u_s(p)\overline{u}_s(p)&=-\slashed{p}+m,\\
+    \sum_s v_s(p)\overline{v}_s(p)&=-\slashed{p}-m,\\
+    \text{Tr}(\slashed{a}\slashed{b})&=-4(a\cdot b),\\
+    \text{Tr}(\text{odd number of } \gamma\text{-matrices})&=0,\\
+    \gamma_5^2&=1.
+\end{align} 
+We can expand the trace:
+\begin{align}
+    (1+\gamma_5)(-\slashed{p}_1 + m)(1-\gamma_5)(-\slashed{p}_2)&=(1+\gamma_5)(-\slashed{p}_1)(1-\gamma_5)(-\slashed{p}_2)+(1+\gamma_5)m(1-\gamma_5)(-\slashed{p}_2)\\
+    &=(1+\gamma_5)(-\slashed{p}_1)(1-\gamma_5)(-\slashed{p}_2)+0\\
+    &=(1+\gamma_5)(\slashed{p}_1)(1-\gamma_5)(\slashed{p}_2)\\
+    &=(\slashed{p}_1)(\slashed{p}_2)+(\slashed{p}_1)(-\gamma_5)(\slashed{p}_2)+\gamma_5(\slashed{p}_1)(\slashed{p}_2)+\gamma_5(\slashed{p}_1)(-\gamma_5)(\slashed{p}_2)\\
+    &=2(\slashed{p}_1)(\slashed{p}_2)+2\gamma_5(\slashed{p}_1)(\slashed{p}_2)
+\end{align}
+where we have used the anticommutation relation $\{\gamma_5,\gamma^\mu\}=0$ to get the last line. Therefore, we have:
+\begin{align}
+    \langle |\mathcal{T}|^2 \rangle &= c_1^2 G_F^2 f_\pi^2 m^2 \text{Tr}\Big[2(\slashed{p}_1)(\slashed{p}_2)+2\gamma_5(\slashed{p}_1)(\slashed{p}_2)\Big]\\
+    &= 2 c_1^2 G_F^2 f_\pi^2 m^2 \Big[\text{Tr}(\slashed{p}_1 \slashed{p}_2)+\text{Tr}(\gamma_5 \slashed{p}_1 \slashed{p}_2)\Big]\\
+    &= 2 c_1^2 G_F^2 f_\pi^2 m^2 \Big[-4(p_1\cdot p_2)+0\Big]\\
+    &= -8 c_1^2 G_F^2 f_\pi^2 m^2 (p_1\cdot p_2)
+\end{align}
+where we have used the trace properties of gamma matrices again. In the rest frame of $\pi^-$, we have:
+\begin{align}
+    &k^2 = -m_\pi^2 = (p_1+p_2)^2 = p_1^2 + p_2^2 + 2(p_1\cdot p_2) = -m^2 + 0 + 2(p_1\cdot p_2)\\
+    &\Rightarrow -(p_1\cdot p_2) = \frac{m_\pi^2 - m^2}{2}
+\end{align}
+Thus, the squared amplitude becomes:
+\begin{align}
+    \langle |\mathcal{T}|^2 \rangle &= 4 c_1^2 G_F^2 f_\pi^2 m^2 (m_\pi^2 - m^2)
+\end{align}
+Note that the $m$ is the muon mass. Finally, we can compute the decay rate:
+\begin{align}
+    \Gamma &= \frac{1}{2m_\pi} \int d\Phi_2 \langle |\mathcal{T}|^2 \rangle,
+\end{align}
+where the two-body phase space integral is:
+\begin{align}
+    \int d\Phi_2 &= \int \frac{d^3 p_1}{(2\pi)^3 2E_1} \frac{d^3 p_2}{(2\pi)^3 2E_2} (2\pi)^4 \delta^4(k - p_1 - p_2)\\
+    &= \int \frac{d^3 p_1}{(2\pi)^3 2E_1} \frac{d^3 p_2}{(2\pi)^3 2E_2} (2\pi)^4 \delta(m_\pi - E_1 - E_2) \delta^3(\mathbf{0} - \mathbf{p}_1 - \mathbf{p}_2)\\
+    &= \int \frac{d^3 p_1}{(2\pi)^3 2E_1} \frac{1}{(2\pi)^3 2E_2} (2\pi)^4 \delta(m_\pi - E_1 - E_2)\\
+    &= \int \frac{4\pi p_1^2 dp_1}{(2\pi)^3 2E_1} \frac{1}{(2\pi)^3 2E_2} (2\pi)^4 \delta(m_\pi - E_1 - E_2)\\
+    &= \int \frac{4\pi p_1^2 dp_1}{(2\pi)^2 4E_1 E_2} \delta(m_\pi - E_1 - E_2)
+\end{align}
+where we have used the delta function to perform the $\mathbf{p}_2$ integral. In the rest frame of $\pi^-$, we have $\mathbf{p}_2 = -\mathbf{p}_1$ and $E_2 = |\mathbf{p}_2| = |\mathbf{p}_1|$. Thus, we can write $E_1+E_2 -m_\pi = \sqrt{p_1^2 + m^2} + p_1 - m_\pi$. The root of the equation $E_1 + E_2 - m_\pi = 0$ is:
+\begin{align}
+    p_1 = \frac{m_\pi^2 - m^2}{2 m_\pi}
+\end{align}
+Also, we can compute the derivative:
+\begin{align}
+    \frac{d}{dp_1}(E_1 + E_2 - m_\pi) = \frac{p_1}{\sqrt{p_1^2 + m^2}} + 1 = \frac{E_1 + E_2}{E_1} = \frac{m_\pi}{E_1}
+\end{align}
+Therefore, the phase space integral becomes:
+\begin{align}
+    \int d\Phi_2 &= \frac{4\pi p_1^2}{(2\pi)^2 4 E_1 E_2} \frac{E_1}{m_\pi}\\
+    &= \frac{p_1^2}{4\pi m_\pi E_2}= \frac{p_1}{4\pi m_\pi}\\
+    &= \frac{m_\pi^2 - m^2}{8\pi m_\pi^2}
+\end{align}
+Finally, the decay rate is:
+\begin{align}
+    \Gamma_{\pi^-\to\mu\overline{\nu}_\mu} &= \frac{1}{2 m_\pi} \langle |\mathcal{T}|^2 \rangle \int d\Phi_2\\
+    &= \frac{1}{2 m_\pi} \Big[4 c_1^2 G_F^2 f_\pi^2 m^2 (m_\pi^2 - m^2)\Big] \Big[\frac{m_\pi^2 - m^2}{8\pi m_\pi^2}\Big]\\
+    &= \frac{c_1^2 G_F^2 f_\pi^2 m^2 (m_\pi^2 - m^2)^2}{4\pi m_\pi^3}\\
+    &= \frac{c_1^2 G_F^2 f_\pi^2 m_\mu^2 (m_\pi^2 - m_\mu^2)^2}{4\pi m_\pi^3}
+\end{align}
+\begin{itemize}
+    \item [(b)] 
+\end{itemize}
+The charged pion life time is related to the decay rate by $\tau = 1/\Gamma$. Note that $2.6033\times 10^{-8}$ s $\approx 3.955\times 10^{16}$ MeV$^{-1}$.
+Thus, we can solve for $f_\pi$:
+\begin{align}
+    f_\pi &= \sqrt{\frac{4\pi m_\pi^3}{c_1^2 G_F^2 m_\mu^2 (m_\pi^2 - m_\mu^2)^2 \tau}}\\
+    &= \sqrt{\frac{4\pi (139.6\text{ MeV})^3}{(0.974)^2 (1.166\times 10^{-5}\text{ GeV}^{-2})^2 (105.7\text{ MeV})^2 ((139.6\text{ MeV})^2 - (105.7\text{ MeV})^2)^2 (3.955\times 10^{16}\text{ MeV}^{-1})}}\\
+    &\approx 0.09314 \text{ GeV} = 93.14 \text{ MeV}.
+\end{align}
+\begin{itemize}
+    \item [(c)] 
+\end{itemize}
+Now we analyze the decay $\pi^-\to e^-\overline{\nu}_e$. The Feynman diagram is shown in Fig.~\ref{Final:pion-decay-electron}. By following the same procedure as in part (a), we can write down the decay rate: 
+\begin{align}
+    \Gamma_{\pi^-\to e\overline{\nu}_e} &= \frac{c_2^2 G_F^2 f_\pi^2 m_e^2 (m_\pi^2 - m_e^2)^2}{4\pi m_\pi^3}.
+\end{align}
+Given the branching ratio $\text{Br}(\pi^-\to e^-\overline{\nu}_e)=1.230\times 10^{-4}$, we have:
+\begin{align}
+    \text{Br}(\pi^-\to e^-\overline{\nu}_e) &= \frac{\Gamma(\pi^-\to e^-\overline{\nu}_e)}{\Gamma(\pi^-\to \mu^-\overline{\nu}_\mu)+\Gamma(\pi^-\to e^-\overline{\nu}_e)}\\
+    &\approx \frac{\Gamma(\pi^-\to e^-\overline{\nu}_e)}{\Gamma(\pi^-\to \mu^-\overline{\nu}_\mu)}\\
+    &= \frac{c_2^2 m_e^2 (m_\pi^2 - m_e^2)^2}{c_1^2 m_\mu^2 (m_\pi^2 - m_\mu^2)^2}
+\end{align}
+where we have used the fact that $\Gamma(\pi^-\to e^-\overline{\nu}_e) \ll \Gamma(\pi^-\to \mu^-\overline{\nu}_\mu)$ to get the second line. Therefore, we can solve for $c_2$:
+\begin{align}
+    c_2 &= c_1 \sqrt{\text{Br}(\pi^-\to e^-\overline{\nu}_e) \frac{m_\mu^2 (m_\pi^2 - m_\mu^2)^2}{m_e^2 (m_\pi^2 - m_e^2)^2}}\\
+    &= 0.974 \sqrt{(1.230\times 10^{-4}) \frac{(105.7\text{ MeV})^2 ((139.6\text{ MeV})^2 - (105.7\text{ MeV})^2)^2}{(0.511\text{ MeV})^2 ((139.6\text{ MeV})^2 - (0.511\text{ MeV})^2)^2}}\\
+    &\approx 0.95345.
+\end{align}
+The most obvious reason that pion favoring decay into muon instead of electron is that the muon mass is much larger than the electron mass. Since the $\Gamma\propto m_l^2$ ($l=e,\mu$), the decay rate into muon is greatly enhanced compared to that into electron. \\\\
+\textbf{Remark: } This phenomenon is known as \textit{helicity suppression}. But I think the explanation above is sufficient for this problem. 
+\qed
+
 
 
 
@@ -28,10 +218,145 @@ where $c_1$ is the consine of the \textit{Cabibbo angle}, $G_F$ is the \textit{F
 \question{2}{}
 Consider QED with both electron and muon: 
 \begin{align}
-    \mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\sum_{l=e,\mu}  (i\bar{\Psi}_l\slashed{\partial} \Psi_l -m_l \bar{\Psi}_l \Psi_l+\frac{g}{2} \bar{\Psi}_l \gamma^\mu  \Psi_l A_\mu),
+    \mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\sum_{l=e,\mu}  (i\overline{\Psi}_l\slashed{\partial} \Psi_l -m_l \overline{\Psi}_l \Psi_l+\frac{g}{2} \overline{\Psi}_l \gamma^\mu  \Psi_l A_\mu),
 \end{align}
 where both $\Psi_e$ and $\Psi_\mu$ are Dirac fields. Compute the $\langle |\mathcal{T}^2|\rangle$ for $e^+e^-\to \mu^+\mu^-$. Then, compute its cross section $\sigma$. Eq.~(11.22) and Eq.~(11.30) should be useful.
 \answer{}
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-3,2) {\(e^-\)};
+        \vertex (i2) at (-3,-2) {\(e^+\)};
+        \vertex (f1) at (3,2) {\(\mu^-\)};
+        \vertex (f2) at (3,-2) {\(\mu^+\)
+        };
+        % 頂點
+        \vertex (v1) at (-1,0);
+        \vertex (v2) at (1,0);
+
+        % 繪製傳播子 (s-channel: 粒子直線傳播)
+        \diagram*{
+            (i1)--[fermion, momentum={\(p_1^\mu\)}](v1) --[fermion, reversed momentum={\(p_2^\mu\)}](i2),
+            (v1) --[photon, momentum={\(q^\mu\)}](v2),
+            (f1)--[fermion, reversed momentum={\(p_3^\mu\)}](v2) --[fermion, momentum={\(p_4^\mu\)}] (f2),
+        };  
+        \node[left=5pt of v1] {\(i\frac{g}{2} \gamma^\mu\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $e^+e^-\to \mu^+\mu^-$.}
+    \label{Final:e-mu-scattering}
+\end{figure}
+The Feynman diagram for $e^+e^-\to \mu^+\mu^-$ is shown in Fig.~\ref{Final:e-mu-scattering}. We can write down the amplitude:
+\begin{align}
+    i\mathcal{T} &= \overline{v}_{s_2}(p_2)(i\frac{g}{2}\gamma^\mu) u_{s_1}(p_1) \frac{-i g_{\mu\nu}}{q^2} \overline{u}_{s_3}(p_3)(i\frac{g}{2}\gamma^\nu) v_{s_4}(p_4)\\
+    &= i \frac{g^2}{4 q^2} \Big[\overline{v}_{s_2}(p_2) \gamma^\mu u_{s_1}(p_1)\Big] \Big[\overline{u}_{s_3}(p_3) \gamma_\mu v_{s_4}(p_4)\Big],
+\end{align}
+where $p_1^\mu$, $p_2^\mu$, $p_3^\mu$, and $p_4^\mu$ are the four-momenta of $e^-$, $e^+$, $\mu^-$, and $\mu^+$, respectively. $s_1$, $s_2$, $s_3$, and $s_4$ are the spin indices of $e^-$, $e^+$, $\mu^-$, and $\mu^+$, respectively. Also, we have defined $q^\mu = p_1^\mu + p_2^\mu = p_3^\mu + p_4^\mu$. Next, we can write down the Hermitian conjugate of the amplitude:
+\begin{align}
+    -i\mathcal{T}^* &= -i \frac{g^2}{4 q^2} \Big[\overline{v}_{s_2}(p_2) \gamma^\mu u_{s_1}(p_1)\Big]^\dagger \Big[\overline{u}_{s_3}(p_3) \gamma_\mu v_{s_4}(p_4)\Big]^\dagger\\
+    &= -i \frac{g^2}{4 q^2} \Big[u_{s_1}^\dagger(p_1) \gamma^{\mu\dagger}(\gamma^0)^\dagger v_{s_2}(p_2)\Big] \Big[v_{s_4}^\dagger(p_4) \gamma_\mu^\dagger(\gamma^0)^\dagger u_{s_3}(p_3)\Big]\\
+    &= -i \frac{g^2}{4 q^2} \Big[\overline{u}_{s_1}(p_1) \gamma^\mu v_{s_2}(p_2)\Big] \Big[\overline{v}_{s_4}(p_4) \gamma_\mu u_{s_3}(p_3)\Big].
+\end{align}
+Therefore, we can compute the squared amplitude averaged over initial spins and summed over final spins:
+\begin{align}
+    \langle |\mathcal{T}|^2 \rangle &= \frac{1}{4} \sum_{s_1,s_2,s_3,s_4} \mathcal{T} \mathcal{T}^*\\
+    &= \frac{g^4}{64 q^4} \sum_{s_1,s_2,s_3,s_4} \Big[\overline{v}_{s_2}(p_2) \gamma^\mu u_{s_1}(p_1)\Big] \Big[\overline{u}_{s_3}(p_3) \gamma_\mu v_{s_4}(p_4)\Big] \Big[\overline{u}_{s_1}(p_1) \gamma^\nu v_{s_2}(p_2)\Big] \Big[\overline{v}_{s_4}(p_4) \gamma_\nu u_{s_3}(p_3)\Big]\\
+    &= \frac{g^4}{64 q^4} \sum_{s_1,s_2,s_3,s_4} \text{Tr}\Big[\gamma^\mu u_{s_1}(p_1) \overline{u}_{s_1}(p_1) \gamma^\nu v_{s_2}(p_2) \overline{v}_{s_2}(p_2)\Big] \text{Tr}\Big[\gamma_\mu u_{s_3}(p_3) \overline{u}_{s_3}(p_3) \gamma_\nu v_{s_4}(p_4) \overline{v}_{s_4}(p_4)\Big]\\
+    &= \frac{g^4}{64 q^4} \text{Tr}\Big[\gamma^\mu (-\slashed{p}_1 + m_e) \gamma^\nu (-\slashed{p}_2 - m_e)\Big] \text{Tr}\Big[\gamma_\mu (-\slashed{p}_3 + m_\mu) \gamma_\nu (-\slashed{p}_4 - m_\mu)\Big],
+\end{align}
+where we have used the completeness relations for spinors and the trace properties of gamma matrices:
+\begin{align}
+    \sum_s u_s(p)\overline{u}_s(p)&=-\slashed{p}+m,\\
+    \sum_s v_s(p)\overline{v}_s(p)&=-\slashed{p}-m,\\
+    \text{Tr}(\slashed{a}\slashed{b})&=-4(a\cdot b),\\
+    \text{Tr}(\text{odd number of } \gamma\text{-matrices})&=0\\
+    \text{Tr}(\gamma^\mu \gamma^\nu)&=-4 g^{\mu\nu}\\
+    \text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma)&=4(g^{\mu\nu}g^{\rho\sigma}-g^{\mu\rho}g^{\nu\sigma}+g^{\mu\sigma}g^{\nu\rho})\\
+    g_{\mu\nu} g^{\mu\nu}&=4
+\end{align}
+We can expand the traces:
+\begin{align}
+    &\text{Tr}\Big[\gamma^\mu (-\slashed{p}_1 + m_e) \gamma^\nu (-\slashed{p}_2 - m_e)\Big] = \text{Tr}\Big[\gamma^\mu \slashed{p}_1 \gamma^\nu \slashed{p}_2\Big] - m_e^2 \text{Tr}\Big[\gamma^\mu \gamma^\nu\Big]\\
+    =& (p_1)_\alpha (p_2)_\beta \text{Tr}\Big[\gamma^\mu \gamma^\alpha \gamma^\nu \gamma^\beta\Big] + 4 m_e^2 g^{\mu\nu}\\
+    =& (p_1)_\alpha (p_2)_\beta 4 (g^{\mu\alpha} g^{\nu\beta} - g^{\mu\nu} g^{\alpha\beta} + g^{\mu\beta} g^{\nu\alpha}) + 4 m_e^2 g^{\mu\nu}\\
+    =& 4 \Big[ p_1^\mu p_2^\nu - g^{\mu\nu} (p_1 \cdot p_2) + p_1^\nu p_2^\mu + m_e^2 g^{\mu\nu} \Big]\\
+    =& 4 \Big[ p_1^\mu p_2^\nu + p_1^\nu p_2^\mu - g^{\mu\nu} (p_1 \cdot p_2 - m_e^2) \Big],
+\end{align}
+and
+\begin{align}
+    &\text{Tr}\Big[\gamma_\mu (-\slashed{p}_3 + m_\mu) \gamma_\nu (-\slashed{p}_4 - m_\mu)\Big] = \text{Tr}\Big[\gamma_\mu \slashed{p}_3 \gamma_\nu \slashed{p}_4\Big] - m_\mu^2 \text{Tr}\Big[\gamma_\mu \gamma_\nu\Big]\\
+    =& (p_3)^\rho (p_4)^\sigma \text{Tr}\Big[\gamma_\mu \gamma_\rho \gamma_\nu \gamma_\sigma\Big] + 4 m_\mu^2 g_{\mu\nu}\\
+    =& (p_3)^\rho (p_4)^\sigma 4 (g_{\mu\rho} g_{\nu\sigma} - g_{\mu\nu} g_{\rho\sigma} + g_{\mu\sigma} g_{\nu\rho}) + 4 m_\mu^2 g_{\mu\nu}\\
+    =& 4 \Big[ p_{3\mu} p_{4\nu} - g_{\mu\nu} (p_3 \cdot p_4) + p_{3\nu} p_{4\mu} + m_\mu^2 g_{\mu\nu} \Big]\\
+    =& 4 \Big[ p_{3\mu} p_{4\nu} + p_{3\nu} p_{4\mu} - g_{\mu\nu} (p_3 \cdot p_4 - m_\mu^2) \Big].
+\end{align}
+Therefore, the squared amplitude becomes:
+\begin{align}
+    \langle |\mathcal{T}|^2 \rangle &= \frac{g^4}{64 q^4} 16 \Big[ p_1^\mu p_2^\nu + p_1^\nu p_2^\mu - g^{\mu\nu} (p_1 \cdot p_2 - m_e^2) \Big] \Big[ p_{3\mu} p_{4\nu} + p_{3\nu} p_{4\mu} - g_{\mu\nu} (p_3 \cdot p_4 - m_\mu^2) \Big]\\
+    &= \frac{g^4}{4q^4} \Big[ (p_1 \cdot p_3)(p_2 \cdot p_4) + (p_1 \cdot p_4)(p_2 \cdot p_3) - (p_1 \cdot p_2)( p_3 \cdot p_4 - m_\mu^2) \\
+    &+ (p_1 \cdot p_4)(p_2 \cdot p_3) + (p_1 \cdot p_3)(p_2 \cdot p_4) - (p_1 \cdot p_2)( p_3 \cdot p_4 - m_\mu^2) \\
+    &- (p_1 \cdot p_2 - m_e^2)( p_3 \cdot p_4) - (p_1 \cdot p_2 - m_e^2)( p_3 \cdot p_4) + 4 (p_1 \cdot p_2 - m_e^2)( p_3 \cdot p_4 - m_\mu^2) \Big]\\
+    &= \frac{g^4}{4q^4} \Big[ \textcolor{blue}{(p_1 p_3)(p_2 p_4)} + \textcolor{red}{(p_1 p_4)(p_2 p_3)} -\textcolor{purple}{(p_1 p_2)(p_3 p_4)} + \textcolor{cyan}{(p_1 p_2) m_\mu^2}\\
+    &+ \textcolor{red}{(p_1 p_4)(p_2 p_3)} + \textcolor{blue}{(p_1 p_3)(p_2 p_4)} - \textcolor{purple}{(p_1 p_2)(p_3 p_4)} + \textcolor{cyan}{(p_1 p_2) m_\mu^2}\\
+    &- \textcolor{purple}{(p_1 p_2)(p_3 p_4)} + \textcolor{olive}{m_e^2 (p_3 p_4)} - \textcolor{purple}{(p_1 p_2)(p_3 p_4)} + \textcolor{olive}{m_e^2 (p_3 p_4)}\\
+    &+ 4 \textcolor{purple}{(p_1 p_2)(p_3 p_4)} - \textcolor{cyan}{4 m_\mu^2 (p_1 p_2)} - \textcolor{olive}{4 m_e^2 (p_3 p_4)} + 4 m_e^2 m_\mu^2 \Big]\\
+    &= \frac{g^4}{4q^4} \Big[ 2\textcolor{blue}{(p_1 p_3)(p_2 p_4)} + 2\textcolor{red}{(p_1 p_4)(p_2 p_3)} -2 \textcolor{cyan}{(p_1 p_2) m_\mu^2} -2 \textcolor{olive}{m_e^2 (p_3 p_4)} + 4 m_e^2 m_\mu^2 \Big]
+\end{align}
+Next, we can compute the cross section in the center-of-mass frame. In this frame, we have:
+\begin{align}
+    p_1^\mu &= (E,0,0,p),\\
+    p_2^\mu &= (E,0,0,-p),\\
+    p_3^\mu &= (E,\ p'\sin\theta,\ 0,\ p'\cos\theta),\\
+    p_4^\mu &= (E,\ -p'\sin\theta,\ 0,\ -p'\cos\theta),
+\end{align}
+where $E=\sqrt{p^2 + m_e^2} = \sqrt{p'^2 + m_\mu^2} = \frac{\sqrt{s}}{2}$. We can compute the dot products:
+\begin{align}
+    (p_1 \cdot p_2) &=-E^2 + (-p^2) = m_e^2-2E^2\\
+    (p_3 \cdot p_4) &=-E^2 + (-p'^2) = m_\mu^2-2E^2\\
+    (p_1 \cdot p_3) &=-E^2 + p p' \cos\theta\\
+    (p_2 \cdot p_4) &=-E^2 + p p' \cos\theta\\
+    (p_1 \cdot p_4) &=-E^2 - p p' \cos\theta\\
+    (p_2 \cdot p_3) &=-E^2 - p p' \cos\theta
+\end{align}
+Therefore, the squared amplitude becomes:
+\begin{align}
+    \langle |\mathcal{T}|^2 \rangle &= \frac{g^4}{4q^4} \Big[ 2(-E^2 + p p' \cos\theta)^2 + 2(-E^2 - p p' \cos\theta)^2 -2 (m_e^2-2E^2) m_\mu^2 -2 m_e^2 (m_\mu^2-2E^2) + 4 m_e^2 m_\mu^2 \Big]\\
+    &= \frac{g^4}{4q^4} \Big[ 4(E^4 + p^2 p'^2 \cos^2\theta) +4 E^2 (m_e^2 + m_\mu^2)  \Big]\\
+    &= \frac{ g^4}{q^4} \Big[ E^4+ p^2 p'^2 \cos^2\theta + E^2 (m_e^2 + m_\mu^2)  \Big].
+\end{align}
+Next, we can compute the cross section (by eq.~(11.31) in the textbook):
+\begin{align}
+    \frac{d\sigma}{d\Omega} &= \frac{1}{64\pi^2 s} \frac{|\mathbf{p}_3|}{|\mathbf{p}_1|} \langle |\mathcal{T}|^2 \rangle\\
+    &= \frac{1}{64\pi^2 s} \frac{p'}{p} \frac{ g^4}{q^4} \Big[ E^4+ p^2 p'^2 \cos^2\theta + E^2 (m_e^2 + m_\mu^2)  \Big]\\
+    &= \frac{g^4}{64\pi^2 s^3} \frac{p'}{p} \Big[ E^4+ p^2 p'^2 \cos^2\theta + E^2 (m_e^2 + m_\mu^2)  \Big],
+\end{align}
+where we have used the fact that $q^2= (p_1 + p_2)^2 = -s=-4E^2$. Finally, we can integrate over the solid angle to get the total cross section:
+\begin{align}
+    \int d\Omega &= 4\pi,\\
+    \int d\Omega \cos^2\theta &= 2\pi \int_{-1}^1 d\cos\theta \cos^2\theta = \frac{4\pi}{3},
+\end{align}
+thus,
+\begin{align}
+    \sigma &= \int \frac{d\sigma}{d\Omega} d\Omega\\
+    &= \frac{g^4}{64\pi^2 s^3} \frac{p'}{p} \Big[ E^4 \int d\Omega + p^2 p'^2 \int d\Omega \cos^2\theta + E^2 (m_e^2 + m_\mu^2) \int d\Omega \Big]\\
+    &= \frac{g^4}{64\pi^2 s^3} \frac{p'}{p} \Big[ 4\pi E^4 + \frac{4\pi}{3} p^2 p'^2 + 4\pi E^2 (m_e^2 + m_\mu^2) \Big]\\
+    &= \frac{g^4}{16\pi s^3} \frac{p'}{p} \Big[ E^4 + \frac{1}{3} p^2 p'^2 + E^2 (m_e^2 + m_\mu^2) \Big].
+\end{align}
+Now, we can express $p$ and $p'$ in terms of $s$:
+\begin{align}
+    p &= \sqrt{E^2 - m_e^2} = \sqrt{\frac{s}{4} - m_e^2},\\
+    p' &= \sqrt{E^2 - m_\mu^2} = \sqrt{\frac{s}{4} - m_\mu^2},\\
+    E &= \frac{\sqrt{s}}{2}.
+\end{align}
+Therefore, the final expression for the cross section is:
+\begin{align}
+    \sigma &= \frac{g^4}{16\pi s^3} \frac{\sqrt{\frac{s}{4} - m_\mu^2}}{\sqrt{\frac{s}{4} - m_e^2}} \Big[ \Big(\frac{s}{4}\Big)^2 + \frac{1}{3} \Big(\frac{s}{4} - m_e^2\Big)\Big(\frac{s}{4} - m_\mu^2\Big) + \frac{s}{4} (m_e^2 + m_\mu^2) \Big]\\
+    &=\frac{g^4}{192\pi s^3} \frac{\sqrt{s - 4 m_\mu^2}}{\sqrt{s - 4 m_e^2}} \Big[ (s+2 m_e^2)(s+2 m_\mu^2) \Big],\quad\text{in terms of }s,\\
+    &=\frac{g^4}{3072 \pi E^6} \frac{\sqrt{E^2 - m_\mu^2}}{\sqrt{E^2 - m_e^2}} \Big[ (2 E^2 +  m_e^2)(2E^2 +  m_\mu^2) \Big],\quad\text{in terms of }E.
+\end{align}
+\qed
 
 
 \clearpage
@@ -62,6 +387,239 @@ where $\mu$ and $\lambda$ are positive real constants.
     \textbf{Remark: }More to think about after solving the problems above: Note that we reparametrized the field into a non-linear realization, where you see the $U (1)$ symmetry explicitly. How do you interpret the kinetic term? How do you interpret the $f_r(x)$ field-dependent kinetic terms for $f_\theta(x)$? Is it canonically normalized? How does the field $f_\theta(x)$ relate to the original $SO(2)$ field  $\phi_a(x)$? And again, is the ratio of the field a linear redefinition of the field configuration? It is a non-linear realization because all powers of $f_\theta(x)/\sqrt{\frac{\mu^2}{\lambda}}$ need to enter. There is only a region of validity, that is $f_r(x)\ll \sqrt{\frac{\mu^2}{\lambda}}$  
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)] 
+\end{itemize}
+The Lagrangian can be separated into the kinetic term and the potential term:
+\begin{align}
+    \mathcal{L}(x) &= \sum_{a=1}^2 \Big(-\frac{1}{2}\partial^\mu\phi_a \partial_\mu \phi_a\Big) - V(x)\\
+    &= -\frac{1}{2} \begin{pmatrix}
+        \partial^\mu \phi_1 & \partial^\mu \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \partial_\mu \phi_1 \\ \partial_\mu \phi_2
+    \end{pmatrix} - \left[ -\frac{\mu^2}{2} \begin{pmatrix}
+        \phi_1 & \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} + \frac{\lambda}{4} \Bigg( \begin{pmatrix}
+        \phi_1 & \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} \Bigg)^2 \right]
+\end{align}
+Under the $SO(2)$ transformation, the fields transform as:
+\begin{align}
+    \begin{pmatrix}
+        \phi_1' \\ \phi_2'
+    \end{pmatrix} &= \begin{pmatrix}
+        \cos\alpha_0 & -\sin\alpha_0 \\
+        \sin\alpha_0 & \cos\alpha_0
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} \equiv R(\alpha_0) \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix},
+\end{align}
+where $R(\alpha_0)$ is the rotation matrix. The kinetic term transforms as:
+\begin{align}
+    &-\frac{1}{2} \begin{pmatrix}
+        \partial^\mu \phi_1' & \partial^\mu \phi_2'
+    \end{pmatrix}
+    \begin{pmatrix}
+        \partial_\mu \phi_1' \\ \partial_\mu \phi_2'
+    \end{pmatrix} \\
+    =& -\frac{1}{2} \begin{pmatrix}
+        \partial^\mu (R_{11} \phi_1 + R_{12} \phi_2) & \partial^\mu (R_{21} \phi_1 + R_{22} \phi_2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \partial_\mu (R_{11} \phi_1 + R_{12} \phi_2) \\ \partial_\mu (R_{21} \phi_1 + R_{22} \phi_2)
+    \end{pmatrix}\\
+    =& -\frac{1}{2} \begin{pmatrix}
+        R_{11} \partial^\mu \phi_1 + R_{12} \partial^\mu \phi_2 & R_{21} \partial^\mu \phi_1 + R_{22} \partial^\mu \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        R_{11} \partial_\mu \phi_1 + R_{12} \partial_\mu \phi_2 \\ R_{21} \partial_\mu \phi_1 + R_{22} \partial_\mu \phi_2
+    \end{pmatrix}\\
+    =& -\frac{1}{2} \begin{pmatrix}
+        \partial^\mu \phi_1 & \partial^\mu \phi_2
+    \end{pmatrix}
+    R^T(\alpha_0) R(\alpha_0)
+    \begin{pmatrix}
+        \partial_\mu \phi_1 \\ \partial_\mu \phi_2
+    \end{pmatrix}\\
+    =& -\frac{1}{2} \begin{pmatrix}
+        \partial^\mu \phi_1 & \partial^\mu \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \partial_\mu \phi_1 \\ \partial_\mu \phi_2
+    \end{pmatrix},
+\end{align}
+where we have used the orthogonality of the rotation matrix: $R^T(\alpha_0) R(\alpha_0) = I$. Similarly, the potential term transforms as:
+\begin{align}
+    &-\frac{\mu^2}{2} \begin{pmatrix}
+        \phi_1' & \phi_2'
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1' \\ \phi_2'
+    \end{pmatrix} + \frac{\lambda}{4} \Bigg( \begin{pmatrix}
+        \phi_1' & \phi_2'
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1' \\ \phi_2'
+    \end{pmatrix} \Bigg)^2 \\
+    =& -\frac{\mu^2}{2} \begin{pmatrix}
+        R_{11} \phi_1 + R_{12} \phi_2 & R_{21} \phi_1 + R_{22} \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        R_{11} \phi_1 + R_{12} \phi_2 \\ R_{21} \phi_1 + R_{22} \phi_2
+    \end{pmatrix} \\
+    &+ \frac{\lambda}{4} \Bigg( \begin{pmatrix}
+        R_{11} \phi_1 + R_{12} \phi_2 & R_{21} \phi_1 + R_{22} \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        R_{11} \phi_1 + R_{12} \phi_2 \\ R_{21} \phi_1 + R_{22} \phi_2
+    \end{pmatrix} \Bigg)^2 \\
+    =& -\frac{\mu^2}{2} \begin{pmatrix}
+        \phi_1 & \phi_2
+    \end{pmatrix}
+    R^T(\alpha_0) R(\alpha_0)
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} + \frac{\lambda}{4} \Bigg( \begin{pmatrix}
+        \phi_1 & \phi_2
+    \end{pmatrix}
+    R^T(\alpha_0) R(\alpha_0)
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} \Bigg)^2 \\
+    =& -\frac{\mu^2}{2} \begin{pmatrix}
+        \phi_1 & \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} + \frac{\lambda}{4} \Bigg( \begin{pmatrix}
+        \phi_1 & \phi_2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \phi_1 \\ \phi_2
+    \end{pmatrix} \Bigg)^2
+\end{align}
+Thus, the Lagrangian is invariant under the $SO(2)$ transformation.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The conjugate momenta are given by:
+\begin{align}
+    \Pi_1(x) &= \frac{\partial \mathcal{L}}{\partial (\partial_0 \phi_1)} = -\frac{1}{2} \cdot (-2) \cdot (\partial^0 \phi_1)= \partial^0 \phi_1,\\
+    \Pi_2(x) &= \frac{\partial \mathcal{L}}{\partial (\partial_0 \phi_2)} = -\frac{1}{2} \cdot (-2) \cdot (\partial^0 \phi_2)= \partial^0 \phi_2.
+\end{align}
+The Hamiltonian density is given by:
+\begin{align}
+    \mathcal{H}(x) &= \Pi_1(x) \partial_0 \phi_1 + \Pi_2(x) \partial_0 \phi_2 - \mathcal{L}(x)\\
+    &= (\partial^0 \phi_1)(\partial_0 \phi_1) + (\partial^0 \phi_2)(\partial_0 \phi_2) - \left[ -\frac{1}{2} (\partial^\mu \phi_1 \partial_\mu \phi_1 + \partial^\mu \phi_2 \partial_\mu \phi_2) - V(x) \right]\\
+    &= (\partial^0 \phi_1)^2 + (\partial^0 \phi_2)^2 + \frac{1}{2} (\partial^\mu \phi_1 \partial_\mu \phi_1 + \partial^\mu \phi_2 \partial_\mu \phi_2) + V(x)\\
+    &=(\partial^0 \phi_1)^2 + (\partial^0 \phi_2)^2+\frac{1}{2} \Big(-(\partial^0 \phi_1)^2 + (\partial^i \phi_1)^2 - (\partial^0 \phi_2)^2 + (\partial^i \phi_2)^2
+    \Big)+V(x)\\
+    &= \frac{1}{2} (\partial^0 \phi_1)^2 + \frac{1}{2} (\partial^i \phi_1)^2 + \frac{1}{2} (\partial^0 \phi_2)^2 + \frac{1}{2} (\partial^i \phi_2)^2 + V(x)\\
+    &= \frac{1}{2} \Pi_1^2 + \frac{1}{2} (\nabla \phi_1)^2 + \frac{1}{2} \Pi_2^2 + \frac{1}{2} (\nabla \phi_2)^2 + V(x).
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+To find the ground state, we need to minimize the potential $V(x)$:
+\begin{align}
+    V &= -\frac{\mu^2}{2} (\phi_1^2 + \phi_2^2) + \frac{\lambda}{4} (\phi_1^2 + \phi_2^2)^2\\
+    &= -\frac{\mu^2}{2} \phi_r^2 + \frac{\lambda}{4} \phi_r^4,
+\end{align}
+where we have used the transformation:
+\begin{align}
+    \phi_1(x) &= \phi_r(x) \cos(\phi_\theta(x)),\\
+    \phi_2(x) &= \phi_r(x) \sin(\phi_\theta(x)).
+\end{align}
+To minimize $V$, we take the derivative with respect to $\phi_r$ and set it to zero:
+\begin{align}
+    \frac{dV}{d\phi_r} &= -\mu^2 \phi_r + \lambda \phi_r^3 = 0\\
+    &\Rightarrow \phi_r (\lambda \phi_r^2 - \mu^2) = 0. 
+\end{align}
+The solutions are:
+\begin{align}
+    \phi_r = 0, \quad \text{or} \quad \phi_r = \sqrt{\frac{\mu^2}{\lambda}}.
+\end{align}
+To determine which solution corresponds to the ground state, we evaluate the second derivative of $V$:
+\begin{align}
+    \frac{d^2V}{d\phi_r^2} &= -\mu^2 + 3\lambda \phi_r^2.
+\end{align}
+At $\phi_r = 0$:
+\begin{align}
+    \frac{d^2V}{d\phi_r^2} \Big|_{\phi_r=0} = -\mu^2 < 0,
+\end{align}
+indicating a local maximum. At $\phi_r = \sqrt{\frac{\mu^2}{\lambda}}$:
+\begin{align}
+    \frac{d^2V}{d\phi_r^2} \Big|_{\phi_r=\sqrt{\frac{\mu^2}{\lambda}}} = -\mu^2 + 3\lambda \left(\frac{\mu^2}{\lambda}\right) = 2\mu^2 > 0,
+\end{align}
+indicating a local minimum. Therefore, the ground state is at:
+\begin{align}
+    \phi_r = \sqrt{\frac{\mu^2}{\lambda}}, \quad \phi_\theta \text{ is arbitrary}.
+\end{align}
+Next, we check if the Lagrangian is invariant under the continuous shift symmetry $\phi_\theta(x) \to \phi_\theta(x) + \alpha_0$. We can rewrite the kinetic term in terms of $\phi_r$ and $\phi_\theta$:
+\begin{align}
+    \partial^\mu \phi_1 \partial_\mu \phi_1 + \partial^\mu \phi_2 \partial_\mu \phi_2 &= (\partial^\mu (\phi_r \cos\phi_\theta))(\partial_\mu (\phi_r \cos\phi_\theta)) + (\partial^\mu (\phi_r \sin\phi_\theta))(\partial_\mu (\phi_r \sin\phi_\theta))\\
+    &= (\partial^\mu \phi_r \cos\phi_\theta - \phi_r \sin\phi_\theta \partial^\mu \phi_\theta)(\partial_\mu \phi_r \cos\phi_\theta - \phi_r \sin\phi_\theta \partial_\mu \phi_\theta)\\
+    &+ (\partial^\mu \phi_r \sin\phi_\theta + \phi_r \cos\phi_\theta \partial^\mu \phi_\theta)(\partial_\mu \phi_r \sin\phi_\theta + \phi_r \cos\phi_\theta \partial_\mu \phi_\theta)\\
+    &= (\partial^\mu \phi_r)(\partial_\mu \phi_r) + \phi_r^2 (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta).
+\end{align}
+The potential term depends only on $\phi_r$:
+\begin{align}
+    V = -\frac{\mu^2}{2} \phi_r^2 + \frac{\lambda}{4} \phi_r^4.
+\end{align}
+Thus, the Lagrangian in terms of $\phi_r$ and $\phi_\theta$ is:
+\begin{align}
+    \mathcal{L} = -\frac{1}{2} (\partial^\mu \phi_r)(\partial_\mu \phi_r) - \frac{1}{2} \phi_r^2 (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) + \frac{\mu^2}{2} \phi_r^2 - \frac{\lambda}{4} \phi_r^4.
+\end{align}
+This Lagrangian is invariant under the shift $\phi_\theta(x) \to \phi_\theta(x) + \alpha_0$ since $\phi_\theta$ appears only through its derivatives. Therefore, the Lagrangian has a continuous shift symmetry in $\phi_\theta$.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+We expand $\phi_r(x)$ around its vacuum expectation value:
+\begin{align}
+    \phi_r(x) = \sqrt{\frac{\mu^2}{\lambda}} + f_r(x).
+\end{align}
+Substituting this into the Lagrangian, we have:
+\begin{align}
+    \mathcal{L} &= -\frac{1}{2} (\partial^\mu f_r)(\partial_\mu f_r) - \frac{1}{2} \left(\sqrt{\frac{\mu^2}{\lambda}} + f_r\right)^2 (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) + \frac{\mu^2}{2} \left(\sqrt{\frac{\mu^2}{\lambda}} + f_r\right)^2 - \frac{\lambda}{4} \left(\sqrt{\frac{\mu^2}{\lambda}} + f_r\right)^4\\
+    &= -\frac{1}{2} (\partial^\mu f_r)(\partial_\mu f_r)- \frac{1}{2} \left(
+    \frac{\mu^2}{\lambda} + 2\sqrt{\frac{\mu^2}{\lambda}} f_r + f_r^2 \right) (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) + \frac{\mu^2}{2} \left(\frac{\mu^2}{\lambda} + 2\sqrt{\frac{\mu^2}{\lambda}} f_r + f_r^2\right) \\
+    -& \frac{\lambda}{4} \left(\frac{\mu^4}{\lambda^2} + 4\frac{\mu^2}{\lambda}\sqrt{\frac{\mu^2}{\lambda}} f_r + 6{\frac{\mu^2}{\lambda}} f_r^2 + 4 f_r^3\sqrt{\frac{\mu^2}{\lambda}} + f_r^4\right)\\
+    &= -\frac{1}{2} (\partial^\mu f_r)(\partial_\mu f_r) +\left( 
+    -\frac{\mu^2}{2\lambda} -\sqrt{\frac{\mu^2}{\lambda}} f_r - \frac{1}{2} f_r^2 \right) (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) + \left(
+    \textcolor{red}{\frac{\mu^4}{2\lambda}} + \textcolor{blue}{\mu^2 \sqrt{\frac{\mu^2}{\lambda}} f_r} + \textcolor{olive}{\frac{\mu^2}{2} f_r^2} \right) \\    
+    +& \left( \textcolor{red}{-\frac{\mu^4}{4\lambda}} -\textcolor{blue}{ \mu^2 \sqrt{\frac{\mu^2}{\lambda}} f_r} - \textcolor{olive}{\frac{3\mu^2}{2} f_r^2} - \lambda f_r^3 \sqrt{\frac{\mu^2}{\lambda}} - \frac{\lambda}{4} f_r^4 \right) \\
+    &=-\frac{1}{2} (\partial^\mu f_r)(\partial_\mu f_r) +\left( 
+    -\frac{\mu^2}{2\lambda} -\sqrt{\frac{\mu^2}{\lambda}} f_r - \frac{1}{2} f_r^2 \right) (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) + \left(
+    \frac{\mu^4}{4\lambda} - \mu^2 f_r^2 - \lambda f_r^3 \sqrt{\frac{\mu^2}{\lambda}} - \frac{\lambda}{4} f_r^4 \right).
+\end{align}
+The mass term for $f_r$ can be identified from the potential part of the Lagrangian:
+\begin{align}
+    &V(f_r) = -\left( \frac{\mu^4}{4\lambda} - \mu^2 f_r^2 - \lambda f_r^3 \sqrt{\frac{\mu^2}{\lambda}} - \frac{\lambda}{4} f_r^4 \right)\\
+    =& -\frac{\mu^4}{4\lambda} + \mu^2 f_r^2 + \lambda f_r^3 \sqrt{\frac{\mu^2}{\lambda}} + \frac{\lambda}{4} f_r^4.
+\end{align}
+The mass term for $f_r$ is given by the coefficient of the $f_r^2$ term:
+\begin{align}
+    m_{f_r}^2 = 2\mu^2.
+\end{align}
+Thus, $f_r(x)$ is a massive field with mass $m_{f_r} = \sqrt{2}\mu$. For the field $f_\theta(x) \equiv \sqrt{\frac{\mu^2}{\lambda}} \phi_\theta(x)$, we can rewrite the kinetic term involving $\phi_\theta$ as:
+\begin{align}
+    -\frac{1}{2} \left( 
+    \frac{\mu^2}{\lambda} + 2\sqrt{\frac{\mu^2}{\lambda}} f_r + f_r^2 \right) (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) = -\frac{1}{2} \left( 
+    1 + \frac{2 f_r}{\sqrt{\frac{\mu^2}{\lambda}}} + \frac{f_r^2}{\frac{\mu^2}{\lambda}} \right) (\partial^\mu f_\theta)(\partial_\mu f_\theta).
+\end{align}
+The field $f_\theta(x)$ does not have a mass term, as there is no term proportional to $f_\theta^2$ in the potential. Therefore, $f_\theta(x)$ is a massless field. The Lagrangian remains invariant under the continuous shift symmetry $f_\theta(x) \to f_\theta(x) + \Lambda_0$, since $f_\theta$ appears only through its derivatives. Thus, the shift symmetry is preserved. 
+\qed
+
 
 \clearpage
 \question{4}{Problem 66.3}\\
@@ -80,12 +638,13 @@ The book only choose the Feynman gauge $(\xi=1)$ to show the loop calculation an
 Use the above to finish this problem.
 \answer{}
 
+
 \clearpage
 \question{5}{}
 Consider the following theory:
 \begin{align}
     &\mathcal{L}=\mathcal{L}_\phi^0+\mathcal{L}_\Psi^0+\mathcal{L}_A^0+\mathcal{L}_I\\
-    =& -\frac{1}{2} \partial^\mu \phi \partial_\mu \phi -\frac{1}{2} m_\phi^2 \phi^2 + \bar{\Psi}(i\slashed{D} -m_\Psi) -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} +y\phi \bar{\Psi}\Psi.
+    =& -\frac{1}{2} \partial^\mu \phi \partial_\mu \phi -\frac{1}{2} m_\phi^2 \phi^2 + \overline{\Psi}(i\slashed{D} -m_\Psi) -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} +y\phi \overline{\Psi}\Psi.
 \end{align}
 The Dirac field $\Psi$ is charged under a $U(1)$ gauge symmetry with a charge $Q$, and the gauge interaction strength is $e$. The $U(1)$ gauge field is $A_\mu$, whose kinetic term is $\mathcal{L}_A^0=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$. (This is part of the real-world calculation for the discovery mode for the Higgs boson, which gone through heroic phenomenological studies on predicting the Higgs properties.)
 \begin{itemize}
