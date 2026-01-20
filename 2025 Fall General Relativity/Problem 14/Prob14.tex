@@ -3,3 +3,64 @@
 Solve problem 6 of chapter 6 of Carroll’s book. It is worthwhile to remind yourself of time dilation, the normal Doppler effect, and the relativistic Doppler effect in special relativity as a warmup.\\ \\
 \textbf{Carroll problem 6 of chapter 6:} Consider a Kerr black hole with an accretion disk of negligible mass in the equatorial plane. Assume that particles in the disk follow geodesics (that is, ignore any pressure support). Now, suppose the disk contains some iron atoms that are being excited by a source of radiation. When the iron atoms de-excite, they emit radiation with a known frequency $\nu_0$, as measured in their rest frame. Suppose we detect this radiation far from the black hole (we also lie in the equatorial plane). What is the observed frequency of photons emitted from either edge of the disk, and from the center of the disk? Consider cases where the disk and the black hole are rotating in the same and opposite directions. Can we use these measurements to determine the mass and angular momentum of the black hole?
 \answer{}
+
+We start with the Kerr metric in Boyer-Lindquist coordinates:
+\begin{align}
+    ds^2 = -\left(1-\frac{2GMr}{\rho^2}\right)dt^2 - \frac{4aGMr\sin^2\theta}{\rho^2}dtd\phi + \frac{\rho^2}{\Delta}dr^2 + \rho^2 d\theta^2 + \frac{\sin^2\theta}{\rho^2}\left((r^2 + a^2)^2 - a^2\ \Delta\sin^2\theta \right)\sin^2\theta d\phi^2,
+\end{align}
+where $\rho^2 = r^2 + a^2 \cos^2\theta$ and $\Delta = r^2 - 2GMr + a^2$. For the equatorial plane, $\theta = \frac{\pi}{2}$, so $\rho^2 = r^2$ and $\sin\theta = 1$. The metric simplifies to:
+\begin{align}
+    ds^2 &= -\left(1-\frac{2GMr}{r^2}\right)dt^2 - \frac{4aGMr}{r^2}dtd\phi + \frac{r^2}{r^2 - 2GMr + a^2}dr^2 \\
+    &+ r^2 d\theta^2 + \frac{1}{r^2}\left((r^2 + a^2)^2 - a^2(r^2 - 2GMr + a^2)\right)d\phi^2\\
+    &= -\left(1-\frac{2GM}{r}\right)dt^2 - \frac{4aGM}{r}dtd\phi + \frac{r^2}{r^2 - 2Mr + a^2}dr^2 + r^2 d\theta^2 + \frac{(r^2 + a^2)^2 - a^2(r^2 - 2Mr + a^2)}{r^2}d\phi^2.
+\end{align}
+We can solve the geodesic equations for the disk particles, but for simplicity, we assume that the particles are moving in circular orbits at a fixed radius $r$. The geodesic equations with affine connection coefficients $\Gamma^{\mu}_{\nu\lambda}$ are:
+\begin{align}
+    \frac{d^2x^{\mu}}{ds^2} + \Gamma^{\mu}_{\nu\lambda} \frac{dx^{\nu}}{ds} \frac{dx^{\lambda}}{ds} = 0.
+\end{align}
+For circular orbits, the four velocity components are $u^t = \frac{dt}{d\tau}$, $u^r = 0$, $u^\theta = 0$, and $u^\phi = \frac{d\phi}{d\tau}$. Also, the angular velocity it $\Omega = \frac{d\phi}{dt}$.
+The geodesic equations for $r$ is:
+\begin{align}
+    \frac{d^2r}{d\tau^2} + \Gamma^{r}_{tt} \left(\frac{dt}{d\tau}\right)^2 + \Gamma^{r}_{\phi\phi} \left(\frac{d\phi}{d\tau}\right)^2 +2 \Gamma^{r}_{t\phi} \frac{dt}{d\tau} \frac{d\phi}{d\tau} = 0\\
+    \implies \frac{d^2r}{d\tau^2} + \left(\frac{dt}{d\tau}\right)^2 \Gamma^{r}_{tt} + \left(\frac{d\phi}{d\tau}\right)^2 \Gamma^{r}_{\phi\phi} + 2 \frac{dt}{d\tau} \frac{d\phi}{d\tau} \Gamma^{r}_{t\phi} = 0.
+\end{align}
+The non-zero connection coefficients for $r$ are:
+\begin{align}
+    \Gamma^{r}_{tt} &= \frac{G M \left(a^2+r (r-2 G M)\right)}{r^4},\\
+    \Gamma^{r}_{t\phi}&= -\frac{\left(a^2+r (r-2 G M)\right) \left(-a^4+a^2 \left(a^2-G M r\right)+r^4\right)}{r^5},\\
+    \Gamma^{r}_{\phi\phi} &= -\frac{a G M \left(a^2+r (r-2 G M)\right)}{r^4}.
+\end{align}
+Substituting these into the geodesic equation, we get:
+\begin{align}
+     \Omega^2 \left[-\frac{a G M \left(a^2+r (r-2 G M)\right)}{r^4}\right] \\
+    + 2 \Omega \left[-\frac{\left(a^2+r (r-2 G M)\right) \left(-a^4+a^2 \left(a^2-G M r\right)+r^4\right)}{r^5}\right] \\
+    + \left[\frac{G M \left(a^2+r (r-2 G M)\right)}{r^4}\right] = 0,
+\end{align}
+where $\Omega = \frac{d\phi}{dt}$. Solving for $\Omega$, we get:
+\begin{align}
+    \Omega_\pm =& \frac{a^3 G M + a G M r (r - 2 G M) \pm r^{3/2} \sqrt{G M (a^2 + r (r - 2 G M))^2}}{a^4 G M - a^2 r (2 G^2 M^2 - G M r + r^2) + r^4 (2 G M - r)}\\
+    =&\frac{aGM\Delta\pm r^{3/2}\sqrt{GM\Delta^2}}{(a^2GM-r^3)\Delta} = \frac{aGM\pm r^{3/2}\sqrt{GM}}{(a^2GM-r^3)}\\
+    =& \pm\frac{\sqrt{G M}}{a \sqrt{G M}\pm r^{3/2}},
+\end{align}
+where $\Delta = r^2 - 2 G M + a^2$. The positive and negative signs correspond to the disk rotating in the same and opposite directions as the black hole, respectively. Next, the red shift factor is given by:
+\begin{align}
+    &1+z =\frac{\nu_{obs}}{\nu_0}= \frac{(p_\mu u^\mu)_{detector}}{(p_\mu u^\mu)_{emitter}} =\frac{-p_t}{-p_\mu u^\mu} = \frac{-p_t}{-p_t u^t - p_\phi u^\phi}.
+\end{align}
+Now we need to find the components of the four-velocity $u_\mu$ in emitter's frame. In the emitter's frame, the four-velocity is:
+\begin{align}
+    u_\mu^{emitter} (u^\mu)^{emitter} = -1 \implies u^t = \frac{1}{\sqrt{-(g_{tt} + 2g_{t\phi} \Omega + g_{\phi\phi} \Omega^2)}}.
+\end{align}
+The observed frequency is then:
+\begin{align}
+    1+z = \frac{1}{u^t (1+\Omega p_\phi/p_t)}.
+\end{align}
+If the light comes radially from the disk, then $p_\phi = 0$, and the observed frequency is:
+\begin{align}
+    1+z = \frac{1}{u^t} =\sqrt{-(g_{tt} + 2g_{t\phi} \Omega + g_{\phi\phi} \Omega^2)}.
+\end{align}
+We can plug the values of $g_{tt}$, $g_{t\phi}$, and $g_{\phi\phi}$ from the Kerr metric to get the observed frequency and the rotation of the disk. Next, if the light is emitted from the edge of the disk, we need to consider $p_\phi \neq 0$. The observed frequency is:
+\begin{align}
+    1+z = \frac{1}{u^t (1+\Omega p_\phi/p_t)}= \frac{\sqrt{-(g_{tt} + 2g_{t\phi} \Omega + g_{\phi\phi} \Omega^2)}}{1+\Omega p_\phi/p_t}.
+\end{align}
+The observed frequency depends on the radius $r$ of the disk, the angular velocity $\Omega$, and the direction of rotation of the disk relative to the black hole. By measuring the observed frequency at different radii, we can determine the mass and angular momentum of the black hole. The observed frequency will be higher for a faster-rotating black hole, and lower for a slower-rotating black hole. The observed frequency will also be higher for a disk rotating in the same direction as the black hole, and lower for a disk rotating in the opposite direction. Therefore, by measuring the observed frequency at different radii, we can determine the mass and angular momentum of the black hole. \textbf{Hence, we can use these measurements to determine the mass and angular momentum of the black hole.}
+\qed

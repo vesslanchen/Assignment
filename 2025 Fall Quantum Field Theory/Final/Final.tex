@@ -508,7 +508,7 @@ where we have used the orthogonality of the rotation matrix: $R^T(\alpha_0) R(\a
         \phi_1 \\ \phi_2
     \end{pmatrix} \Bigg)^2
 \end{align}
-Thus, the Lagrangian is invariant under the $SO(2)$ transformation.
+\textbf{Thus, the Lagrangian is invariant under the $SO(2)$ transformation.}
 \begin{itemize}
     \item [(b)]
 \end{itemize}
@@ -580,7 +580,7 @@ Thus, the Lagrangian in terms of $\phi_r$ and $\phi_\theta$ is:
 \begin{align}
     \mathcal{L} = -\frac{1}{2} (\partial^\mu \phi_r)(\partial_\mu \phi_r) - \frac{1}{2} \phi_r^2 (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) + \frac{\mu^2}{2} \phi_r^2 - \frac{\lambda}{4} \phi_r^4.
 \end{align}
-This Lagrangian is invariant under the shift $\phi_\theta(x) \to \phi_\theta(x) + \alpha_0$ since $\phi_\theta$ appears only through its derivatives. Therefore, the Lagrangian has a continuous shift symmetry in $\phi_\theta$.
+This Lagrangian is invariant under the shift $\phi_\theta(x) \to \phi_\theta(x) + \alpha_0$ since $\phi_\theta$ appears only through its derivatives. \textbf{Therefore, the Lagrangian has a continuous shift symmetry in $\phi_\theta$.}
 \begin{itemize}
     \item [(d)]
 \end{itemize}
@@ -617,7 +617,7 @@ Thus, $f_r(x)$ is a massive field with mass $m_{f_r} = \sqrt{2}\mu$. For the fie
     \frac{\mu^2}{\lambda} + 2\sqrt{\frac{\mu^2}{\lambda}} f_r + f_r^2 \right) (\partial^\mu \phi_\theta)(\partial_\mu \phi_\theta) = -\frac{1}{2} \left( 
     1 + \frac{2 f_r}{\sqrt{\frac{\mu^2}{\lambda}}} + \frac{f_r^2}{\frac{\mu^2}{\lambda}} \right) (\partial^\mu f_\theta)(\partial_\mu f_\theta).
 \end{align}
-The field $f_\theta(x)$ does not have a mass term, as there is no term proportional to $f_\theta^2$ in the potential. Therefore, $f_\theta(x)$ is a massless field. The Lagrangian remains invariant under the continuous shift symmetry $f_\theta(x) \to f_\theta(x) + \Lambda_0$, since $f_\theta$ appears only through its derivatives. Thus, the shift symmetry is preserved. 
+The field $f_\theta(x)$ does not have a mass term, as there is no term proportional to $f_\theta^2$ in the potential. Therefore, $f_\theta(x)$ is a massless field. The Lagrangian remains invariant under the continuous shift symmetry $f_\theta(x) \to f_\theta(x) + \Lambda_0$, since $f_\theta$ appears only through its derivatives. \textbf{Thus, the shift symmetry is preserved}. 
 \qed
 
 
@@ -743,8 +743,8 @@ The Dirac field $\Psi$ is charged under a $U(1)$ gauge symmetry with a charge $Q
     \item [(b)] In the $\phi$ rest frame, write down the amplitude in the general $d$ dimension. No need to carry out the loop intergral at this point, but need to simplify the trace. (Notice that $k_\mu\epsilon^\mu(k)=0$ in Lorenz gauge.)
     \item [(c)] Does the integral have a UV divergence in $d=4$ dimension (loop momentum goes to $\infty$)? Answer Yes or No with a few lines of argument.
     \item [(d)] Does the integral have a singularity in $d=4$ dimension when the Euclidean loop momentum squared $\overline{q}^2$ go to $-D$? Answer Yes or No with a few lines of argument. (For simplicity, assume that $D$ is real and can be zero for some configuration of $x_1,x_2,x_3$.)
-    \item [(e)] For $m_\Phi=0$, calculate using dimensional regularization in $d=4-\epsilon$. Write down your final answer in the simplest form. (The final answer would be short.)
-    \item [(f)] Carry out the full calculation of the amplitude in Part~b using dimensional regularization in $d=4-\epsilon$. Write down your final answer in the simplest form. (The full answer would be a long calculateion.)\\
+    \item [(e)] For $m_\Psi=0$, calculate using dimensional regularization in $d=4-\epsilon$. Write down your final answer in the simplest form. (The final answer would be short.)
+    \item [(f)] Carry out the full calculation of the amplitude in Part~b using dimensional regularization in $d=4-\epsilon$. Write down your final answer in the simplest form. (The full answer would be a long calculation.)\\
     \textbf{Hint: }The following few equations, identities, and tricks, and the discussion around them might be helpful for you: Eq.~(62.18), Eq.~(47.18), Eq.~(67.2).\\
     \textbf{Remark: } No need to answer this, but one can think about it for fun. Recall that taking $\epsilon\to0$ (from plus or minus direction?) get you back to d = 4. In such a limit, contrast your result in Part~f and Part~c and think about why.
 \end{itemize}
@@ -765,10 +765,12 @@ The Dirac field $\Psi$ is charged under a $U(1)$ gauge symmetry with a charge $Q
                 \vertex (g1) at (3,1) {\(\gamma\)};
                 \vertex (g2) at (3,-1) {\(\gamma\)};
                 \diagram* {
-                    (phi) -- [scalar, momentum={\(k_0\)}] (f0) -- [fermion,momentum={\(p+k_1\)}] (f1) -- [fermion,momentum={\(p\)}] (f2) -- [fermion, momentum={\(k_2-p\)}] (f0),
+                    (phi) -- [scalar, momentum={\(k_0\)}] (f0) -- [fermion,momentum={\(p+k_1\)}] (f1) -- [fermion,momentum={\(p\)}] (f2) -- [fermion, momentum={\(p-k_2\)}] (f0),
                     (f1) -- [photon,momentum={\(k_1\)}] (g1),
                     (f2) -- [photon,momentum={\(k_2\)}] (g2),
                 };
+                \node[above=10pt of f1] {\(ie Q\gamma^{\mu_1}\)};
+                \node[below=10pt of f2] {\(ie Q\gamma^{\mu_2}\)};
             \end{feynman}
         \end{tikzpicture}
         \caption{Leading diagram for $\phi\to \gamma\gamma$ decay.}
@@ -785,10 +787,12 @@ The Dirac field $\Psi$ is charged under a $U(1)$ gauge symmetry with a charge $Q
             \vertex (g1) at (3,1) {\(\gamma\)};
             \vertex (g2) at (3,-1) {\(\gamma\)};
             \diagram* {
-                (phi) -- [scalar, momentum={\(k_0\)}] (f0) -- [fermion,momentum={\(p+k_2\)}] (f1) -- [fermion,momentum={\(p\)}] (f2) -- [fermion, momentum={\(k_1-p\)}] (f0),
+                (phi) -- [scalar, momentum={\(k_0\)}] (f0) -- [fermion,momentum={\(p+k_2\)}] (f1) -- [fermion,momentum={\(p\)}] (f2) -- [fermion, momentum={\(p-k_1\)}] (f0),
                 (f1) -- [photon] (g2),
                 (f2) -- [photon] (g1),
             };
+            \node[above=10pt of f1] {\(ie Q\gamma^{\mu_2}\)};
+            \node[below=10pt of f2] {\(ie Q\gamma^{\mu_1}\)};
         \end{feynman}
     \end{tikzpicture}
     \caption{Leading diagram for $\phi\to \gamma\gamma$ decay.}
@@ -806,7 +810,233 @@ The amplitude for the decay $\phi\to \gamma\gamma$ can be written as:
 \end{align}
 where $i \mathcal{M}_a$ and $i \mathcal{M}_b$ are the contributions from the two diagrams. The contribution from the first diagram (Fig.~\ref{fig:phi_to_gamma_gamma_a}) is:
 \begin{align}
-    i \mathcal{M}_a =& (-1)(iy) \int \frac{d^d p}{(2\pi)^d} \Bigg[ \frac{-i (-(\slashed{p}+\slashed{k_1}))}{(p+k_1)^2+m_\Psi^2 - i\epsilon} (i e Q \gamma^{\mu_1}) \epsilon_{\mu_1}(k_1) \frac{-i (-\slashed{p})}{p^2 + m_\Psi^2 - i\epsilon} (i e Q \gamma^{\mu_2}) \epsilon_{\mu_2}(k_2) \frac{-i (-(\slashed{k_2}-\slashed{p}))}{(k_2 - p)^2 + m_\Psi^2 - i\epsilon} \Bigg]_\text{Tr}\\
-    =& i y e^2 Q^2 \int \frac{d^d p}{(2\pi)^d} \frac{\text{Tr}\Big[ (\slashed{p}+\slashed{k_1}) \gamma^{\mu_1} \slashed{p} \gamma^{\mu_2} (\slashed{k_2}-\slashed{p}) \Big] \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2)}{\big[(p+k_1)^2 + m_\Psi^2 - i\epsilon\big] \big[p^2 + m_\Psi^2 - i\epsilon\big] \big[(k_2 - p)^2 + m_\Psi^2 - i\epsilon\big]}.
+    i \mathcal{M}_a =& (-1)(iy) \int \frac{d^d p}{(2\pi)^d} \Bigg[ \frac{-i (-(\slashed{p}+\slashed{k_1})+m_\Psi)}{(p+k_1)^2+m_\Psi^2 - i\epsilon} (i e Q \gamma^{\mu_1}) \epsilon_{\mu_1}(k_1) \frac{-i (-\slashed{p}+m_\Psi)}{p^2 + m_\Psi^2 - i\epsilon} \\
+    &\times(i e Q \gamma^{\mu_2}) \epsilon_{\mu_2}(k_2) \frac{-i (-(\slashed{p}-\slashed{k_2})+m_\Psi)}{(p-k_2)^2 + m_\Psi^2 - i\epsilon} \Bigg]_\text{Tr}\\
+    =& -y (e Q)^2 \int \frac{d^d p}{(2\pi)^d} \frac{\text{Tr}\Big[ ( -(\slashed{p}+\slashed{k_1}) + m_\Psi) \gamma^{\mu_1} \epsilon_{\mu_1}(k_1) (-\slashed{p} + m_\Psi) \gamma^{\mu_2} \epsilon_{\mu_2}(k_2) (-(\slashed{p}-\slashed{k_2}) + m_\Psi) \Big]}{\big((p+k_1)^2 + m_\Psi^2 - i\epsilon\big)\big(p^2 + m_\Psi^2 - i\epsilon\big)\big((p-k_2)^2 + m_\Psi^2 - i\epsilon\big)}\\
+    =&ye^2Q^2\int \frac{d^d p}{(2\pi)^d} \frac{\text{Tr}\Big[ ( (\slashed{p}+\slashed{k_1}) - m_\Psi) \gamma^{\mu_1}  (\slashed{p} - m_\Psi) \gamma^{\mu_2} ((\slashed{p}-\slashed{k_2}) - m_\Psi) \Big]}{\big((p+k_1)^2 + m_\Psi^2 - i\epsilon\big)\big(p^2 + m_\Psi^2 - i\epsilon\big)\big((p-k_2)^2 + m_\Psi^2 - i\epsilon\big)}\epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2).
 \end{align}
+Note that the factor of $(-1)$ comes from the fermion loop. The contribution from the second diagram (Fig.~\ref{fig:phi_to_gamma_gamma_b}) is similar, with the photon vertices interchanged(i.e., $k_1 \leftrightarrow k_2$ and $\mu_1 \leftrightarrow \mu_2$). Thus, the total amplitude is:
+\begin{align}
+    i \mathcal{M}_b= & ye^2Q^2\int \frac{d^d p}{(2\pi)^d} \frac{\text{Tr}\Big[ ( (\slashed{p}+\slashed{k_2}) - m_\Psi) \gamma^{\mu_2}  (\slashed{p} - m_\Psi) \gamma^{\mu_1} ((\slashed{p}-\slashed{k_1}) - m_\Psi) \Big]}{\big((p+k_2)^2 + m_\Psi^2 - i\epsilon\big)\big(p^2 + m_\Psi^2 - i\epsilon\big)\big((p-k_1)^2 + m_\Psi^2 - i\epsilon\big)}\epsilon_{\mu_2}(k_2) \epsilon_{\mu_1}(k_1).
+\end{align}
+Then we can try to simplify the trace in $i \mathcal{M}_a$. Expanding the trace, we only need to keep terms with an even number of gamma matrices, as the trace of an odd number of gamma matrices vanishes. After simplification, we find:
+\begin{align}
+    &\text{Tr}\Big[ ( (\slashed{p}+\slashed{k_1}) - m_\Psi) \gamma^{\mu_1}  (\slashed{p} - m_\Psi) \gamma^{\mu_2} ((\slashed{p}-\slashed{k_2}) - m_\Psi) \Big] \\
+    =&\text{Tr}\Big[(-m_\Psi)\gamma^{\mu_1}(\slashed{p})\gamma^{\mu_2}(\slashed{p}-\slashed{k_2})\Big]+ \text{Tr}\Big((\slashed{p}+\slashed{k_1})\gamma^{\mu_1}(-m_\Psi)\gamma^{\mu_2}(\slashed{p}-\slashed{k_2})\Big)\\
+    +&\text{Tr}\Big((\slashed{p}+\slashed{k_1})\gamma^{\mu_1}(\slashed{p})\gamma^{\mu_2}(-m_\Psi)\Big)+ \text{Tr}\Big((-m_\Psi)\gamma^{\mu_1}(-m_\Psi)\gamma^{\mu_2}(-m_\Psi)\Big)\\
+    =& \textcolor{blue}{-m_\Psi p_{\alpha} (p_{\beta} - k_{2\beta}) \text{Tr}\Big[\gamma^{\mu_1} \gamma^{\alpha} \gamma^{\mu_2} \gamma^{\beta}\Big]} \textcolor{red}{- m_\Psi (p_{\alpha} + k_{1\alpha})(p_{\beta} - k_{2\beta}) \text{Tr}\Big[\gamma^{\alpha} \gamma^{\mu_1} \gamma^{\mu_2} \gamma^{\beta}\Big]} \\
+    &\textcolor{purple}{- m_\Psi (p_{\alpha} + k_{1\alpha}) p_{\beta} \text{Tr}\Big[\gamma^{\alpha} \gamma^{\mu_1} \gamma^{\beta} \gamma^{\mu_2}\Big]} - m_\Psi^3 \text{Tr}\Big[\gamma^{\mu_1} \gamma^{\mu_2}\Big].
+\end{align}
+We have the following trace identities in $d$ dimensions:
+\begin{align}
+    \text{Tr}[\gamma^{\mu} \gamma^{\nu}] &= -d g^{\mu\nu},\\
+    \text{Tr}[\gamma^{\mu} \gamma^{\nu} \gamma^{\rho} \gamma^{\sigma}] &= d (g^{\mu\nu} g^{\rho\sigma} - g^{\mu\rho} g^{\nu\sigma} + g^{\mu\sigma} g^{\nu\rho}).
+\end{align}
+Using these identities, we can simplify the trace further:
+\begin{align}
+    &\textcolor{blue}{-m_\Psi p_{\alpha} (p_{\beta} - k_{2\beta}) \text{Tr}\Big[\gamma^{\mu_1} \gamma^{\alpha} \gamma^{\mu_2} \gamma^{\beta}\Big]} = -4 m_\Psi p_{\alpha} (p_{\beta} - k_{2\beta}) (g^{\mu_1 \alpha} g^{\mu_2 \beta} - g^{\mu_1 \mu_2} g^{\alpha \beta} + g^{\mu_1 \beta} g^{\alpha \mu_2})\\
+    =& -d m_\Psi \Big( p^{\mu_1} (p^{\mu_2} - k_2^{\mu_2}) - g^{\mu_1 \mu_2} p \cdot (p - k_2) + p^{\mu_2} (p^{\mu_1} - k_2^{\mu_1}) \Big)\\
+    =& -d m_\Psi \Big( 2 p^{\mu_1} p^{\mu_2} - p^{\mu_1} k_2^{\mu_2} - p^{\mu_2} k_2^{\mu_1} - g^{\mu_1 \mu_2} (p^2 - p \cdot k_2) \Big), 
+\end{align}
+\begin{align}
+    &\textcolor{red}{-m_\Psi (p_{\alpha} + k_{1\alpha})(p_{\beta} - k_{2\beta}) \text{Tr}\Big[\gamma^{\alpha} \gamma^{\mu_1} \gamma^{\mu_2} \gamma^{\beta}\Big]} = -d m_\Psi (p_{\alpha} + k_{1\alpha})(p_{\beta} - k_{2\beta}) (g^{\alpha \mu_1} g^{\mu_2 \beta} - g^{\alpha \mu_2} g^{\mu_1 \beta} + g^{\alpha \beta} g^{\mu_1 \mu_2})\\
+    =& -d m_\Psi \Big( (p^{\mu_1} + k_1^{\mu_1})(p^{\mu_2} - k_2^{\mu_2}) - (p^{\mu_2} + k_1^{\mu_2})(p^{\mu_1} - k_2^{\mu_1}) + (p + k_1) \cdot (p - k_2) g^{\mu_1 \mu_2} \Big)\\
+    =& -d m_\Psi \Big( \textcolor{olive}{p^{\mu_1} p^{\mu_2}} - p^{\mu_1} k_2^{\mu_2} + k_1^{\mu_1} p^{\mu_2} - k_1^{\mu_1} k_2^{\mu_2} - \textcolor{olive}{p^{\mu_2} p^{\mu_1}} + p^{\mu_2} k_2^{\mu_1} - k_1^{\mu_2} p^{\mu_1} + k_1^{\mu_2} k_2^{\mu_1}\\
+    &+ (p^2 + p \cdot (k_1 - k_2) - k_1 \cdot k_2) g^{\mu_1 \mu_2} \Big)\\
+    =& -d m_\Psi \Big( - p^{\mu_1} k_2^{\mu_2} + k_1^{\mu_1} p^{\mu_2} + p^{\mu_2} k_2^{\mu_1} - k_1^{\mu_2} p^{\mu_1} - k_1^{\mu_1} k_2^{\mu_2} + k_1^{\mu_2} k_2^{\mu_1} \\
+    &+ (p^2 + p \cdot k_1- p\cdot k_2 - k_1 \cdot k_2) g^{\mu_1 \mu_2} \Big),
+\end{align}
+\begin{align}
+    &\textcolor{purple}{- m_\Psi (p_{\alpha} + k_{1\alpha}) p_{\beta} \text{Tr}\Big[\gamma^{\alpha} \gamma^{\mu_1} \gamma^{\beta} \gamma^{\mu_2}\Big]} = -d m_\Psi (p_{\alpha} + k_{1\alpha}) p_{\beta} (g^{\alpha \mu_1} g^{\beta \mu_2} - g^{\alpha \beta} g^{\mu_1 \mu_2} + g^{\alpha \mu_2} g^{\beta \mu_1})\\
+    =& -d m_\Psi \Big( (p^{\mu_1} + k_1^{\mu_1}) p^{\mu_2} - g^{\mu_1 \mu_2} (p + k_1) \cdot p + (p^{\mu_2} + k_1^{\mu_2}) p^{\mu_1} \Big)\\
+    =& -d m_\Psi\Big(2 p^{\mu_1} p^{\mu_2} + p^{\mu_1} k_1^{\mu_2} + p^{\mu_2} k_1^{\mu_1} - g^{\mu_1 \mu_2} (p^2 + p \cdot k_1) \Big),
+\end{align}
+\begin{align}
+    &- m_\Psi^3 \text{Tr}\Big[\gamma^{\mu_1} \gamma^{\mu_2}\Big] = d m_\Psi^3 g^{\mu_1 \mu_2}.
+\end{align}
+For the first three terms, we have:
+\begin{align}
+    &-d m_\Psi \Big( \textcolor{red}{2 p^{\mu_1} p^{\mu_2}} - \textcolor{magenta}{p^{\mu_1} k_2^{\mu_2}} - \textcolor{teal}{p^{\mu_2} k_2^{\mu_1}} - g^{\mu_1 \mu_2} (\textcolor{olive}{p^2} - \textcolor{blue}{p \cdot k_2}) \Big) \\
+    &-d m_\Psi \Big( - \textcolor{magenta}{p^{\mu_1} k_2^{\mu_2}} + \textcolor{cyan}{k_1^{\mu_1} p^{\mu_2}} + \textcolor{teal}{p^{\mu_2} k_2^{\mu_1}} - \textcolor{purple}{k_1^{\mu_2} p^{\mu_1}} - k_1^{\mu_1} k_2^{\mu_2} + k_1^{\mu_2} k_2^{\mu_1} \\
+    &+  (\textcolor{olive}{p^2} + \textcolor{blue}{p \cdot k_1}- \textcolor{blue}{p \cdot k_2} - k_1 \cdot k_2) g^{\mu_1 \mu_2} \Big) \\
+    -&d m_\Psi\Big(\textcolor{red}{2 p^{\mu_1} p^{\mu_2}} + \textcolor{purple}{p^{\mu_1} k_1^{\mu_2}} + \textcolor{cyan}{p^{\mu_2} k_1^{\mu_1}} - g^{\mu_1 \mu_2} (\textcolor{olive}{p^2} + \textcolor{blue}{p \cdot k_1}) \Big) \\
+    =& -d m_\Psi \Big(4 \textcolor{red}{ p^{\mu_1} p^{\mu_2}} -2 \textcolor{magenta}{p^{\mu_1} k_2^{\mu_2}} +2 \textcolor{cyan}{k_1^{\mu_1} p^{\mu_2}} - k_1^{\mu_1} k_2^{\mu_2} + k_1^{\mu_2} k_2^{\mu_1} 
+    + g^{\mu_1 \mu_2} (-\textcolor{olive}{p^2} -k_1 \cdot k_2) \Big),
+\end{align}
+With the fourth term, we have:
+\begin{align}
+    &-d m_\Psi \Big(4 \textcolor{red}{ p^{\mu_1} p^{\mu_2}} -2 \textcolor{magenta}{p^{\mu_1} k_2^{\mu_2}} +2 \textcolor{cyan}{k_1^{\mu_1} p^{\mu_2}} - k_1^{\mu_1} k_2^{\mu_2} + k_1^{\mu_2} k_2^{\mu_1} 
+    + g^{\mu_1 \mu_2} (-\textcolor{olive}{p^2} -k_1 \cdot k_2) \Big) + d m_\Psi^3 g^{\mu_1 \mu_2} \\
+    =& -d m_\Psi \Big(4  p^{\mu_1} p^{\mu_2} -2p^{\mu_1} k_2^{\mu_2} +2 k_1^{\mu_1} p^{\mu_2} - k_1^{\mu_1} k_2^{\mu_2} + k_1^{\mu_2} k_2^{\mu_1} 
+    + g^{\mu_1 \mu_2} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) \Big).
+\end{align}
+Contracting with the photon polarization vectors, by the Lorenz gauge condition $k_\mu\epsilon^\mu(k)=0$, we get:
+\begin{align}
+    &\epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2) \Big(4  p^{\mu_1} p^{\mu_2} -2p^{\mu_1} k_2^{\mu_2} +2 k_1^{\mu_1} p^{\mu_2} - k_1^{\mu_1} k_2^{\mu_2} + k_1^{\mu_2} k_2^{\mu_1} 
+    + g^{\mu_1 \mu_2} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) \Big) \\
+    =& 4  p^{\mu_1} p^{\mu_2} \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2) -2p^{\mu_1} \textcolor{red}{k_2^{\mu_2}} \epsilon_{\mu_1}(k_1) \textcolor{red}{\epsilon_{\mu_2}(k_2)} +2 \textcolor{blue}{k_1^{\mu_1}} p^{\mu_2} \textcolor{blue}{\epsilon_{\mu_1}(k_1)} \epsilon_{\mu_2}(k_2) \\
+    -& \textcolor{blue}{k_1^{\mu_1}} \textcolor{red}{k_2^{\mu_2}} \textcolor{blue}{\epsilon_{\mu_1}(k_1)} \textcolor{red}{\epsilon_{\mu_2}(k_2)} + k_1^{\mu_2} k_2^{\mu_1} \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2) \\
+    +& g^{\mu_1 \mu_2} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2)\\
+    =& 4  p^{\mu_1} p^{\mu_2} \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2) + k_1^{\mu_2} k_2^{\mu_1} \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2) + g^{\mu_1 \mu_2} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) \epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2)\\
+    =&(4 p^{\mu_1} p^{\mu_2}  + k_1^{\mu_2} k_2^{\mu_1}  + g^{\mu_1 \mu_2} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) )\epsilon_{\mu_1}(k_1) \epsilon_{\mu_2}(k_2)\\
+    =&(4 p^{\mu} p^{\nu}  + k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) )\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2).
+\end{align}
+where we have used the fact that $k_\mu\epsilon^\mu(k)=0$ and the properties of the photon polarization vectors. Therefore, the amplitude in the general $d$ dimension is:
+\begin{align}
+    i\mathcal{M}_a = & -y (e Q)^2 (-d m_\Psi )\int \frac{d^d p}{(2\pi)^d} \frac{(4 p^{\mu} p^{\nu}  + k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) )}{\big((p+k_1)^2 + m_\Psi^2 - i\epsilon\big)\big(p^2 + m_\Psi^2 - i\epsilon\big)\big((p-k_2)^2 + m_\Psi^2 - i\epsilon\big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2)\\
+    =& y e^2Q^2 d m_\Psi\int \frac{d^d p}{(2\pi)^d} \frac{(4 p^{\mu} p^{\nu}  + k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) )}{\big((p+k_1)^2 + m_\Psi^2 - i\epsilon\big)\big(p^2 + m_\Psi^2 - i\epsilon\big)\big((p-k_2)^2 + m_\Psi^2 - i\epsilon\big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2).
+\end{align}
+Similarly, for the second diagram, we have:
+\begin{align}
+    i\mathcal{M}_b = & y e^2Q^2 d m_\Psi\int \frac{d^d p}{(2\pi)^d} \frac{(4 p^{\mu} p^{\nu}  + k_2^{\nu} k_1^{\mu}  + g^{\mu \nu} (-p^2 -k_2 \cdot k_1 - m_\Psi^2) )}{\big((p+k_2)^2 + m_\Psi^2 - i\epsilon\big)\big(p^2 + m_\Psi^2 - i\epsilon\big)\big((p-k_1)^2 + m_\Psi^2 - i\epsilon\big)}\epsilon_{\mu}(k_2) \epsilon_{\nu}(k_1).
+\end{align}
+Now, the total amplitude is:
+\begin{align}
+    i\mathcal{M} = & y e^2Q^2 d m_\Psi\int \frac{d^d p}{(2\pi)^d} \frac{4 p^{\mu} p^{\nu}  + k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (-p^2 -k_1 \cdot k_2 - m_\Psi^2) }{\big((p+k_1)^2 + m_\Psi^2 \big)\big((p-k_2)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2) \\
+    +& y e^2Q^2 d m_\Psi\int \frac{d^d p}{(2\pi)^d} \frac{4 p^{\mu} p^{\nu}  + k_2^{\nu} k_1^{\mu}  + g^{\mu \nu} (-p^2 -k_2 \cdot k_1 - m_\Psi^2) }{\big((p+k_2)^2 + m_\Psi^2 \big)\big((p-k_1)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_2) \epsilon_{\nu}(k_1).
+\end{align}
+where we omit the $-i\epsilon$ terms for simplicity. Note that both integrals have the same form in the numerator but different denominators. Moreover, we can apply eq.~(62.18)
+\begin{align}
+    &\int d^d q q^{\mu} q^{\nu} f(q^2) = \frac{1}{d} g^{\mu \nu} \int d^d q q^2 f(q^2)\\
+    \implies& d q^{\mu} q^{\nu} = g^{\mu \nu} q^2,
+\end{align}
+to simplify the integral. In our case (if $d=4$):
+\begin{align}
+    4 p^{\mu} p^{\nu} = g^{\mu \nu}  p^2.
+\end{align}
+Hence, in $d=4$ dimensions, the amplitude simplifies to:
+\begin{align}
+    i\mathcal{M} = & y e^2Q^2 4 m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (-k_1 \cdot k_2 - m_\Psi^2) }{\big((p+k_1)^2 + m_\Psi^2 \big)\big((p-k_2)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2) \\
+    +& y e^2Q^2 4 m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_2^{\nu} k_1^{\mu}  + g^{\mu \nu} (-k_2 \cdot k_1 - m_\Psi^2) }{\big((p+k_2)^2 + m_\Psi^2 \big)\big((p-k_1)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_2) \epsilon_{\nu}(k_1)\\
+    =&y e^2Q^2 4 m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2) }{\big((p+k_1)^2 + m_\Psi^2 \big)\big((p-k_2)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2) \\
+    +& y e^2Q^2 4 m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_2^{\nu} k_1^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2) }{\big((p+k_2)^2 + m_\Psi^2 \big)\big((p-k_1)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_2) \epsilon_{\nu}(k_1),
+\end{align}
+where we apply the on-shell condition: $k_1^2=0$, $k_2^2=0$, $k_0^2=(k_1+k_2)^2=2k_1\cdot k_2=-m_\phi^2$.
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+To determine if the integral has a UV divergence in $d=4$ dimensions, we need to analyze the behavior of the integrand as the loop momentum $p$ goes to infinity. The powers of $p$ in the numerator and denominator are:
+\begin{align}
+    \text{Numerator} &\sim p^0,\\
+    \text{Denominator} &\sim p^6.
+\end{align}
+The integral is:
+\begin{align}
+    \int \frac{d^4 p}{(2\pi)^4} \frac{1}{p^6}.
+\end{align}
+This integral converges in $d=4$ dimensions, as the integrand falls off faster than $1/p^4$ for large $p$. Therefore, \textbf{there is no UV divergence in $d=4$ dimensions}.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+We can apply Feynman's trick to evaluate the integral:
+\begin{align}
+    &\frac{1}{A_1 A_2 A_3} = (2!)\int_0^1 dx_1 \int_0^1 dx_2 \int_0^1 dx_3 \delta(x_1 + x_2 + x_3 - 1) (x_1 A_1 + x_2 A_2 + x_3 A_3)^{-3}\\
+    =&(2!) \int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{(x_1 A_1 + x_2 A_2 + (1-x_1-x_2) A_3)^3}.
+\end{align}
+Hence,
+\begin{align}
+    &\int \frac{d^4 p}{(2\pi)^4} \frac{1}{((p+k_1)^2 + m_\Psi^2)(p^2 + m_\Psi^2)((p-k_2)^2 + m_\Psi^2)} \\
+    =&2 \int_0^1 dx_1 \int_0^{1-x_1} dx_2 \int \frac{d^4 p}{(2\pi)^4} \Big[x_1 ((p+k_1)^2 + m_\Psi^2)  + x_2((p-k_2)^2 + m_\Psi^2)+ (1-x_1-x_2) (p^2 + m_\Psi^2)\Big]^{-3}.
+\end{align}
+We can complete the square for the quadratic term in $p$:
+\begin{align}
+    &x_1 ((p+k_1)^2 + m_\Psi^2)  + x_2((p-k_2)^2 + m_\Psi^2) + (1-x_1-x_2) (p^2 + m_\Psi^2)\\
+    =&p^2+ p \left(2 k_1 x_1-2 k_2 x_2\right)+\left(k_1^2 x_1+k_2^2 x_2+m_{\Psi }^2\right)\\
+    =&p^2+ p \left(2 k_1 x_1-2 k_2 x_2\right)+m_{\Psi }^2\\
+    =&\left(p+ \left( k_1 x_1- k_2 x_2\right)\right)^2-\left(k_1 x_1-k_2 x_2\right)^2+m_{\Psi }^2\\
+    =&\left(p+ \left( k_1 x_1- k_2 x_2\right)\right)^2 -k_1^2 x_1^2+2 k_1 k_2 x_2 x_1-k_2^2 x_2^2+m_{\Psi }^2\\
+    =&\left(p+ \left( k_1 x_1- k_2 x_2\right)\right)^2+m_{\Psi }^2-m_\phi^2x_1x_2,
+\end{align}
+where we apply the on-shell condition: $k_1^2=0$, $k_2^2=0$, $k_0^2=(k_1+k_2)^2=2k_1\cdot k_2=-m_\phi^2$. We can define a new variable $q$:
+\begin{align}
+    &q_{k_1k_2}=q_{12}=q = p+ \left( k_1 x_1- k_2 x_2\right),\\
+    &D=m_{\Psi }^2-m_\phi^2x_1x_2.
+\end{align}
+Thus, the integral becomes:
+\begin{align}
+    &2\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \int \frac{d^4 p}{(2\pi)^4} \frac{k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)}{(q^2+D)^3}
+\end{align}
+We can change variables to $q$, and the integral over $p$ becomes an integral over $q$:
+\begin{align}
+    &2\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \int \frac{d^4 q}{(2\pi)^4} \frac{k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)}{(q^2+D)^3}.
+\end{align}
+Now we can change $q$ to $\overline{q}$, where $q^0=i\overline{q}^0$, $\mathbf{q}=\mathbf{\overline{q}}$, $d^4 q = i d^4 \overline{q}$, and $q^2=-(q^0)^2+\mathbf{q}^2=(\overline{q}^0)^2+\mathbf{\overline{q}}^2=\overline{q}^2$.  The integral over $q$ becomes an integral over $\overline{q}$:
+\begin{align}
+    &2i\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \int \frac{d^4 \overline{q}}{(2\pi)^4} \frac{k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)}{(\overline{q}^2+D)^3}.
+\end{align}
+Now we can apply eq.~(14.27)
+\begin{align}
+    \int \frac{d^d \overline{q}}{(2\pi)^d} \frac{(\overline{q}^2)^a}{(\overline{q}^2+D)^b} = \frac{\Gamma(b-a-\frac{d}{2})\Gamma(a+\frac{d}{2})}{\Gamma(b)\Gamma(\frac{d}{2})(4\pi)^{d/2}} \frac{1}{D^{b-a-\frac{d}{2}}}.
+\end{align}
+with $a=0$, $b=3$, and $d=4$:
+\begin{align}
+    \int \frac{d^4 \overline{q}}{(2\pi)^4} \frac{1}{(\overline{q}^2+D)^3} = \frac{\Gamma(3-\frac{4}{2})\Gamma(\frac{4}{2})}{\Gamma(3)\Gamma(\frac{4}{2})(4\pi)^{4/2}} \frac{1}{D^{3-\frac{4}{2}}}= \frac{\Gamma(1) \Gamma(2)}{\Gamma(3)\Gamma(2)(4\pi)^{2}} \frac{1}{D^{1/2}}= \frac{1}{2(4\pi)^{2}D}.
+\end{align}
+Thus, the integral over $\overline{q}$ is:
+\begin{align}
+    &2i\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{2(4\pi)^{2}D} \left(k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)\right)\\
+    =&\frac{i}{(4\pi)^{2}}\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{D} \left(k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)\right).
+\end{align}
+Now we can discuss $D$:
+\begin{align}
+    D=m_{\Psi }^2-m_\phi^2x_1x_2, \quad \text{with} \quad x_1x_2 \leq \frac{1}{4}.
+    \implies D \geq \frac{1}{4}(4m_{\Psi }^2-m_\phi^2).
+\end{align}
+Hence if $4m_{\Psi }^2-m_\phi^2>0$, that is, $m_\phi < 2m_\Psi$, then $D$ is always positive, and there is no singularities in the integral over $D$. If $4m_{\Psi }^2-m_\phi^2<0$, that is, $m_\phi > 2m_\Psi$, then $D$ can be negative, and the integral over $D$ has singularities. \textbf{Therefore, the integral over $D$ has singularities if $m_\phi > 2m_\Psi$.}\\
+\textbf{Remark:} This result is physical reasonable because if $m_\phi > 2m_\Psi$, the intermediate state with mass $m_\phi$ can decay into two particles with mass $m_\Psi$ each, which is cosistent with the Lehmann-Källén theorem. This means the amplitude can have both real and imaginary parts. 
+
+
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+Now, if $m_\Psi=0$, the amplitude $i\mathcal{M}=0$ since 
+\begin{align}
+    i\mathcal{M} =& 4y e^2Q^2  m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2) }{\big((p+k_1)^2 + m_\Psi^2 \big)\big((p-k_2)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2) \\
+    +& 4y e^2Q^2  m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_2^{\nu} k_1^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2) }{\big((p+k_2)^2 + m_\Psi^2 \big)\big((p-k_1)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_2) \epsilon_{\nu}(k_1)\\
+    \implies& i\mathcal{M}\propto m_\Psi.
+\end{align}
+This result is independent of $d=4-\epsilon$, $d=4$ or any other dimension. \textbf{Therefore, the amplitude $i\mathcal{M}=0$ if $m_\Psi=0$.} 
+
+\begin{itemize}
+    \item [(f)]
+\end{itemize}
+Now we can evaluate the integral:
+\begin{align}
+    i \mathcal{M}=& 4ye^2Q^2 m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2) }{\big((p+k_1)^2 + m_\Psi^2 \big)\big((p-k_2)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2) \\
+    +& 4ye^2Q^2 m_\Psi\int \frac{d^4 p}{(2\pi)^4} \frac{  k_2^{\nu} k_1^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2) }{\big((p+k_2)^2 + m_\Psi^2 \big)\big((p-k_1)^2 + m_\Psi^2 \big)\big(p^2 + m_\Psi^2 \big)}\epsilon_{\mu}(k_2) \epsilon_{\nu}(k_1)\\
+    =&8ye^2Q^2 m_\Psi 2i\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \int \frac{d^4 \overline{q}}{(2\pi)^4} \frac{k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)}{(\overline{q}^2+D)^3} \epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2).
+\end{align}
+Now if we consider $d=4-\epsilon$ dimensions, the integral over $\overline{q}$ is:
+\begin{align}
+    \int \frac{d^{4-\epsilon} \overline{q}}{(2\pi)^{4-\epsilon}} \frac{1}{(\overline{q}^2+D)^3} = \frac{\Gamma(3-\frac{4-\epsilon}{2})\Gamma(\frac{4-\epsilon}{2})}{\Gamma(3)\Gamma(\frac{4-\epsilon}{2})(4\pi)^{(4-\epsilon)/2}} \frac{1}{D^{3-\frac{4-\epsilon}{2}}}= \frac{\Gamma(1+\frac{\epsilon}{2}) \Gamma(2-\frac{\epsilon}{2})}{\Gamma(3)\Gamma(2-\frac{\epsilon}{2})(4\pi)^{(4-\epsilon)/2}} \frac{1}{D^{1+\frac{\epsilon}{2}}}.
+\end{align}
+The gamma function has the following property:
+\begin{align}
+    \Gamma(n+1)&=n!,\\
+    \Gamma(n+\frac{1}{2})&=\sqrt{\pi} \frac{(2n)!}{2^{n}n!}\\
+    \Gamma(-n+x) &=\frac{(-1)^n}{n!}\Big[\frac{1}{x} -\gamma +\sum_{k=1}^{n} \frac{1}{k} +\mathcal{O}(x)\Big], \quad \text{for small} \quad x.
+\end{align}
+However, all gamma function in the numerator and denominator are positive for $n\geq 0$ and $x>0$. Therefore, the integral over $\overline{q}$ is:
+\begin{align}
+    \int \frac{d^{4-\epsilon} \overline{q}}{(2\pi)^{4-\epsilon}} \frac{1}{(\overline{q}^2+D)^3} \to \frac{\Gamma(1) \Gamma(2)}{\Gamma(3)\Gamma(2)(4\pi)^{2}} \frac{1}{D^{1}}= \frac{1}{2(4\pi)^{2}D}  \quad \text{as} \quad \epsilon \to 0.
+\end{align}
+Thus, the integral over $\overline{q}$ is:
+\begin{align}
+    i\mathcal{M} =& 8ye^2Q^2 m_\Psi 2i\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{2(4\pi)^{2}D} \left(k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)\right)\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2)\\
+    =&\frac{8iye^2Q^2 m_\Psi}{(4\pi)^{2}}\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{D} \left(k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)\right)\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2)\\
+    =&\frac{i ye^2Q^2 m_\Psi}{2 \pi^2}\Bigg[\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{D}\Bigg]\left(k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)\right)\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2).
+\end{align}
+Now we can discuss $D=m_{\Psi}^2-m_\phi^2x_1x_2$:
+\begin{align}
+    &\int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{D}\\
+    =& \int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{m_{\Psi }^2-m_\phi^2x_1x_2}\\
+    =&\frac{1}{m_\Psi^2} \int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{1-\frac{m_\phi^2}{m_{\Psi }^2}x_1x_2}=\frac{1}{m_\Psi^2} \int_0^1 dx_1 \int_0^{1-x_1} dx_2 \frac{1}{1-\lambda x_1x_2}, \quad \text{with} \quad \lambda = \frac{m_\phi^2}{m_{\Psi }^2}\\
+    =&\frac{1}{m_\Psi^2} \frac{\text{Li}_2\left(\frac{1}{2} \left(\lambda -\sqrt{\lambda -4} \sqrt{\lambda }\right)\right)+\text{Li}_2\left(\frac{1}{2} \left(\lambda +\sqrt{\lambda -4} \sqrt{\lambda }\right)\right)}{\lambda }, \quad \text{with} \quad \lambda = \frac{m_\phi^2}{m_{\Psi }^2},
+\end{align}
+where $\text{Li}_2(x)$ is the dilogarithm function. \textbf{Note that if $\lambda = \frac{m_\phi^2}{m_{\Psi }^2} >4 $, that is $m_\phi > 2m_\Psi$, then result has both real and imaginary parts, consistent with the interpretation of the previous part~(d).} Therefore, the amplitude $i\mathcal{M}$ becomes:
+\begin{align}
+    i\mathcal{M}=& \frac{i ye^2Q^2 }{2 \pi^2m_\Psi} \left(\frac{\text{Li}_2\left(\frac{1}{2} \left(\lambda -\sqrt{\lambda -4} \sqrt{\lambda }\right)\right)+\text{Li}_2\left(\frac{1}{2} \left(\lambda +\sqrt{\lambda -4} \sqrt{\lambda }\right)\right)}{\lambda } \right) \left(k_1^{\nu} k_2^{\mu}  + g^{\mu \nu} (m_\phi^2/2 - m_\Psi^2)\right)\epsilon_{\mu}(k_1) \epsilon_{\nu}(k_2).
+\end{align}
+where $\lambda = \frac{m_\phi^2}{m_{\Psi }^2}$. This is the final result for the amplitude in $d=4-\epsilon$ or $d=4$ dimensions.
+\qed
 
