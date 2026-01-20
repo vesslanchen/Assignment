@@ -1,0 +1,963 @@
+
+\section*{HW1 Due to September 23 11:59 PM}
+
+\question{1}{Problem 1.2}
+
+With the Hamiltonian of eq.~(1.32), show that the state defined in eq.~(1.33) obeys the abstract Schrodinger equation, eq.~(1.1), if and only if the wave function obeys eq.~(1.30). Your demonstration should apply both to the case of bosons, where the particle creation and annihilation operators obey the commutation relations of eq.~(1.31), and to fermions, where the particle creation and annihilation operators obey the anti-commutation relations of eq.~(1.38).
+\begin{equation}
+\begin{aligned}
+    i \hbar \frac{\partial}{\partial t}|\psi, t\rangle=H|\psi, t\rangle
+\end{aligned}
+\label{eq:1.1}
+\tag{1.1}
+\end{equation}
+
+
+\begin{equation}
+\begin{aligned}
+i \hbar \frac{\partial}{\partial t} \psi=\left[\sum_{j=1}^n\left(-\frac{\hbar^2}{2 m} \nabla_j^2+U\left(\mathbf{x}_j\right)\right)+\sum_{j=1}^n \sum_{k=1}^{j-1} V\left(\mathbf{x}_j-\mathbf{x}_k\right)\right] \psi
+\end{aligned}
+\tag{1.30}
+\label{eq:1.30}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+{\left[a(\mathbf{x}), a\left(\mathbf{x}^{\prime}\right)\right] } & =0 \\
+{\left[a^{\dagger}(\mathbf{x}), a^{\dagger}\left(\mathbf{x}^{\prime}\right)\right] } & =0 \\
+{\left[a(\mathbf{x}), a^{\dagger}\left(\mathbf{x}^{\prime}\right)\right] } & =\delta^3\left(\mathbf{x}-\mathbf{x}^{\prime}\right)
+\end{aligned}
+\tag{1.31}
+\label{eq:1.31}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+H= & \int d^3 x a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right) a(\mathbf{x}) \\
+& +\frac{1}{2} \int d^3 x d^3 y V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) a(\mathbf{y}) a(\mathbf{x})
+\end{aligned}
+\tag{1.32}
+\label{eq:1.32}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+|\psi, t\rangle=\int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle
+\end{aligned}
+\tag{1.33}
+\label{eq:1.33}
+\end{equation}
+
+\answer{}
+We first consider boson case, and then we have 
+\begin{align}
+    &LHS = i\hbar\frac{\partial}{\partial t}|\psi, t\rangle\\
+    =&i\hbar \frac{\partial}{\partial t}\int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =& \int d^3 x_1 \ldots d^3 x_n i\hbar\frac{\partial}{\partial t}\psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\int d^3 x_1 \ldots d^3 x_n \left[\sum_{j=1}^n\left(-\frac{\hbar^2}{2 m} \nabla_j^2+U\left(\mathbf{x}_j\right)\right)+\sum_{j=1}^n \sum_{k=1}^{j-1} V\left(\mathbf{x}_j-\mathbf{x}_k\right)\right] \psi a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle
+\end{align}
+
+\begin{align}
+    &RHS=H|\psi, t\rangle\\
+    =&\left[\int d^3 x a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right) a(\mathbf{x}) 
+ +\frac{1}{2} \int d^3 x d^3 y V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) a(\mathbf{y}) a(\mathbf{x})\right]|\psi, t\rangle\\
+ =&\int d^3 x a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right) a(\mathbf{x}) \int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\label{eq:self}
+ \\ 
++&\frac{1}{2} \int d^3 x d^3 y V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) a(\mathbf{y}) a(\mathbf{x})\int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\label{eq:inter}
+\end{align}
+For the term in Equation~\ref{eq:self}, by considering $[a(\mathbf{x}),a^\dagger\mathbf{(x')}]=\delta^{3}(\mathbf{x}-\mathbf{x}')$, we have 
+\begin{align}
+    &a(\mathbf{x})a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =& [a^{\dagger}(\mathbf{x}_1)a(\mathbf{x})+\delta^{3}(\mathbf{x}-\mathbf{x}_1)]a^{\dagger}\left(\mathbf{x}_2\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =& a^{\dagger}(\mathbf{x}_1)a(\mathbf{x})a^{\dagger}\left(\mathbf{x}_2\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)+\delta^{3}(\mathbf{x}-\mathbf{x}_1)a^{\dagger}\left(\mathbf{x}_2\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =&a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)a(\mathbf{x})+
+    \sum_{j=1}^n \delta^{3}(\mathbf{x}-\mathbf{x}_j) a^{\dagger}(\mathbf{x}_1)a^\dagger(\mathbf{x}_2)\ldots a^\dagger(\mathbf{x}_{j-1})a^\dagger(\mathbf{x}_{j+1})\ldots a^\dagger(\mathbf{x}_n)\label{eq:result-1}\\
+    =&0+\sum_{j=1}^n \delta^{3}(\mathbf{x}-\mathbf{x}_j)  \mathcal{O}_j, \quad \mathcal{O}_j= a^{\dagger}(\mathbf{x}_1)a^\dagger(\mathbf{x}_2)\ldots a^\dagger(\mathbf{x}_{j-1})a^\dagger(\mathbf{x}_{j+1})\ldots a^\dagger(\mathbf{x}_n)
+\end{align}
+we can drop the first term in Equation~\ref{eq:result-1} since this term will act on the $|0\rangle$, giving $0$. Hence, we have
+\begin{align}
+    &\int d^3 x a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right) a(\mathbf{x}) \int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\sum_{j=1}^n\int d^3 x a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right)
+    \int d^3 x_1 \ldots d^3 x_n   \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) \delta^{3}(\mathbf{x}-\mathbf{x}_j)  \mathcal{O}_j |0\rangle\\
+    =&\sum_{j=1}^n\int d^3 x \int d^3 x_1 \ldots d^3 x_n  a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right)
+      \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{O}_j |0\rangle\\
+    =&\sum_{j=1}^n \int d^3 x_1 \ldots d^3 x_n  a^{\dagger}(\mathbf{x}_j)\left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)
+      \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  \mathcal{O}_j |0\rangle\ \\
+    =&\sum_{j=1}^n \int d^3 x_1 \ldots d^3 x_n  a^{\dagger}(\mathbf{x}_j)\left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)
+      \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  \mathcal{O}_j |0\rangle \\
+    =&\sum_{j=1}^n \int d^3 x_1 \ldots d^3 x_n  \left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)
+      \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  a^{\dagger}(\mathbf{x}_j)\mathcal{O}_j |0\rangle\\
+    =& \int d^3 x_1 \ldots d^3 x_n \sum_{j=1}^n \left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)
+      \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle,
+\end{align}
+where $a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)=a^{\dagger}(\mathbf{x}_j)\mathcal{O}_j$ since they (boson fields) commute. Now, we do the same thing for the term in Equation~\ref{eq:inter}, we have 
+\begin{align}
+    &a(\mathbf{y})a(\mathbf{x})a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =&a(\mathbf{y})\sum_{j=1}^n \delta^{3}(\mathbf{x}-\mathbf{x}_j)  \mathcal{O}_j, \quad \mathcal{O}_j= a^{\dagger}(\mathbf{x}_1)a^\dagger(\mathbf{x}_2)\ldots a^\dagger(\mathbf{x}_{j-1})a^\dagger(\mathbf{x}_{j+1})\ldots a^\dagger(\mathbf{x}_n)\\
+    =&\sum_{i\neq j}^n\sum_{j=1}^n \delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{T}_{ij},\quad \mathcal{T}_{ij}=\prod_{k\neq i , j}^na^\dagger(\mathbf{x}_k).
+\end{align}
+Hence, we have 
+
+\begin{align}
+    &\frac{1}{2} \int d^3 x d^3 y V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) a(\mathbf{y}) a(\mathbf{x})\int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\frac{1}{2} \int d^3 x d^3 y \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a(\mathbf{y}) a(\mathbf{x}) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\frac{1}{2} \int d^3 x d^3 y \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) \sum_{i\neq j}^n\sum_{j=1}^n \delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{T}_{ij}|0\rangle\\
+    =&\sum_{i\neq j}^n\sum_{j=1}^n\frac{1}{2} \int d^3 x d^3 y \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}-\mathbf{y}) \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  \delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) \mathcal{T}_{ij}|0\rangle\\
+    =&\sum_{i\neq j}^n\sum_{j=1}^n\frac{1}{2} \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}_j-\mathbf{x}_i) \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)   a^{\dagger}(\mathbf{x}_j) a^{\dagger}(\mathbf{x}_i) \mathcal{T}_{ij}|0\rangle\\
+    =&\int d^3 x_1 \ldots d^3 x_n \sum_{i\neq j}^n\sum_{j=1}^n\frac{1}{2}  V(\mathbf{x}_j-\mathbf{x}_i) \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\int d^3 x_1 \ldots d^3 x_n \sum_{j=1}^n \sum_{k=1}^{j-1} V\left(\mathbf{x}_j-\mathbf{x}_k\right) \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle, 
+\end{align}
+where $a^{\dagger}(\mathbf{x}_j) a^{\dagger}(\mathbf{x}_i) \mathcal{T}_{ij}=a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)$ for the same reason. Hence, we have proved the $LHS=RHS$ and Equation~\ref{eq:1.1} for the boson field case. 
+
+For fermion fields, the only difference is the anti-commutation relation. We start from Equation~\ref{eq:self} again, by considering$\{a(\mathbf{x}),a^\dagger(\mathbf{x})\}=\delta^3(\mathbf{x}-\mathbf{x}')$, and we have 
+\begin{align}
+    &a(\mathbf{x})a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =&[-a^{\dagger}(\mathbf{x}_1)a(\mathbf{x})+\delta^{3}(\mathbf{x}-\mathbf{x}_1)]a^{\dagger}\left(\mathbf{x}_2\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =&(-1)^na^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)a(\mathbf{x})+
+    \sum_{j=1}^n (-1)^{j-1} \delta^{3}(\mathbf{x}-\mathbf{x}_j) a^{\dagger}(\mathbf{x}_1)a^\dagger(\mathbf{x}_2)\ldots a^\dagger(\mathbf{x}_{j-1})a^\dagger(\mathbf{x}_{j+1})\ldots a^\dagger(\mathbf{x}_n)\label{eq:result-2}\\
+    =&0+\sum_{j=1}^n (-1)^{j-1} \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{O}_{j},\quad \mathcal{O}_j= a^{\dagger}(\mathbf{x}_1)a^\dagger(\mathbf{x}_2)\ldots a^\dagger(\mathbf{x}_{j-1})a^\dagger(\mathbf{x}_{j+1})\ldots a^\dagger(\mathbf{x}_n),
+\end{align}
+where the $0$ term comes from the same reason. Then the term in Equation~\ref{eq:self} is given by 
+\begin{align}
+     &\int d^3 x a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right) a(\mathbf{x}) \int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+     =&\int d^3 x \int d^3 x_1 \ldots d^3 x_n a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right)  \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a(\mathbf{x}) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+     =&\int d^3 x \int d^3 x_1 \ldots d^3 x_n a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right)  \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) \sum_{j=1}^n (-1)^j \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{O}_{j}|0\rangle\\
+     =&\sum_{j=1}^n \int d^3 x \int d^3 x_1 \ldots d^3 x_n a^{\dagger}(\mathbf{x})\left(-\frac{\hbar^2}{2 m} \nabla^2+U(\mathbf{x})\right)  \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) (-1)^j \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{O}_{j}|0\rangle\\
+     =&\sum_{j=1}^n  \int d^3 x_1 \ldots d^3 x_n a^{\dagger}(\mathbf{x}_j)\left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)  \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) (-1)^j \mathcal{O}_{j}|0\rangle\\
+     =&\sum_{j=1}^n  \int d^3 x_1 \ldots d^3 x_n \left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)  \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) (-1)^j a^{\dagger}(\mathbf{x}_j)\mathcal{O}_{j}|0\rangle\\
+     =&\int d^3 x_1 \ldots d^3 x_n \sum_{j=1}^n \left(-\frac{\hbar^2}{2 m} \nabla^2_j+U(\mathbf{x}_j)\right)
+      \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right)  a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle,
+\end{align}
+where $a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)=(-1)^{j-1}a^{\dagger}(\mathbf{x}_j)\mathcal{O}_j$ by anti-commutation relation of fermion fields. Next, given the term in Equation~\ref{eq:inter}, we have
+\begin{align}
+    &a(\mathbf{y})a(\mathbf{x})a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)\\
+    =&a(\mathbf{y})\sum_{j=1}^n (-1)^{j-1}\delta^{3}(\mathbf{x}-\mathbf{x}_j)  \mathcal{O}_j, \quad \mathcal{O}_j= a^{\dagger}(\mathbf{x}_1)a^\dagger(\mathbf{x}_2)\ldots a^\dagger(\mathbf{x}_{j-1})a^\dagger(\mathbf{x}_{j+1})\ldots a^\dagger(\mathbf{x}_n)\\
+    =&\sum_{i< j}^n\sum_{j=1}^n(-1)^{i-1} (-1)^{j-1}\delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{T}_{ij}+\sum_{i>j}^n\sum_{j=1}^n(-1)^{i-2} (-1)^{j-1}\delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{T}_{ij},
+\end{align}
+where $\mathcal{T}_{ij}=\prod_{k\neq i , j}^na^\dagger(\mathbf{x}_k)$. Now, we can simplify Equation~\ref{eq:inter} and it is given by 
+\begin{align}
+    &\frac{1}{2} \int d^3 x d^3 y V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) a(\mathbf{y}) a(\mathbf{x})\int d^3 x_1 \ldots d^3 x_n \psi\left(\mathbf{x}_1, \ldots, \mathbf{x}_n ; t\right) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\frac{1}{2} \int d^3 x d^3 y \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) \psi a(\mathbf{y}) a(\mathbf{x}) a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\frac{1}{2} \int d^3 x d^3 y \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) \psi \sum_{i< j}^n\sum_{j=1}^n(-1)^{i-1} (-1)^{j-1}\delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{T}_{ij}|0\rangle \notag\\
+    +&\frac{1}{2} \int d^3 x d^3 y \int d^3 x_1 \ldots d^3 x_n V(\mathbf{x}-\mathbf{y}) a^{\dagger}(\mathbf{x}) a^{\dagger}(\mathbf{y}) \psi \sum_{i>j}^n\sum_{j=1}^n(-1)^{i-2} (-1)^{j-1}\delta^{3}(\mathbf{y}-\mathbf{x}_i) \delta^{3}(\mathbf{x}-\mathbf{x}_j) \mathcal{T}_{ij}|0\rangle\\
+    =& \frac{1}{2} \int d^3 x_1 \ldots d^3 x_n \sum_{i< j}^n\sum_{j=1}^n(-1)^{i-1} (-1)^{j-1} V(\mathbf{x}_j-\mathbf{x}_i) a^{\dagger}(\mathbf{x}_j) a^{\dagger}(\mathbf{x}_i) \psi  \mathcal{T}_{ij}|0\rangle \notag
+    \\
+    +&\frac{1}{2} \int d^3 x_1 \ldots d^3 x_n \sum_{i> j}^n\sum_{j=1}^n(-1)^{i-2} (-1)^{j-1} V(\mathbf{x}_j-\mathbf{x}_i) a^{\dagger}(\mathbf{x}_j) a^{\dagger}(\mathbf{x}_i) \psi  \mathcal{T}_{ij}|0\rangle\\
+    =&\frac{1}{2} \int d^3 x_1 \ldots d^3 x_n \sum_{i\neq j}^n\sum_{j=1}^n(-1)^{i-1} (-1)^{j-1} V(\mathbf{x}_j-\mathbf{x}_i) a^{\dagger}(\mathbf{x}_j) a^{\dagger}(\mathbf{x}_i) \psi  \mathcal{T}_{ij}|0\rangle\\
+    =&\frac{1}{2} \int d^3 x_1 \ldots d^3 x_n \sum_{i\neq j}^n\sum_{j=1}^n V(\mathbf{x}_j-\mathbf{x}_i)  \psi   a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle\\
+    =&\int d^3 x_1 \ldots d^3 x_n \sum_{j=1}^n \sum_{k=1}^{j-1} V\left(\mathbf{x}_j-\mathbf{x}_k\right) \psi a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)|0\rangle,
+\end{align}
+where $(-1)^{i-1}(-1)^{j-1} a^{\dagger}(\mathbf{x}_j) a^{\dagger}(\mathbf{x}_i)  \mathcal{T}_{ij} = a^{\dagger}\left(\mathbf{x}_1\right) \ldots a^{\dagger}\left(\mathbf{x}_n\right)$ by anti-commutation relation. In summary, we have proved both cases for boson fields and fermion fields. \qed
+\clearpage
+
+
+\question{2}{Problem 2.3}
+
+Verify that eq. (2.16) follows from eq. (2.14).
+
+
+\begin{align}
+    U^{-1}(\Lambda)M^{\mu\nu}U(\Lambda)&={\Lambda^\mu}_\rho{\Lambda^\nu}_\sigma M^{\rho\sigma} \tag{2.14}\\
+    \left[M^{\mu \nu}, M^{\rho \sigma}\right]&=i \hbar\left(g^{\mu \rho} M^{\nu \sigma}-(\mu \leftrightarrow \nu)\right)-(\rho \leftrightarrow \sigma)\tag{2.16}\\
+    &=i \hbar\left(g^{\mu \rho} M^{\nu \sigma}-g^{\nu \rho} M^{\mu \sigma} - g^{\mu \sigma} M^{\nu \rho}+g^{\nu \sigma} M^{\mu \rho}
+    \right)\tag{2.16}
+\end{align}
+
+\answer{}
+Considering an infinitesimal transformation in $U(\Lambda)=1+\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta}$ and ${\Lambda^\mu}_\nu={\delta^\mu}_\nu+\delta{\omega^\mu}_\nu$, now we get 
+\begin{align}
+    LHS=&\left(1-\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta} \right) M^{\mu\nu}\left(1+\frac{i}{2\hbar}\delta\omega_{\alpha\beta}M^{\alpha\beta} \right)\\
+    \Rightarrow&\delta\omega_{\alpha\beta}\frac{i}{2\hbar}[M^{\mu\nu},M^{\alpha\beta}]=\delta\omega_{\rho\sigma}\frac{i}{2\hbar}[M^{\mu\nu},M^{\rho\sigma}]\\
+    RHS=&({\delta^\mu}_\rho+{\delta\omega^\mu}_\rho)({\delta^\nu}_\sigma+{\delta\omega^\nu}_\sigma)M^{\rho\sigma}\\
+    \to&{\delta^\mu}_\rho{\delta\omega^\nu}_\sigma M^{\rho\sigma}+
+    {\delta^\nu}_\sigma{\delta\omega^\mu}_\rho M^{\rho\sigma}={\delta\omega^\nu}_\sigma M^{\mu\sigma}+{\delta\omega^\mu}_\rho M^{\rho\nu}\\
+  =& g^{\nu\rho} {\delta\omega}_{\rho\sigma} M^{\mu\sigma}+g^{\sigma\mu}{\delta\omega}_{\sigma\rho} M^{\rho\nu}=
+  {\delta\omega}_{\rho\sigma}\left( g^{\nu\rho}  M^{\mu\sigma} - g^{\sigma\mu} M^{\rho\nu}\right),
+\end{align}
+we only consider the linear term $\delta\omega$. We can further simplify it to 
+\begin{align}
+    [M^{\mu\nu},M^{\rho\sigma}] &= \frac{2\hbar}{i}\left( g^{\nu\rho}  M^{\mu\sigma} - g^{\sigma\mu} M^{\rho\nu}\right)=2i\hbar\left(g^{\sigma\mu} M^{\rho\nu}- g^{\nu\rho}  M^{\mu\sigma}  \right)=2i\hbar\left(-g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma}  \right)\\
+    &=-  [M^{\nu\mu},M^{\rho\sigma}]= 2i\hbar\left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma}  \right)
+\end{align}
+Finally, we have 
+\begin{align}
+    &[M^{\mu\nu},M^{\rho\sigma}]\\
+    =&\frac{1}{2} \left([M^{\mu\nu},M^{\rho\sigma}]-  [M^{\nu\mu},M^{\rho\sigma}]\right)\\
+    =&i\hbar \left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma} -g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma} \right).
+\end{align}
+\qed
+\clearpage
+
+
+\question{3}{Problem 2.8}
+
+
+\begin{itemize}
+    \item [(a)] Let $\Lambda=1+\delta\omega$ in eq.(2.26), and show that 
+    \begin{align*}
+        [\varphi(x),M^{\mu\nu}]=\mathcal{L}^{\mu\nu}\varphi(x),
+    \end{align*}
+    where 
+    \begin{align*}
+        \mathcal{L}^{\mu\nu} \equiv \frac{\hbar}{i}(x^\mu\partial^\nu - x^\nu\partial^\mu).
+    \end{align*}
+    \item [(b)]Show that $[[\varphi(x),M^{\mu\nu}],M^{\rho\sigma}]=\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}\varphi(x)$.
+    \item [(c)] Prove the \textit{Jacobi identity}, $[[A,B],C]+[[B,C],A]+[[C,A],B]=0$. Hint: write out all the commutations.
+    \item [(d)] Use your results from parts (b) and (c) to show that 
+    \begin{align*}
+        [\varphi(x),[M^{\mu\nu},M^{\rho\sigma}]]=(\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}-\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu})\varphi(x).
+        \tag{2.31}
+    \end{align*}
+    \item [(e)] Simplify the right-hand side of eq.~(2.31) as much as possible. 
+    \item [(f)] Use your results from part (e) to verify eq.~(2.16), up to the possibility of a term on the right-hand side that commutes with $\varphi(x)$ and its derivatives. (Such a term, called a \textit{central charge}, in fact does not arise for the Lorentz algebra.)
+\end{itemize}
+\begin{align}
+    U^{-1}(\Lambda) \varphi(x)U(\Lambda)=\varphi(\Lambda^{-1}x)
+    \tag{2.26}
+\end{align}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+\begin{align}
+    LHS=&U^{-1}(\Lambda) \varphi(x)U(\Lambda)\\
+    =&\left(1-\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right)  \varphi(x)\left(1+\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right)\\
+    \to&\delta\omega_{\mu\nu}\frac{i}{2\hbar}[\varphi(x),M^{\mu\nu}]\\
+    RHS=&\varphi(\Lambda^{-1}x)=\varphi(({\delta^\mu}_\nu-{\delta\omega^\mu}_\nu)x^\nu)=\phi(x)-{\delta\omega^\mu}_\nu x^\nu\partial_\mu \phi(x)\\
+    \to&-{\delta\omega^\mu}_\nu x^\nu\partial_\mu \varphi(x)=-{\delta\omega}_{\mu\nu} x^\nu\partial^\mu \varphi(x)={\delta\omega}_{\mu\nu}\frac{1}{2}\left(x^\mu\partial^\nu -x^\nu\partial^\mu
+    \right)\varphi(x),
+\end{align}
+we only focus on the linear term $\delta\omega$. Now we have 
+\begin{align}
+    [\varphi(x),M^{\mu\nu}]=\frac{\hbar}{i}(x^\mu\partial^\nu -x^\nu\partial^\mu)\varphi(x)=\mathcal{L}^{\mu\nu}\varphi(x).
+\end{align}
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+\begin{align}
+    &[[\varphi(x),M^{\mu\nu}],M^{\rho\sigma}]=[\mathcal{L}^{\mu\nu}\varphi(x),M^{\rho\sigma}]=\mathcal{L}^{\mu\nu}\varphi(x)M^{\rho\sigma}-M^{\rho\sigma}\mathcal{L}^{\mu\nu}\varphi(x)\\
+    =&\mathcal{L}^{\mu\nu}[\varphi(x),M^{\rho\sigma}]=\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}\varphi(x).
+\end{align}
+
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+\begin{align}
+    &[[A,B],C]+[[B,C],A]+[[C,A],B]\\
+    =&({\color{blue}CAB}-{\color{red}CBA}-{\color{brown}ABC}+{\color{teal}BAC})+({\color{brown}ABC}-{\color{orange}ACB}-BCA+{\color{red}CBA})+(BCA-{\color{teal}BAC}-{\color{blue}CAB}+{\color{orange}ACB})\\
+    =&0.
+\end{align}
+
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+By the Jacobi identity, we have 
+\begin{align}
+    &0=[[\varphi(x),M^{\mu\nu}],M^{\rho\sigma}]+[[M^{\mu\nu},M^{\rho\sigma}],\varphi(x)]+[[M^{\rho\sigma},\varphi(x)],M^{\mu\nu}]\\
+    \to&[\varphi(x),[M^{\mu\nu},M^{\rho\sigma}]]=[[\varphi(x),M^{\mu\nu}],M^{\rho\sigma}]+[[M^{\rho\sigma},\varphi(x)],M^{\mu\nu}]\\
+    =&[[\varphi(x),M^{\mu\nu}],M^{\rho\sigma}]-[[\varphi(x),M^{\rho\sigma}],M^{\mu\nu}]\\
+    =&\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}\varphi(x)-\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu}\varphi(x)\\
+    =&(\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}-\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu})\varphi(x).\label{eq:result-3d}
+\end{align}
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+For the result in Equation~\ref{eq:result-3d}, considering the relation $\partial^\mu x^\nu \varphi(x)=(g^{\mu\nu}+x^\nu\partial^\mu)\varphi(x)$, we can have
+\begin{align}
+    &\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}\varphi(x)=\frac{\hbar}{i}\frac{\hbar}{i}(x^\mu\partial^\nu -x^\nu\partial^\mu)(x^\rho\partial^\sigma -x^\sigma\partial^\rho)\varphi(x)\\
+    =&\left(\frac{\hbar}{i}\right)^2 \left[
+    x^\mu(g^{\nu\rho}+x^\rho\partial^\nu)\partial^\sigma-
+    x^\nu(g^{\mu\rho}+x^\rho\partial^\mu)\partial^\sigma-x^\mu(g^{\nu\sigma}+x^\sigma\partial^\nu)\partial^\rho+x^\nu(g^{\mu\sigma}+x^\sigma\partial^\mu)\partial^\rho
+    \right]\varphi(x)\\
+    =&\left(\frac{\hbar}{i}\right)^2\left[
+    g^{\nu\rho}x^\mu\partial^\sigma-g^{\mu\rho}x^{\nu}\partial^\sigma-g^{\nu\sigma}x^\mu\partial^\rho+g^{\mu\sigma}x^\nu\partial^\rho+
+    x^\mu x^\rho\partial^\nu\partial^\sigma-x^\nu x^\rho\partial^\mu\partial^\sigma-x^\mu x^\sigma\partial^\nu\partial^\rho+x^\nu x^\sigma\partial^\mu\partial^\sigma
+    \right]\varphi(x).
+\end{align}
+\begin{align}
+    &\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu}\varphi(x)\\
+    =&\left(\frac{\hbar}{i}\right)^2\left[g^{\sigma\mu}\,x^\rho\partial^\nu
+- g^{\rho\mu}\,x^\sigma\partial^\nu
+- g^{\sigma\nu}\,x^\rho\partial^\mu
++ g^{\rho\nu}\,x^\sigma\partial^\mu 
++\,x^\rho x^\mu\,\partial^\sigma\partial^\nu
+- x^\rho x^\nu\,\partial^\sigma\partial^\mu
+- x^\sigma x^\mu\,\partial^\rho\partial^\nu
++ x^\sigma x^\nu\,\partial^\rho\partial^\mu
+    \right]\varphi(x).
+\end{align}
+Using simpler forms to express:
+\begin{align}
+\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}\varphi(x)
+=&\left(\frac{\hbar}{i}\right)^2\Big[
+g^{\nu\rho}\,x^\mu\partial^\sigma
+- g^{\mu\rho}\,x^\nu\partial^\sigma
+- g^{\nu\sigma}\,x^\mu\partial^\rho
++ g^{\mu\sigma}\,x^\nu\partial^\rho \nonumber\\
+&\qquad
++\,x^\mu x^\rho\,\partial^\nu\partial^\sigma
+- x^\mu x^\sigma\,\partial^\nu\partial^\rho
+- x^\nu x^\rho\,\partial^\mu\partial^\sigma
++ x^\nu x^\sigma\,\partial^\mu\partial^\rho
+\Big]\varphi(x), \\
+\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu}\varphi(x)
+=&\left(\frac{\hbar}{i}\right)^2\Big[
+g^{\sigma\mu}\,x^\rho\partial^\nu
+- g^{\rho\mu}\,x^\sigma\partial^\nu
+- g^{\sigma\nu}\,x^\rho\partial^\mu
++ g^{\rho\nu}\,x^\sigma\partial^\mu \nonumber\\
+&\qquad
++\,x^\rho x^\mu\,\partial^\sigma\partial^\nu
+- x^\sigma x^\mu\,\partial^\rho\partial^\nu
+- x^\rho x^\nu\,\partial^\sigma\partial^\mu
++ x^\sigma x^\nu\,\partial^\rho\partial^\mu
+\Big]\varphi(x).
+\end{align}
+Combining those two results together, it gives 
+\begin{align}
+(\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}-\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu})\varphi(x)
+=&\left(\frac{\hbar}{i}\right)^2\Big[
+g^{\nu\rho}(x^\mu\partial^\sigma-x^\sigma\partial^\mu)
+- g^{\mu\rho}(x^\nu\partial^\sigma-x^\sigma\partial^\nu) \nonumber\\
+&\qquad
+- g^{\nu\sigma}(x^\mu\partial^\rho-x^\rho\partial^\mu)
++ g^{\mu\sigma}(x^\nu\partial^\rho-x^\rho\partial^\nu)
+\Big]\varphi(x) \\[1em]
+=&\;\frac{\hbar}{i}\Big(
+g^{\nu\rho}\mathcal{L}^{\mu\sigma}
+- g^{\mu\rho}\mathcal{L}^{\nu\sigma}
+- g^{\nu\sigma}\mathcal{L}^{\mu\rho}
++ g^{\mu\sigma}\mathcal{L}^{\nu\rho}
+\Big)\varphi(x)\\
+=&i\hbar\Big(
+ g^{\mu\rho}\mathcal{L}^{\nu\sigma}
++ g^{\nu\sigma}\mathcal{L}^{\mu\rho}
+- g^{\nu\rho}\mathcal{L}^{\mu\sigma}
+- g^{\mu\sigma}\mathcal{L}^{\nu\rho}
+\Big)\varphi(x).
+\end{align}
+Actually, it looks similar to 
+\begin{align}
+    &[M^{\mu\nu},M^{\rho\sigma}]\notag\\
+    =&i\hbar \left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma} -g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma} \right)\tag{2.16}
+\end{align}
+\begin{itemize}
+    \item [(f)]
+\end{itemize}
+Now we assume there is a non trivial term $\mathcal{C}$ on $[M^{\mu\nu},M^{\rho\sigma}]$, giving that 
+\begin{align}
+    [M^{\mu\nu},M^{\rho\sigma}]= i\hbar \left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma} -g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma} +\mathcal{C} \right),
+\end{align}
+where $C$ can commutes with $\varphi$ and its derivatives. Now, we have 
+\begin{align}
+    &[\varphi(x),[M^{\mu\nu},M^{\rho\sigma}]]\tag{2.31}\\
+    =&i\hbar [\varphi(x),\left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma} -g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma} +\mathcal{C} \right)]\\
+    =&i\hbar \bigg( g^{\nu\sigma}[\varphi(x),M^{\mu\rho}]+g^{\mu\rho}[\varphi(x),M^{\nu\sigma}]-g^{\mu\sigma}[\varphi,M^{\nu\rho}]-g^{\nu\rho}[\varphi(x),M^{\mu\sigma}]+[\varphi(x),\mathcal{C}]
+    \bigg)\\
+    =&i\hbar\big(
+    g^{\mu\rho}\mathcal{L}^{\nu\sigma}
+    + g^{\nu\sigma}\mathcal{L}^{\mu\rho}
+    - g^{\nu\rho}\mathcal{L}^{\mu\sigma}
+    - g^{\mu\sigma}\mathcal{L}^{\nu\rho}
+    \big)\varphi(x)=(\mathcal{L}^{\mu\nu}\mathcal{L}^{\rho\sigma}-\mathcal{L}^{\rho\sigma}\mathcal{L}^{\mu\nu})\varphi(x)\\
+    =&[\mathcal{L}^{\mu\nu},\mathcal{L}^{\rho\sigma}]\varphi(x).
+\end{align}
+Hence, with the central charge $\mathcal{C}$, the relation still holds. \qed
+\clearpage
+\question{4}{Problem 2.9}
+
+
+Let us write 
+\begin{align*}
+    {\Lambda^\rho}_\tau={\delta^\rho}_\tau+\frac{i}{2\hbar}\delta\omega_{\mu\nu}{(S^{\mu\nu}_V)^\rho}_\tau,\tag{2.32}
+\end{align*}
+where 
+\begin{align*}
+    {(S^{\mu\nu}_V)^\rho}_\tau\equiv\frac{\hbar}{i}(g^{\mu\rho}{\delta^\nu}_\tau-g^{\nu\rho}{\delta^\mu}_\tau) \tag{2.33}
+\end{align*}
+are matrices which constitute the \textit{vector representation} of the Lorentz generators.
+\begin{itemize}
+    \item [(a)] Let $\Lambda=1+\delta\omega$ in eq.~(2.27), and show that 
+    \begin{align*}
+        [\partial^\rho \varphi(x),M^{\mu\nu}]=\mathcal{L}^{\mu\nu}\partial^\rho\varphi(x)+  {(S^{\mu\nu}_V)^\rho}_\tau\partial^{\tau}\varphi(x) \tag{2.34}
+    \end{align*}
+    \item [(b)] Show that the matrices $(S^{\mu\nu}_V)$ must have the same commutation relations as the operators $M^{\mu\nu}$. Hint: see the previous problem.
+    \item [(c)]For a rotation by an angle $\theta$ about the $z$ axis, we have 
+    \begin{align*}
+        {\Lambda^\mu}_\nu=
+        \begin{pmatrix}
+            1 &0 &0&0\\
+            0&\cos{\theta}&-\sin{\theta}&0\\
+            0&\sin{\theta}&\cos{\theta}&0\\
+            0&0&0&1
+        \end{pmatrix}.
+        \tag{2.35}
+    \end{align*}
+    Show that 
+    \begin{align*}
+        \Lambda=\exp{(-i\theta S^{12}_V/\hbar)}.  \tag{2.36}  
+    \end{align*}
+    \item [(d)] For a boost by \textit{rapidity} $\eta$ in the $z$ direction, we have 
+    \begin{align*}
+        {\Lambda^\mu}_\nu=
+        \begin{pmatrix}
+            \cosh{\eta} &0 &0&\sinh{\eta}\\
+            0&1&0&0\\
+            0&0&1&0\\
+            \sinh{\eta}&0&0&\cosh{\eta}
+        \end{pmatrix}.    
+        \tag{2.37}
+    \end{align*}
+    Show that 
+    \begin{align*}
+        \Lambda=\exp{(+i\eta S^{30}_V/\hbar)}.     \tag{2.38}
+    \end{align*}
+\end{itemize}
+\begin{align}
+    U^{-1}(\Lambda)\partial^\rho\varphi(x)U(\Lambda)={\Lambda^{\rho}}_\mu \overline{\partial}^\mu \varphi(\Lambda^{-1}x),\quad \overline{x}^\mu={(\Lambda^{-1})^\mu}_\nu x^\nu, \quad\overline{\partial}^\mu={(\Lambda^{-1})^\mu}_\nu\partial^\nu\tag{2.27}
+\end{align}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+\begin{align}
+    &LHS=\left(1-\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right) \partial^\rho\varphi(x)\left(1+\frac{i}{2\hbar}\delta\omega_{\mu\nu}M^{\mu\nu} \right)\\
+    =&\partial^\rho \varphi(x)+\delta\omega_{\mu\nu}\frac{i}{2\hbar}[\partial^\rho\varphi(x),M^{\mu\nu}]\\
+    &RHS={\Lambda^{\rho}}_\mu \overline{\partial}^\mu \varphi(\Lambda^{-1}x)\\
+    =&({\delta^\rho}_\mu+{\delta\omega^\rho}_\mu)\overline{\partial}^\mu \varphi(({\delta^\mu}_\nu-{\delta\omega^\mu}_\nu)x^\nu)\\
+    =&({\delta^\rho}_\mu+{\delta\omega^\rho}_\mu)({\delta^\mu}_\nu-{\delta\omega^\mu}_\nu)\partial^\nu(\varphi(x)-{\delta\omega^\alpha}_\beta x^\beta\partial_\alpha \varphi(x))\\
+    =&{\delta^{\rho}}_\nu (\partial^\nu\varphi(x)-{\delta\omega^\alpha}_\beta g^{\nu\beta}\partial_\alpha \varphi(x)-{\delta\omega^\alpha}_\beta x^{\beta}\partial^{\nu}\partial_\alpha \varphi(x))\\
+    =&\partial^\rho\varphi(x)-{\delta\omega^\alpha}_\beta g^{\rho\beta}\partial_\alpha \varphi(x)-{\delta\omega^\alpha}_\beta x^{\beta}\partial^{\rho}\partial_\alpha \varphi(x)\\
+    =& \partial^\rho\varphi(x)-{\delta\omega}_{\alpha\beta} g^{\rho\beta}\partial^\alpha \varphi(x)-{\delta\omega}_{\alpha\beta} x^{\beta}\partial^{\rho}\partial^\alpha \varphi(x)\\
+    =& \partial^\rho\varphi(x)-{\delta\omega}_{\mu\nu} g^{\rho\nu}\partial^\mu \varphi(x)-{\delta\omega}_{\mu\nu} x^{\nu}\partial^{\rho}\partial^\mu \varphi(x)\\
+    =& \partial^\rho\varphi(x)+{\delta\omega}_{\mu\nu}\left(-g^{\rho\nu}\partial^\mu -x^{\nu}\partial^{\rho}\partial^\mu \right)\varphi(x)\\
+    =& \partial^\rho\varphi(x)+{\delta\omega}_{\mu\nu}\frac{1}{2}\left(-g^{\rho\nu}\partial^\mu -x^{\nu}\partial^{\rho}\partial^\mu +g^{\rho\mu}\partial^\nu +x^{\mu}\partial^{\rho}\partial^\nu \right)\varphi(x)
+\end{align}
+Hence, we have 
+\begin{align}
+&[\partial^\rho\varphi(x),M^{\mu\nu}]=\frac{\hbar}{i}\left(-g^{\rho\nu}\partial^\mu -x^{\nu}\partial^{\rho}\partial^\mu +g^{\rho\mu}\partial^\nu +x^{\mu}\partial^{\rho}\partial^\nu \right)\varphi(x)\\
+=& \frac{\hbar}{i}(x^\mu\partial^\nu -x^\nu\partial^\mu)\partial^\rho\varphi(x)+\frac{\hbar}{i}(g^{\rho\mu}{\delta^\nu}_\tau \partial^\tau -g^{\rho\nu}{\delta^{\mu}}_\tau \partial^\tau)\varphi(x)\\
+=&\frac{\hbar}{i}(x^\mu\partial^\nu -x^\nu\partial^\mu)\partial^\rho\varphi(x)+\frac{\hbar}{i}(g^{\mu\rho}{\delta^\nu}_\tau  -g^{\nu\rho}{\delta^{\mu}}_\tau )\partial^\tau\varphi(x)\\
+=&\mathcal{L}^{\mu\nu}\partial^\rho\varphi(x)+  {(S^{\mu\nu}_V)^\rho}_\tau\partial^{\tau}\varphi(x),
+\end{align}
+which is exactly the result we want to prove.
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+\begin{align}
+    &{[(S^{\mu\nu}_V),(S^{\rho\sigma}_V)]^\alpha}_\beta\\
+    =&{(S^{\mu\nu}_V)^\alpha}_\tau {(S^{\rho\sigma}_V)^\tau}_\beta - {(S^{\rho\sigma}_V)^\alpha}_\tau {(S^{\mu\nu}_V)^\tau}_\beta\\
+    =&\frac{\hbar}{i}(g^{\mu\alpha}{\delta^\nu}_\tau -g^{\nu\alpha}{\delta^\mu}_\tau)\frac{\hbar}{i}(g^{\rho\tau}{\delta^\sigma}_\beta -g^{\sigma\tau}{\delta^\rho}_\beta) - \frac{\hbar}{i}(g^{\rho\alpha}{\delta^\sigma}_\tau -g^{\sigma\alpha}{\delta^\rho}_\tau)\frac{\hbar}{i}(g^{\mu\tau}{\delta^\nu}_\beta -g^{\nu\tau}{\delta^\mu}_\beta)\\
+    =&\left(\frac{\hbar}{i}\right)^2\bigg[
+    {\color{red}g^{\mu\alpha}g^{\rho\nu}{\delta^\sigma}_\beta}
+    {\color{black}-g^{\mu\alpha}g^{\sigma\nu}{\delta^\rho}_\beta}
+    {\color{blue}-g^{\nu\alpha}g^{\rho\mu}{\delta^\sigma}_\beta}
+    {\color{teal}+g^{\nu\alpha}g^{\sigma\mu}{\delta^\rho}_\beta}\\
+    &\qquad
+    {\color{teal}-g^{\rho\alpha}g^{\mu\sigma}{\delta^\nu}_\beta}
+    {\color{black}+g^{\rho\alpha}g^{\nu\sigma}{\delta^\mu}_\beta}
+    {\color{blue}+g^{\sigma\alpha}g^{\mu\rho}{\delta^\nu}_\beta}
+    {\color{red}-g^{\sigma\alpha}g^{\nu\rho}{\delta^\mu}_\beta}
+    \bigg]\\
+    =&i\hbar\left(\frac{\hbar}{i}\right) \bigg[
+    {\color{blue}g^{\mu\rho}(g^{\nu\alpha}{\delta^\sigma}_\beta -g^{\sigma\alpha}{\delta^\nu}_\beta)}{\color{red}
+    -g^{\nu\rho}(g^{\mu\alpha}{\delta^\sigma}_\beta -g^{\sigma\alpha}{\delta^\mu}_\beta)}{\color{teal}
+    -g^{\mu\sigma}(g^{\nu\alpha}{\delta^\rho}_\beta -g^{\rho\alpha}{\delta^\nu}_\beta)}
+    +g^{\nu\sigma}(g^{\mu\alpha}{\delta^\rho}_\beta -g^{\rho\alpha}{\delta^\mu}_\beta) \bigg]\\
+    =&i\hbar\left(g^{\mu\rho}{(S^{\nu\sigma}_V)^\alpha}_\beta - g^{\nu\rho}{(S^{\mu\sigma}_V)^\alpha}_\beta - g^{\mu\sigma}{(S^{\nu\rho}_V)^\alpha}_\beta + g^{\nu\sigma}{(S^{\mu\rho}_V)^\alpha}_\beta \right)\\
+    =&i\hbar{\Big(g^{\mu\rho}{(S^{\nu\sigma}_V)} - g^{\nu\rho}{(S^{\mu\sigma}_V)} - g^{\mu\sigma}{(S^{\nu\rho}_V)} + g^{\nu\sigma}{(S^{\mu\rho}_V)} \Big)^\alpha}_\beta.
+\end{align}
+This looks exactly the same as
+\begin{align}
+    &[M^{\mu\nu},M^{\rho\sigma}]\notag\\
+    =&i\hbar \left(g^{\nu\sigma} M^{\mu\rho}+ g^{\mu\rho}  M^{\nu\sigma} -g^{\mu\sigma} M^{\nu\rho}- g^{\nu\rho}  M^{\mu\sigma} \right)\tag{2.16}\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+    \begin{align}
+        \frac{i}{\hbar}{(S^{12}_V)^\mu}_\nu=&(g^{1\mu}{\delta^2}_\nu -g^{2\mu}{\delta^1}_\nu)=\begin{pmatrix}
+            0 &0 &0&0\\
+            0&0&1&0\\
+            0&-1&0&0\\
+            0&0&0&0
+        \end{pmatrix}\equiv \mathcal{R},\\
+        \mathcal{R}^2=&\begin{pmatrix}
+            0 &0 &0&0\\
+            0&-1&0&0\\
+            0&0&-1&0\\
+            0&0&0&0
+        \end{pmatrix},\\
+        \mathcal{R}^3=&\begin{pmatrix}
+            0 &0 &0&0\\
+            0&0 &-1&0\\
+            0&1&0&0\\
+            0&0&0&0
+        \end{pmatrix}=-\mathcal{R},\\
+        \mathcal{R}^4=&\begin{pmatrix}
+            0 &0 &0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&0
+        \end{pmatrix}=-\mathcal{R}^2.
+    \end{align}
+    Hence, we have 
+    \begin{align}
+        \Lambda=&\exp{(-i\theta S^{12}_V/\hbar)}=\exp{(-\theta \mathcal{R})}\\
+        =&\sum_{n=0}^{\infty}\frac{(-\theta \mathcal{R})^n}{n!}=\sum_{m=0}^{\infty}\frac{(-\theta \mathcal{R})^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{(-\theta \mathcal{R})^{2m+1}}{(2m+1)!}\\
+        =&I+\sum_{m=1}^{\infty}\frac{(-1)^m\theta^{2m}\mathcal{R}^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{(-1)\theta^{2m+1}\mathcal{R}^{2m+1}}{(2m+1)!}\\
+        =&I+ \sum_{m=1}^{\infty}\frac{(-1)^{m}\theta^{2m}}{(2m)!}\mathcal{R}^2-\sum_{m=0}^{\infty}\frac{(-1)^{m}\theta^{2m+1}}{(2m+1)!}\mathcal{R}\\
+        =&I+(\cos{\theta}-1)\mathcal{R}^2-\sin{\theta}\mathcal{R}\\
+        =&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&1
+        \end{pmatrix}+\begin{pmatrix}
+            0 &0 &0&0\\
+            0&\cos{\theta}-1&0&0\\
+            0&0&\cos{\theta}-1&0\\
+            0&0&0&0
+        \end{pmatrix}+\begin{pmatrix}
+            0 &0 &0&0\\
+            0&0 &-\sin{\theta}&0\\
+            0&\sin{\theta}&0&0\\
+            0&0&0&0
+        \end{pmatrix}\\
+        =&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&\cos{\theta}&-\sin{\theta}&0\\
+            0&\sin{\theta}&\cos{\theta}&0\\
+            0&0&0&1
+        \end{pmatrix}.
+        \end{align}
+    This is exactly the same as the result in Equation~(2.35).    
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+    \begin{align}
+        \frac{i}{\hbar}{(S^{30}_V)^\mu}_\nu=&(g^{3\mu}{\delta^0}_\nu -g^{0\mu}{\delta^3}_\nu)=\begin{pmatrix}
+            0 &0 &0&1\\
+            0&0&0&0\\
+            0&0&0&0\\
+            1&0&0&0
+        \end{pmatrix}\equiv \mathcal{B},\\
+        \mathcal{B}^2=&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+            0&0&0&1
+        \end{pmatrix},\\
+        \mathcal{B}^3=&\begin{pmatrix}
+            0 &0 &0&1\\
+            0&0&0&0\\
+            0&0&0&0\\
+            1&0&0&0
+        \end{pmatrix}=\mathcal{B},\\
+        \mathcal{B}^4=&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+            0&0&0&1
+        \end{pmatrix}=\mathcal{B}^2.
+    \end{align}
+    Hence, we have 
+    \begin{align}
+        \Lambda=&\exp{(+i\eta S^{30}_V/\hbar)}=\exp{(\eta \mathcal{B})}\\
+        =&\sum_{n=0}^{\infty}\frac{(\eta \mathcal{B})^n}{n!}=\sum_{m=0}^{\infty}\frac{(\eta \mathcal{B})^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{(\eta \mathcal{B})^{2m+1}}{(2m+1)!}\\
+        =&I+\sum_{m=1}^{\infty}\frac{\eta^{2m}\mathcal{B}^{2m}}{(2m)!}+\sum_{m=0}^{\infty}\frac{\eta^{2m+1}\mathcal{B}^{2m+1}}{(2m+1)!}\\
+        =&I+ \sum_{m=1}^{\infty}\frac{\eta^{2m}}{(2m)!}\mathcal{B}^2+\sum_{m=0}^{\infty}\frac{\eta^{2m+1}}{(2m+1)!}\mathcal{B}\\
+        =&I+(\cosh{\eta}-1)\mathcal{B}^2+\sinh{\eta}\mathcal{B}\\
+        =&\begin{pmatrix}
+            1 &0 &0&0\\
+            0&1&0&0\\
+            0&0&1&0\\
+            0&0&0&1
+        \end{pmatrix}+\begin{pmatrix}
+            \cosh{\eta}-1 &0 &0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+            0&0&0&\cosh{\eta}-1
+        \end{pmatrix}+\begin{pmatrix}
+            0 &0 &0&\sinh{\eta}\\
+            0&0&0&0\\
+            0&0&0&0\\
+            \sinh{\eta}&0&0&0
+        \end{pmatrix}\\
+        =&\begin{pmatrix}
+            \cosh{\eta} &0 &0&\sinh{\eta}\\
+            0&1&0&0\\
+            0&0&1&0\\
+            \sinh{\eta}&0&0&\cosh{\eta}
+        \end{pmatrix}.
+        \end{align}
+    This is exactly the same as the result in Equation~(2.37).\qed
+\clearpage
+\question{5}{Problem 3.1}
+
+Derive eq.~(3.29) from eqs.~(3.21),~(3.24), and~(3.28).
+\begin{align}
+    a(\mathbf{k}) & =\int d^3 x e^{-i k x}\left[i \partial_0 \varphi(x)+\omega \varphi(x)\right] \tag{3.21}\\
+    \Pi(x)&=\dot{\varphi}(x)=\partial_0\varphi(x)\tag{3.24}\\
+    [\varphi(\mathbf{x}, t), \varphi(\mathbf{x}', t)]&=0, \quad [\Pi(\mathbf{x}, t), \Pi(\mathbf{x}', t)]=0, \quad
+    [\varphi(\mathbf{x}, t), \Pi(\mathbf{x}', t)]=i \delta^{(3)}(\mathbf{x}-\mathbf{x}')\tag{3.28}
+\end{align}
+\begin{align}
+    [a(\mathbf{k}), a(\mathbf{k}')] & =0, \quad [a^\dagger(\mathbf{k}), a^\dagger(\mathbf{k}')] =0, \quad
+    [a(\mathbf{k}), a^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}') \tag{3.29}
+\end{align}
+\answer{} 
+Since $a(\mathbf{x})$ is independent of time, we can set $x^0=y^0$, meaning all time variables are the same. Now, we compute
+\begin{align}
+    &[a(\mathbf{k}), a(\mathbf{k}')]\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}[i\partial_0\varphi(x)+\omega \varphi(x),i\partial_0\varphi(y)+\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    -[\partial_0\varphi(x),\partial_0\varphi(y)]+i\omega[\partial_0\varphi(x),\varphi(y)]+i\omega[\varphi(x),\partial_0\varphi(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega[\partial_0\varphi(x),\varphi(y)]+i\omega[\varphi(x),\partial_0\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega(-i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&0,
+\end{align}
+where we have used the commutation relations in Equation~(3.28). Similarly, we can show that 
+\begin{align}
+    &[a^\dagger(\mathbf{k}), a^\dagger(\mathbf{k}')]\\
+    =&\int d^3x d^3y e^{ikx}e^{ik'y}[i\partial_0\varphi(x)-\omega \varphi(x),i\partial_0\varphi(y)-\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{ikx}e^{ik'y}\bigg(
+    -[\partial_0\varphi(x),\partial_0\varphi(y)]-i\omega[\partial_0\varphi(x),\varphi(y)]-i\omega[\varphi(x),\partial_0\varphi(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{ikx}e^{ik'y}\bigg(
+    -i\omega[\partial_0\varphi(x),\varphi(y)]-i\omega[\varphi(x),\partial_0\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{ikx}e^{ik'y}\bigg(
+    -i\omega(-i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&0.
+\end{align}
+Now, we compute
+\begin{align}
+    &[a(\mathbf{k}), a^\dagger(\mathbf{k}')]\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}[i\partial_0\varphi(x)+\omega \varphi(x),i\partial_0\varphi(y)-\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    -[\partial_0\varphi(x),\partial_0\varphi(y)]-i\omega[\partial_0\varphi(x),\varphi(y)]+i\omega[\varphi(x),\partial_0\varphi(y)]-\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    -i\omega[\partial_0\varphi(x),\varphi(y)]+i\omega[\varphi(x),\partial_0\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    -i\omega(-i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}(2\omega \delta^{(3)}(\mathbf{x}-\mathbf{y}))\\
+    =&\int d^3x e^{-i(\mathbf{k}-\mathbf{k}')\cdot \mathbf{x}}(2\omega)\\
+    =& (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}').
+\end{align}
+\qed
+\clearpage
+
+\question{6}{Problem 3.5}
+
+Consider a complex (that is, non-hermitian) scalar field $\varphi$ with Lagrangian density 
+\begin{align*}
+    \mathcal{L}= - \partial^\mu\varphi^\dagger\partial_\mu\varphi - m^2\varphi^\dagger\varphi+\Omega_0.
+\end{align*}
+\begin{itemize}
+    \item [(a)] Show that $\varphi$ obeys the Klein-Gordon equation.
+    \item [(b)] Treat $\varphi$ and $\varphi^\dagger$ as independent fields, and find the conjugate momentum for each. Compute the Hamiltonian density in terms of these conjugate momenta and the fields themselves (but not their time derivatives).
+    \item [(c)] Write the mode expansion of $\varphi$ as 
+    \begin{align*}
+        \varphi(x)=\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}].
+    \end{align*}
+    Express $a(\mathbf{k})$ and $b(\mathbf{k})$ in terms of $\varphi$ and $\varphi^\dagger$ and their time derivatives.
+    \item [(d)] Assuming canonical commutation relations for the fields and their conjugate momenta, find the commutation relations obeyed by $a(\mathbf{k})$ and $b(\mathbf{k})$ and their Hermitian conjugates.
+    \item [(e)] Express the Hamiltonian in terms of $a(\mathbf{k})$ and $b(\mathbf{k})$ and their Hermitian conjugates. What value must $\Omega_0$ have in order for the ground state to have zero energy?
+\end{itemize}
+\begin{align}
+    d\widetilde{k}=\frac{d^3k}{(2\pi)^3 2\omega},\quad \omega=\sqrt{\mathbf{k}^2+m^2} \tag{3.11}
+\end{align}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \varphi}=&-m^2\varphi^\dagger,\\
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}=&-\partial^\mu\varphi^\dagger,\\
+    \partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}\right)=&-\partial_\mu\partial^\mu\varphi^\dagger.
+\end{align}
+Hence, the Euler-Lagrange equation gives that
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial \varphi}-\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}\right)=0\\
+    \Rightarrow& -m^2\varphi^\dagger+\partial_\mu\partial^\mu\varphi^\dagger=0\\
+    \Rightarrow& (\partial_\mu\partial^\mu -m^2)\varphi^\dagger=0.
+\end{align}
+Similarly, we can show that
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial \varphi^\dagger}=-m^2\varphi,\\
+    &\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi^\dagger)}=-\partial^\mu\varphi,\\
+    &\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi^\dagger)}\right)=-\partial_\mu\partial^\mu\varphi.
+\end{align}
+Hence, the Euler-Lagrange equation gives that
+\begin{align}
+    &\frac{\partial \mathcal{L}}{\partial \varphi^\dagger}-\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi^\dagger)}\right)=0\\
+    \Rightarrow& -m^2\varphi+\partial_\mu\partial^\mu\varphi=0\\
+    \Rightarrow& (\partial_\mu\partial^\mu -m^2)\varphi=0.
+\end{align}
+Therefore, both $\varphi$ and $\varphi^\dagger$ obey the Klein-Gordon equation.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+\begin{align}
+    \Pi_\varphi=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi)}=-\partial^0\varphi^\dagger=-\frac{-\partial}{\partial t}\varphi=+\dot{\varphi}^\dagger,\\
+    \Pi_{\varphi^\dagger}=&\frac{\partial \mathcal{L}}{\partial (\partial_0\varphi^\dagger)}=-\partial^0\varphi=-\frac{-\partial}{\partial t}\varphi=+\dot{\varphi}.
+\end{align}
+The Hamiltonian density is given by
+\begin{align}
+    \mathcal{H}=&\Pi_\varphi\dot{\varphi}+\Pi_{\varphi^\dagger}\dot{\varphi}^\dagger-\mathcal{L}\\
+    =&\dot{\varphi}^\dagger\dot{\varphi}+\dot{\varphi}\dot{\varphi}^\dagger+\partial^\mu\varphi^\dagger\partial_\mu\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\dot{\varphi}^\dagger\dot{\varphi}+\dot{\varphi}\dot{\varphi}^\dagger-\dot{\varphi}^\dagger\dot{\varphi}+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\dot{\varphi}\dot{\varphi}^\dagger+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\\
+    =&\Pi_{\varphi^\dagger}\Pi_\varphi+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0.
+\end{align} 
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+\begin{align}
+    \varphi(x)=&\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}]\\
+    \Rightarrow \dot{\varphi}(x)=&\int \widetilde{dk}[i\omega a(\mathbf{k})e^{ikx}-i\omega b^\dagger(\mathbf{k})e^{-ikx}]\\
+    \varphi^\dagger(x)=&\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]\\
+    \Rightarrow \dot{\varphi}^\dagger(x)=&\int \widetilde{dk}[-i\omega a^\dagger(\mathbf{k})e^{-ikx}+i\omega b(\mathbf{k})e^{ikx}]
+\end{align}
+Hence, we have
+\begin{align}
+     &\int d^3x e^{-ikx}\varphi(x)\\
+    =&\int d^3x e^{-ikx}\int \widetilde{dk'}[a(\mathbf{k}')e^{ik'x}+b^\dagger(\mathbf{k}')e^{-ik'x}]\\
+    =&\int \widetilde{dk'}\int d^3x [a(\mathbf{k}')e^{i(k'-k)x}+b^\dagger(\mathbf{k}')e^{-i(k'+k)x}]\\
+    =&\int \widetilde{dk'}\left[a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right] \\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\frac{1}{2\omega}a(\mathbf{k})e^{-i(\omega-\omega)t}+\frac{1}{2\omega}b^\dagger(-\mathbf{k})e^{i(\omega+\omega)t}\\
+    =&\frac{1}{2\omega}a(\mathbf{k})+\frac{1}{2\omega}b^\dagger(-\mathbf{k})e^{i2\omega t}.
+\end{align}
+Next, we compute
+\begin{align}
+     &\int d^3x e^{-ikx}\dot{\varphi}(x)\\
+    =&\int d^3x e^{-ikx}\int \widetilde{dk'}[-i\omega' a(\mathbf{k}')e^{ik'x}+i\omega' b^\dagger(\mathbf{k}')e^{-ik'x}]\\
+    =&\int \widetilde{dk'}\int d^3x [-i\omega' a(\mathbf{k}')e^{i(k'-k)x}+i\omega' b^\dagger(\mathbf{k}')e^{-i(k'+k)x}]\\
+    =&\int \widetilde{dk'}\left[-i\omega' a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+i\omega' b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right] \\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[-i\omega' a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+i\omega' b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\int \frac{d^3k'}{(2\pi)^3 2\omega'}\left[-i\omega' a(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'-\mathbf{k})e^{-i(\omega'-\omega)t}+i\omega' b^\dagger(\mathbf{k}')(2\pi)^3\delta^{(3)}(\mathbf{k}'+\mathbf{k})e^{i(\omega'+\omega)t}\right]\\
+    =&\frac{-i\omega}{2\omega}a(\mathbf{k})e^{-i(\omega-\omega)t}+\frac{i\omega}{2\omega}b^\dagger(-\mathbf{k})e^{i(\omega+\omega)t}\\
+    =&\frac{-i}{2}a(\mathbf{k})+\frac{i}{2}b^\dagger(-\mathbf{k})e^{i2\omega t}.
+\end{align}
+Therefore, we have
+\begin{align}
+    \int d^3x e^{-ikx}[i\partial_0 \varphi(x)+\omega \varphi(x)]&=\int d^3x e^{-ikx}[i\dot{\varphi}(x)+\omega \varphi(x)]\\
+    &=\left[i\frac{-i}{2}a(\mathbf{k})+i\frac{i}{2}b^\dagger(-\mathbf{k})e^{i2\omega t}\right]+\left[\frac{\omega}{2\omega}a(\mathbf{k})+\frac{\omega}{2\omega}b^\dagger(-\mathbf{k})e^{i2\omega t}\right]\\
+    &=a(\mathbf{k}).
+\end{align}
+Similarly, we can show that 
+\begin{align}
+    \varphi^\dagger(x)=&\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]\\
+    \Rightarrow b(\mathbf{x})=&\int d^3x e^{-ikx}[\omega\varphi^\dagger(x)+i\partial_0\varphi^\dagger(x)],
+\end{align}
+by exchanging $a(\mathbf{k})$ and $b^\dagger(\mathbf{k})$ with $a^\dagger(\mathbf{k})$ and $b(\mathbf{k})$, respectively.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+Again, since $a(\mathbf{x})$ and $b(\mathbf{x})$ are independent of time, we can set $x^0=y^0$, meaning all time variables are the same. Also, we rewrite the $a(\mathbf{k})$ and $b(\mathbf{k})$ for convention. 
+\begin{align}
+    a(\mathbf{k})=&\int d^3 x e^{-i k x}\left[i \partial_0 \varphi(x)+\omega \varphi(x)\right]=\int d^3 x e^{-i k x}\left[i \Pi_{\varphi^\dagger}(x)+\omega \varphi(x)\right],\\
+    b(\mathbf{k})=&\int d^3x e^{-ikx}[\omega\varphi^\dagger(x)+i\partial_0\varphi^\dagger(x)]=\int d^3 x e^{-i k x}\left[i \Pi_\varphi(x) +\omega \varphi^\dagger(x)\right].
+\end{align}
+Now, we compute 
+\begin{align}
+    &[a(\mathbf{k}), a(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),i\Pi_{\varphi^\dagger}(y)+\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    -[\Pi_{\varphi^\dagger}(x),\Pi_{\varphi^\dagger}(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi(y)]+i\omega[\varphi(x),\Pi_{\varphi^\dagger}(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    0
+    \bigg)\\
+    =&0,
+\end{align}
+where we have used the canonical commutation relations and the fact that $\varphi$ and $\varphi^\dagger$ are independent fields. Similarly, we can show that 
+\begin{align}
+    &[b(\mathbf{k}), b(\mathbf{k}')]=0,
+\end{align}
+by exchanging $a(\mathbf{k})$, $\varphi$ and $\Pi_{\varphi^\dagger}$ with $b(\mathbf{k})$, $\varphi^\dagger$ and $\Pi_\varphi$, respectively. Now, we compute 
+\begin{align}
+    &[a(\mathbf{k}), b(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),i\Pi_\varphi(y) +\omega \varphi^\dagger(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    -[\Pi_{\varphi^\dagger}(x),\Pi_\varphi(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi^\dagger(y)]+i\omega[\varphi(x),\Pi_\varphi(y)]-\omega^2[\varphi(x),\varphi^\dagger(y)]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega[\varphi(x),\Pi_\varphi(y)]-i\omega[\varphi^\dagger(y),\Pi_{\varphi^\dagger}(x),]
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{-ik'y}\bigg(
+    i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))-i\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&0.
+\end{align}
+Next, we compute
+\begin{align}
+    &[a(\mathbf{k}), b^\dagger(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),-i\Pi_{\varphi^\dagger}(y) +\omega \varphi(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    [\Pi_{\varphi^\dagger}(x),\Pi_{\varphi^\dagger}(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi(y)]-i\omega[\varphi(x),\Pi_{\varphi^\dagger}(y)]+\omega^2[\varphi(x),\varphi(y)]
+    \bigg)\\
+    =0,
+\end{align}
+by the same reason as $[a(\mathbf{k}), a(\mathbf{k}')]$. Also, the result leads to
+\begin{align}
+    &[a^\dagger(\mathbf{k}), b(\mathbf{k}')] =0.
+\end{align}
+Finally, we compute
+\begin{align}
+    &[a(\mathbf{k}), a^\dagger(\mathbf{k}')] \\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}[i\Pi_{\varphi^\dagger}(x)+\omega \varphi(x),-i\Pi_{\varphi}(y) +\omega \varphi^\dagger(y)]\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    [\Pi_{\varphi^\dagger}(x),\Pi_{\varphi}(y)]+i\omega[\Pi_{\varphi^\dagger}(x),\varphi^\dagger(y)]-i\omega[\varphi(x),\Pi_{\varphi}(y)]+\omega^2[\varphi(x),\varphi^\dagger(y)]
+    \bigg)\\
+    =&-i\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    \omega[\varphi(x),\Pi_{\varphi}(y)]+\omega[\varphi^\dagger(y),\Pi_{\varphi^\dagger}(x)]
+    \bigg)\\
+    =&-i\int d^3x d^3y e^{-ikx}e^{ik'y}\bigg(
+    \omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))+\omega(i\delta^{(3)}(\mathbf{x}-\mathbf{y}))
+    \bigg)\\
+    =&\int d^3x d^3y e^{-ikx}e^{ik'y}(2\omega \delta^{(3)}(\mathbf{x}-\mathbf{y}))\\
+    =&\int d^3x e^{-i(\mathbf{k}-\mathbf{k}')\cdot \mathbf{x}}(2\omega)\\
+    =& (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}').
+\end{align}
+Similarly, we can show that
+\begin{align}
+    &[b(\mathbf{k}), b^\dagger(\mathbf{k}')] = (2\pi)^3 2\omega \delta^{(3)}(\mathbf{k}-\mathbf{k}'),
+\end{align} 
+by exchanging $a(\mathbf{k})$,$a^\dagger(\mathbf{k})$, $\varphi$ and $\Pi_{\varphi^\dagger}$ with $b(\mathbf{k})$,$b^\dagger(\mathbf{k})$, $\varphi^\dagger$ and $\Pi_\varphi$, respectively.
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+First, we know that 
+\begin{align}
+    H= \int d^3x \mathcal{H}=&\int d^3x \left(\Pi_{\varphi^\dagger}\Pi_\varphi+\nabla\varphi^\dagger\cdot\nabla\varphi+m^2\varphi^\dagger\varphi-\Omega_0\right).
+\end{align}
+Before we proceed, we remind each term in the Hamiltonian density.
+\begin{align}
+    \varphi = &\int \widetilde{dk}[a(\mathbf{k})e^{ikx}+b^\dagger(\mathbf{k})e^{-ikx}]=\int \widetilde{dk}[a_\mathbf{k}e^{ikx}+b^\dagger_\mathbf{k}e^{-ikx}],\\
+    \varphi^\dagger = &\int \widetilde{dk}[a^\dagger(\mathbf{k})e^{-ikx}+b(\mathbf{k})e^{ikx}]=\int \widetilde{dk}[a^\dagger_\mathbf{k}e^{-ikx}+b_\mathbf{k}e^{ikx}],\\
+    \Pi_\varphi = &\dot{\varphi}^\dagger=\int \widetilde{dk}[i\omega a^\dagger_\mathbf{k}e^{-ikx}-i\omega b_\mathbf{k}e^{ikx}],\\
+    \Pi_{\varphi^\dagger} = &\dot{\varphi}=\int \widetilde{dk}[-i\omega a_\mathbf{k}e^{ikx}+i\omega b^\dagger_\mathbf{k}e^{-ikx}],\\
+    \nabla\varphi = &\int \widetilde{dk}[i\mathbf{k} a_\mathbf{k}e^{ikx}-i\mathbf{k} b^\dagger_\mathbf{k}e^{-ikx}],\\
+    \nabla\varphi^\dagger = &\int \widetilde{dk}[-i\mathbf{k} a^\dagger_\mathbf{k}e^{-ikx}+i\mathbf{k} b_\mathbf{k}e^{ikx}].\\
+\end{align}
+Now, we compute each term in the Hamiltonian.
+\begin{align}
+    &\int d^3x \Pi_{\varphi^\dagger}\Pi_\varphi\\
+    =&\int d^3x \int \widetilde{dk}[-i\omega a_\mathbf{k}e^{ikx}+i\omega b^\dagger_\mathbf{k}e^{-ikx}]\int \widetilde{dk'}[i\omega' a^\dagger_{\mathbf{k}'}e^{-ik'x}-i\omega' b_{\mathbf{k}'}e^{ik'x}]\\
+    =&\int \widetilde{dk}\widetilde{dk'}\int d^3x \bigg(
+    \omega\omega' a_\mathbf{k}a^\dagger_{\mathbf{k}'}e^{i(k-k')x}+\omega\omega' b^\dagger_\mathbf{k}b_{\mathbf{k}'}e^{-i(k-k')x}-\omega\omega' a_\mathbf{k}b_{\mathbf{k}'}e^{i(k+k')x}-\omega\omega' b^\dagger_\mathbf{k}a^\dagger_{\mathbf{k}'}e^{-i(k+k')x}
+    \bigg)\\
+    =&\int \widetilde{dk}\widetilde{dk'} \bigg(
+    \omega\omega' a_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega-\omega')t}+\omega\omega' b^\dagger_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega-\omega')t}\\
+    &-\omega\omega' a_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}-\omega\omega' b^\dagger_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega}\frac{d^3k'}{(2\pi)^3 2\omega'} \bigg(
+    \omega\omega' a_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega-\omega')t}+\omega\omega' b^\dagger_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega-\omega')t}\\
+    &-\omega\omega' a_\mathbf{k}b_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}-\omega\omega' b^\dagger_\mathbf{k}a^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega} \frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 a_\mathbf{k}b_{-\mathbf{k}}e^{-i2\omega t}-\omega^2 b^\dagger_\mathbf{k}a^\dagger_{-\mathbf{k}}e^{i2\omega t}
+    \bigg)\\
+    &=\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 a_\mathbf{k}b_{-\mathbf{k}}e^{-i2\omega t}-\omega^2 b^\dagger_\mathbf{k}a^\dagger_{-\mathbf{k}}e^{i2\omega t}
+    \bigg)
+\end{align}
+\begin{align}
+    &\int d^3x \nabla\varphi^\dagger\cdot\nabla\varphi\\
+    =&\int d^3x \int \widetilde{dk}[-i\mathbf{k} a^\dagger_\mathbf{k}e^{-ikx}+i\mathbf{k} b_\mathbf{k}e^{ikx}]\cdot \int \widetilde{dk'}[i\mathbf{k}' a_{\mathbf{k}'}e^{ik'x}-i\mathbf{k}' b^\dagger_{\mathbf{k}'}e^{-ik'x}]\\
+    =&\int \widetilde{dk}\widetilde{dk'}\int d^3x \bigg(
+    \mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}a_{\mathbf{k}'}e^{i(k'-k)x}+\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k'-k)x}-\mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k+k')x}-\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}a_{\mathbf{k}'}e^{i(k+k')x}
+    \bigg)\\
+    =&\int \widetilde{dk}\widetilde{dk'} \bigg(
+    \mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &-\mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}-\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega}\frac{d^3k'}{(2\pi)^3 2\omega'} \bigg(
+    \mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &-\mathbf{k}\cdot\mathbf{k}' a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}-\mathbf{k}\cdot\mathbf{k}' b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \widetilde{dk} \frac{1}{2\omega}\bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg),\quad\text{by $\mathbf{k'}=-\mathbf{k}$.}
+\end{align}
+\begin{align}
+    &\int d^3x m^2\varphi^\dagger\varphi\\
+    =&\int d^3x m^2 \int \widetilde{dk}[a^\dagger_\mathbf{k}e^{-ikx}+b_\mathbf{k}e^{ikx}]\int \widetilde{dk'}[a_{\mathbf{k}'}e^{ik'x}+b^\dagger_{\mathbf{k}'}e^{-ik'x}]\\
+    =&\int \widetilde{dk}\widetilde{dk'}\int d^3x m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}'}e^{i(k'-k)x}+b_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k'-k)x}+a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}e^{-i(k+k')x}+b_\mathbf{k}a_{\mathbf{k}'}e^{i(k+k')x}
+    \bigg)\\
+    =&\int \widetilde{dk}\widetilde{dk'} m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &+a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}+b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \frac{d^3k}{(2\pi)^3 2\omega}\frac{d^3k'}{(2\pi)^3 2\omega'} m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{-i(\omega'-\omega)t}+b_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k}')e^{i(\omega'-\omega)t}\\
+    &+a^\dagger_\mathbf{k}b^\dagger_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{i(\omega+\omega')t}+b_\mathbf{k}a_{\mathbf{k}'}(2\pi)^3\delta^{(3)}(\mathbf{k}+\mathbf{k}')e^{-i(\omega+\omega')t}
+    \bigg)\\
+    =&\int \widetilde{dk} m^2 \bigg(
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+b_\mathbf{k}b^\dagger_{\mathbf{k}}+a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)              
+\end{align}
+Therefore, the Hamiltonian is given by
+\begin{align}
+    H=&\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 b^\dagger_\mathbf{k}a^\dagger_{-\mathbf{k}}e^{i2\omega t}-\omega^2 a_\mathbf{k}b_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk}\frac{1}{2\omega} \bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk} \frac{1}{2\omega} \bigg(m^2
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+m^2b_\mathbf{k}b^\dagger_{\mathbf{k}}+m^2a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+m^2b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg) -\int d^3x \Omega_0
+\end{align}
+Also, we can change varible $\mathbf{k}\to\mathbf{k'}=-\mathbf{k}, d\mathbf{k}=d\mathbf{k'}$, but $\omega\to\omega'=\omega$. Then, the third and fourth terms in the first integral become $b^\dagger_{\mathbf{k}}\to b^\dagger_{\mathbf{-k}}$ and so on. Hence, we have
+\begin{align}
+    H=&\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 b^\dagger_{-\mathbf{k}}a^\dagger_{\mathbf{k}}e^{i2\omega t}-\omega^2 a_{-\mathbf{k}}b_{\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk}\frac{1}{2\omega} \bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk} \frac{1}{2\omega} \bigg(m^2
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+m^2b_\mathbf{k}b^\dagger_{\mathbf{k}}+m^2a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+m^2b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg) -\int d^3x \Omega_0\\
+    =&\int \widetilde{dk}\frac{1}{2\omega}\bigg(
+    \omega^2 a_\mathbf{k}a^\dagger_{\mathbf{k}}+\omega^2 b^\dagger_\mathbf{k}b_{\mathbf{k}}-\omega^2 a^\dagger_{\mathbf{k}}b^\dagger_{-\mathbf{k}}e^{i2\omega t}-\omega^2 b_{\mathbf{k}}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk}\frac{1}{2\omega} \bigg(
+    \mathbf{k}^2 a^\dagger_\mathbf{k}a_{\mathbf{k}}+\mathbf{k}^2 b_\mathbf{k}b^\dagger_{\mathbf{k}}+\mathbf{k}^2 a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+\mathbf{k}^2 b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg)\\
+    &+\int \widetilde{dk} \frac{1}{2\omega} \bigg(m^2
+    a^\dagger_\mathbf{k}a_{\mathbf{k}}+m^2b_\mathbf{k}b^\dagger_{\mathbf{k}}+m^2a^\dagger_\mathbf{k}b^\dagger_{-\mathbf{k}}e^{i2\omega t}+m^2b_\mathbf{k}a_{-\mathbf{k}}e^{-i2\omega t}
+    \bigg) -\int d^3x \Omega_0\\
+    =&\int \widetilde{dk}\frac{1}{2\omega}\omega^2 \bigg( a_{\mathbf{k}}a_{\mathbf{k}}^\dagger+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}+a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+ b_{\mathbf{k}}b_{\mathbf{k}}^\dagger
+    \bigg)-\int d^3x \Omega_0, \quad\text{by $\omega^2=\mathbf{k}^2+m^2$}\\
+    =&\int \widetilde{dk}\frac{\omega}{2} \bigg( 2a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+2b_{\mathbf{k}}^\dagger b_{\mathbf{k}}+2(2\pi)^3 2\omega \delta^{(3)}(0)
+    \bigg)-\int d^3x \Omega_0, \quad\text{by commutation relation}\\
+    =&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg)+\int\frac{d^3k}{(2\pi)^3 2\omega} \omega (2\pi)^3 2\omega \delta^{(3)}(0)  -\int d^3x \Omega_0\\
+    =&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg)+2\frac{1}{2(2\pi)^3}\int d^3k \omega (2\pi)^3\delta^{(3)}(0)-\Omega_0V , \quad \text{by } \int d^3x =V \\
+    =&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg)+2\mathcal{E}_0 V -\Omega_0V, \quad\text{by } \mathcal{E}_0=\frac{1}{2(2\pi)^3}\int d^3 k \omega, V= (2\pi)^3\delta^{(3)}(0).
+\end{align}
+In order to make the vacuum energy zero, we set $\Omega_0=2\mathcal{E}_0$. Hence, the Hamiltonian is given by
+\begin{align}
+    H=&\int \widetilde{dk}\omega \bigg( a_{\mathbf{k}}^\dagger a_{\mathbf{k}}+b_{\mathbf{k}}^\dagger b_{\mathbf{k}}
+    \bigg).
+\end{align}
+\qed

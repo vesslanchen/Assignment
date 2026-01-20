@@ -1,0 +1,64 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[letterpaper, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage[compat=1.0.0]{tikz-feynman}\usepackage{feynmp-auto}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace} % 引入這個套件
+\usepackage{tensor}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}\hypersetup{colorlinks=true,linkcolor=black,citecolor=green,urlcolor=blue}
+
+\title{University of Minnesota\\
+School of Physics and Astronomy\\
+\textbf{2025 Fall Physics 8901\\Elementary Particle Physics I}\\ 
+Assignment Solution}
+\author{Lecture Instructor: Professor Tony Gherghetta \\ \\
+        Zong-En Chen\\ chen9613@umn.edu}
+\date{\today}  
+
+% 自定義範例環境
+\newtheorem{example}{Example}[section]
+\newtheorem{solution}{Sol.}[section]
+% 自定義習題環境
+\newtheorem{exercise}{Ex.}[section]
+
+\newtheorem{theorem}{Theorem}[section]
+
+\newcommand{\question}[2]{\section*{Question #1} #2}
+\newcommand{\answer}[1]{\section*{Answer}#1}
+
+\begin{document}
+\onehalfspacing
+%\maketitle
+\begin{titlepage}
+    \centering
+    \vspace*{\fill} % 從頂端往下推到中間
+    {\LARGE University of Minnesota\\
+    School of Physics and Astronomy\\[1em]
+    \textbf{2025 Fall Physics 8901\\Elementary Particle Physics I}\\ 
+    Assignment Solution \par}
+    \vspace{2cm}
+    {\large Lecture Instructor: Professor Tony Gherghetta \par}
+    \vspace{1cm}
+    {\large Zong-En Chen\\ chen9613@umn.edu \par}
+    \vspace{2cm}
+    {\large \today \par}
+    \vspace*{\fill} % 從底部往上推到中間
+\end{titlepage}
+
+\tikzset{graviton/.style={decorate, decoration={snake, amplitude=.4mm, segment length=1.5mm, pre length=.5mm, post length=.5mm}, double}}
+
+\include{Problem 1/Prob1}
+\include{Problem 2/Prob2}
+\include{Problem 3/Prob3}
+\include{Problem 4/Prob4}
+\include{Problem 5/Prob5}
+\include{Problem 6/Prob6}
+\include{Problem 7/Prob7}
+
+\end{document}

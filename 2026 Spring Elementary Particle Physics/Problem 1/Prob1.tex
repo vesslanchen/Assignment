@@ -1,0 +1,321 @@
+\section*{Problem Set 1 due 9 AM, Monday, September 15th}
+
+\question{1}{}
+\begin{itemize}
+    \item[(a)] In quantum mechanics, what is the dimension of a wave function $\phi(\mathbf{x})$ of a particle the norm of which is $\int d^3 x \phi^*(\mathbf{x})\phi(\mathbf{x})$?
+    \item[(b)] The transition rate $\omega_{fi}$ for $i\to f$ is given by Fermi's golden rule 
+    \begin{align*}
+        \omega_{fi}=\left| \langle \phi_f | H_{int}|\phi_i \rangle \right |^2\rho,
+    \end{align*}
+    where $H_{int}$ is the interaction Hamiltonian, $\rho$ is the number of final states per unit of energy, and $\phi_{i,f}$ are the wave functions of the initial and final states. Restore the appropriate factors of $\hbar$ and $c$ to have $\omega_{fi}$ in number of events per second.
+    \item[(c)] Similar to quantum mechanics, the Hamiltonian in quantum field theory is the energy operator, which is equal to the spatial integral of the Hamiltonian density $\mathcal{H}$, so that in the natural unit $[\mathcal{H}]=[E]^4$. Given that the Hamiltonian density for a boson field $\phi$ contains terms such as $(\partial_\mu\phi)^2$ and $m^2\phi^2$, find the dimension of $\phi$. Similarly, for a fermion field, $\mathcal{H}$ contains terms like $m\overline{\psi}\psi$, find the dimension of the fermion field $\psi$.
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item[(a)] Since the norm, $\int d^3 x \phi^*(\mathbf{x})\phi(\mathbf{x})$, is dimensionless, then \begin{align*}
+        1=\left[  \int d^3 x \phi^*(\mathbf{x})\phi(\mathbf{x})   \right] = 
+        \left[ d^3x \right] \left[ \phi^*  \right] \left[ \phi  \right]=
+        \left[ L^3  \right] \left[\phi^2 \right],
+    \end{align*}
+    where $\left[ \phi^*  \right]= \left[ \phi  \right]$ and it is just complex conjugate. Hence, we have $\left[ \phi  \right]=\left[ 1/L^{\frac{3}{2}} \right]=[E]^\frac{3}{2}$.
+\end{itemize}
+\begin{itemize}
+    \item [(b)] We can do it in the dimension analysis, meaning \begin{align}
+        [\omega_{fi}]=&[1/T]=[\left| \langle \phi_f | H_{int}|\phi_i \rangle \right |^2\rho]\\
+        =&[E^2\times1/E]=[E]=[ML^2/T^2].
+    \end{align}
+    We know $[\hbar]=[ML^2/T]$. That means we can just put the $\hbar$ in the denominator, giving 
+    \begin{align}
+         \omega_{fi}=\frac{1}{\hbar}\left| \langle \phi_f | H_{int}|\phi_i \rangle \right |^2\rho.
+    \end{align}
+    In fact, in Sakurai's QM textbook, the result is $\omega_{fi}=\frac{2\pi}{\hbar}\left| \langle \phi_f | H_{int}|\phi_i \rangle \right |^2\rho$.
+\end{itemize}
+\begin{itemize}
+    \item [(c)] Since $[\mathcal{H}]=[E]^4=\left[ (\partial_\mu \phi)^2 \right]=\left[1/L^2 \right]\left[  \phi^2 \right]=[E]^2\left[  \phi \right]^2$. Hence, we have $[\phi]=[E]$. Besides, we can check the mass term, meaning that $[E]^4=\left[m^2\phi^2 \right]=[E]^2[\phi]^2$, and we get the same result for a scalar boson field $[\phi]=[E]$.
+    
+    For a fermion field $\psi$, we can solve it in the same way, meaning that $[E]^4=[m\overline{\psi}\psi]=[E][\psi]^2$. For the same reason, $[\overline{\psi}]=[\psi]$. Hence, we get $[\psi]=[E]^{3/2}$.\qed
+\end{itemize} 
+
+\clearpage
+\question{2}{}
+It is often useful to have rough estimates of physical quantities using dimensional analysis. In each process below, estimate the cross-section in GeV or in barn ($1\text{b}=10^{-24}\text{cm}^2$), assuming a high energy limit where only the coupling and reaction energy are relevant.
+\begin{itemize}
+    \item [(a)] The total cross section for proton-proton elastic scattering.
+    \item [(b)] The total cross section for the electromagnetic annihilation process $e^+e^-\to \mu^+\mu^-$.
+    \item [(c)] The weak interaction scattering $\nu_e+\text{proton}\to\nu_e+\text{proton}$.
+\end{itemize}
+\answer{}
+In Table~\ref{HW1:Table:interaction}, we can use these effective couplings and reaction energy to estimate the cross sections. Note that these couplings are dimensionless. Also, in natural units, the unit of cross-section is $[1/E]^2$. 
+\begin{table}[!h]
+\centering
+\begin{tabular}{ |c|c|c| } 
+ \hline
+  &notation& Effective coupling \\
+  \hline
+  Electromagnetism &$g_e={e^2}/{4\pi}$& {1}/{137}  \\ 
+  Weak force &$g_W$&$10^{-5}$  \\ 
+  Strong  &$g_S$& 1 \\
+ \hline
+\end{tabular}
+\caption{The interactions and their effective couplings.}
+\label{HW1:Table:interaction}
+\end{table}
+\begin{itemize}
+    \item [(a)] Since this is elastic scattering, the energy of reaction cannot be too large. Otherwise, the Strong interaction might dominate, leading to inelastic scattering. The only relevant interaction will be electromagnetism. For the Feynman diagram in Figure~\ref{HW1-plt:PP-scattering}, each vertex gives a $e$ in the matrix amplitude $|A|$. Hence, the cross section will be proportional to $|A|^2$. That is $e^4$. In other words, it is proportional to $g_e^2$. Next, we can consider the reaction energy $E_R$ is roughly $\mathcal{O}(100)$\text{ GeV}, which is large enough to ignore the mass of a proton but not enough to let strong interaction dominate. Finally, we can estimate the cross-section for proton-proton elastic scattering now, and it is given by 
+    \begin{align}
+        \sigma&\approx g_e^2\times\frac{1}{E_R^2}=\frac{1}{137^2}\frac{1}{100^2\text{ GeV}^2}\\
+        &=5.32\times10^{-9}\text{ GeV}^{-2}\\
+        &=2.13\times10^{-40} \text{ m}^2=2.13\times10^{-12} \text{ b}
+    \end{align}
+\end{itemize}
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (p1) at (-2,  2) {\(p_1\)};
+      \vertex (p2) at (-2, -2) {\(p_2\)};
+
+      % 中間交換點
+      \vertex (c) [label=above:\(e\)] at (0,  1) ;
+      \vertex (d) [label=below:\(e\)] at (0, -1);
+
+      % 右邊出射粒子
+      \vertex (p1p) at ( 2,  2) {\(p_1'\)};
+      \vertex (p2p) at ( 2, -2) {\(p_2'\)};
+
+      % 畫圖
+      \diagram* {
+        (p1) -- [fermion] (c) -- [fermion] (p1p),
+        (p2) -- [fermion] (d) -- [fermion] (p2p),
+        (c) -- [boson, edge label=\(\gamma\)] (d), % 可改成 gluon, Z, h ...
+      };
+  \end{feynman}
+\end{tikzpicture}
+    \caption{The Feynman diagram for the proton-proton elastic scattering.}
+    \label{HW1-plt:PP-scattering}
+\end{figure}
+
+
+
+\begin{itemize}
+    \item [(b)] Again, the dominating interaction in this process will be electromagnetism, see Figure~\ref{HW1-plt:ee-to-mumu}. Therefore, we can do it in the same way. I choose 10 GeV to be the reaction energy so that it is large enough to produce a pair of muons and ignore the masses of muons and electrons. Hence, the cross-section is given by 
+    \begin{align}
+        \sigma&\approx g_e^2\times\frac{1}{E_R^2}=\frac{1}{137^2}\frac{1}{10^2\text{ GeV}^2}\\
+        &=5.32\times10^{-7}\text{ GeV}^{-2}\\
+        &=2.13\times10^{-36} \text{ m}^2=2.13\times10^{-10} \text{ b}
+    \end{align}
+\end{itemize}
+
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (p1) at (-2,  1) {\(e^-\)};
+      \vertex (p2) at (-2, -1) {\(e^+\)};
+
+      % 中間交換點
+      \vertex (c)  at (-1,  0) ;
+      \vertex (d)  at (1, 0);
+
+      % 右邊出射粒子
+      \vertex (p1p) at ( 2,  1) {\(\mu^-\)};
+      \vertex (p2p) at ( 2, -1) {\(\mu^+\)};
+
+      % 畫圖
+      \diagram* {
+        (p1) -- [fermion] (c) -- [fermion] (p2),
+        (p1p) -- [fermion] (d) -- [fermion] (p2p),
+        (c) -- [boson, edge label=\(\gamma\)] (d), % 可改成 gluon, Z, h ...
+      };
+  \end{feynman}
+\end{tikzpicture}
+    \caption{The Feynman diagram for $e^+e^-\to\mu^+\mu^-$ .}
+    \label{HW1-plt:ee-to-mumu}
+\end{figure}
+
+\begin{itemize}
+    \item [(c)] I pick the Fermi's constant $G_F\approx1.16\times10^{-5}\text{ GeV}^{-2}$ and choose the reaction energy $E_R$ to be $1$ GeV. In Figure~\ref{HW1-plt:neutrino-proton}, the cross-section is proportional to $G_F^2$. In order to make the cross-section match the area dimension, it is now given by 
+    \begin{align}
+        \sigma\approx& G_F^2\times E_R^2\\
+        =&1.34\times10^{-10} \text{ GeV}^{-2}\\
+        =&5.38\times10^{-14}\text { b}
+    \end{align}
+\end{itemize}
+\qed
+
+
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (p1) at (-2,  2) {\(p\)};
+      \vertex (p2) at (2, 2) {\(p\)};
+
+      % 中間交換點
+      \vertex (c) [draw, circle,minimum size=10mm,label=right:\(G_F\)] at (0,  0) {};
+      
+
+      % 右邊出射粒子
+      \vertex (p1p) at ( -2,  -2) {\(\nu_e\)};
+      \vertex (p2p) at ( 2, -2) {\(\nu_e\)};
+
+      % 畫圖
+      \diagram* {
+        (p1) -- [fermion] (c) -- [fermion] (p2),
+        (p1p) -- [fermion] (c) -- [fermion] (p2p),
+      };
+  \end{feynman}
+\end{tikzpicture}
+    \caption{The Feynman diagram for $p+\nu_e\to p+\nu_e$ (effective 4-fermion contact, low-energy description).}
+    \label{HW1-plt:neutrino-proton}
+\end{figure}
+
+
+\clearpage
+\question{3}{}
+\begin{itemize}
+    \item[(a)] Using natural units, determine the mass dimension of Newton's constant $G_N=6.67\times10^{-11}\text{m}^3\text{kg}^{-1}\text{s}^{-2}$ and obtain a value for the mass scale in GeV. 
+    \item[(b)] Suppose that the theory of Quantum Gravity does not conserve baryon number and thus gives rise to proton decay. Using dimensional arguments, estimate the lifetime of the proton if the only relevant parameters determining the gravitational decay amplitude and kinematical scale are Newton's constant, $G_N$, and the proton mass, respectively. Express your estimate for the lifetime in years. How does your estimate compare with the age of the universe $t_U=13.8$ billion years?
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)] In the class, we already know that 
+    \begin{align}
+        1 \text{ sec}^{-1}&= 6.6\times10^{-16}\text{ eV}=6.6\times10^{-25}\text{ GeV}\\
+        1 \text{ m}&=\frac{1}{2\times10^{-7} \text{ eV}}=\frac{1}{2\times10^{-16} \text{ GeV}}\\
+        1 \text{ kg}&=5.61 \times 10^{35} \text{ eV}=5.61 \times 10^{26} \text{ GeV},
+    \end{align}
+    in natural units. Hence, we just put everything together, 
+    \begin{align*}
+        G_N=&6.67\times10^{-11}\text{m}^3\text{kg}^{-1}\text{s}^{-2}\\
+        =&6.67\times10^{-11}\left(\frac{1}{2\times10^{-7}\text{ GeV}}\right)^3\left(\frac{1}{5.61\times10^{26}\text{ GeV}}\right)\left(6.6\times10^{-25}\text{ GeV}\right)^2\\
+        =&6.41\times10^{-39}\text{ GeV}^{-2}.
+    \end{align*}
+    I have googled the answer, the answer is $G_N\approx 6.7076 \times 10^{-39} \text{ GeV}^{-2}$. It is pretty closed.
+\end{itemize}
+\begin{itemize}
+    \item [(b)] Since we have already know the $G_N$ and mass of proton, $m_p\approx 1$ GeV, we can combine these two things together. Besides, the dimension of time in natural units is $[T]=[L]=[E]^{-1}$. We should calculate the decay width $\Gamma_p$ first. In the proton decay process, if we only consider gravity as our interaction, the matrix amplitude $|A|$ is proportional to $G_N$, see Figure~\ref{HW1-plt:Proton_decay}. Hence, the decay width $\Gamma$ is proportional to $|A|^2$ as well as $G_N^2$. Last, the dimension of decay width is $[E]$. In order to match the dimension, now we have
+    \begin{align}
+        \Gamma_p\approx& G_N^2 \times m_p^5\\
+        =&4.11\times10^{-77} \text{ GeV}\\
+        t_p=&\frac{1}{\Gamma_p}=2.43\times10^{76}\text{ GeV}^{-1}\\
+        =&5.09\times10^{44} \text{ years}\\
+        =&3.69\times10^{34}\times t_U
+    \end{align}
+
+    \qed
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+    \vertex (a) {\(p\)};
+    \vertex [right=of a, label=above:\(G_N\)] (b) ;
+    \vertex [above right=of b, ] (f1) {\( \text{decaying product}\)};
+    \vertex [below right=of b] (c);
+    \diagram* {
+      (a) -- [fermion] (b) -- [fermion] (f1),
+      (b) -- [graviton, edge label'=\(h_{\mu\nu}\)] (c),
+    };
+  \end{feynman}
+\end{tikzpicture}
+    \caption{The Feynman diagram for the decay of a proton due to a graviton.}
+    \label{HW1-plt:Proton_decay}
+\end{figure}
+\end{itemize}
+
+\clearpage
+\question{4}{} Consider a complex scalar field $\phi(\mathbf{x})$ described by the Lagrangian density: 
+\begin{align*}
+    \mathcal{L}=\partial_\mu\phi^\dagger\partial^\mu\phi-m^2\phi^\dagger\phi.
+\end{align*}
+\begin{itemize}
+    \item[(a)] Show that the Lagrangian is invariant under the global $U(1)$ transformation, $\phi\to e^{i\alpha}\phi$, where $\alpha$ is a real constant.
+    \item[(b)] Using Noether's theorem, derive the conserved current $j^\mu$ associated with this symmetry and compute the conserved Noether charge $Q$. What is the physical interpretation of $Q$?
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)] By the global $U(1)$, $\phi\to e^{i\alpha}\phi, \phi^\dagger\to e^{-i\alpha}\phi^\dagger$, we then have
+    \begin{align*}
+        \mathcal{L}&=\partial_\mu\phi^\dagger\partial^\mu\phi-m^2\phi^\dagger\phi\\
+        \to\mathcal{L'}&=(\partial_\mu e^{-i\alpha}\phi^\dagger)\partial^\mu e^{i\alpha}\phi-m^2e^{-i\alpha}\phi^\dagger e^{i\alpha}\phi\\
+        &=e^{-i\alpha}e^{i\alpha}\left[\partial_\mu\phi^\dagger\partial^\mu\phi-m^2\phi^\dagger\phi\right]=\partial_\mu\phi^\dagger\partial^\mu\phi-m^2\phi^\dagger\phi=\mathcal{L}.
+    \end{align*}
+    That means that this Lagrangian is invariant under the global $U(1)$ transformation. 
+\end{itemize}
+\begin{itemize}
+    \item [(b)] We can now apply Noether's theorem, giving 
+    \begin{align}
+        0=&\delta S=\int d^4x \left[\left(\frac{\partial \mathcal{L}}{\partial \phi}\delta\phi
+        +\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi) }\delta(\partial_\mu\phi)
+         \right)+
+         \left(\frac{\partial \mathcal{L}}{\partial \phi^*}\delta\phi^\dagger
+        +\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi^\dagger) }\delta(\partial_\mu\phi^\dagger)
+         \right)
+         \right]\label{HW1:IBP}\\
+         =&\int d^4x \left[\left(\frac{\partial \mathcal{L}}{\partial \phi}
+        -\partial_\mu\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi) }\
+         \right)\delta\phi+
+         \left(\frac{\partial \mathcal{L}}{\partial \phi^\dagger}
+        -\partial_\mu\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi^\dagger) }\
+         \right)\delta\phi^\dagger
+         \right]
+         +\partial_\mu\left[ \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}\delta\phi
+         +\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi^\dagger)}\delta\phi^\dagger
+         \right]\label{HW1:IBP-and-EL-eq}\\
+         =&\int d^4x \partial_\mu\left[ \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}\delta\phi
+         +\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi^\dagger)}\delta\phi^\dagger
+         \right]
+         =\int d^4x \partial_\mu\left[ \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
+         +\frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi^\dagger)}\frac{\delta\phi^\dagger}{\delta \alpha}
+         \right]\delta\alpha,
+    \end{align}
+    where we have apply integration by part in Equation~\ref{HW1:IBP} and the Euler-Lagrange Equation in Equation~\ref{HW1:IBP-and-EL-eq}. Now, with the variation of $\delta\phi=i\delta\alpha\phi, \delta\phi^\dagger=-i\delta\alpha\phi^\dagger$, we have 
+    \begin{align}
+        j^{\mu}=& \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)}\frac{\delta\phi}{\delta \alpha}
+         +\frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi^\dagger)}\frac{\delta\phi^\dagger}{\delta \alpha}\\
+         =&i\left(
+         (\partial^\mu\phi^\dagger) \phi-
+         (\partial^\mu\phi) \phi^\dagger
+         \right).
+    \end{align}
+We have $\partial_\mu j^\mu=i(\Box \phi^\dagger \phi - \Box \phi \phi^\dagger)=-m^2i(\phi\phi^\dagger-\phi^\dagger\phi)=0$. Now, we can define the conserved Noether charge, Q,
+\begin{align}
+    Q= \int d^3x j^0=i\int d^3x  \left(\frac{\partial \phi^\dagger}{\partial t} \phi - \frac{\partial \phi}{\partial t}\phi^\dagger\right).
+    \label{HW1:eq-conserved_charge}
+\end{align}
+With the formula of the quantized complex scalar field, $\phi (x)$ is given by 
+\begin{align}
+    \phi(x) = \sum_\mathbf{p} C_\mathbf{p}\left[a_\mathbf{p} e^{-ip\cdot x} +b^\dagger_\mathbf{p} e^{ip\cdot x}
+    \right]\\
+    \phi^\dagger(x) = \sum_\mathbf{p} C_\mathbf{p}\left[a^\dagger_\mathbf{p} e^{ip\cdot x} +b_\mathbf{p} e^{-ip\cdot x}
+    \right],
+\end{align}
+where $C_\mathbf{p}$ is a normalized constant, $a$ and $b$ are annihilation operators for anti-particle and particle, respectively, and $a^\dagger$ and $b^\dagger$ are creation operators for anti-particle and particle, respectively. From Equation~\ref{HW1:eq-conserved_charge}, the conserved charge is now given by 
+\begin{align}
+Q &= i\int d^3 x \sum_{\mathbf{p},\mathbf{p}'} \Bigg[
+      \big(
+        iE_\mathbf{p'} a^\dagger_\mathbf{p'} e^{ip'\cdot x}
+        - iE_\mathbf{p'} b_\mathbf{p'} e^{-ip'\cdot x}
+      \big)
+      \big(
+        a_\mathbf{p} e^{-ip\cdot x}
+        + b^\dagger_\mathbf{p} e^{ip\cdot x}
+      \big) \nonumber \\
+  &\qquad
+      + \big(
+       iE_\mathbf{p}  a_\mathbf{p} e^{-ip\cdot x}
+        -iE_\mathbf{p} b^\dagger_\mathbf{p} e^{ip\cdot x}
+      \big)
+      \big(
+        a^\dagger_\mathbf{p'} e^{ip'\cdot x}
+        + b_\mathbf{p'} e^{-ip'\cdot x}
+      \big)
+    \Bigg]\\
+    &= \sum_{\mathbf{p}} \left( a_\mathbf{p}^\dagger a_\mathbf{p}-b^\dagger_\mathbf{p} b_\mathbf{p} \right)=\sum_p( N_\mathbf{p} -\overline{N}_\mathbf{p}),
+\end{align}
+where $N_\mathbf{p}$ and $\overline{N}_\mathbf{p} $ are the number operators for antiparticle and particle, respectively. This result comes from Equation (2.112) in Ho-Kim. Hence, $Q$ is the total conserved charge. \qed 
+\end{itemize}
