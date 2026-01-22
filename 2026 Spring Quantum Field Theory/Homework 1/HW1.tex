@@ -1,0 +1,26 @@
+
+\section*{Homework 1 Due to January 29th 11:00 AM}
+
+\question{1}{}
+The constant $J$ in the Heisenberg model (slide 6) can be positive or negative. The model can describe either ferromagnetism or anti-ferromagnetism. To which of these to cases positive/ negative $J$ corresponds? Why?
+\begin{align}
+    \mathcal{H}=-\sum_{\langle i j\rangle} J \mathbf{S}_{i} \cdot \mathbf{S}_{j}
+\end{align}
+\answer{}
+Since \textbf{the Hamiltonian is minimized when the energy is the lowest}, we can analyze the two cases as follows:
+\begin{itemize}
+    \item For $J>0$, the Hamiltonian becomes $\mathcal{H}=-\sum_{\langle i j\rangle} |J| \mathbf{S}_{i} \cdot \mathbf{S}_{j}$. To minimize the energy, the spins $\mathbf{S}_{i}$ and $\mathbf{S}_{j}$ should align parallel to each other, leading to ferromagnetism.
+    \item For $J<0$, the Hamiltonian becomes $\mathcal{H}=-\sum_{\langle i j\rangle} -|J| \mathbf{S}_{i} \cdot \mathbf{S}_{j} = \sum_{\langle i j\rangle} |J| \mathbf{S}_{i} \cdot \mathbf{S}_{j}$. To minimize the energy, the spins $\mathbf{S}_{i}$ and $\mathbf{S}_{j}$ should align anti-parallel to each other, leading to anti-ferromagnetism.
+\end{itemize}   
+\qed
+
+\clearpage
+\question{2}{}
+Pirates found a parchment describing location of treasure trove hidden somewhere on the island by their predecessors . The note reads:
+
+
+\textit{Start from the capsized boat. Go in the direction of the palm tree carefully counting the number of steps. When you reach the palm tree turn exactly right and make exactly the same number of steps. Mark the point you arrived at. Then return to the boat. Go in the direction of the rock counting the number of steps. When you reach the rock turn left. After having made the same number of steps mark the second point. The treasure trove is in the middle of the line connecting two marked points. The problem is that the capsized boat was nowhere in sight, it had disappeared. How can the pirates still find the treasure trove?}
+\answer{}
+First let's denote the position of the palm tree as point $P(x_1, y_1)$ and the position of the rock as point $R(x_2, y_2)$. We also denote the unknown position of the capsized boat as point $B(x, y)$.
+
+When the pirates walk from the boat to the palm tree, they cover a distance equal to the length of the vector $\overrightarrow{BP} = (x_1 - x, y_1 - y)$. 
