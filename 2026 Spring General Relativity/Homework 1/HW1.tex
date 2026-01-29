@@ -1,104 +1,32 @@
 
-\section*{Assignment 1 due on Wednesday September 10th at 5PM}
+\section*{Problem Set 1 due on Due Feb 9 at 11:59pm}
 
-\question{1}{In lecture we found that ${\Lambda^0}_0 = \gamma$ and ${\Lambda^i}_0=\gamma v_i$ for boosts. The other components should be of the form ${\Lambda^i}_j=a(v)\delta_{ij}+b(v)v_iv_j$ and ${\Lambda^0}_j=c(v)v_j$, where a, b, and c can be functions of the speed v. Determine these functions from the constraint $\eta_{\alpha\beta}{\Lambda^\alpha}_\gamma{\Lambda^\beta}_\delta=\eta_{\gamma\delta}$.}
-
-\answer{}
-We can use tensor notation to reduce the work. From the constraint
-\begin{align}
-    \eta_{\alpha\beta}{\Lambda^\alpha}_\gamma{\Lambda^\beta}_\delta=\eta_{\gamma\delta},
-\end{align}
-and the relation $\gamma=\frac{1}{\sqrt{1-v^2}} $ (or $\gamma^2-\gamma^2v^2=\gamma^2(1-v^2)=1$), we can consider different $\gamma,\delta$, meaning that
+\question{1}{}
 \begin{itemize}
-    \item $(\gamma,\delta)=(0,0)$: 
-    \begin{align}
-    -({\Lambda^0}_0)^2+\sum_{i=1}^3({\Lambda^i}_0)^2=-\gamma^2+\gamma^2\sum_{i=1}^3(v_i)^2=-\gamma^2+\gamma^2 v^2  =-1  =\eta_{00}
-    \end{align}
-    \item $(\gamma,\delta)=(0,i)$:
-    \begin{align}
-         &-{\Lambda^0}_0{\Lambda^0}_i+\sum_{k=1}^3{\Lambda^k}_0{\Lambda^k}_i\\
-        =&-\gamma c v_i +\sum_{k=1}^3 \gamma v_k (a\delta_{ki}+bv_kv_i)\\
-        =&-\gamma c v_i + \gamma a v_i +\gamma b v^2 v_i = \gamma v _i (-c+a+bv^2)=\eta_{0i}=0
-    \end{align}
-    Then we have $c=a+bv^2$.
-    \item $(\gamma,\delta)=(i,0)$
-    \begin{align}
-        &-{\Lambda^0}_i{\Lambda^0}_0+\sum_{k=1}^3{\Lambda^k}_i{\Lambda^k}_0\\
-       =&\gamma v _i (-c+a+bv^2)
-    \end{align}
-    \item $(\gamma,\delta)=(i,i)$
-    \begin{align}
-         &-{\Lambda^0}_i{\Lambda^0}_i+\sum_{k=1}^3{\Lambda^k}_i{\Lambda^k}_i\\
-        =&-c^2v_i^2 + \sum_{k=1}^3 (a\delta_{ki}+bv_kv_i)^2\\
-        =&-c^2v_i^2 + \sum_{k=1}^3(a^2\delta_{ki}+2ab\delta_{ki}v_kv_i+b^2v_i^2v_k^2)\\
-        =&-c^2v_i^2 +a^2 +2abv_i^2+b^2v_i^2v^2=\eta_{ii}=1
-    \end{align}
-    \item $(\gamma,\delta)=(i,j), i\neq j$
-    \begin{align}
-        &-{\Lambda^0}_i{\Lambda^0}_j+\sum_{k=1}^3{\Lambda^k}_i{\Lambda^k}_j\\
-        =&-c^2 v_iv_j+\sum_{k=1}^3 (a\delta_{ki}+bv_kv_i) (a\delta_{kj}+bv_kv_j)\\
-        =&-c^2 v_iv_j+\sum_{k=1}^3 (a^2 \delta_{ki}\delta_{kj}+ab(\delta_{ki}v_kv_j+\delta_{kj}v_kv_i)+b^2v_k^2v_iv_j)\\
-        =&-c^2 v_iv_j +2 ab v_iv_j +b^2 v^2 v_i v_j =\eta_{ij}=0
-    \end{align}
-    Then we have $c^2=b^2v^2+2ab$
+    \item [(a)]Consider the outer surface of the ergosphere for a Kerr black hole. Construct the normal vector to this surface and show that it is a $2$-way surface.
+    \item [(b)]Using the condition $n_\alpha n^\alpha = 0$ for a null surface, derive the equation equation for the critical $1$-way surface for a time-independent axial symmetric surface. That is start with some $u(\rho, \theta)$ to derive the equation defining this surface. What is its physical interpretation.
 \end{itemize}
-Combining the above information, we can have 
-\begin{align}
-    &c = a+bv^2 \\
-    &c^2 = a^2+b^2v^4+2abv^2 = b^2v^2+2ab.  \label{Eq:c^2}
-\end{align}
-Also, we have 
-\begin{align}
-    &-c^2v_i^2 +a^2 +2abv_i^2+b^2v_i^2v^2=1\\
-    \rightarrow 1 &= -(b^2v^2+2ab)v_i^2+a^2 +2abv_i^2+b^2v_i^2v^2\\
-    &=a^2        \label{Eq:a^2=1}
-\end{align}
-Hence, from Eq.~\ref{Eq:c^2} and Eq.~\ref{Eq:a^2=1}, we have 
-\begin{align}
-    &c^2 = 1 + b^2v^4+2abv^2=b^2v^2+2ab\\
-    \rightarrow&a=\pm1=\frac{1+b^2v^4-b^2v^2}{2b(1-v^2)}=\frac{1+b^2v^2(v^2-1)}{2b(1-v^2)}=\frac{\gamma^2-b^2v^2}{2b}\\
-    \rightarrow&b^2v^2\pm2b-\gamma^2=0
-\end{align}
-For $a=+1$, we have 
-\begin{align}
-    b = \frac{-1\pm\sqrt{1+\gamma^2v^2}}{v^2}=\frac{-1\pm\gamma}{v^2},
-\end{align}
-and for $a=-1$, we have 
-\begin{align}
-    b = \frac{1\pm\gamma}{v^2}.
-\end{align}
-Hence, we choose $a=1$ and $b=\frac{-1+\gamma}{v^2}$ by convention and have 
-\begin{align}
-    c &= a+bv^2 = 1 + (-1+\gamma)=+\gamma\\
-\end{align}
-Finally, we derive 
-\begin{align}
-    {\Lambda^i}_j=&a(v)\delta_{ij}+b(v)v_iv_j= \delta_{ij}+\frac{\gamma-1}{v^2}v_iv_j\\
-    {\Lambda^0}_j=&c(v)v_j=\gamma v_j,
-\end{align}
-which are mentioned in the Week 1 lecture.\qed
 
-\newpage
-\question{2}{ A rod of length $L$ lies at rest along the x-axis in frame $\mathcal{O}$. An observer located along a perpendicular axis in frame $\mathcal{O}'$ sees frame $\mathcal{O}$ moving with speed v in the positive $x$ direction. The observer in frame $\mathcal{O}'$, which may be an eye or a camera, looks in the direction of the rod. When the center of the rod is at the distance of closest approach $D$ to the observer, lights at the ends of the rod send out flashes of light. When $v \ll c$, the opening angle $\theta$ between the light flashes would be seen as $\tan{\theta/2} = L/2D$. Show that for any value of $v < c$, the opening angle is the same, meaning that the observer does not see length contraction. Drawing a picture will help.}
 \answer{}
-In the $\mathcal{O}$ frame, we set the condition for the right-hand side of the rod:
-\begin{align*}
-    &x^{\mu}_{emit}=(0,L/2,D,0),x^{\mu}_{receive}=(t,vt,0,0),\\
-    &\Delta x^{\mu}=x^{\mu}_{receive}-x^{\mu}_{emit}=(t,vt-L/2,-D,0)\\
-    &\Delta x^\mu\Delta x_\mu=0=t^2-(L/2-vt)^2-D^2.
-\end{align*}
-Also, with $dt=t, dx=vt-L/2, dy=-D$, we have 
-\begin{align*}
-    \Delta t'&=\gamma(t+v(vt-L/2))\\
-    \Delta x'&=\gamma(v+(vt-L/2))\\
-    \Delta y'&=-D
-\end{align*}
-We can substitute the solution $t$ to solve the $dx'$ and $dt'$, and define the opening angle 
+
+
+
+
+\clearpage
+\question{2}{}
+Show that 
 \begin{align}
-    \tan{\theta'/2}=\frac{\Delta x'}{\Delta y'}.
+    (L_X T)^{a_1 a_2 \dots a_r}_{b_1 b_2 \dots b_s} = (\nabla_X T)^{a_1 a_2 \dots a_r}_{b_1 b_2 \dots b_s}-\sum_i T^{a_1 \dots j \dots a_r}_{b_1 b_2 \dots b_s} X^{a_i}_{;j} + \sum_j T^{a_1 a_2 \dots a_r}_{b_1 \dots j \dots b_s} X^j_{;b_j}
 \end{align}
-Note that this is the calculation for right-hand side of the rod. Hence, it should be denoted as $\theta_R'$. Now we can apply the procedure to the left-hand side of the rod. After plugging all information into {\tt Mathematica} and using the equation, we have 
-\begin{align}
-    \tan{(\theta_R'+\theta_L')}=\frac{\tan\theta_R'+\tan\theta_L'}{1-\tan\theta_R'\tan\theta_L'}=\frac{4DL}{4D^2-L^2}=\frac{2\frac{L}{2D}}{1-\left(\frac{L}{2D}\right)^2}=\tan{\theta}.
-\end{align}
-Hence, we prove that the opening angle keeps the same value. \qed
+
+
+
+\answer{}
+
+\clearpage
+\question{3}{}
+\begin{itemize}
+    \item [(a)] Consider an arbitrary unit vector, $X$ transported along a latitude line on the surface of the sphere. Use $ds^2 =  d\theta^2 +  \sin^2 \theta d\phi^2$, and ecall that there are only 2 distinct $\Gamma$’s.
+    \item[(b)] Do the same assuming the vector is Lie transported. That is instead of $\nabla_T X =0$, assume that $L_T X =0$.
+\end{itemize}
+\answer{}
