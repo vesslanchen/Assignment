@@ -12,8 +12,43 @@ Consider a set of three differential operators
 acting on an arbitrary smooth function $f(x)$. Find the algebra of these operators, i.e. all three commutators $[T^i, T^j]$ where $i,j=+,-,0$. Show that this algebra is closed. 
 
 \answer{}
-\clearpage
+\begin{itemize}
+    \item $[T^i, T^i]$: $[T^i, T^i]=0$ for $i=+,-,0$. It's obvious since any operator commutes with itself. 
+    \item $[T^+, T^-]$: 
+    \begin{align}
+        [T^+, T^-]f(x)&=T^+T^-f(x)-T^-T^+f(x) \nonumber \\
+        &=x^2\frac{d}{dx}\bigg(\frac{df(x)}{dx}\bigg)-\frac{d}{dx}\bigg(x^2\frac{df(x)}{dx}\bigg) \nonumber \\
+        &=x^2\frac{d^2f(x)}{dx^2}-\bigg(2x\frac{df(x)}{dx}+x^2\frac{d^2f(x)}{dx^2}\bigg) \nonumber \\
+        &=-2x\frac{df(x)}{dx} \nonumber \\
+        &=2T^0f(x)
+    \end{align}
+    \item $[T^0, T^-]$:
+    \begin{align}
+        [T^0, T^-]f(x)&=T^0T^-f(x)-T^-T^0f(x) \nonumber \\
+        &=-x\frac{d}{dx}\bigg(\frac{df(x)}{dx}\bigg)-\frac{d}{dx}\bigg(-x\frac{df(x)}{dx}\bigg) \nonumber \\
+        &=-x\frac{d^2f(x)}{dx^2}+\bigg(\frac{df(x)}{dx}+x\frac{d^2f(x)}{dx^2}\bigg) \nonumber \\
+        &=\frac{df(x)}{dx} \nonumber \\
+        &= -T^-f(x)
+    \end{align}
+    \item $[T^+, T^0]$:
+    \begin{align}
+        [T^+, T^0]f(x)&=T^+T^0f(x)-T^0T^+f(x) \nonumber \\
+        &=x^2\frac{d}{dx}\bigg(-x\frac{df(x)}{dx}\bigg)-\bigg(-x\frac{d}{dx}\bigg(x^2\frac{df(x)}{dx}\bigg)\bigg) \nonumber \\
+        &=-x^3\frac{d^2f(x)}{dx^2}-x^2\frac{df(x)}{dx}+\bigg(2x^2\frac{df(x)}{dx}+x^3\frac{d^2f(x)}{dx^2}\bigg) \nonumber \\
+        &=x^2\frac{df(x)}{dx} \nonumber \\
+        &=T^+f(x)
+    \end{align}
+\end{itemize}
+Hence, the algebra of these operators is
+\begin{align}
+    [T^+, T^-]&=2T^0, \nonumber \\
+    [T^-, T^0]&=T^-, \nonumber \\
+    [T^+, T^0]&=T^+.
+\end{align}
+This algebra is closed since the commutators of any two operators in the set can be expressed as a linear combination of the operators in the set.
+\qed
 
+\clearpage
 \question{2}{}
 Compare it with the algebra of three Pauli matrices:
 \begin{align}
@@ -25,3 +60,46 @@ Compare it with the algebra of three Pauli matrices:
 \end{align}
 How this algebra is called? Find the linear combinations of the Pauli matrices in this which form exactly the same algebra as the operators in question 1. What is the difference between the representations of the two algebras above?
 \answer{}
+The algebra of the three Pauli matrices is given by the commutation relations:
+\begin{align}
+    \bigg[\frac{1}{2}\sigma_i, \frac{1}{2}\sigma_j\bigg] = i \epsilon_{ijk} \frac{1}{2}\sigma_k,
+\end{align}
+where $\epsilon_{ijk}$ is the Levi-Civita symbol. This algebra is called the $\mathfrak{su}(2)$ algebra, which is the Lie algebra of the group SU$(2)$. 
+
+Next, we consider the following linear combinations of the Pauli matrices: 
+\begin{align}
+    J^+ &= \frac{1}{2}(\sigma_1 + i\sigma_2), \nonumber \\
+    J^- &= \frac{1}{2}(\sigma_1 - i\sigma_2), \nonumber \\
+    J^0 &= \frac{1}{2}\sigma_3.
+\end{align}
+Then we can compute their commutation relations:
+\begin{align}
+    [J^+, J^-] &=  \frac{1}{4} [\sigma_1 + i\sigma_2, \sigma_1 - i\sigma_2] \nonumber \\
+    &= \frac{1}{4} ([\sigma_1, \sigma_1] - i[\sigma_1, \sigma_2] + i[\sigma_2, \sigma_1] + [\sigma_2, \sigma_2]) \nonumber \\
+    &= \frac{1}{4} (0 - i(2i\sigma_3) + i(-2i\sigma_3) + 0) \nonumber \\
+    &= \sigma_3 \nonumber \\
+    &= 2J^0,
+\end{align}
+\begin{align}
+    [J^0, J^-] &= \frac{1}{4} [\sigma_3, \sigma_1 - i\sigma_2] \nonumber \\
+    &= \frac{1}{4} ([\sigma_3, \sigma_1] - i[\sigma_3, \sigma_2]) \nonumber \\
+    &= \frac{1}{4} (2i\sigma_2 - i(-2i\sigma_1)) \nonumber \\
+    &= -\frac{1}{2}(\sigma_1 - i\sigma_2) \nonumber \\
+    &= -J^-,
+\end{align}
+\begin{align}
+    [J^+, J^0] &= \frac{1}{4} [\sigma_1 + i\sigma_2, \sigma_3] \nonumber \\
+    &= \frac{1}{4} ([\sigma_1, \sigma_3] + i[\sigma_2, \sigma_3]) \nonumber \\
+    &= \frac{1}{4} (-2i\sigma_2 + i(2i\sigma_1)) \nonumber \\
+    &= \frac{1}{2}(\sigma_1 + i\sigma_2) \nonumber \\
+    &= J^+.
+\end{align}
+Thus, the commutation relations of $J^+$, $J^-$, and $J^0$ are:
+\begin{align}
+    [J^+, J^-] &= 2J^0, \nonumber \\
+    [J^-, J^0] &= J^-, \nonumber \\
+    [J^+, J^0] &= J^+.
+\end{align}
+These commutation relations are exactly the same as those of the operators $T^+$, $T^-$, and $T^0$ from question 1.
+
+Next, the essential difference      

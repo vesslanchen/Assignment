@@ -6,11 +6,170 @@ Show that the charge-lowering weak current of the form
     J^{\mu}=\overline{e}\gamma^{\mu}\frac{1}{2}(1-\gamma^{5})\nu_{e}
 \end{align}
 involves only left-handed electrons (or right-handed positrons).  In the relativistic limit $(v \approx c)$ show that the electrons have negative helicity.
-
 \answer{}
+We start with the Dirac spinor:
+\begin{align}
+    \psi=\begin{pmatrix}\psi_{L}\\ \psi_{R}
+    \end{pmatrix},
+\end{align}
+where $\psi_{L}$ and $\psi_{R}$ are the left-handed and right-handed components, respectively. To be more specific, here the left-handed and right-handed are referring to chirality. Besides, this notation is called Weyl or chiral representation. In this representation, the gamma matrices are expressed as:
+\begin{align}
+    \gamma^{0}=\begin{pmatrix}
+    0 & I\\
+    I & 0
+    \end{pmatrix}, \quad \gamma^{i}=\begin{pmatrix}
+    0 & \sigma^{i}\\
+    -\sigma^{i} & 0
+    \end{pmatrix}, \quad \gamma^{5}=\begin{pmatrix}
+    -I & 0\\
+    0 & I
+    \end{pmatrix},
+\end{align}
+where $I$ is the $2\times 2$ identity matrix and $\sigma^{i}$ are the Pauli matrices. The projection operators for left-handed and right-handed components are given by:
+\begin{align}
+    P_{L}=\frac{1}{2}(1-\gamma^{5}), \quad P_{R}=\frac{1}{2}(1+\gamma^{5}).
+\end{align}
+Then the projection operator $P_{L}$ can be explicitly written as:
+\begin{align}
+    P_{L}=\frac{1}{2}\begin{pmatrix}
+    2I & 0\\
+    0 & 0
+    \end{pmatrix}=\begin{pmatrix}
+    I & 0\\
+    0 & 0
+    \end{pmatrix}.
+\end{align}
+Applying this operator to the Dirac spinor $\psi$, we have:
+\begin{align}
+    P_{L}\psi=\begin{pmatrix}
+    I & 0\\
+    0 & 0
+    \end{pmatrix}\begin{pmatrix}\psi_{L}\\ \psi_{R}
+    \end{pmatrix}=\begin{pmatrix}\psi_{L}\\ 0
+    \end{pmatrix}.
+\end{align}
+Besides, we have this relation:
+\begin{align}
+    \overline{\psi}\gamma^{\mu}P_{L}\psi=\overline{\psi}P_R\gamma^{\mu}\psi, 
+\end{align}
+where we used the fact that $\gamma^{\mu}P_{L}=P_{R}\gamma^{\mu}$. The $\overline{\psi}$ is defined as $\overline{\psi}=\psi^{\dagger}\gamma^{0}$. Therefore, we have:
+\begin{align}
+    &J^{\mu}=\overline{e}\gamma^{\mu}P_{L}\nu_{e}=\overline{e}\gamma^{\mu}P_{L}P_{L}\nu_{e}\\
+    =&\overline{e}P_{R}\gamma^{\mu}P_{L}\nu_{e}=e^\dagger\gamma^{0}P_{R}\gamma^{\mu}P_{L}\nu_{e}\\
+    =& e^\dagger P_{L}\gamma^{0}\gamma^{\mu}P_{L}\nu_{e}\\
+    =& ( P_{L}e)^\dagger \gamma^{0}\gamma^{\mu}(P_{L}\nu_{e})\\
+    =& \overline{e_{L}}\gamma^{\mu}\nu_{eL}.
+\end{align}
+This shows that the weak current $J^{\mu}$ only involves left-handed electrons (or right-handed positrons). Besides, it also involves left-handed neutrinos. 
+
+Next, we start from the Dirac equation, the solution for Dirac spinor $u(p)$ with momentum $p$ and mass $m$ can be expressed as:
+\begin{align}
+    u(p)=\begin{pmatrix}
+    \sqrt{p\cdot\sigma}\,\xi_s\\
+    \sqrt{p\cdot\bar{\sigma}}\,\xi_s
+    \end{pmatrix},
+\end{align}
+where $\sigma^{\mu}=(I, \sigma^{i})$, $\bar{\sigma}^{\mu}=(I, -\sigma^{i})$, and $\xi_s$ is a two-component spinor representing the spin state: 
+\begin{align}
+    \xi_{+}=\begin{pmatrix}
+    1\\
+    0
+    \end{pmatrix}, \quad \xi_{-}=\begin{pmatrix}
+    0\\
+    1
+    \end{pmatrix}.
+\end{align}
+For simplicity, we consider the electron moving along the $z$-axis, so the four-momentum can be written as:
+\begin{align}
+    p^{\mu}=(E, 0, 0, p_{z}),
+\end{align}
+where $E=\sqrt{p_{z}^{2}+m^{2}}$. Hence, we have:
+\begin{align}
+    u_+(p) = \begin{pmatrix}
+    \sqrt{E - p_{z}}\\
+    0\\
+    \sqrt{E + p_{z}}\\
+    0
+    \end{pmatrix}, \quad u_-(p) = \begin{pmatrix}
+    0\\
+    \sqrt{E + p_{z}}\\
+    0\\
+    \sqrt{E - p_{z}}
+    \end{pmatrix}.
+\end{align}
+In particular, the left-handed component of the Dirac spinor can be obtained by applying the projection operator $P_{L}$:
+\begin{align}
+    P_{L}u_+(p) = \begin{pmatrix}
+    \sqrt{E - p_{z}}\\
+    0\\
+    0\\
+    0
+    \end{pmatrix}, \quad P_{L}u_-(p) = \begin{pmatrix}
+    0\\
+    \sqrt{E + p_{z}}\\
+    0\\
+    0
+    \end{pmatrix}.
+\end{align}
+Now the helicity operator is defined as:
+\begin{align}
+    h=\frac{\vec{\sigma}\cdot \vec{p}}{|\vec{p}|}=\Sigma^{3}=\begin{pmatrix}
+    \sigma^{3} & 0\\
+    0 & \sigma^{3}
+    \end{pmatrix}\frac{p_z}{|p_z|}
+\end{align}
+Now we can apply this operator to act on the solution with left-handed spinor, we have:
+\begin{align}
+    h P_{L}u_-(p) = \begin{pmatrix}
+    \sigma^{3} & 0\\
+    0 & \sigma^{3}
+    \end{pmatrix}\frac{p_z}{|p_z|}\begin{pmatrix}
+    \sqrt{E - p_{z}}\\
+    0\\
+    0\\
+    0
+    \end{pmatrix} = \frac{p_z}{|p_z|}\begin{pmatrix}
+    \sqrt{E - p_{z}}\\
+    0\\
+    0\\
+    0
+    \end{pmatrix},
+\end{align}
+and
+\begin{align}
+    h P_{L}u_-(p) = \begin{pmatrix}
+    \sigma^{3} & 0\\
+    0 & \sigma^{3}
+    \end{pmatrix}\frac{p_z}{|p_z|}\begin{pmatrix}
+    0\\
+    \sqrt{E + p_{z}}\\
+    0\\
+    0
+    \end{pmatrix} = -\frac{p_z}{|p_z|}\begin{pmatrix}
+    0\\
+    \sqrt{E + p_{z}}\\
+    0\\
+    0
+    \end{pmatrix}.
+\end{align}
+In the relativistic limit, we have $p_z = \pm E$. For $p_z =+E$, only $u_-(p)$ survives after the projection, and we have:
+\begin{align}
+    h P_{L}u_-(p) = -P_{L}u_-(p),
+\end{align}
+which means the helicity is negative. For $p_z =-E$, only $u_+(p)$ survives after the projection, and we have:
+\begin{align}
+    h P_{L}u_+(p) = -P_{L}u_+(p),
+\end{align}
+which also means the helicity is negative. \textbf{Therefore, in the relativistic limit, the left-handed electrons have negative helicity. }
+\qed 
+
+
+
+
+
 
 \clearpage
-\question{2}{\textbf{Weak decays of leptons} \\}
+\question{2}{\textbf{Weak decays of leptons}}
 \begin{itemize}
     \item [(a)]Calculate the muon total decay width, $\Gamma(\mu^{-}\rightarrow e^{-}\overline{\nu}_{e}\nu_{\mu})$, accounting for the
 finite mass of the electron.
@@ -21,3 +180,40 @@ finite mass of the electron.
     Compare the theoretical prediction for this ratio with the experimental value.
 \end{itemize}
 \answer{}
+
+\textbf{(a)} 
+We can start from the differential decay width for the muon decay process $\mu^{-}\rightarrow e^{-}\overline{\nu}_{e}\nu_{\mu}$, which is given by (this is allowed in the lecture notes):
+\begin{align}
+    d\Gamma = \frac{1}{12\pi}G_F^2\bigg[
+    3(m_\mu^2 + m_e^2)   E - 4m_\mu^2 E-2m_\mu m_e^2 
+    \bigg]|\vec{p}|dE,
+\end{align}
+where $G_F$ is the Fermi coupling constant, $m_\mu$ and $m_e$ are the masses of muon and electron, respectively. Here $E$ and $\vec{p}$ are the energy and momentum of the electron in the final state. Hence, we can integrate over the electron energy $E$ to get the total decay width. The range of $E$ is from $m_e$ to $\frac{m_\mu^2 + m_e^2}{2m_\mu}$. The upper limit can be derived from the energy-momentum conservation in the muon rest frame: \begin{align}
+    m_\mu = E + E_{\overline{\nu}_e} + E_{\nu_\mu} \geq E + |\vec{p}_{\overline{\nu}_e}| + |\vec{p}_{\nu_\mu}| \geq E + |\vec{p}_{\overline{\nu}_e} + \vec{p}_{\nu_\mu}| = E + |\vec{p}| = E + \sqrt{E^2 - m_e^2}\\
+    \implies E \leq \frac{m_\mu^2 + m_e^2}{2m_\mu}.
+\end{align}
+Therefore, we have:
+\begin{align}
+    \Gamma &= \frac{1}{12\pi}G_F^2\int_{m_e}^{\frac{m_\mu^2 + m_e^2}{2m_\mu}} \bigg[
+    3(m_\mu^2 + m_e^2)   E - 4m_\mu^2 E-2m_\mu, m_e^2 
+    \bigg]\sqrt{E^2 - m_e^2}dE\\
+    &= \frac{1}{12\pi}G_F^2 \frac{8 m_e^6 m_{\mu }^2-8 m_e^2 m_{\mu }^6+24 m_e^4 m_{\mu }^4 \log \left(\frac{m_{\mu }}{m_e}\right)-m_e^8+m_{\mu }^8}{16 m_{\mu }^3},\quad\text{by using Mathematica.}\\
+    &\approx \frac{G_F^2 m_\mu^5}{192\pi^3}\left[1 - 8\frac{m_e^2}{m_\mu^2} + \mathcal{O}\left(\frac{m_e^4}{m_\mu^4}\right)\right].
+\end{align}
+This is the total decay width of muon accounting for the finite mass of the electron.
+
+
+\textbf{(b)}
+Now we can use the result from part (a) to calculate the ratio:
+\begin{align}
+    R_{\text{th}} &= \frac{\Gamma(\tau^{-}\rightarrow \mu^{-}\overline{\nu}_{\mu}\nu_{\tau})}{\Gamma(\tau^{-}\rightarrow e^{-}\overline{\nu}_{e}\nu_{\tau})}\\
+    &= \frac{1 - 8\frac{m_\mu^2}{m_\tau^2} + \mathcal{O}\left(\frac{m_\mu^4}{m_\tau^4}\right)}{1 - 8\frac{m_e^2}{m_\tau^2} + \mathcal{O}\left(\frac{m_e^4}{m_\tau^4}\right)}\\
+    &\approx (1 - 8\frac{m_\mu^2}{m_\tau^2})(1 + 8\frac{m_e^2}{m_\tau^2})\\
+    &\approx 1 - 8\frac{m_\mu^2-m_e^2}{m_\tau^2}.
+\end{align}
+Using the known values of the masses: $m_e = 0.511$ MeV, $m_\mu = 105.66$ MeV, and $m_\tau = 1776.86$ MeV, we can calculate the numerical value of $R_{\text{th}}=0.971712$. The experimental value is given by 
+\begin{align}
+    R_{\text{exp}} = \frac{B(\tau^{-}\rightarrow \mu^{-}\overline{\nu}_{\mu}\nu_{\tau})}{B(\tau^{-}\rightarrow e^{-}\overline{\nu}_{e}\nu_{\tau})} = \frac{0.1739}{0.1782} =0.97587.
+\end{align}
+The theoretical prediction is in good agreement with the experimental value, with a small difference that can be attributed to higher-order corrections and experimental uncertainties.
+\qed
