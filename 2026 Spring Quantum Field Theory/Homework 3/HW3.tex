@@ -1,1 +1,77 @@
 \section*{Homework 3 Due to February 12 9:00 AM}
+\question{1}{}
+\begin{itemize}
+    \item [(a)]Write down the generators of the SU$(3)$ group in the fundamental representation. Use the standard form of the Gell-Mann matrices. Commute them and find the set of the structure constants for SU$(3)$.
+    \item [(b)] Calculate anti-commutators of the same generators. The constants in the right-hand-side of the anti-commutators are called d symbols.
+    \item [(c)] Compare the result to anti-commutators for SU$(2)$ (in which the generators in fundamental representation are $(1/2)\times$Pauli matrices). What is the qualitative difference?
+    \item [(d)] For $N = 3$ check the the following equation is valid:
+    \begin{align}
+        f^{abc} f^{adg} =\frac{2}{N} \left( \delta^{bd} \delta^{cg} - \delta^{bg} \delta^{cd} \right) + d^{abd} d^{acg} -  d^{acd}d^{abg}
+    \end{align}
+\end{itemize}
+
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+The generators of the SU(3) group in the fundamental representation are given by the Gell-Mann matrices divided by 2:
+\begin{align}
+    T^1=\frac{1}{2}\begin{pmatrix}0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0\end{pmatrix}, \quad
+    T^2=\frac{1}{2}\begin{pmatrix}0 & -i & 0 \\ i & 0 & 0 \\ 0 & 0 & 0\end{pmatrix}, \quad
+    T^3=\frac{1}{2}\begin{pmatrix}1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 0\end{pmatrix}, \\
+    T^4=\frac{1}{2}\begin{pmatrix}0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0\end{pmatrix}, \quad
+    T^5=\frac{1}{2}\begin{pmatrix}0 & 0 & -i \\ 0 & 0 & 0 \\ i & 0 & 0\end{pmatrix}, \quad
+    T^6=\frac{1}{2}\begin{pmatrix}0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0\end{pmatrix}, \\
+    T^7=\frac{1}{2}\begin{pmatrix}0 & 0 & 0 \\ 0 & 0 & -i \\ 0 & i & 0\end{pmatrix}, \quad
+    T^8=\frac{1}{2\sqrt{3}}\begin{pmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -2\end{pmatrix}.
+\end{align}
+The commutation relations for the generators can be expressed in terms of the structure constants $f^{abc}$ as follows:
+\begin{align}
+    f^{abc} = \frac{2}{i} \text{Tr}(T^a [T^b, T^c])
+\end{align}
+Calculating the commutators and using the above formula, we find the non-zero structure constants for SU(3) (see the calculation details in the Mathematica notebook):    
+\begin{align}
+    f^{123} = 1, \quad f^{147} = \frac{1}{2}, \quad f^{156} = -\frac{1}{2}, \quad f^{246} = \frac{1}{2}, \quad f^{257} = \frac{1}{2}, \quad f^{345} = \frac{1}{2}, \quad f^{367} = -\frac{1}{2}, \\
+    f^{458} = \frac{\sqrt{3}}{2}, \quad f^{678} = \frac{\sqrt{3}}{2}.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The anti-commutators of the generators can be expressed in terms of the d symbols as follows:
+\begin{align}
+    d^{abc} = 2 \text{Tr}(T^a \{T^b, T^c\})
+\end{align}
+Calculating the anti-commutators and using the above formula, we find the non-zero d symbols for SU(3) (see the calculation details in the Mathematica notebook):
+\begin{align}
+    d^{118} = d^{228} = d^{338} = -d^{888} = \frac{1}{\sqrt{3}}, \quad d^{448} = d^{558} = d^{668} = d^{778} = -\frac{1}{2\sqrt{3}}, \\
+    d^{146} = d^{157} = -d^{247} = d^{256} = d^{344} = d^{355} = -d^{366} = -d^{377} = \frac{1}{2}.
+\end{align}
+Note that the anti-commutators yield a more complex structure involving the d symbols, which is 
+\begin{align}
+    \{T^a, T^b\} = \frac{1}{3} \delta^{ab} I + d^{abc} T^c.
+\end{align}
+However, we can also derive $d^{abc}$ using the relation:
+\begin{align}
+    d^{abc} = 2 \text{Tr}(T^a \{T^b, T^c\}),
+\end{align}
+since the generators are traceless.
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+For SU(2), the generators in the fundamental representation are given by $(1/2)$ times the Pauli matrices:
+\begin{align}
+    T^1 = \frac{1}{2}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}, \quad
+    T^2 = \frac{1}{2}\begin{pmatrix}0 & -i \\ i & 0\end{pmatrix}, \quad
+    T^3 = \frac{1}{2}\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}.
+\end{align}
+Calculating the anti-commutators for SU(2), we find that they are proportional to the identity matrix:
+\begin{align}
+    \{T^a, T^b\} = \frac{1}{2} \delta^{ab} I.
+\end{align}
+The qualitative difference between SU(2) and SU(3) is that for SU(2), the anti-commutators yield a simple result proportional to the identity matrix, while for SU(3), the anti-commutators yield a more complex structure involving the d symbols, which are not simply proportional to the identity matrix. This reflects the richer structure of the SU(3) group compared to SU(2).
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+Please refer to the Mathematica notebook for the detailed calculation of the equation, and the result is valid.
+\qed
+
