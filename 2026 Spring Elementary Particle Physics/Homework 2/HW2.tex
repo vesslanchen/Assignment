@@ -15,10 +15,52 @@
 \begin{itemize}
     \item [(a)]
 \end{itemize}
+Let us denote the momenta of $\pi^-$, $\pi^0$, $e^-$, and $\overline{\nu}_e$ as $p$, $p'$, $k$, and $k'$, respectively. The decay amplitude can be written as
+\begin{align}
+    \mathcal{M} = \langle\pi^0(p') e^-(k) \overline{\nu}_e(k')| \mathcal{H}_W | \pi^-(p) \rangle= -\frac{G_F}{\sqrt{2}} V_{ud} \langle \pi^0(p')| \overline{d}\gamma^\mu u | \pi^-(p) \rangle \langle e^-(k) \overline{\nu}_e(k')| \overline{e}\gamma_\mu(1-\gamma^5)\nu_e | 0 \rangle.
+\end{align}
+The hadronic matrix element can be parameterized as
+\begin{align}
+    \langle \pi^0(p')| \overline{d}\gamma^\mu u | \pi^-(p) \rangle = f_+(q^2) (p+p')^\mu + f_-(q^2) (p-p')^\mu\approx f_+(0) (p+p')^\mu=\sqrt{2} (p+p')^\mu,
+\end{align}
+where $q = p - p'$. Neglecting radiative corrections and using the fact that $f_+(0)$ dominates, we can approximate $f_+(q^2) \approx f_+(0)=\sqrt{2}$. The leptonic matrix element can be evaluated using standard techniques, yielding
+\begin{align}
+    \langle e^-(k) \overline{\nu}_e(k')| \overline{e}\gamma_\mu(1-\gamma^5)\nu_e | 0 \rangle = \overline{u}(k) \gamma_\mu (1-\gamma^5) v(k').
+\end{align}
+Now the amplitude can be expressed as
+\begin{align}
+    &\mathcal{M} =-\frac{G_F}{\sqrt{2}} V_{ud} \sqrt{2} (p+p')^\mu \overline{u}(k) \gamma_\mu (1-\gamma^5) v(k')\\
+    =& -G_F V_{ud} (p+p')^\mu \overline{u}(k) \gamma_\mu (1-\gamma^5) v(k').
+\end{align}
+Then the squared amplitude, summed over final spins, is given by
+\begin{align}
+    \langle|\mathcal{M}|^2\rangle =& \sum_{\text{spins}} |\mathcal{M}|^2 = G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \overline{u}_{s_1}(k) \gamma_\mu (1-\gamma^5) v_{s_2}(k') \overline{v}_{s_2}(k') \gamma_\nu (1-\gamma^5) u_{s_1}(k)\\
+    =& G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \text{Tr}\Big[ (\slashed{k}+m_e) \gamma_\mu (1-\gamma^5) \slashed{k}' \gamma_\nu (1-\gamma^5) \Big]\\
+    =&G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu k^{\alpha} k'^{\beta} \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu (1-\gamma^5) \gamma_\beta \gamma_\nu (1-\gamma^5) \Big].
+\end{align}
+where we have used the spin sum identities for the electron and neutrino:
+\begin{align}
+    \sum_{s_1} u_{s_1}(k) \overline{u}_{s_1}(k) = \slashed{k} + m_e, \quad \sum_{s_2} v_{s_2}(k') \overline{v}_{s_2}(k') = \slashed{k}'-m_\nu \approx \slashed{k}'.
+\end{align}
+We provide the full set of trace identities:
+\begin{align}
+    &\text{Tr}(\gamma^\mu \gamma^\nu) = 4 g^{\mu\nu}, \quad \text{Tr}(\gamma^\mu \gamma^\nu \gamma^5) = 0, \quad \text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma) = 4 (g^{\mu\nu} g^{\rho\sigma} - g^{\mu\rho} g^{\nu\sigma} + g^{\mu\sigma} g^{\nu\rho}),\\
+    &\text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^5) = 4 i \epsilon^{\mu\nu\rho\sigma}, \quad \text{Tr}(\text{odd number of } \gamma^5) = 0.
+\end{align}
+Hence, 
+\begin{align}
+    &\text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu (1-\gamma^5) \gamma_\beta \gamma_\nu (1-\gamma^5) \Big] \\
+    =& \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu \gamma_\beta \gamma_\nu (1-\gamma^5) \Big] - \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu \gamma_\beta \gamma_\nu \gamma^5 (1-\gamma^5) \Big]
+\end{align}
 
-\begin{itemize}
-    \item [(b)]
-\end{itemize}
+
+
+
+
+
+
+
+
 
 \clearpage
 \question{2}{\textbf{Tau decays}}\\
