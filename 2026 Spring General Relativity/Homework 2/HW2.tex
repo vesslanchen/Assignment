@@ -1,0 +1,266 @@
+\section*{Problem Set 2 due on Due Feb 18 at 11:59pm}
+
+\question{1}{}
+Consider 2 objects of mass $m_1$ and $m_2$ with separation $a$, orbiting about a common center of mass. Find the change in the period ($\dot{\tau}/\tau$) due to gravitational radiation. Assume the above result is valid as $a \to 0$, find the time to go from $a=a_0$ to $a=0$.
+\answer{}
+We first write down the radiation power of the system:
+\begin{align}
+    P = \frac{dE}{dt} = -\frac{G}{5c^5} \left\langle \dddot{I}_{ij} \dddot{I}_{ij} - \frac{1}{3} (\dddot{I}_{kk})^2 \right\rangle\\
+    =-\frac{G}{5} \left\langle \dddot{I}_{ij} \dddot{I}_{ij} - \frac{1}{3} (\dddot{I}_{kk})^2 \right\rangle
+\end{align}
+where $I_{ij}$ is the quadrupole moment of the system. For a binary system, we can express $I_{ij}$ in terms of the reduced mass $\mu = \frac{m_1 m_2}{m_1 + m_2}$ and the separation vector $\mathbf{r}$ between the two masses:
+\begin{align}
+    I_{ij} = \mu (r_i r_j - \frac{1}{3} r^2 \delta_{ij})
+\end{align}
+For a circular orbit, the separation vector can be expressed as $\mathbf{r}(t) = a (\cos(\omega t), \sin(\omega t), 0)$, where $\omega$ is the angular frequency of the orbit. The third time derivative of $I_{ij}$ can be calculated as follows:
+\begin{align}
+    \dddot{I}_{ij} = \mu \left( \frac{d^3}{dt^3} (r_i r_j) - \frac{1}{3} \frac{d^3}{dt^3} (r^2 \delta_{ij}) \right)
+\end{align}
+Calculating the third time derivative of $r_i r_j$ and $r^2 \delta_{ij}$, we find:
+\begin{align}
+    &\frac{d^3}{dt^3} (r_i r_j) = \frac{d^3}{dt^3} 
+    \begin{pmatrix}
+    a^2 \cos^2(\omega t) & a^2 \cos(\omega t) \sin(\omega t) & 0 \\
+    a^2 \cos(\omega t) \sin(\omega t) & a^2 \sin^2(\omega t) & 0 \\
+    0 & 0 & 0
+    \end{pmatrix} \\
+    =& \frac{d^3}{dt^3}  \begin{pmatrix}
+    \frac{a^2}{2} (1 + \cos(2\omega t)) & \frac{a^2}{2} \sin(2\omega t) & 0 \\
+    \frac{a^2}{2} \sin(2\omega t) & \frac{a^2}{2} (1 - \cos(2\omega t)) & 0 \\
+    0 & 0 & 0
+    \end{pmatrix} \\
+    =&4 a^2 \omega^3   \begin{pmatrix}
+    \sin(2\omega t) & -\cos(2\omega t) & 0 \\
+    -\cos(2\omega t) & -\sin(2\omega t) & 0 \\
+    0 & 0 & 0
+    \end{pmatrix}\\
+    &\frac{d^3}{dt^3} (r^2 \delta_{ij}) = \frac{d^3}{dt^3} (a^2 \delta_{ij}) = 0
+\end{align}
+Substituting these results back into the expression for $\dddot{I}_{ij}$, we get:
+\begin{align}
+    \dddot{I}_{ij} = 4 \mu a^2 \omega^3   \begin{pmatrix}
+    \sin(2\omega t) & -\cos(2\omega t) & 0 \\
+    -\cos(2\omega t) & -\sin(2\omega t) & 0 \\
+    0 & 0 & 0
+    \end{pmatrix}
+\end{align}
+Now we can calculate the power radiated by the system:
+\begin{align}
+    P = \frac{dE}{dt}&= -\frac{G}{5} \left\langle \dddot{I}_{ij} \dddot{I}_{ij} - \frac{1}{3} (\dddot{I}_{kk})^2 \right\rangle \\
+    &= -\frac{G}{5} \left\langle 16 \mu^2 a^4 \omega^6 (2 \sin^2(2\omega t) + 2 \cos^2(2\omega t)) \right\rangle \\
+    &= -\frac{32 G}{5} \mu^2 a^4 \omega^6 .
+\end{align}
+By Kepler's third law, we have $\omega^2 = \frac{G (m_1 + m_2)}{a^3}$, $\mu=\frac{m_1 m_2}{m_1 + m_2}$, which allows us to express the power in terms of the separation $a$:
+\begin{align}
+    &P = -\frac{32 G^4}{5} \frac{\mu^2 (m_1 + m_2)^3}{a^5}\\
+    =& -\frac{32 G^4}{5} \frac{m_1^2 m_2^2 (m_1 + m_2)}{a^5}
+\end{align}
+The energy of the system is given by the sum of the kinetic and potential energy:
+\begin{align}
+    E = -\frac{G m_1 m_2}{2a}
+\end{align}
+The rate of change of the energy is equal to the power radiated:
+\begin{align}
+    \frac{dE}{dt} = \frac{G m_1 m_2}{2a^2} \frac{da}{dt} = -\frac{32 G^4}{5} \frac{m_1^2 m_2^2 (m_1 + m_2)}{a^5}
+\end{align}
+Solving for $\frac{da}{dt}$, we find:
+\begin{align}
+    \frac{da}{dt} = -\frac{64 G^3}{5} \frac{m_1 m_2 (m_1 + m_2)}{a^3}
+\end{align}
+Now, we can write down the period of the orbit $\tau= \frac{2\pi}{\omega}$:
+\begin{align}
+    \tau = 2\pi \sqrt{\frac{a^3}{G (m_1 + m_2)}}=\frac{2\pi}{\sqrt{G (m_1 + m_2)}} a^{3/2}
+\end{align}
+Taking the time derivative of the period, we get:
+\begin{align}
+    \frac{d\tau}{dt} = \frac{3\pi}{\sqrt{G (m_1 + m_2)}} a^{1/2} \frac{da}{dt} = -\frac{192 \pi G^{5/2}}{5} \frac{m_1 m_2 (m_1 + m_2)^{1/2}}{a^{5/2}}
+\end{align}
+Finally, we can express the change in the period as:
+\begin{align}
+    \frac{\dot{\tau}}{\tau} = \frac{d\tau/dt}{\tau} = -\frac{96 G^3}{5} \frac{m_1 m_2}{a^4}
+\end{align}
+To find the time it takes for the separation to go from $a=a_0$ to $a=0$, we can integrate the expression for $\frac{da}{dt}$:
+\begin{align}
+    t= \int dt = \int_{a_0}^{0}  \frac{da}{\frac{da}{dt}} = \int_{a_0}^{0} -\frac{5}{64 G^3} \frac{a^3}{m_1 m_2 (m_1 + m_2)} da = \frac{5 a_0^4}{256 G^3 m_1 m_2 (m_1 + m_2)}.
+\end{align}
+\qed
+
+
+\clearpage
+\question{2}{}
+Problem~$7.6$ in Carroll. Two object of mass $M$ have a head on collision at $(0,0,0,0)$.
+In the distant past, $t\to -\infty$, the mass mass started at $x\to\pm\infty$ with zero velocity.
+\begin{itemize}
+    \item [(a)] Using Newtonian theory show that $x(t)= \pm(\frac{9}{8}GMt^2)^{1/3}$.
+    \item [(b)] For what separations is the Newtonian approximation reasonable?
+    \item [(c)] Calculate $h_{xx}^{TT}$ at $(0,R,0)$.
+    \item [(d)] For the same problem, calculate the total energy radiated in the collision.
+\end{itemize}
+
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+Start with energy conservation:
+\begin{align}
+    2\frac{1}{2} M \dot{x}^2 - \frac{G M^2}{2x} = 0\\
+    \implies \dot{x} = \sqrt{\frac{G M}{2x}}
+\end{align}
+Separating variables and integrating, we get:
+\begin{align}
+    &\int x^{1/2} dx = \sqrt{\frac{G M}{2}} \int dt\\
+    \implies &\frac{2}{3} x^{3/2} = \sqrt{\frac{G M}{2}} t + C, \quad \text{where $C=0$ since $x=0$ at $t=0$}\\
+    \implies &x^{3/2} = \frac{3}{2} \sqrt{\frac{G M}{2}} t=\sqrt{\frac{9}{8} G M} t\\
+    \implies &x(t) = \pm \left(\frac{9}{8} G M t^2\right)^{1/3}
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The Newtonian approximation is reasonable when the gravitational field is weak and the velocities are much less than the speed of light. For the speed, we can calculate $\dot{x}$ from the expression we derived in part (a):
+\begin{align}
+    &\dot{x} = \frac{d}{dt} \left(\frac{9}{8} G M t^2\right)^{1/3} = \frac{2}{3} \left(\frac{9}{8} G M\right)^{1/3} t^{-1/3}<\!\!< c=1\\
+    \implies &t >\!\!> \left(\frac{2}{3} \left(\frac{9}{8} G M\right)^{1/3}\right)^3 = \frac{8}{27} G M \\
+    \implies &x(t) >\!\!> \left(\frac{9}{8} G M \left(\frac{8}{27} G M\right)^2\right)^{1/3} = \frac{2}{3} G M
+\end{align}
+For the gravitational field, we can calculate the gravitational potential $\Phi$ at the position of one of the masses:
+\begin{align}
+    \Phi = -\frac{G M}{2x}
+\end{align}
+The Newtonian approximation is reasonable when $|\Phi| <\!\!< 1$, which implies:
+\begin{align}
+    x >\!\!> \frac{G M}{2}
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+By equation~(7.140) in Carroll, the transverse-traceless part of the metric perturbation is given by:
+\begin{align}
+    h_{ij}^{TT} = \frac{2 G}{R} \frac{d^2}{dt^2} I_{ij}(t_r),
+\end{align}
+where $I_{ij}$ is the quadrupole moment of the system and $t_r = t - R$ is the retarded time. The quadrupole moment can be calculated as:
+\begin{align}
+    I_{ij} = \sum_a m_a (x_a^i x_a^j - \frac{1}{3} r_a^2 \delta_{ij}).
+\end{align}
+Since we want to calculate $h_{xx}^{TT}$, we need to find $I_{xx}$. For the two masses, we have:
+\begin{align}
+    I_{xx} = M (x^2 - \frac{1}{3} r^2) + M ((-x)^2 - \frac{1}{3} r^2) = \frac{4}{3} M x^2=\frac{4}{3} M \left(\frac{9}{8} G M t^2\right)^{2/3}
+\end{align}
+Taking the second time derivative, we get:
+\begin{align}
+    &\frac{d^2}{dt^2} I_{xx} = \frac{4}{3} M \frac{d^2}{dt^2} \left(\frac{9}{8} G M t^2\right)^{2/3} = \frac{4}{3}M \Big(\frac{9}{8} GM\Big)^{2/3} \frac{d^2}{dt^2} t^{4/3}\\
+    =& \frac{4}{3}M \Big(\frac{9}{8} GM\Big)^{2/3} \frac{4}{9} t^{-2/3} = \frac{16}{27} M \Big(\frac{9}{8} GM\Big)^{2/3} t^{-2/3} 
+\end{align}
+Substituting this back into the expression for $h_{xx}^{TT}$, we get:
+\begin{align}
+    h_{xx}^{TT} = \frac{2 G}{R} \frac{16}{27} M \Big(\frac{9}{8} GM\Big)^{2/3} t^{-2/3} = \frac{32 G M}{27 R} \Big(\frac{9}{8} GM\Big)^{2/3} (t-R)^{-2/3},
+\end{align}
+where we have replaced $t$ with the retarded time $t_r = t - R$.
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+The total energy radiated in the collision can be calculated using the quadrupole formula for gravitational radiation:
+\begin{align}
+    E = \frac{G}{5} \int_{-\infty}^{\infty} \left\langle \dddot{I}_{ij} \dddot{I}_{ij} - \frac{1}{3} (\dddot{I}_{kk})^2 \right\rangle dt
+\end{align}
+Since we have already calculated $I_{xx}$, we can find $\dddot{I}_{xx}$ by taking the third time derivative:
+\begin{align}
+    &\dddot{I}_{xx} = \frac{d}{dt} \frac{d^2}{dt^2} I_{xx} = \frac{d}{dt} \left(\frac{16}{27} M \Big(\frac{9}{8} GM\Big)^{2/3} t^{-2/3}\right) = -\frac{32}{81} M \Big(\frac{9}{8} GM\Big)^{2/3} t^{-5/3}
+\end{align}
+Since the quadrupole moment is traceless, we have $\dddot{I}_{kk} = 0$. Therefore, the energy radiated can be expressed as:
+\begin{align}
+    I_{yy}=I_{zz}=-\frac{1}{2} I_{xx}, \quad \dddot{I}_{yy}=\dddot{I}_{zz}=-\frac{1}{2} \dddot{I}_{xx}
+\end{align}
+Back to the expression for the energy radiated, we have:
+\begin{align}
+    E =& \frac{G}{5} \int_{-\infty}^{t_0} \left\langle \dddot{I}_{xx}^2 + 2 \dddot{I}_{yy}^2 - \frac{1}{3} (\dddot{I}_{xx} + 2 \dddot{I}_{yy})^2 \right\rangle dt\\
+    =& \frac{G}{5} \int_{-\infty}^{t_0} \left\langle \dddot{I}_{xx}^2 + 2 \left(-\frac{1}{2} \dddot{I}_{xx}\right)^2 - \frac{1}{3} (\dddot{I}_{xx} - \dddot{I}_{xx})^2 \right\rangle dt\\
+    =& \frac{G}{5} \int_{-\infty}^{t_0} \left\langle \dddot{I}_{xx}^2 + 2 \cdot \frac{1}{4} \dddot{I}_{xx}^2 - 0 \right\rangle dt\\
+    =& \frac{G}{5} \int_{-\infty}^{t_0} \left\langle \frac{3}{2} \dddot{I}_{xx}^2 \right\rangle dt = \frac{3 G}{10} \int_{-\infty}^{t_0}  \left(-\frac{32}{81} M \Big(\frac{9}{8} GM\Big)^{2/3} t^{-5/3}\right)^2 dt\\
+    =& \frac{3 G}{10} \frac{1024}{6561} M^2 \Big(\frac{9}{8} GM\Big)^{4/3} \int_{-\infty}^{t_0} t^{-10/3} dt = \frac{3 G}{10} \frac{1024}{6561} M^2 \Big(\frac{9}{8} GM\Big)^{4/3} \cdot \frac{3}{7} t_0^{-7/3}\\
+    =&\frac{512}{10935} G M^2 \Big(\frac{9}{8} GM\Big)^{4/3} t_0^{-7/3},
+\end{align}
+where $t_0$ is the time at which the collision occurs. Since the collision occurs at $t=0$, we can take the limit as $t_0 \to 0$ to find the total energy radiated:
+\begin{align}
+    E = \lim_{t_0 \to 0} \frac{512}{10935} G M^2 \Big(\frac{9}{8} GM\Big)^{4/3} t_0^{-7/3} = \infty
+\end{align}
+This result indicates that an infinite amount of energy is radiated in the collision, which is a consequence of the idealized nature of the problem. In reality, the energy radiated would be finite due to various factors such as the \textbf{finite size} of the masses and the presence of other forces that would come into play during the collision.
+\qed
+
+
+
+
+
+
+\clearpage
+\question{3}{}
+A ball of mass $m = 100$~g is thrown into the vaccum above the earth (ie. neglect all effects of air resistence), which produces a UNIFORM gravitional field ($g=10^3$~cm s$^{−2}$) with a velocity $v_0=10^3$~cm/s. Normally, this ball would rise to a height of $h=v_0^2/2g=500$~cm. However, the ball will be a source of gravitational radiation and won’t go quite so high. Find $\Delta h$. How does $\Delta h/h$ depend on $v_0$?
+
+
+Now suppose the ball will fall back and elastically bounce. Left alone, the ball will eventually come to rest. How long will it take.
+
+\answer{}
+The power radiated by the ball due to gravitational radiation can be calculated using the quadrupole formula:
+\begin{align}
+    P = \frac{G}{5} \left\langle \dddot{I}_{ij} \dddot{I}_{ij} - \frac{1}{3} (\dddot{I}_{kk})^2 \right\rangle
+\end{align}
+For a ball moving in a uniform gravitational field, the quadrupole moment can be expressed as:
+\begin{align}
+    I_{ij} = m (x_i x_j - \frac{1}{3} r^2 \delta_{ij})
+\end{align}
+Since the ball is moving vertically, we can express its position as $x(t) = (0, 0, z(t))$, where $z(t)$ is the height of the ball at time $t$. The quadrupole moment can then be simplified to:
+\begin{align}
+    I_{zz} = m (z^2 - \frac{1}{3} z^2) = \frac{2}{3} m z^2
+\end{align}
+Since the quadrupole moment is traceless, we have $I_{xx} = I_{yy} = -\frac{1}{2} I_{zz}$. Therefore, the second time derivative of the quadrupole moment can be calculated as:
+\begin{align}
+    &\dddot{I}_{zz} = \frac{d^3}{dt^3} I_{zz} = \frac{d^3}{dt^3} \left(\frac{2}{3} m z^2\right)\\
+    =& \frac{2}{3}m \frac{d^2}{dt^2}(2 z \dot{z}) = \frac{4}{3} m \frac{d}{dt} (z \ddot{z} + \dot{z}^2) \\
+    =&\frac{4m}{3} \frac{d}{dt} (z (-g) + \dot{z}^2) = \frac{4m}{3} (-g \dot{z} + 2 \dot{z} \ddot{z}) = \frac{4m}{3} (- g \dot{z} + 2 \dot{z} (-g)) = -4m g \dot{z}=-4mgv
+\end{align}
+Since $I_{xx} = I_{yy} = -\frac{1}{2} I_{zz}$, we have $\dddot{I}_{xx} = \dddot{I}_{yy} = -\frac{1}{2} \dddot{I}_{zz}$. Substituting these results back into the expression for the power, we get:
+\begin{align}
+    P =& \frac{G}{5} \left\langle \dddot{I}_{zz}^2 + 2 \dddot{I}_{xx}^2 - \frac{1}{3} (\dddot{I}_{zz} + 2 \dddot{I}_{xx})^2 \right\rangle = \frac{G}{5} \left\langle \dddot{I}_{zz}^2 + 2 \cdot \frac{1}{4} \dddot{I}_{zz}^2 - 0 \right\rangle = \frac{3 G}{10} \left\langle \dddot{I}_{zz}^2 \right\rangle\\
+    =& \frac{3 G}{10} \left\langle (-4mgv)^2 \right\rangle = \frac{24 G m^2 g^2}{5}  v^2 
+\end{align}
+The energy radiated by the ball can be calculated by integrating the power over time, and we also restore the $c^5$ in the denominator:
+\begin{align}
+    &\Delta E = \int P dt = \int \frac{24 G m^2 g^2}{5 c^5} v^2 dt = \frac{24 G m^2 g^2}{5 c^5} \int v^2 dt\\
+    =& \frac{24 G m^2 g^2}{5 c^5} \int v^2 \frac{dv}{-g} = -\frac{24 G m^2 g}{5 c^5} \int v^2 dv = -\frac{24 G m^2 g}{5 c^5} \cdot \frac{v_0^3}{3} = -\frac{8 G m^2 g v_0^3}{5 c^5}
+\end{align}
+The change in height $\Delta h$ can be calculated by equating the energy radiated to the change in potential energy:
+\begin{align}
+    \Delta E = m g \Delta h \implies \Delta h = \frac{\Delta E}{m g} = -\frac{8 G m g v_0^3}{5 c^5}
+\end{align}
+The ratio $\Delta h/h$ can be expressed as:
+\begin{align}
+    \frac{\Delta h}{h} = \frac{-\frac{8 G m g v_0^3}{5 c^5}}{\frac{v_0^2}{2g}} = -\frac{16 G m g^2 v_0}{5 c^5}
+\end{align}
+This shows that the ratio $\Delta h/h$ is proportional to the initial velocity $v_0$ of the ball. 
+
+Now, we know the due to the radiation, we have $\Delta E = -\frac{8 G m^2 g v_0^3}{5 c^5}$, which means the ball loses energy at a rate of $\frac{dE}{dt}$: 
+\begin{align}
+    \frac{dE}{dt} = -\frac{8 G m^2 g v_0^3}{5 c^5} \cdot \frac{1}{t_{\text{total}}}= -\frac{8 G m^2 g v_0^3}{5 c^5} \cdot \frac{1}{2 t_{\text{up}}},
+\end{align}
+where $t_{\text{total}}$ is the total time for the ball to go up and come back down, and $t_{\text{up}}$ is the time it takes for the ball to reach its maximum height. Since the ball is thrown upwards with an initial velocity of $v_0$, we can calculate $t_{\text{up}}$ using the equation of motion:
+\begin{align}
+    v = v_0 - g t_{\text{up}} = 0 \implies t_{\text{up}} = \frac{v_0}{g}
+\end{align}
+Substituting this back into the expression for $\frac{dE}{dt}$,
+\begin{align}
+    \frac{dE}{dt} = -\frac{8 G m^2 g v_0^3}{5 c^5} \cdot \frac{1}{2 \cdot \frac{v_0}{g}} = -\frac{4 G m^2 g^2 v_0^2}{5 c^5}
+\end{align}
+Note that the energy of the ball at its maximum height is given by:
+\begin{align}
+    E = m g h = m g \frac{v_0^2}{2g} = \frac{1}{2} m v_0^2 \implies v_0^2 = \frac{2E}{m},
+\end{align}
+Hence, we can express $\frac{dE}{dt}$ in terms of the energy $E$:
+\begin{align}
+    \frac{dE}{dt} = -\frac{4 G m^2 g^2}{5 c^5} \cdot \frac{2E}{m} = -\frac{8 G m g^2}{5 c^5} E
+\end{align}
+This is a first-order linear differential equation, the solution to which is given by:
+\begin{align}
+    E(t) = E_0 e^{-\frac{8 G m g^2}{5 c^5} t}
+\end{align}
+where $E_0$ is the initial energy of the ball at its maximum height. The ball will come to rest when its energy approaches zero, which occurs as $t \to \infty$. 
+
+\qed

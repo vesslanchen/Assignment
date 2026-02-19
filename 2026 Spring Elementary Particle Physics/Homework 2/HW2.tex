@@ -17,7 +17,7 @@
 \end{itemize}
 Let us denote the momenta of $\pi^-$, $\pi^0$, $e^-$, and $\overline{\nu}_e$ as $p$, $p'$, $k$, and $k'$, respectively. The decay amplitude can be written as
 \begin{align}
-    \mathcal{M} = \langle\pi^0(p') e^-(k) \overline{\nu}_e(k')| \mathcal{H}_W | \pi^-(p) \rangle= -\frac{G_F}{\sqrt{2}} V_{ud} \langle \pi^0(p')| \overline{d}\gamma^\mu u | \pi^-(p) \rangle \langle e^-(k) \overline{\nu}_e(k')| \overline{e}\gamma_\mu(1-\gamma^5)\nu_e | 0 \rangle.
+    \mathcal{M} = \langle\pi^0(p') e^-(k) \overline{\nu}_e(k')| \mathcal{H}_W | \pi^-(p) \rangle= -\frac{G_F}{\sqrt{2}} V_{ud} \langle \pi^0(p')| \overline{d}\gamma^\mu u | \pi^-(p) \rangle \langle e^-(k) \overline{\nu}_e(k')| \overline{e}\gamma_\mu(1-\gamma_5)\nu_e | 0 \rangle.
 \end{align}
 The hadronic matrix element can be parameterized as
 \begin{align}
@@ -25,18 +25,18 @@ The hadronic matrix element can be parameterized as
 \end{align}
 where $q = p - p'$. Neglecting radiative corrections and using the fact that $f_+(0)$ dominates, we can approximate $f_+(q^2) \approx f_+(0)=\sqrt{2}$. The leptonic matrix element can be evaluated using standard techniques, yielding
 \begin{align}
-    \langle e^-(k) \overline{\nu}_e(k')| \overline{e}\gamma_\mu(1-\gamma^5)\nu_e | 0 \rangle = \overline{u}(k) \gamma_\mu (1-\gamma^5) v(k').
+    \langle e^-(k) \overline{\nu}_e(k')| \overline{e}\gamma_\mu(1-\gamma_5)\nu_e | 0 \rangle = \overline{u}(k) \gamma_\mu (1-\gamma_5) v(k').
 \end{align}
 Now the amplitude can be expressed as
 \begin{align}
-    &\mathcal{M} =-\frac{G_F}{\sqrt{2}} V_{ud} \sqrt{2} (p+p')^\mu \overline{u}(k) \gamma_\mu (1-\gamma^5) v(k')\\
-    =& -G_F V_{ud} (p+p')^\mu \overline{u}(k) \gamma_\mu (1-\gamma^5) v(k').
+    &\mathcal{M} =-\frac{G_F}{\sqrt{2}} V_{ud} \sqrt{2} (p+p')^\mu \overline{u}(k) \gamma_\mu (1-\gamma_5) v(k')\\
+    =& -G_F V_{ud} (p+p')^\mu \overline{u}(k) \gamma_\mu (1-\gamma_5) v(k').
 \end{align}
 Then the squared amplitude, summed over final spins, is given by
 \begin{align}
-    \langle|\mathcal{M}|^2\rangle =& \sum_{\text{spins}} |\mathcal{M}|^2 = G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \overline{u}_{s_1}(k) \gamma_\mu (1-\gamma^5) v_{s_2}(k') \overline{v}_{s_2}(k') \gamma_\nu (1-\gamma^5) u_{s_1}(k)\\
-    =& G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \text{Tr}\Big[ (\slashed{k}+m_e) \gamma_\mu (1-\gamma^5) \slashed{k}' \gamma_\nu (1-\gamma^5) \Big]\\
-    =&G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu k^{\alpha} k'^{\beta} \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu (1-\gamma^5) \gamma_\beta \gamma_\nu (1-\gamma^5) \Big].
+    \langle|\mathcal{M}|^2\rangle =& \sum_{\text{spins}} |\mathcal{M}|^2 = G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \overline{u}_{s_1}(k) \gamma_\mu (1-\gamma_5) v_{s_2}(k') \overline{v}_{s_2}(k') \gamma_\nu (1-\gamma_5) u_{s_1}(k)\\
+    =& G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \text{Tr}\Big[ (\slashed{k}+m_e) \gamma_\mu (1-\gamma_5) \slashed{k}' \gamma_\nu (1-\gamma_5) \Big]\\
+    =&G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu k^{\alpha} k'^{\beta} \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu (1-\gamma_5) \gamma_\beta \gamma_\nu (1-\gamma_5) \Big].
 \end{align}
 where we have used the spin sum identities for the electron and neutrino:
 \begin{align}
@@ -44,20 +44,184 @@ where we have used the spin sum identities for the electron and neutrino:
 \end{align}
 We provide the full set of trace identities:
 \begin{align}
-    &\text{Tr}(\gamma^\mu \gamma^\nu) = 4 g^{\mu\nu}, \quad \text{Tr}(\gamma^\mu \gamma^\nu \gamma^5) = 0, \quad \text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma) = 4 (g^{\mu\nu} g^{\rho\sigma} - g^{\mu\rho} g^{\nu\sigma} + g^{\mu\sigma} g^{\nu\rho}),\\
-    &\text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^5) = 4 i \epsilon^{\mu\nu\rho\sigma}, \quad \text{Tr}(\text{odd number of } \gamma^5) = 0.
+    &\text{Tr}(\gamma^\mu \gamma^\nu) = 4 g^{\mu\nu}, \quad \text{Tr}(\gamma^\mu \gamma^\nu \gamma_5) = 0, \quad \text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma) = 4 (g^{\mu\nu} g^{\rho\sigma} - g^{\mu\rho} g^{\nu\sigma} + g^{\mu\sigma} g^{\nu\rho}),\\
+    &\text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma_5) = 4 i \epsilon^{\mu\nu\rho\sigma}, \quad \text{Tr}(\text{odd number of } \gamma_5) = 0.
 \end{align}
 Hence, 
 \begin{align}
-    &\text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu (1-\gamma^5) \gamma_\beta \gamma_\nu (1-\gamma^5) \Big] \\
-    =& \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu \gamma_\beta \gamma_\nu (1-\gamma^5) \Big] - \text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu \gamma_\beta \gamma_\nu \gamma^5 (1-\gamma^5) \Big]
+    &\text{Tr}\Big[(\gamma_\alpha +1m_e) \gamma_\mu (1-\gamma_5) \gamma_\beta \gamma_\nu (1-\gamma_5) \Big] \\
+    =& \text{Tr}\Big[\gamma_\alpha \gamma_\mu (1-\gamma_5) \gamma_\beta \gamma_\nu (1-\gamma_5) \Big] + m_e \text{Tr}\Big[ \gamma_\mu (1-\gamma_5) \gamma_\beta \gamma_\nu (1-\gamma_5) \Big] \\
+    =& \text{Tr}\Big[\gamma_\alpha \gamma_\mu \gamma_\beta \gamma_\nu \Big]+ \text{Tr}\Big[\gamma_\alpha \gamma_\mu \gamma_5 \gamma_\beta \gamma_\nu \gamma_5 \Big]- \text{Tr}\Big[\gamma_\alpha \gamma_\mu \gamma_5 \gamma_\beta \gamma_\nu \Big] - \text{Tr}\Big[\gamma_\alpha \gamma_\mu \gamma_\beta \gamma_\nu \gamma_5 \Big] \\
+    +& m_e \text{Tr}\Big[ \gamma_\mu \gamma_\beta \gamma_\nu\Big] - m_e \text{Tr}\Big[ \gamma_\mu \gamma_5 \gamma_\beta \gamma_\nu\Big] - m_e \text{Tr}\Big[ \gamma_\mu \gamma_\beta \gamma_\nu \gamma_5\Big] + m_e \text{Tr}\Big[ \gamma_\mu \gamma_5 \gamma_\beta \gamma_\nu \gamma_5\Big] \\
+    =&2 \text{Tr}\Big[\gamma_\alpha \gamma_\mu \gamma_\beta \gamma_\nu \Big] -2 \text{Tr}\Big[\gamma_\alpha \gamma_\mu \gamma_\beta \gamma_\nu \gamma_5  \Big] \\
+    =& 8 (g_{\alpha\mu} g_{\beta\nu} - g_{\alpha\beta} g_{\mu\nu} + g_{\alpha\nu} g_{\mu\beta}) - 8 i \epsilon_{\alpha\mu\beta\nu}.
+\end{align}
+Actually, the term $\epsilon_{\alpha\mu\beta\nu}$ will vanish later when contracted with $(p+p')^\mu (p+p')^\nu k^{\alpha} k'^{\beta}$, since $p+p'$ is symmetric in $\mu$ and $\nu$, while $\epsilon_{\alpha\mu\beta\nu}$ is antisymmetric in $\mu$ and $\nu$. Therefore, we can ignore the second term and write
+\begin{align}
+    &\langle|\mathcal{M}|^2\rangle = G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu k^{\alpha} k'^{\beta} 8 (g_{\alpha\mu} g_{\beta\nu} - g_{\alpha\beta} g_{\mu\nu} + g_{\alpha\nu} g_{\mu\beta}) \\
+    =&8G_F^2 |V_{ud}|^2 (p+p')^\mu (p+p')^\nu \Big( k_\mu k'_\nu - (k\cdot k') g_{\mu\nu} + k_\nu k'_\mu \Big)\\
+    =&8G_F^2 |V_{ud}|^2 \Bigg[2 (p+p')\cdot k (p+p')\cdot k' - (p+p')^2 (k\cdot k') \Bigg]
+\end{align}
+We can assume the 4-momenta in the $\pi^-$ rest frame as
+\begin{align}
+    p = (m_{\pi^-}, \mathbf{0}), \quad p' = (E_{\pi^0}, -(\mathbf{k}+\mathbf{k}')=\mathbf{p'}), \quad k = (E_e, \mathbf{k}), \quad k' = (E_\nu, \mathbf{k'}),
+\end{align}
+where $E_{\pi^0} = \sqrt{|\mathbf{p'}|^2 + m_{\pi^0}^2}$, $E_e = \sqrt{|\mathbf{k}|^2 + m_e^2}$, and $E_\nu = |\mathbf{k'}|$. We can define $q=p-p' = k+k'$ and have following relations:
+\begin{align}
+    &(p+p')\cdot k = (2p - (k+k'))\cdot k = 2 p\cdot k - k^2 - (k\cdot k') = 2 m_{\pi^-} E_e - m_e^2 - (k\cdot k'),\\
+    &(p+p')\cdot k' = (2p - (k+k'))\cdot k' = 2 p\cdot k' - k'^2 - (k\cdot k') = 2 m_{\pi^-} E_\nu - (k\cdot k'),\\
+    &(p+p')^2 = (2p - (k+k'))^2 = 4 m_{\pi^-}^2 -4 m_{\pi^-} (E_e + E_\nu) + (k+k')^2\\
+    =& 4 m_{\pi^-}^2 -4 m_{\pi^-} (E_e + E_\nu) + m_e^2 + 2 (k\cdot k').
+\end{align}
+Since the $m_{\pi^-}$ is much larger than the energy of the final state particles (except for the $\pi^0$), we can further approximate $E_e + E_\nu \approx m_{\pi^-} - m_{\pi^0} = \Delta$. Hence, we have
+\begin{align}
+    &2[(p+p')\cdot k] [(p+p')\cdot k'] = 2(2 m_{\pi^-} E_e - m_e^2 - (k\cdot k'))(2 m_{\pi^-} E_\nu - (k\cdot k')) \\
+    =&8 m_{\pi^-}^2 E_e E_\nu -4 m_{\pi^-} (E_e + E_\nu) (k\cdot k') - 4 m_e^2 m_{\pi^-} E_\nu +2 m_e^2 (k\cdot k') + 2(k\cdot k')^2 \\
+    =&8 m_{\pi^-}^2 E_e E_\nu -4 m_{\pi^-} \Delta (k\cdot k') - 4 m_e^2 m_{\pi^-} E_\nu +2 m_e^2 (k\cdot k') + 2(k\cdot k')^2,\\
+    &(p+p')^2 (k\cdot k') = (4 m_{\pi^-}^2 -4 m_{\pi^-} \Delta + m_e^2 + 2 (k\cdot k')) (k\cdot k') \\
+    =& 4 m_{\pi^-}^2 (k\cdot k') -4 m_{\pi^-} \Delta (k\cdot k') + m_e^2 (k\cdot k') + 2(k\cdot k')^2.
+\end{align}
+Putting everything together, we can express the squared amplitude as
+\begin{align}
+    &\langle|\mathcal{M}|^2\rangle=8G_F^2 |V_{ud}|^2 \Bigg[8 m_{\pi^-}^2 E_e E_\nu -\textcolor{blue}{4 m_{\pi^-} \Delta (k\cdot k')} - 4 m_e^2 m_{\pi^-} E_\nu +2 m_e^2 (k\cdot k') + \textcolor{red}{2(k\cdot k')^2} \\
+    &\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad - 4 m_{\pi^-}^2 (k\cdot k') +\textcolor{blue}{4 m_{\pi^-} \Delta (k\cdot k')} - m_e^2 (k\cdot k') - \textcolor{red}{2(k\cdot k')^2} \Bigg]\\
+    =&8G_F^2 |V_{ud}|^2 \Bigg[8 m_{\pi^-}^2 E_e E_\nu - 4 m_{\pi^-}^2 (k\cdot k') -4m_e^2 m_{\pi^-} E_\nu+ m_e^2 (k\cdot k')  \Bigg].
+\end{align}
+Now, we can express $k\cdot k'$ in terms of the energies and the angle between the electron and neutrino momenta. Let $\theta$ be the angle between $\mathbf{k}$ and $\mathbf{k'}$, then we have:
+\begin{align}
+    &k\cdot k' = E_e E_\nu - \mathbf{k}\cdot\mathbf{k'} = E_e E_\nu - |\mathbf{k}||\mathbf{k'}|\cos\theta = E_e E_\nu - |\mathbf{k}||\mathbf{k'}|\cos\theta\\
+    =&E_e E_\nu(1 - \beta_e \cos\theta), \quad \text{where } \beta_e = \frac{|\mathbf{k}|}{E_e} = \sqrt{1 - \frac{m_e^2}{E_e^2}}.
+\end{align}
+The squared amplitude can be further simplified as
+\begin{align}
+    &\langle|\mathcal{M}|^2\rangle=8G_F^2 |V_{ud}|^2 \Bigg[8 m_{\pi^-}^2 E_e E_\nu - 4 m_{\pi^-}^2 E_e E_\nu (1 - \beta_e \cos\theta) -4m_e^2 m_{\pi^-} E_\nu+ m_e^2 E_e E_\nu (1 - \beta_e \cos\theta)  \Bigg]\\
+    =&8G_F^2 |V_{ud}|^2 \Bigg[4 m_{\pi^-}^2 E_e E_\nu (1 + \beta_e \cos\theta) -4m_e^2 m_{\pi^-} E_\nu+ m_e^2 E_e E_\nu (1 - \beta_e \cos\theta)  \Bigg]\\
+    =&32G_F^2 |V_{ud}|^2 m_{\pi^-}^2\Bigg[ E_e E_\nu (1 + \beta_e \cos\theta) -\frac{m_e^2}{ m_{\pi^-}} E_\nu+ \frac{m_e^2}{4 m_{\pi^-}^2} E_e E_\nu (1 - \beta_e \cos\theta)  \Bigg].
+\end{align}
+Besides,
+\begin{align}
+    &q^2=(k+k')^2 = m_e^2 + 2 k\cdot k' = m_e^2 + 2 E_e E_\nu (1 - \beta_e \cos\theta).\\
+    \implies & E_e E_\nu (1 - \beta_e \cos\theta) = \frac{q^2 - m_e^2}{2}.\\
+    \implies & E_e E_\nu (1 + \beta_e \cos\theta) = 2 E_e E_\nu - E_e E_\nu (1 - \beta_e \cos\theta) = 2 E_e E_\nu - \frac{q^2 - m_e^2}{2}.
+\end{align}
+Therefore, the squared amplitude can be expressed as
+\begin{align}
+    &\langle|\mathcal{M}|^2\rangle=32G_F^2 |V_{ud}|^2 m_{\pi^-}^2\Bigg[ 2 E_e E_\nu - \frac{q^2 - m_e^2}{2} -\frac{m_e^2}{ m_{\pi^-}} E_\nu+ \frac{m_e^2}{4 m_{\pi^-}^2} \frac{q^2 - m_e^2}{2}  \Bigg]
 \end{align}
 
+The decay rate can be calculated using the standard formula for three-body decays:
+\begin{align}
+    d\Gamma = \frac{1}{2 m_{\pi^-}} \langle|\mathcal{M}|^2\rangle d\tau_3,
+\end{align}
+where $d\tau_3$ is the three-body phase space element, given by splitting formulas:
+\begin{align}
+    d\tau_3 = d\tau_2(p\to p'+ q) \frac{d q^2}{2\pi} d\tau_2(q \to k + k'),
+\end{align}
+where $q = k + k'$ is the total momentum of the lepton pair. The two-body phase space elements can be expressed as
+\begin{align}
+    d\tau_2(p\to p'+ q) = (2\pi)^4 \delta^4(p - p' - q) \frac{d^3 p'}{(2\pi)^3 2 E_{p'}} \frac{d^3 q}{(2\pi)^3 2 E_q},\\
+    d\tau_2(q \to k + k') = (2\pi)^4 \delta^4(q - k - k') \frac{d^3 k}{(2\pi)^3 2 E_k} \frac{d^3 k'}{(2\pi)^3 2 E_{k'}}.
+\end{align}
+Now, let's try to integrate over the $\pi^0$ and $\overline{\nu}_e$ momenta. Since there is no $p'$ in the squared amplitude, we can first integrate over $p'$ using the delta function in $d\tau_2(p\to p'+ q)$, which gives
+\begin{align}
+    &\int d\tau_2(p\to p'+ q) = \int (2\pi)^4 \delta^4(p - p' - q) \frac{d^3 p'}{(2\pi)^3 2 E_{p'}} \frac{d^3 q}{(2\pi)^3 2 E_q} \\
+    =& \int (2\pi)^4 \delta(m_{\pi^-} - E_{p'} - E_q) \frac{1}{(2\pi)^3 2 E_{p'}} \frac{d^3 q}{(2\pi)^3 2 E_q} \\
+    =& \int (2\pi)^4 \delta(m_{\pi^-} - E_{p'} - E_q) \frac{1}{(2\pi)^3 2 E_{p'}} \frac{4\pi |\mathbf{q}|^2 d|\mathbf{q}|}{(2\pi)^3 2 E_q} \\
+    =& \frac{1}{4\pi} \int \delta(m_{\pi^-} - E_{p'} - E_q) \frac{|\mathbf{q}|^2 d|\mathbf{q}|}{E_{p'} E_q}\\
+    =&\frac{1}{4\pi}\frac{|\mathbf{q}|}{m_{\pi^-}} \quad \text{with } |\mathbf{q}| = \frac{\sqrt{(m_{\pi^-}^2 - (m_{\pi^0}+ \sqrt{q^2})^2)(m_{\pi^-}^2 - (m_{\pi^0}- \sqrt{q^2})^2)}}{2 m_{\pi^-}}.
+\end{align}
+We can further simplify the expression for $|\mathbf{q}|$ by noting that $\Delta = m_{\pi^-} - m_{\pi^0}$ is small compared to $m_{\pi^-}$, and $m_{\pi^0} \approx m_{\pi^-}$, hence we can approximate $|\mathbf{q}|$ as
+\begin{align}
+    |\mathbf{q}| =\frac{\underbrace{\sqrt{m_{\pi^-}+ m_{\pi^0} - \sqrt{q^2}}}_{\approx \sqrt{2 m_{\pi^-}}} \underbrace{\sqrt{m_{\pi^-}- m_{\pi^0} - \sqrt{q^2}}}_{= \sqrt{\Delta - \sqrt{q^2}}}\underbrace{\sqrt{m_{\pi^-}+ m_{\pi^0} + \sqrt{q^2}}}_{\approx \sqrt{2 m_{\pi^-}}} \underbrace{\sqrt{m_{\pi^-}- m_{\pi^0} + \sqrt{q^2}}}_{= \sqrt{\Delta + \sqrt{q^2}}}}{2 m_{\pi^-}} \approx \sqrt{\Delta^2 - q^2}.
+\end{align}
+Now, we can express the three-body phase space element as
+\begin{align}
+    &d\tau_3 = d\tau_2(p\to p'+ q) \frac{d q^2}{2\pi} d\tau_2(q \to k + k') \\
+    =& \frac{1}{4\pi}\frac{\sqrt{\Delta^2 - q^2}}{m_{\pi^-}} \frac{d q^2}{2\pi} d\tau_2(q \to k + k').
+\end{align}
+Next, we can integrate over the neutrino momentum $k'$ using the delta function in $d\tau_2(q \to k + k')$, and we consider the $q$ rest frame to perform the integration over the electron momentum $k$. In the $q$ rest frame, we have (denoted by a star):
+\begin{align}
+    q = (q^0, \mathbf{0}), \quad k = (E_e^*, \mathbf{k}^*), \quad k' = (E_\nu^*, -\mathbf{k}^*).
+\end{align}
+The energies of the electron and neutrino in the $q$ rest frame can be expressed as
+\begin{align}
+    &\int d\tau_2(q \to k + k') = \int (2\pi)^4 \delta^4(q - k - k') \frac{d^3 k}{(2\pi)^3 2 E_k} \frac{d^3 k'}{(2\pi)^3 2 E_{k'}} \\
+    =& \int (2\pi)^4 \delta(q^0 - E_e^* - E_\nu^*) \frac{d^3 k^*}{(2\pi)^3 2 E_e^*} \frac{1}{(2\pi)^3 2 E_\nu^*} \\
+    =& \frac{1}{16\pi^2} \int \delta(q^0 - E_e^* - E_\nu^*) \frac{|k^*|^2 d|k^*| d\Omega^*}{E_e^* E_\nu^*} ,\quad \text{where } E_e^* = \sqrt{|k^*|^2 + m_e^2}, \quad E_\nu^* = |k^*|\\
+    =&\frac{1}{16\pi^2}\int \delta(q^0 - E_e^* - E_\nu^*) \frac{k^{*} d k^* d\Omega^*}{E_e^*} \\
+    =&\frac{1}{16\pi^2}\int \delta(q^0 - \sqrt{k^{*2} + m_e^2} - k^*) \frac{k^{*} d k^* d\Omega^*}{E_e^*} \\
+    =&\frac{1}{16\pi^2}\frac{k^{*}}{q^0} \int d\Omega^* \quad \text{with } k^* = \frac{q^2 - m_e^2}{2 \sqrt{q^2}}, q^0 = \sqrt{q^2} \\
+    =&\frac{1}{16\pi^2}\frac{k^*}{\sqrt{q^2}} \int d\Omega^* 
+\end{align}
+Hence, we have 
+\begin{align}
+    d \tau_2(q \to k + k') = \frac{1}{16\pi^2}\frac{q^2 - m_e^2}{2 q^2}  d\Omega^*= \frac{1}{16\pi^2}\frac{k^*}{\sqrt{q^2}} \int d\Omega^*.
+\end{align}
+By Lorentz transformation, we have 
+\begin{align}
+    &E_e = \gamma (E_e^* + \beta k^* \cos\theta^*), \\
+    &\implies d E_e =\gamma \beta k^* d\cos\theta^* \\
+    &\implies d\Omega^* = 2\pi d\cos\theta^* = \frac{2\pi}{\gamma \beta k^*} d E_e\\
+    &\implies d \Omega^* = 2\pi dE_e \frac{1}{\frac{q^0}{\sqrt{q^2}}\frac{|\mathbf{q}|}{q^0}k^*}, \quad \text{where } \gamma = \frac{q^0}{\sqrt{q^2}}, \quad \beta = \frac{|\mathbf{q}|}{q^0}\\
+    &\implies d \Omega^* = 2\pi dE_e \frac{\sqrt{q^2}}{|\mathbf{q}| k^*}\approx 2\pi dE_e \frac{\sqrt{q^2}}{\sqrt{\Delta^2 - q^2} k^*}\\
+    &\implies d \tau_2(q \to k + k') = \frac{1}{16\pi^2}\frac{k^*}{\sqrt{q^2}}  2\pi dE_e \frac{\sqrt{q^2}}{\sqrt{\Delta^2 - q^2} k^*}\\
+    &=\frac{1}{8\pi}\frac{1}{\sqrt{\Delta^2 - q^2}}  dE_e.
+\end{align}
+Hence, the three-body phase space element and squared amplitude can be expressed as
+\begin{align}
+    &d\tau_3 = d\tau_2(p\to p'+ q) \frac{d q^2}{2\pi} d\tau_2(q \to k + k') = \frac{1}{4\pi}\frac{\sqrt{\Delta^2 - q^2}}{m_{\pi^-}} \frac{d q^2}{2\pi} \frac{1}{8\pi}\frac{1}{\sqrt{\Delta^2 - q^2}}  dE_e \\
+    &= \frac{1}{64\pi^3 m_{\pi^-}} d q^2 dE_e,\\
+    & \langle|\mathcal{M}|^2\rangle=32G_F^2 |V_{ud}|^2 m_{\pi^-}^2\Bigg[ 2 E_e E_\nu - \frac{q^2 - m_e^2}{2} -\frac{m_e^2}{ m_{\pi^-}} E_\nu+ \frac{m_e^2}{4 m_{\pi^-}^2} \frac{q^2 - m_e^2}{2}  \Bigg]\\
+    \approx&32G_F^2 |V_{ud}|^2 m_{\pi^-}^2\Bigg[ 2 E_e (\Delta - E_e) - \frac{q^2 - m_e^2}{2} -\frac{m_e^2}{ m_{\pi^-}} (\Delta - E_e)+ \frac{m_e^2}{4 m_{\pi^-}^2} \frac{q^2 - m_e^2}{2}  \Bigg]\\
+    =&32 G_F^2 |V_{ud}|^2 m_{\pi^-}^2\Bigg[ \Big(\Delta -E_e\Big) (2 E_e -\frac{m_e^2}{ m_{\pi^-}}) -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big) \frac{q^2 - m_e^2}{2} \Bigg].
+\end{align}
+Here, we have used the approximation $E_\nu \approx m_{\pi^-} -E_e - E_{\pi^0} \approx \Delta - E_e$. Now, we can do $dq^2$ integration finally, and the limits of $q^2$ can be determined by the kinematics of the decay. $q^2=(k+k')^2= m_e^2 + 2 E_e E_\nu (1 - \beta_e \cos\theta)$, where $\theta$ is the angle between the electron and neutrino momenta. Since $\cos\theta$ can vary from -1 to 1, we can determine the limits of $q^2$ by considering the extreme cases of $\cos\theta$:
+\begin{align}
+    q^2_{\text{min}} = m_e^2 + 2 E_e E_\nu (1 - \beta_e) = m_e^2 + 2 E_e E_\nu (1 - p_e/E_e),\\
+    q^2_{\text{max}} = m_e^2 + 2 E_e E_\nu (1 + \beta_e) = m_e^2 + 2 E_e E_\nu (1 + p_e/E_e).
+\end{align}
 
+\begin{align}
+    &\int_{q^2_{\text{min}}}^{q^2_{\text{max}}} \Bigg[ \Big(\Delta -E_e\Big) (2 E_e -\frac{m_e^2}{ m_{\pi^-}}) -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big) \frac{q^2 - m_e^2}{2} \Bigg] dq^2 \\
+    =& \Bigg[ \Big(\Delta -E_e\Big) (2 E_e -\frac{m_e^2}{ m_{\pi^-}}) (q^2 - m_e^2) -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big) \frac{(q^2 - m_e^2)^2}{4} \Bigg]_{q^2_{\text{min}}}^{q^2_{\text{max}}}\\
+    =& \Bigg[ \Big(\Delta -E_e\Big) (2 E_e -\frac{m_e^2}{ m_{\pi^-}}) (4 p_e E_\nu) -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big) \frac{(4 p_e E_\nu)^2}{4} \Bigg] \\
+    =& 4 p_e E_\nu \Bigg[ \Big(\Delta -E_e\Big) (2 E_e -\frac{m_e^2}{ m_{\pi^-}})  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  p_e E_\nu \Bigg]\\
+    \approx& 4 p_e (\Delta - E_e)^2 \Bigg[ \Big(2 E_e -\frac{m_e^2}{ m_{\pi^-}}\Big)  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  p_e  \Bigg] 
+\end{align}
+Finally, the decay rate can be expressed as
+\begin{align}
+    &\frac{ d \Gamma}{d E_e} = \frac{1}{2 m_{\pi^-}} \langle|\mathcal{M}|^2\rangle d\tau_3 \\
+    =& \frac{1}{2 m_{\pi^-}} 32 G_F^2 |V_{ud}|^2 m_{\pi^-}^2 \frac{1}{64\pi^3 m_{\pi^-}} 4 p_e (\Delta - E_e)^2 \Bigg[ \Big(2 E_e -\frac{m_e^2}{ m_{\pi^-}}\Big)  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  p_e  \Bigg] \\
+    =& \frac{G_F^2 |V_{ud}|^2}{\pi^3} (\Delta - E_e)^2 p_e \Bigg[ \Big(2 E_e -\frac{m_e^2}{ m_{\pi^-}}\Big)  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  p_e  \Bigg]
+\end{align}
+LAST, we can take the limit $m_e \to 0$ to get the final expression for the decay rate:
+\begin{align}
+    &\frac{ d \Gamma}{d E_e} = \frac{G_F^2 |V_{ud}|^2}{\pi^3} (\Delta - E_e)^2 E_e \Bigg[ 2 E_e -  E_e \Bigg] \\
+    =& \frac{G_F^2 |V_{ud}|^2}{\pi^3} (\Delta - E_e)^2 E_e^2.
+\end{align}
 
-
-
-
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Now, we can integrate over the electron energy $E_e$ to get the total decay rate, the limits of $E_e$ can be determined by the kinematics of the decay. The minimum value of $E_e$ occurs when the electron is at rest, which gives $E_{e,\text{min}} = m_e$. The maximum value of $E_e$ occurs when the electron gets all the rest of energy, which gives $E_{e,\text{max}} = \Delta$. Therefore, we have
+\begin{align}
+    &\Gamma = \frac{G_F^2 |V_{ud}|^2}{\pi^3} \int_{m_e}^{\Delta} (\Delta - E_e)^2 p_e \Bigg[ \Big(2 E_e -\frac{m_e^2}{ m_{\pi^-}}\Big)  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  p_e  \Bigg]  dE_e \\
+    =& \frac{G_F^2 |V_{ud}|^2}{\pi^3} \int_{m_e}^{\Delta} (\Delta - E_e)^2 \sqrt{E_e^2 - m_e^2} \Bigg[ \Big(2 E_e -\frac{m_e^2}{ m_{\pi^-}}\Big)  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  \sqrt{E_e^2 - m_e^2}  \Bigg]  dE_e\\
+    =& \frac{G_F^2 |V_{ud}|^2 \Delta^5}{\pi^3} \int_{m_e/\Delta}^{1} (1 - x)^2 \sqrt{x^2 - (m_e/\Delta)^2} \Bigg[ \Big(2 x -\frac{m_e^2}{ m_{\pi^-}\Delta}\Big)  -\Big(1 - \frac{m_e^2}{4 m_{\pi^-}^2}\Big)  \sqrt{x^2 - (m_e/\Delta)^2}  \Bigg]  dx\\
+    \approx& \frac{G_F^2 |V_{ud}|^2 \Delta^5}{\pi^3} (1-\frac{3\Delta}{2m_{\pi^-}}) \Bigg(
+    \sqrt{1-\frac{m_e^2}{\Delta^2}} (1-\frac{9 m_e^2}{2 \Delta^2} - \frac{15 m_e^4}{8 \Delta^4}) + \frac{15 m_e^4}{8 \Delta^4} \ln\Bigg[\frac{\Delta}{m_e} (1+\sqrt{1-\frac{m_e^2}{\Delta^2}})\Bigg]        
+    \Bigg)
+\end{align}
+If we just take the leading order in $m_e/\Delta$, we can further simplify the expression for the decay rate as
+\begin{align}
+    &\Gamma \approx \frac{G_F^2 |V_{ud}|^2 \Delta^5}{\pi^3} (1-\frac{3\Delta}{2m_{\pi^-}}) \Bigg(
+    (1-\frac{m_e^2}{2\Delta^2}) (1-\frac{9 m_e^2}{2 \Delta^2} )\Bigg)\\
+    \approx& \frac{G_F^2 |V_{ud}|^2 \Delta^5}{\pi^3} (1-\frac{3\Delta}{2m_{\pi^-}}) \Bigg(
+    1-\frac{5 m_e^2}{\Delta^2} \Bigg)\\
+    \approx& \frac{G_F^2 |V_{ud}|^2 \Delta^5}{\pi^3} (1-\frac{3\Delta}{2m_{\pi^-}}-\frac{5 m_e^2}{\Delta^2})
+\end{align}
+Hence, we get $a=3/2$, $b=5$.
+\qed
 
 
 
@@ -65,7 +229,7 @@ Hence,
 \clearpage
 \question{2}{\textbf{Tau decays}}\\
 \begin{itemize}
-    \item [(a)] Find the decay rate for the two-body decay $\tau^{-}\rightarrow \pi^{-}+\nu_{\tau}$, neglecting neutrino masses and using $\langle 0|\overline{d}\gamma^{\mu}\gamma^5 u|\pi^{-}\rangle = i f_{\pi} p_{\pi}^{\mu}$. Determine the ratio
+    \item [(a)] Find the decay rate for the two-body decay $\tau^{-}\rightarrow \pi^{-}+\nu_{\tau}$, neglecting neutrino masses and using $\langle 0|\overline{d}\gamma^{\mu}\gamma_5 u|\pi^{-}\rangle = i f_{\pi} p_{\pi}^{\mu}$. Determine the ratio
     \begin{align}
         R_\pi=\frac{\Gamma(\tau^{-}\rightarrow \pi^{-}+\nu_{\tau})}{\Gamma(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau})},
     \end{align}
@@ -74,7 +238,7 @@ Hence,
     \begin{align}
         R=\frac{\Gamma(\tau^{-}\rightarrow \rho^{-}+\nu_{\tau})}{\Gamma(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau})},
     \end{align}
-    and nd compare with the PDG data to extract $f_{\rho}$ (or the ratio $f_{\rho}/f_{\pi}$ ). \\
+    and compare with the PDG data to extract $f_{\rho}$ (or the ratio $f_{\rho}/f_{\pi}$ ). \\
     Hint: Use the polarization sum
     \begin{align}
         \sum_{\lambda} \epsilon_{\mu}^{(\lambda)}(q)\epsilon_{\nu}^{(\lambda)}{}^{*}(q) = -g_{\mu\nu} + \frac{q_{\mu}q_{\nu}}{m_{\rho}^2}.
@@ -82,3 +246,105 @@ Hence,
 \end{itemize}
 
 
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+First, we can write down the amplitude for the decay $\tau^{-}\rightarrow \pi^{-}+\nu_{\tau}$ as
+\begin{align}
+    &\mathcal{M} = \frac{G_F}{\sqrt{2}} V_{ud} \langle \pi^-|\overline{d}\gamma^{\mu}(1-\gamma_5)u|0\rangle \langle \nu_\tau|\overline{\nu}_\tau \gamma_\mu (1-\gamma_5) \tau^-| \tau^- \rangle\\
+    =& i \frac{G_F}{\sqrt{2}} V_{ud} f_\pi p_\pi^\mu \overline{u}_{\nu_\tau} \gamma_\mu (1-\gamma_5) u_\tau,
+\end{align}
+where we have used the given matrix element $\langle 0|\overline{d}\gamma^{\mu}\gamma_5 u|\pi^{-}\rangle = i f_{\pi} p_{\pi}^{\mu}$ and the fact that $\langle \nu_\tau|\overline{\nu}_\tau \gamma_\mu (1-\gamma_5) \tau^-| \tau^- \rangle$ can be expressed as $\overline{u}_{\nu_\tau} \gamma_\mu (1-\gamma_5) u_\tau$. The average squared amplitude can be calculated as (this factor of $1/2$ is due to the average over the initial $\tau$ spin states and the trace calculation is done in the previous question):
+\begin{align}
+    &|\mathcal{M}|^2 =  \frac{1}{2}\frac{G_F^2}{2} |V_{ud}|^2 f_\pi^2 p_\pi^\mu p_\pi^\nu \text{Tr}[(\slashed{p}_{\nu_\tau}) \gamma_\mu (1-\gamma_5) (\slashed{p}_\tau + m_\tau) \gamma_\nu (1-\gamma_5)]\\
+    =& 2 G_F^2 |V_{ud}|^2 f_\pi^2 \Bigg[ 2 (p_\pi \cdot p_{\nu_\tau})(p_\pi \cdot p_\tau) - m_\tau^2 (p_\pi \cdot p_{\nu_\tau}) \Bigg]\\
+    =& G_F^2 |V_{ud}|^2 f_\pi^2 m_\tau^2 (m_\tau^2 - m_\pi^2),
+\end{align}
+where we have used the fact that $p_\pi \cdot p_{\nu_\tau} = \frac{m_\tau^2 - m_\pi^2}{2}$ and $p_\pi \cdot p_\tau = \frac{m_\tau^2 + m_\pi^2}{2}$ in the rest frame of the $\tau$ lepton. The decay rate can be calculated using the standard formula for two-body decays:
+\begin{align}
+    &\Gamma = \frac{1}{2 m_\tau} \int d\tau_2 |\mathcal{M}|^2 \\
+    =& \frac{1}{2 m_\tau} G_F^2 |V_{ud}|^2 f_\pi^2 m_\tau^2 (m_\tau^2 - m_\pi^2) \frac{|\mathbf{p}_\pi|}{4\pi m_\tau } \\
+    =& \frac{G_F^2 |V_{ud}|^2 f_\pi^2 (m_\tau^2 - m_\pi^2)^2}{16\pi m_\tau}, \quad \text{where } |\mathbf{p}_\pi|  = \frac{m_\tau^2 - m_\pi^2}{2 m_\tau}.
+\end{align}
+Next, we can quote the result for the decay rate of $\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau}$, which we have already calculated in the previous question:
+\begin{align}
+    &\Gamma(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau}) =  \frac{G_F^2 m_\tau^5}{192\pi^3}\left[1 - 8\frac{m_e^2}{m_\tau^2} + \mathcal{O}\left(\frac{m_e^4}{m_\tau^4}\right)\right]\approx \frac{G_F^2 m_\tau^5}{192\pi^3}.
+\end{align}
+Now, we can form the ratio $R_\pi$ as
+\begin{align}
+    &R_\pi = \frac{\Gamma(\tau^{-}\rightarrow \pi^{-}+\nu_{\tau})}{\Gamma(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau})} \\
+    =& \frac{\frac{G_F^2 |V_{ud}|^2 f_\pi^2 (m_\tau^2 - m_\pi^2)^2}{16\pi m_\tau}}{\frac{G_F^2 m_\tau^5}{192\pi^3}} \\
+    =& \frac{12\pi^2 |V_{ud}|^2 f_\pi^2 (m_\tau^2 - m_\pi^2)^2}{m_\tau^6}.
+\end{align}
+Now the value $G_F = 1.166 \times 10^{-5} \text{ GeV}^{-2}$, $|V_{ud}| = 0.974$, $f_\pi = 130 \text{ MeV}$, $m_\tau = 1.777 \text{ GeV}$, and $m_\pi = 0.140 \text{ GeV}$, we can get the numerical value for $R_\pi$ as
+\begin{align}
+    &R_\pi = \frac{12\pi^2 |V_{ud}|^2 f_\pi^2 (m_\tau^2 - m_\pi^2)^2}{m_\tau^6} \approx 0.594.
+\end{align}
+The corresponding PDG branching-fraction ratio can be calculated as
+\begin{align}
+    &R_\pi^{\text{PDG}} = \frac{\text{Br}(\tau^{-}\rightarrow \pi^{-}+\nu_{\tau})}{\text{Br}(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau})} = \frac{10.82\%}{17.85\%} \approx 0.606.
+\end{align}
+The theoretical prediction for $R_\pi$ is in good agreement with the experimental value from PDG, which indicates that our calculation is consistent with the experimental data.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+The amplitude for the decay $\tau^{-}\rightarrow \rho^{-}+\nu_{\tau}$ can be written as
+\begin{align}
+    &\mathcal{M} = \frac{G_F}{\sqrt{2}} V_{ud} \langle \rho^-|\overline{d}\gamma^{\mu}u|0\rangle \langle \nu_\tau|\overline{\nu}_\tau \gamma_\mu (1-\gamma_5) \tau^-| \tau^- \rangle\\
+    =& i \frac{G_F}{\sqrt{2}} V_{ud} f_\rho m_\rho \epsilon^\mu \overline{u}_{\nu_\tau} \gamma_\mu (1-\gamma_5) u_\tau,
+\end{align}
+where we have used the given matrix element $\langle 0|\overline{d}\gamma^{\mu}u|\rho^{-}(q,\epsilon)\rangle = f_{\rho} m_{\rho} \epsilon^{\mu}$ and the fact that $\langle \nu_\tau|\overline{\nu}_\tau \gamma_\mu (1-\gamma_5) \tau^-| \tau^- \rangle$ can be expressed as $\overline{u}_{\nu_\tau} \gamma_\mu (1-\gamma_5) u_\tau$. The average squared amplitude can be calculated as 
+\begin{align}
+    &|\mathcal{M}|^2 =  \frac{1}{2}\frac{G_F^2}{2} |V_{ud}|^2 f_\rho^2 m_\rho^2 (-g_{\mu\nu} + \frac{q_\mu q_\nu}{m_\rho^2}) \text{Tr}[(\slashed{p}_{\nu_\tau}) \gamma^\mu (1-\gamma_5) (\slashed{p}_\tau + m_\tau) \gamma^\nu (1-\gamma_5)]\\
+    =& \frac{1}{2}\frac{G_F^2}{2} |V_{ud}|^2 f_\rho^2 m_\rho^2 (-g_{\mu\nu} + \frac{q_\mu q_\nu}{m_\rho^2}) \Bigg[ 8 (p_\tau^\mu p_{\nu_\tau}^\nu + p_\tau^\nu p_{\nu_\tau}^\mu - g^{\mu\nu} (p_\tau \cdot p_{\nu_\tau}) + i \epsilon^{\alpha\mu\beta\nu} p_{\tau,\alpha} p_{\nu_\tau,\beta}) \Bigg]\\
+    =& 2 G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 (-g_{\mu\nu} + \frac{q_\mu q_\nu}{m_\rho^2}) \Bigg[ p_\tau^\mu p_{\nu_\tau}^\nu + p_\tau^\nu p_{\nu_\tau}^\mu - g^{\mu\nu} (p_\tau \cdot p_{\nu_\tau}) \Bigg]\\
+    =& 2 G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 \Bigg[ 2 (p_\tau \cdot p_{\nu_\tau}) + \frac{2 (p_\tau \cdot q)(p_{\nu_\tau} \cdot q)}{m_\rho^2} - \frac{q^2}{m_\rho^2}  (p_\tau \cdot p_{\nu_\tau}) \Bigg]\\
+    =& 2 G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 \Bigg[ 2 (p_\tau \cdot p_{\nu_\tau}) + \frac{2 (p_\tau \cdot q)(p_{\nu_\tau} \cdot q)}{m_\rho^2} -  (p_\tau \cdot p_{\nu_\tau}) \Bigg]\\
+    =& 2 G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 \Bigg[ (p_\tau \cdot p_{\nu_\tau}) + \frac{2 (p_\tau \cdot q)(p_{\nu_\tau} \cdot q)}{m_\rho^2}  \Bigg].
+\end{align}
+In the rest frame of the $\tau$ lepton, we have $p_\tau = (m_\tau, \mathbf{0})$, $p_{\nu_\tau} = (E_\nu, -\mathbf{q})$, and $q = (E_\rho, \mathbf{q})$. Hence, we can have following expressions for the dot products:
+\begin{align}
+    &p_\tau \cdot p_{\nu_\tau} = \frac{1}{2} ( p_\tau^2 + p_{\nu_\tau}^2 - (p_\tau - p_{\nu_\tau})^2) = \frac{1}{2} (m_\tau^2 + 0 - m_\rho^2) = \frac{1}{2} (m_\tau^2 - m_\rho^2),\\
+    &p_\tau \cdot q = \frac{1}{2} ((p_\tau + q)^2 - p_\tau^2 - q^2) = \frac{1}{2} (m_\rho^2 + m_\tau^2),\\
+    &p_{\nu_\tau} \cdot q = \frac{1}{2} ((p_{\nu_\tau} + q)^2 - p_{\nu_\tau}^2 - q^2) = \frac{1}{2} (m_\tau^2 - m_\rho^2).
+\end{align}
+Now, we can express the average squared amplitude as
+\begin{align}
+    &|\mathcal{M}|^2 = 2 G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 \Bigg[ \frac{1}{2} (m_\tau^2 - m_\rho^2) + \frac{2 \cdot \frac{1}{2} (m_\tau^2 + m_\rho^2) \cdot \frac{1}{2} (m_\tau^2 - m_\rho^2)}{m_\rho^2}  \Bigg]\\
+    =& 2 G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 \Bigg[ \frac{1}{2} (m_\tau^2 - m_\rho^2) + \frac{(m_\tau^2 + m_\rho^2) (m_\tau^2 - m_\rho^2)}{2 m_\rho^2}  \Bigg]\\
+    =& G_F^2 |V_{ud}|^2 f_\rho^2 m_\rho^2 (m_\tau^2 - m_\rho^2) \Bigg[ 1 + \frac{m_\tau^2 + m_\rho^2}{m_\rho^2}  \Bigg]\\
+    =& G_F^2 |V_{ud}|^2 f_\rho^2 (m_\tau^2 - m_\rho^2) (m_\tau^2 + 2 m_\rho^2).
+\end{align}
+The decay rate can be calculated using the standard formula for two-body decays:
+\begin{align}
+    &\Gamma = \frac{1}{2 m_\tau} \int d\tau_2 |\mathcal{M}|^2 \\
+    =& \frac{1}{2 m_\tau} G_F^2 |V_{ud}|^2 f_\rho^2 (m_\tau^2 - m_\rho^2) (m_\tau^2 + 2 m_\rho^2)  \frac{|\mathbf{q}|}{4\pi m_\tau } \\
+    =& \frac{G_F^2 |V_{ud}|^2 f_\rho^2(m_\tau^2 - m_\rho^2)^2 (m_\tau^2 + 2 m_\rho^2)}{16\pi m_\tau^3}, \quad \text{where } |\mathbf{q}|  = \frac{m_\tau^2 - m_\rho^2}{2 m_\tau}.\\
+    =&\frac{G_F^2 |V_{ud}|^2 f_\rho^2(m_\tau^2 - m_\rho^2)^2 (1 + 2\frac{m_\rho^2}{m_\tau^2})}{16\pi m_\tau}.
+\end{align}
+Now, we can form the ratio $R$ as
+\begin{align}
+    &R = \frac{\Gamma(\tau^{-}\rightarrow \rho^{-}+\nu_{\tau})}{\Gamma(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau})} \\
+    =& \frac{\frac{G_F^2 |V_{ud}|^2 f_\rho^2(m_\tau^2 - m_\rho^2)^2 (1 + 2\frac{m_\rho^2}{m_\tau^2})}{16\pi m_\tau}}{\frac{G_F^2 m_\tau^5}{192\pi^3}} \\
+    =& \frac{12\pi^2 |V_{ud}|^2 f_\rho^2 (m_\tau^2 - m_\rho^2)^2 (1 + 2\frac{m_\rho^2}{m_\tau^2})}{m_\tau^6}.
+\end{align}
+Now the value $G_F = 1.166 \times 10^{-5} \text{ GeV}^{-2}$, $|V_{ud}| = 0.974$, $m_\tau = 1.777 \text{ GeV}$, and $m_\rho = 0.775 \text{ GeV}$, we can get the numerical value for $R$ as
+\begin{align}
+    &R = \frac{12\pi^2 |V_{ud}|^2 f_\rho^2 (m_\tau^2 - m_\rho^2)^2 (1 + 2\frac{m_\rho^2}{m_\tau^2})}{m_\tau^6} \approx 47.51 f_\rho^2.
+\end{align}
+The corresponding PDG branching-fraction ratio can be calculated as
+\begin{align}
+    &R^{\text{PDG}} = \frac{\text{Br}(\tau^{-}\rightarrow \rho^{-}+\nu_{\tau})}{\text{Br}(\tau^{-}\rightarrow e^{-}+\overline{\nu}_{e}+\nu_{\tau})} = \frac{25.49\%}{17.85\%} \approx 1.428.
+\end{align}
+By comparing the theoretical prediction for $R$ with the experimental value from PDG, we can extract the value of $f_\rho$ as
+\begin{align}
+    &47.51 f_\rho^2 = 1.428 \\
+    &\implies f_\rho \approx 0.173 \text{ GeV}.
+\end{align} 
+Finally, we can also calculate the ratio $f_\rho/f_\pi$ as
+\begin{align}
+    &\frac{f_\rho}{f_\pi} = \frac{0.173 \text{ GeV}}{0.130 \text{ GeV}} \approx 1.33.
+\end{align}
+
+\textbf{Remark:} The $f_\rho$ I found on the website is around $0.216 \text{ GeV}$, which is larger than the value I extracted from the $\tau$ decay data. However, I don't think this discrepancy is a problem, since the value of $f_\rho$ can depend on the definition and the method of extraction. 

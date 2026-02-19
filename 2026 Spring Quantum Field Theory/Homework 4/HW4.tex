@@ -1,0 +1,145 @@
+\section*{Homework 4 Due to February 19 8:00 AM}
+
+\question{1}{}
+Assume we have Yang-Mills theory with the gauge sector
+\begin{align}
+    G=\text{SU}(3)
+\end{align}
+and the Higgs sector consisting of one real scalar field in the \textit{adjoint} representation of SU$(3)$. 
+
+Assuming that the adjoint field develops a vacuum expectation value 
+\begin{align}
+    \langle \phi^a \phi^a \rangle = v^2
+\end{align}
+(large on the scale of quantum corrections) determine the masses of all eight
+gauge bosons in terms of the above expectation value $v$.
+
+Hint: First find the simplest form to which one can reduce an x-independent
+generic adjoint field (with the constraint (2)) by using SU$(3)$ rotations. In
+the matrix form you can write $\phi$ as $\phi^a T^a$ where $T^a$ are the SU$(3)$ generators (proportional to the Gell-Mann matrices). How many (independent) real
+quantities parametrize this generic form?
+
+\answer{}
+We first write down the Lagrangian of the theory:
+\begin{align}
+    \mathcal{L} = -\frac{1}{4} F_{\mu\nu}^a F^{a\mu\nu} + \frac{1}{2} (D_\mu \phi) (D^\mu \phi) - V(\phi),
+\end{align}
+where $F_{\mu\nu}^a$ is the field strength tensor for the gauge fields, $D_\mu$ is the covariant derivative, $\phi$ is the adjoint scalar field, and $V(\phi)$ is the potential for the scalar field. To be specific, the $\phi$ field has $8$ components, and can be written as $\phi = \phi^a T^a$, where $T^a$ are the generators of SU(3). The covariant derivative is given by
+\begin{align}
+    D_\mu = \partial_\mu - i g A_\mu^a T^a,
+\end{align}
+where $g$ is the gauge coupling constant and $A_\mu^a$ are the gauge fields, $T^a$ are the generators of SU(3) in the adjoint representation. The field strength tensor is given by
+\begin{align}
+    F_{\mu\nu}^a = \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + g f^{abc} A_\mu^b A_\nu^c,
+\end{align}where $f^{abc}$ are the structure constants of SU(3). Notice that if we consider $D_\mu \phi$, we can get 
+\begin{align}
+    &D_\mu \phi = \partial_\mu \phi - i g A_\mu^a T^a_\text{adj} \phi\\
+    &D_\mu \phi_a = \partial_\mu \phi_a - i g A_\mu^b (T^b_\text{adj})_{ac} \phi_c,\quad\text{where } (T^b_\text{adj})_{ac} = -i f^{bac}\\
+    =& \partial_\mu \phi_a - g A_\mu^b f^{bac} \phi_c \\
+    =& \partial_\mu \phi_a + g f^{abc} A_\mu^b  \phi_c.
+\end{align}
+We can write down the $\phi$ field in the matrix form $\Phi$ as
+\begin{align}
+    \Phi = \sum_{a=1}^8 \phi^a T^a,
+\end{align}
+where $T^a$ are the generators of SU(3) in the fundamental representation, which can be expressed in terms of the Gell-Mann matrices $\lambda^a$ as $T^a = \frac{1}{2} \lambda^a$. The Gell-Mann matrices are traceless and Hermitian, and they form a basis for the Lie algebra of SU(3). Note that $\text{Tr}(T^a T^b) = \frac{1}{2} \delta^{ab}$, which means that the generators are normalized such that the trace of their product is proportional to the Kronecker delta. Now we can rewrite whole Lagrangian in terms of $\Phi$ as
+\begin{align}
+    \mathcal{L} = -\frac{1}{4} F_{\mu\nu}^a F^{a\mu\nu} +  \text{Tr}[(D_\mu \Phi) (D^\mu \Phi)] - V(\Phi),
+\end{align}
+where the covariant derivative is now given by
+\begin{align}
+    D_\mu \Phi = \partial_\mu \Phi - i g [A_\mu, \Phi],
+\end{align}
+and $V(\Phi)$ is given by
+\begin{align}
+    V(\Phi) = -\frac{1}{2} \mu^2 \text{Tr}(\Phi^2) + \frac{1}{4} \lambda \text{Tr}(\Phi^4).
+\end{align}
+The vacuum expectation value of $\Phi$ can be written as
+\begin{align}
+    v^2 = 2\langle \text{Tr}(\Phi^2) \rangle= \langle \sum_{a=1}^8 \phi^a \phi^a \rangle
+\end{align}
+However, because $\Phi$ is a traceless Hermitian matrix, we can do a SU(3) rotation to $\Phi$ to make it diagonal, and the diagonal form of $\Phi$ can be written as
+\begin{align}
+    \Phi = \begin{pmatrix}\phi_1 & 0 & 0 \\ 0 & \phi_2 & 0 \\ 0 & 0 & \phi_3\end{pmatrix},
+\end{align}
+where $\phi_1$, $\phi_2$, and $\phi_3$ are the eigenvalues of $\Phi$. Since $\Phi$ is traceless, we have  
+\begin{align}
+    \phi_1 + \phi_2 + \phi_3 = 0.
+\end{align}
+Thus, the one of the convinent choices of the vacuum expectation value of $\langle\Phi\rangle$ is
+\begin{align}
+    \langle\Phi\rangle = v_3 T^3 + v_8 T^8 = \begin{pmatrix} \frac{v_3}{2} + \frac{v_8}{2\sqrt{3}} & 0 & 0 \\ 0 & -\frac{v_3}{2} + \frac{v_8}{2\sqrt{3}} & 0 \\ 0 & 0 & -\frac{v_8}{\sqrt{3}}\end{pmatrix},
+\end{align}
+where $v_3$ and $v_8$ are the vacuum expectation values of the components of $\Phi$ along the $T^3$ and $T^8$ directions, respectively. Note that $v_3^2 + v_8^2 = v^2$. The mass matrix for the gauge bosons can be obtained from the kinetic term of the scalar field, which is given by
+\begin{align}
+    &\text{Tr}[(D_\mu \Phi) (D^\mu \Phi)] = \text{Tr}[(\partial_\mu \Phi - i g [A_\mu, \Phi]) (\partial^\mu \Phi - i g [A^\mu, \Phi])]\\
+    =& \text{Tr}[(\partial_\mu \Phi) (\partial^\mu \Phi)] - 2 i g \text{Tr}[(\partial_\mu \Phi) [A^\mu, \Phi]] - g^2 \text{Tr}[[A_\mu, \Phi] [A^\mu, \Phi]].
+\end{align}
+Then we can expand this term to get the mass terms for the gauge bosons. The third term in the above expression gives the mass terms for the gauge bosons, which can be written as
+\begin{align}
+    &- g^2 \text{Tr}[[A_\mu, \Phi] [A^\mu, \Phi]] \\
+    \implies &- g^2 \text{Tr}[[A_\mu, \langle\Phi\rangle] [A^\mu, \langle\Phi\rangle]]= - g^2 \text{Tr} [[T^a, v_3 T^3 + v_8 T^8] [T^b, v_3 T^3 + v_8 T^8]] A_\mu^a A^{\mu b}\\
+    =& -\frac{1}{2} M_{ab} A_\mu^a A^{\mu b},    
+\end{align}
+where the mass matrix $M_{ab}$ is given by
+\begin{align}
+    \frac{1}{2}M_{ab} = g^2 \text{Tr} [[T^a, v_3 T^3 + v_8 T^8] [T^b, v_3 T^3 + v_8 T^8]].
+\end{align}
+To find the masses of the gauge bosons, we need to diagonalize the mass matrix $M_{ab}$. Expressing the commutators in terms of the structure constants $f^{abc}$, we have
+\begin{align}
+    &M_{ab} = 2g^2 \text{Tr} [[T^a, v_3 T^3 + v_8 T^8] [T^b, v_3 T^3 + v_8 T^8]]\\
+    =& 2g^2 \text{Tr} [(v_3 f^{a3c} T^c + v_8 f^{a8c} T^c) (v_3 f^{b3d} T^d + v_8 f^{b8d} T^d)]\\
+    =& 2g^2 \text{Tr} [v_3^2 f^{a3c} f^{b3d} T^c T^d + v_8^2 f^{a8c} f^{b8d} T^c T^d + v_3 v_8 (f^{a3c} f^{b8d} + f^{a8c} f^{b3d}) T^c T^d]\\
+    =& 2g^2 (v_3^2 f^{a3c} f^{b3d} + v_8^2 f^{a8c} f^{b8d} + v_3 v_8 (f^{a3c} f^{b8d} + f^{a8c} f^{b3d})) \text{Tr}(T^c T^d)\\
+    =& g^2 (v_3^2 f^{a3c} f^{b3c} + v_8^2 f^{a8c} f^{b8c} + v_3 v_8 (f^{a3c} f^{b8c} + f^{a8c} f^{b3c})).
+\end{align}
+We just write down the structure constants $f^{abc}$ of SU(3) here for reference:
+\begin{align}
+    &f^{123} = 1, \quad f^{147} = -f^{156} = f^{246} = f^{257} = f^{345} = -f^{367} = \frac{1}{2}, \\
+    &f^{458} = f^{678} = \frac{\sqrt{3}}{2}.
+\end{align}
+From the above structure constants, we can see that the mass matrix $M_{ab}$ is diagonal, and the mass matrix becomes
+\begin{align}
+    (M_a)^2=&M_{aa} =g^2 (v_3^2 f^{a3c} f^{b3c} + v_8^2 f^{a8c} f^{b8c} + v_3 v_8 (f^{a3c} f^{b8c} + f^{a8c} f^{b3c}))\\
+    =& g^2 \Bigg(v_3^2 f^{a3c} f^{a3c} + v_8^2 f^{a8c} f^{a8c} +v_3 v_8  (f^{a3c} f^{a8c} + f^{a8c} f^{a3c})  \Bigg)\\
+    =& g^2 (v_3^2 f^{a3c} f^{a3c} + v_8^2 f^{a8c} f^{a8c}+2 v_3 v_8 f^{a3c} f^{a8c})\\
+    =& g^2 (v_3f^{a3c}  + v_8 f^{a8c} )^2
+\end{align}
+Now we can calculate the masses of the gauge bosons by plugging in the values of $f^{abc}$ for each $a$. 
+\begin{itemize}
+    \item For $a=1$, we have $M_{11} = g^2 (v_3 f^{13c} + v_8 f^{18c})^2 = g^2 (v_3 f^{132} + v_8 f^{182})^2 = g^2 v_3^2$.
+    \item For $a=2$, we have $M_{22} = g^2 (v_3 f^{23c} + v_8 f^{28c})^2 = g^2 (v_3 f^{231} + v_8 f^{281})^2 = g^2 v_3^2$.
+    \item For $a=3$, we have $M_{33} = g^2 (v_3 f^{33c} + v_8 f^{38c})^2 = 0$. Since $f^{33c} = 0$ and $f^{38c} = 0$ for all $c$, the gauge boson corresponding to $a=3$ remains massless.
+    \item For $a=4$, we have $M_{44} = g^2 (v_3 f^{43c} + v_8 f^{48c})^2 = g^2 (v_3 f^{435} + v_8 f^{485})^2 = g^2 \left(-\frac{v_3}{2} - \frac{\sqrt{3}}{2}v_8\right)^2$.
+    \item For $a=5$, we have $M_{55} = g^2 (v_3 f^{53c} + v_8 f^{58c})^2 = g^2 (v_3 f^{534} + v_8 f^{584})^2 = g^2 \left(\frac{v_3}{2} + \frac{\sqrt{3}}{2}v_8\right)^2$.
+    \item For $a=6$, we have $M_{66} = g^2 (v_3 f^{63c} + v_8 f^{68c})^2 = g^2 (v_3 f^{637} + v_8 f^{687})^2 = g^2 \left(\frac{v_3}{2} - \frac{\sqrt{3}}{2}v_8\right)^2$.
+    \item For $a=7$, we have $M_{77} = g^2 (v_3 f^{73c} + v_8 f^{78c})^2 = g^2 (v_3 f^{736} + v_8 f^{786})^2 = g^2 \left(-\frac{v_3}{2} + \frac{\sqrt{3}}{2}v_8\right)^2$.
+    \item For $a=8$, we have $M_{88} = g^2 (v_3 f^{83c} + v_8 f^{88c})^2=0$. Since $f^{83c} = 0$ and $f^{88c} = 0$ for all $c$, the gauge boson corresponding to $a=8$ remains massless.
+\end{itemize}
+Thus, the masses of the gauge bosons are given by
+\begin{align}
+    &M_1 = M_2 = g |v_3|, \\
+    &M_3 = 0, \\
+    &M_4 = M_5 = g \left|\frac{v_3}{2} + \frac{\sqrt{3}}{2}v_8\right|, \\
+    &M_6 = M_7 = g \left|\frac{v_3}{2} - \frac{\sqrt{3}}{2}v_8\right|, \\
+    &M_8 = 0.
+\end{align}
+In this gereral case, we have 6 massive gauge bosons and 2 massless gauge bosons. The masses of the gauge bosons depend on the values of $v_3$ and $v_8$, which are constrained by the relation $v_3^2 + v_8^2 = v^2$. If we choose $v_3 = 0$ and $v_8 = v$, then the masses of the gauge bosons can be simplified to
+\begin{align}
+    &M_1 = M_2 = 0, \\
+    &M_3 = 0, \\
+    &M_4 = M_5 = g \frac{\sqrt{3}}{2} v, \\
+    &M_6 = M_7 = g \frac{\sqrt{3}}{2} v, \\
+    &M_8 = 0.
+\end{align}
+Thus, in this case, we have 4 massive gauge bosons with mass $g \frac{\sqrt{3}}{2} v$ and 4 massless gauge bosons. If we choose $v_3 = v$ and $v_8 = 0$, then the masses of the gauge bosons can be simplified to
+\begin{align}
+    &M_1 = M_2 = g v, \\
+    &M_3 = 0, \\
+    &M_4 = M_5 = g \frac{v}{2}, \\
+    &M_6 = M_7 = g \frac{v}{2}, \\
+    &M_8 = 0.
+\end{align} Thus, in this case, we have 2 massive gauge bosons with mass $g v$, 4 massive gauge bosons with mass $g \frac{v}{2}$, and 2 massless gauge bosons. 
+
+In the case $v_3 = 0$ and $v_8 = v$, the remaining unbroken gauge symmetry is SU(2) $\times$ U(1), where the SU(2) subgroup is generated by $T^1$, $T^2$, and $T^3$, and the U(1) subgroup is generated by $T^8$. The gauge bosons corresponding to the SU(2) subgroup acquire mass, while the gauge boson corresponding to the U(1) subgroup remains massless. In the case $v_3 = v$ and $v_8 = 0$, the remaining unbroken gauge symmetry is U(1) $\times$ U(1), where one U(1) subgroup is generated by $T^3$ and the other U(1) subgroup is generated by $T^8$. The gauge bosons corresponding to both U(1) subgroups remain massless. In the general case where both $v_3$ and $v_8$ are nonzero, the remaining unbroken gauge symmetry is U(1)$\times$U(1). The gauge bosons corresponding to the unbroken U(1) subgroups remain massless, while the gauge bosons corresponding to the broken generators acquire mass. The specific pattern of symmetry breaking and the resulting masses of the gauge bosons depend on the values of $v_3$ and $v_8$.
+\qed
