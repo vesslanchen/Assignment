@@ -1,0 +1,61 @@
+\section*{Problem Set 3 Due 11am, Monday, March 2, 2026}
+
+
+\question{}{\textbf{Neutral kaons: oscillations, CP violation and CPT invariance}}\\
+Neutral kaon mixing is described by the effective Hamiltonian $H=M-\frac{i}{2}\Gamma$, acting on the $(K^0, \bar{K}^0)$ basis, where $M(\Gamma)$ is the neutral kaon mass (decay) matrix.
+
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+Consider the following CP-conserving parameterization of the mass matrix as defined in the $(K^0, \bar{K}^0)$ basis:
+\begin{align}
+M_0=\begin{pmatrix} m & \Delta \\ 
+    \Delta & m \end{pmatrix},
+\end{align}
+where $\Delta$ is real-valued. Determine the mass eigenvalues, $m_\pm$ and basis states ($K_-$, $K_+$) in which $M_0$ becomes diagonal. Using the experimental inputs $m_{K^0}$ and $\Delta m=m_L-m_S$, obtain numerical values for $m$ and $\Delta$.
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Working in the ($K_-, K_+$) basis, basis, extend the model of (a) to allow for CP
+violation by introducing the real-valued parameter $\delta$:
+\begin{align}
+    M_{\text{CP}}= \begin{pmatrix}
+        m_- & -i \delta \\
+        i \delta & m_+
+     \end{pmatrix},
+\end{align}
+and assume there is no direct CP violation. This mass matrix corresponds to the
+\textit{superweak} model. Assume $\Gamma$ is diagonal in the ($K_-, K_+$) basis with eigenvalues $\Gamma_L$ and $\Gamma_S$. By expressing $M_{\text{CP}}$ in the $(K^0, \bar{K}^0)$ basis, predict the phase, $\varphi_\epsilon$ of $\epsilon$ defined by $|K_S\rangle \propto |K_+\rangle + \epsilon |K_-\rangle$ and $|K_L\rangle \propto |K_-\rangle + \epsilon |K_+\rangle$, and determine $\delta$ from the measured value of $|\epsilon|$.
+
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Assume the $\Delta S = \Delta Q$ rule so that, to an excellent approximation, $K^0\to \pi^- l^+ \nu$ and $\bar{K}^0\to \pi^+ l^- \bar{\nu}$, with equal magnitudes of the corresponding decay amplitudes (no direct CP violation in semileptonic decays). Starting from an initially pure $|K^0\rangle$ beam at $t=0$, use the time evolution in terms of $|K_S\rangle$ and $|K_L\rangle$ (including the mixing parameter $\epsilon$ defined in (b)) o derive the time-dependent semileptonic charge asymmetry 
+\begin{align}
+    A(t)\equiv \frac{N_+(t)-N_-(t)}{N_+(t)+N_-(t)},
+\end{align}
+where $N_+(t)$ and $N_-(t)$ are the number of semileptonic decays in a small time bin around proper time $t$ that produce $l^+$ and $l^-$, respectively. Express $A(t)$ in terms of $\epsilon$, $\Delta m$ and $\Gamma_{L,S}$ (working to first order in $\epsilon$). Show that at late times (when the beam is $K_L$ dominated), $A(t)\to\delta_L\approx 2\text{Re}(\epsilon)$. Using PDG values for $\Delta m$, $\Gamma_{L,S}$, make a plot of $A(t)$ versus $t/\tau_S$ over the range $0\leq t/\tau_S \leq 10$.
+
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+Finally, extend the model in (b) to 
+\begin{align}
+    M_{\text{CPT}}= \begin{pmatrix}
+        m_- & \chi\\
+        \chi^* & m_+
+    \end{pmatrix},
+\end{align}
+where $\chi$ is complex and $Re(\chi)$ is a $T$-conserving, CP-violating and CPT-violating parameter. Show that, to first order in $\chi$, the states which diagonalize the full Hamiltonian $H$ are 
+\begin{align}
+    |K_S\rangle \approx |K_+\rangle -\frac{\chi}{\xi} |K_-\rangle, \\
+    |K_L\rangle \approx |K_-\rangle +\frac{\chi^*}{\xi} |K_+\rangle,
+\end{align}
+where $\xi=(\Delta m)/2-i(\Delta \Gamma)/4\approx (m_L-m_S)/2+i(\Gamma_S)4$, (assuming $\Delta\Gamma\equiv \Gamma_L-\Gamma_S$ and $\Gamma_S\gg \Gamma_L$). Then include direct CP violation by writing $\eta_{+-}\approx \epsilon + \epsilon'$ and $\eta_{00}\approx \epsilon - 2\epsilon'$ (to first order in small parameters), and determine how the CPT-violating mixing term $\chi/\xi$ modifies the phases of $\eta_{+-}$ and $\eta_{00}$. Derive the following relation between phases 
+\begin{align}
+    \frac{2}{3} \varphi_{+-} + \frac{1}{3} \varphi_{00} - \varphi_\epsilon \approx \frac{|m_{\bar{K}^0}-m_{K^0}|}{2|\epsilon|(m_L-m_S)}\sin\varphi_\epsilon.
+\end{align}
+The result $|m_{\bar{K}^0}-m_{K^0}|/m_{K^0}<8.0\times 10^{-19}$, which follows from this relation, provides one of the best limits on CPT invariance.
+
+
