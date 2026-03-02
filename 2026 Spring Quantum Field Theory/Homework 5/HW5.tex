@@ -14,3 +14,67 @@ point $X = \eta$ in the distant future (keeping in mind that $T$ will be set to 
 Why do we need Euclidean time? We will use this trajectory in subsequent lectures.
 
 \answer{}
+Now, the equation of motion in the Euclidean time is
+
+\begin{align}
+    \frac{d^2 X}{d\tau^2} = \frac{dV}{dX} = 4\lambda X (X^2 - \eta^2).
+\end{align}
+Note that $\tau=it$ is the Euclidean time. Now we can solve this equation by multiplying both sides by $dX/d\tau$:
+\begin{align}
+    &\frac{dX}{d\tau} \frac{d^2 X}{d\tau^2} = 4\lambda X (X^2 - \eta^2) \frac{dX}{d\tau}\\
+    \implies& \frac{1}{2} \frac{d}{d\tau} \left( \frac{dX}{d\tau} \right)^2 = 4\lambda X (X^2 - \eta^2) \frac{dX}{d\tau}= \frac{d}{d\tau} \lambda (X^2 - \eta^2)^2\\
+    \implies&\frac{1}{2} \left( \frac{dX}{d\tau} \right)^2 = \lambda (X^2 - \eta^2)^2 + C,
+\end{align}
+where $C$ is an integration constant. Now, we can determine $C$ by using the boundary condition. Since $X \to \pm \eta$ as $\tau \to \pm \infty$, we have
+\begin{align}
+    \lim_{\tau \to \pm \infty} \frac{1}{2} \left( \frac{dX}{d\tau} \right)^2 = \lim_{\tau \to \pm \infty} \lambda (X^2 - \eta^2)^2 + C = C.
+\end{align}
+On the other hand, since $X$ is constant at $\tau \to \pm \infty$, we have $\lim_{\tau \to \pm \infty} dX/d\tau = 0$. Therefore, we have $C=0$. Now, we can solve the equation
+\begin{align}
+    \frac{dX}{d\tau} = \sqrt{2\lambda} (X^2 - \eta^2).
+\end{align}
+This is a separable equation, and we can solve it by integrating both sides:
+\begin{align}
+    \int \frac{dX}{X^2 - \eta^2} = \int \sqrt{2\lambda} d\tau= \sqrt{2\lambda} \tau + C',
+\end{align}
+The left-hand side can be evaluated by partial fraction decomposition:
+\begin{align}
+    \int \frac{dX}{X^2 - \eta^2} = \int \frac{dX}{(X-\eta)(X+\eta)} = \frac{1}{2\eta} \int \left( \frac{1}{X-\eta} - \frac{1}{X+\eta} \right) dX = \frac{1}{2\eta} \ln \left| \frac{X-\eta}{X+\eta} \right|.
+\end{align}
+Therefore, we have
+\begin{align}
+    \frac{1}{2\eta} \ln \left| \frac{X-\eta}{X+\eta} \right| = \sqrt{2\lambda} \tau + C'.
+\end{align}
+Now, we can determine $C'$ by using the boundary condition. Since $X \to -\eta$ as $\tau \to -\infty$, we have
+\begin{align}
+    \lim_{\tau \to -\infty} \frac{1}{2\eta} \ln \left| \frac{X-\eta}{X+\eta} \right| = \lim_{\tau \to -\infty} \sqrt{2\lambda} \tau + C' = -\infty + C' = -\infty.
+\end{align}
+We find this $C'$ cannot be determined by the boundary condition. Without loss of generality, we can set $C'=\sqrt{2\lambda}\tau_0$ for some $\tau_0$. Then, we have
+\begin{align}
+    \frac{1}{2\eta} \ln \left| \frac{X-\eta}{X+\eta} \right| = \sqrt{2\lambda} (\tau - \tau_0).
+\end{align}
+Now, we can solve for $X$:
+\begin{align}
+    \ln \left| \frac{X-\eta}{X+\eta} \right| = 2\eta \sqrt{2\lambda} (\tau - \tau_0) \implies \left| \frac{X-\eta}{X+\eta} \right| = e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}.
+\end{align}
+Since $|X| < \eta$, we have $X + \eta > 0$ and $X - \eta < 0$, so we can drop the absolute value:
+\begin{align}
+    \frac{\eta - X}{X + \eta} = e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}.
+\end{align}
+Solving for $X$, we get
+\begin{align}
+    \eta - X = (X + \eta) e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}.
+\end{align}
+Rearranging terms, we have
+\begin{align}
+    \eta - X = X e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)} + \eta e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}.
+\end{align}
+Collecting terms involving $X$, we get
+\begin{align}
+    X (1 + e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}) = \eta (1 - e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}).
+\end{align}
+Therefore,
+\begin{align}
+    X(\tau) = \frac{\eta (1 - e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)})}{1 + e^{2\eta \sqrt{2\lambda} (\tau - \tau_0)}} = \eta \tanh (\eta \sqrt{2\lambda} (\tau - \tau_0)).
+\end{align}
+This is the classical trajectory in Euclidean time. The reason we need Euclidean time is that in Minkowski time, the trajectory connecting $X=-\eta$ and $X=\eta$ would be a solution to the equation of motion with negative kinetic energy, \textbf{which is not physical in classical mechanics sense}. In contrast, in Euclidean time, the kinetic energy is positive definite, allowing for a well-defined classical trajectory connecting the two minima of the potential. We can use this trajectory to compute the \textbf{tunneling phenomenon} between the two minima, which is a key aspect of quantum mechanics in this system.

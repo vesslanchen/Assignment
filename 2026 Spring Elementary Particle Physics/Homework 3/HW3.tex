@@ -59,3 +59,331 @@ where $\xi=(\Delta m)/2-i(\Delta \Gamma)/4\approx (m_L-m_S)/2+i(\Gamma_S)4$, (as
 The result $|m_{\bar{K}^0}-m_{K^0}|/m_{K^0}<8.0\times 10^{-19}$, which follows from this relation, provides one of the best limits on CPT invariance.
 
 
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+The determinant condition for the eigenvalues of $M_0$ is
+\begin{align}
+    \det(M_0 - \lambda \mathbb{1}) = 0 \implies (m-\lambda)^2 - \Delta^2 = 0 \implies \lambda = m \pm \Delta.
+\end{align}
+Thus, the mass eigenvalues are $m_\pm = m \pm \Delta$. The corresponding eigenvectors are
+\begin{align}
+    |K_-\rangle = \frac{1}{\sqrt{2}}(|K^0\rangle - |\bar{K}^0\rangle), \\
+    |K_+\rangle = \frac{1}{\sqrt{2}}(|K^0\rangle + |\bar{K}^0\rangle).
+\end{align}
+Using the experimental inputs $m_{K^0} \approx 497.611$ MeV and $\Delta m = m_L - m_S \approx 3.484 \times 10^{-12}$ MeV from PDG, we can identify $m_S = m - \Delta$ and $m_L = m + \Delta$. Thus,
+\begin{align}
+    m_S = m - \Delta, \\
+    m_L = m + \Delta.
+\end{align}
+Adding these two equations gives $m_S + m_L = 2m \implies m = \frac{m_S + m_L}{2} \approx 497.611$ MeV. And $\Delta = \frac{m_L - m_S}{2} = \frac{\Delta m}{2} \approx 1.742 \times 10^{-12}$ MeV. 
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+To express $M_{\text{CP}}$ in the $(K^0, \bar{K}^0)$ basis, we first write the transformation from the $(K_-, K_+)$ basis to the $(K^0, \bar{K}^0)$ basis:
+\begin{align}
+    \begin{pmatrix}
+        |K_-\rangle \\
+        |K_+\rangle
+    \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+    1 & -1 \\
+    1 & 1
+    \end{pmatrix} \begin{pmatrix}
+    |K^0\rangle \\
+    |\bar{K}^0\rangle
+    \end{pmatrix}.
+\end{align}
+Thus, the transformation matrix is $U = \frac{1}{\sqrt{2}}\begin{pmatrix}
+    1 & -1 \\
+    1 & 1
+\end{pmatrix}$. The mass matrix in the $(K^0, \bar{K}^0)$ basis is then given by
+\begin{align}
+    M_{\text{CP}}^{(K^0, \bar{K}^0)} = U^\dagger M_{\text{CP}} U.
+\end{align}
+Calculating this explicitly, we find
+\begin{align}
+    &M_{\text{CP}}^{(K^0, \bar{K}^0)} = \frac{1}{2}\begin{pmatrix}
+    1 & 1 \\
+    -1 & 1
+    \end{pmatrix} \begin{pmatrix}
+    m_- & -i \delta \\
+    i \delta & m_+
+    \end{pmatrix} \begin{pmatrix}
+    1 & -1 \\
+    1 & 1
+    \end{pmatrix}\\
+    =& \frac{1}{2}
+    \begin{pmatrix}
+        m_-+i\delta & m_+-i\delta \\
+        -m_-+i\delta & m_+ +i\delta
+    \end{pmatrix} 
+    \begin{pmatrix}
+    1 & -1 \\
+    1 & 1
+    \end{pmatrix}\\
+    =& \frac{1}{2}
+    \begin{pmatrix}
+        (m_-+i\delta) + (m_+-i\delta) & -(m_-+i\delta) + (m_+-i\delta) \\
+        (-m_-+i\delta) + (m_+ + i\delta) & -(-m_-+i\delta) + (m_+ + i\delta)
+    \end{pmatrix}\\
+    =& \begin{pmatrix}
+    \frac{m_- + m_+}{2} & \frac{m_+ - m_-}{2} - i\delta \\
+    \frac{m_+ - m_-}{2} + i\delta & \frac{m_- + m_+}{2}
+    \end{pmatrix}\\
+    =& \begin{pmatrix}
+    m & \Delta - i\delta \\
+    \Delta + i\delta & m
+    \end{pmatrix}.
+\end{align}
+Also, we have $\Gamma = \begin{pmatrix}
+    \Gamma_S & 0 \\
+    0 & \Gamma_L
+\end{pmatrix}$ in the $(K_-, K_+)$ basis, which transforms to
+\begin{align}
+    &\Gamma^{(K^0, \bar{K}^0)} = U^\dagger \Gamma U = \frac{1}{2}\begin{pmatrix}
+    1 & 1 \\
+    -1 & 1
+    \end{pmatrix} \begin{pmatrix}
+    \Gamma_S & 0 \\
+    0 & \Gamma_L
+    \end{pmatrix} \begin{pmatrix}
+    1 & -1 \\
+    1 & 1
+     \end{pmatrix}\\
+    =& \frac{1}{2}\begin{pmatrix}
+        \Gamma_S & \Gamma_L \\
+        -\Gamma_S & \Gamma_L
+    \end{pmatrix} 
+    \begin{pmatrix}
+    1 & -1 \\
+    1 & 1
+     \end{pmatrix}
+    = \begin{pmatrix}
+    \frac{\Gamma_S + \Gamma_L}{2} & \frac{\Gamma_L - \Gamma_S}{2} \\
+    \frac{\Gamma_L - \Gamma_S}{2} & \frac{\Gamma_S + \Gamma_L}{2}
+    \end{pmatrix}\\
+    =& \begin{pmatrix}
+    \Gamma & \Gamma_{12} \\
+    \Gamma_{12} & \Gamma
+    \end{pmatrix},
+\end{align}
+where $\Gamma = \frac{\Gamma_S + \Gamma_L}{2}$ and $\Gamma_{12} = (\Gamma_L - \Gamma_S)/2$. The full Hamiltonian in the $(K^0, \bar{K}^0)$ basis is then 
+\begin{align}
+    &H = M_{\text{CP}}^{(K^0, \bar{K}^0)} - \frac{i}{2}\Gamma^{(K^0, \bar{K}^0)} = \begin{pmatrix}
+    m - \frac{i}{2}\Gamma & \Delta - i\delta - \frac{i}{2}\Gamma_{12} \\
+    \Delta + i\delta - \frac{i}{2}\Gamma_{12} & m - \frac{i}{2}\Gamma
+    \end{pmatrix}\\
+    =& \begin{pmatrix}
+        m-\frac{i}{2}\Gamma &\Delta - \frac{i}{2}\Gamma_{12} \\
+        \Delta - \frac{i}{2}\Gamma_{12} & m-\frac{i}{2}\Gamma 
+    \end{pmatrix}
+    + \begin{pmatrix}
+        0 & -i\delta \\
+        i\delta & 0
+    \end{pmatrix}\\
+    =& H_0 + H_{\text{CPV}},
+\end{align} 
+where $H_0$ is the CP-conserving part and $H_{\text{CPV}}$ is the CP-violating part. Now, we can consider perturbation theory to find the effect of $H_{\text{CPV}}$ on the eigenstates of $H_0$. The unperturbed eigenstates of $H_0$ are $|K_+\rangle$ and $|K_-\rangle$ with eigenvalues $m_S - \frac{i}{2}\Gamma_S$ and $m_L - \frac{i}{2}\Gamma_L$, respectively. The perturbed eigenstates are $|K_S\rangle$ and $|K_L\rangle$. Now, we consider the perturbation theory formula for non-degenerate states, given by 
+\begin{align}
+    |\psi_n^{(1)}\rangle = \sum_{m\neq n} \frac{\langle m|H'|n\rangle}{E_n^{(0)} - E_m^{(0)}} |m\rangle,
+\end{align}
+where $H'$ is the perturbation and $E_n^{(0)}$ are the unperturbed eigenvalues. In our case, $H' = H_{\text{CPV}}$ and the unperturbed eigenvalues are $E_+ = m_S - \frac{i}{2}\Gamma_S$ and $E_- = m_L - \frac{i}{2}\Gamma_L$. Note that 
+\begin{align}
+    \langle K_-|H_{\text{CPV}}|K_+\rangle &= (H_{\text{CPV}})_{-+} = (H_{\text{CPV}})_{12} = -i\delta, \\
+    \langle K_+|H_{\text{CPV}}|K_-\rangle &= i\delta.
+\end{align}
+Hence, the first-order correction to the $|K_+\rangle$ state is
+\begin{align}
+    |K_S\rangle \approx |K_+\rangle + \frac{\langle K_-|H_{\text{CPV}}|K_+\rangle}{E_+ - E_-} |K_-\rangle = |K_+\rangle + \frac{-i\delta}{(m_S - m_L) - \frac{i}{2}(\Gamma_S - \Gamma_L)} |K_-\rangle 
+\end{align}
+and the first-order correction to the $|K_-\rangle$ state is
+\begin{align}
+    |K_L\rangle \approx |K_-\rangle + \frac{\langle K_+|H_{\text{CPV}}|K_-\rangle}{E_- - E_+} |K_+\rangle = |K_-\rangle + \frac{i\delta}{(m_L - m_S) - \frac{i}{2}(\Gamma_L - \Gamma_S)} |K_+\rangle.
+\end{align}
+We can define $\epsilon$, which is the mixing parameter, as
+\begin{align}
+    &\epsilon = \frac{\langle K_-|H_{\text{CPV}}|K_+\rangle}{E_+ - E_-} = \frac{-i\delta}{(m_S - m_L) - \frac{i}{2}(\Gamma_S - \Gamma_L)}=\frac{-i\delta}{-\Delta m +i \Gamma_{12}}\\
+    =& \frac{\delta}{-\Gamma_{12} - i\Delta m} =\frac{\delta}{(\Gamma_S-\Gamma_L) /2 - i(m_L - m_S)}\\
+    =& \frac{\delta}{\sqrt{(\Gamma_S-\Gamma_L)^2/4 + (m_L - m_S)^2}} e^{i\varphi_\epsilon},
+\end{align}
+where $\varphi_\epsilon = \tan^{-1}\left(\frac{2\Delta m}{\Gamma_S - \Gamma_L}\right)$. Using the PDG values for $\Delta m$ and $\Gamma_{L,S}$, we can calculate $\varphi_\epsilon$ and then determine $\delta$ from the measured value of $|\epsilon|$. The PDG values are $m_L-m_S \approx 3.484 \times 10^{-12}$ MeV, $\Gamma_S \approx 7.351 \times 10^{-12}$ MeV, and $\Gamma_L\ll \Gamma_S$. Then 
+\begin{align}
+    \varphi_\epsilon = \tan^{-1}\left(\frac{2\Delta m}{\Gamma_S - \Gamma_L}\right) \approx \tan^{-1}\left(\frac{2 \times 3.484 \times 10^{-12}}{7.351 \times 10^{-12}}\right) \approx 43.4678^\circ.
+\end{align}
+For the magnitude of $\epsilon$, we have $|\epsilon| = \frac{\delta}{\sqrt{(\Gamma_S-\Gamma_L)^2/4 + (m_L - m_S)^2}}$. Using the PDG value $|\epsilon| \approx 2.228 \times 10^{-3}$, we can solve for $\delta$:
+\begin{align}
+    &\delta = |\epsilon| \sqrt{\left(\frac{\Gamma_S - \Gamma_L}{2}\right)^2 + (m_L - m_S)^2} \\
+    =&1.128 \times 10^{-14} \text{ MeV}.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+From part (b), we have the time evolution of the states $|K_S\rangle$ and $|K_L\rangle$ in terms of $|K_+\rangle$ and $|K_-\rangle$. The initial state at $t=0$ is $|K^0\rangle = \frac{1}{\sqrt{2}}(|K_S\rangle + |K_L\rangle)$. The time evolution of the state is given by
+\begin{align}
+    |K^0(t)\rangle = \frac{1}{\sqrt{2}}(e^{-i(m_S - \frac{i}{2}\Gamma_S)t}|K_S\rangle + e^{-i(m_L - \frac{i}{2}\Gamma_L)t}|K_L\rangle).
+\end{align}
+We can express $|K_S\rangle$ and $|K_L\rangle$ in terms of $|K_+\rangle$ and $|K_-\rangle$ using the results from part (b):
+\begin{align}
+    &\begin{pmatrix}
+    |K_S\rangle \\
+    |K_L\rangle
+    \end{pmatrix}= \begin{pmatrix}
+    1 & \epsilon \\
+    \epsilon & 1
+    \end{pmatrix} \begin{pmatrix}
+    |K_+\rangle \\
+    |K_-\rangle
+    \end{pmatrix}\\
+    =& \begin{pmatrix}
+    1 & \epsilon \\
+    \epsilon & 1
+    \end{pmatrix} \begin{pmatrix}
+    \frac{1}{\sqrt{2}}(|K^0\rangle + |\bar{K}^0\rangle) \\
+    \frac{1}{\sqrt{2}}(|K^0\rangle - |\bar{K}^0\rangle)
+    \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+    1 & \epsilon \\
+    \epsilon & 1
+    \end{pmatrix} \begin{pmatrix}
+    |K^0\rangle + |\bar{K}^0\rangle \\
+    |K^0\rangle - |\bar{K}^0\rangle
+    \end{pmatrix}\\
+    =& \frac{1}{\sqrt{2}}\begin{pmatrix}
+    (1+\epsilon)|K^0\rangle + (1-\epsilon)|\bar{K}^0\rangle \\
+    (1+\epsilon)|K^0\rangle - (1-\epsilon)|\bar{K}^0\rangle
+    \end{pmatrix} 
+\end{align}
+Thus, the time-evolved state can be written as
+\begin{align}
+    |K^0(t)\rangle =& \frac{1}{2}\left[e^{-i(m_S - \frac{i}{2}\Gamma_S)t}((1+\epsilon)|K^0\rangle + (1-\epsilon)|\bar{K}^0\rangle) + e^{-i(m_L - \frac{i}{2}\Gamma_L)t}((1+\epsilon)|K^0\rangle - (1-\epsilon)|\bar{K}^0\rangle)\right]\\
+    =& \frac{1}{2}\left[(e^{-i(m_S - \frac{i}{2}\Gamma_S)t} + e^{-i(m_L - \frac{i}{2}\Gamma_L)t})(1+\epsilon)|K^0\rangle + (e^{-i(m_S - \frac{i}{2}\Gamma_S)t} - e^{-i(m_L - \frac{i}{2}\Gamma_L)t})(1-\epsilon)|\bar{K}^0\rangle\right]\\
+    =& \frac{1}{2}\left[(e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} + e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t})(1+\epsilon)|K^0\rangle + (e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} - e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t})(1-\epsilon)|\bar{K}^0\rangle\right].
+\end{align}
+The semileptonic decay amplitudes are given by
+\begin{align}
+    &\langle \pi^- l^+ \nu|H|K^0\rangle = A, \\
+    &\langle \pi^+ l^- \bar{\nu}|H|\bar{K}^0\rangle = A,
+\end{align}
+where $A$ is the amplitude for the semileptonic decay. The number of decays producing $l^+$ and $l^-$ at time $t$ are proportional to the probabilities of finding $|K^0\rangle$ and $|\bar{K}^0\rangle$ in the time-evolved state, respectively. Thus,
+\begin{align}
+    &N_+(t) \propto |\langle \pi^- l^+ \nu|H|K^0(t)\rangle|^2 = |A|^2 \left|\frac{1}{2}(e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} + e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t})(1+\epsilon)\right|^2, \\
+    =& \frac{1}{4} |A|^2  |e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} + e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t}|^2 (1 + 2\text{Re}(\epsilon))=C(t)(1 + 2\text{Re}(\epsilon)),\\
+    &N_-(t) \propto |\langle \pi^+ l^- \bar{\nu}|H|K^0(t)\rangle|^2 = |A|^2 \left|\frac{1}{2}(e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} - e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t})(1-\epsilon)\right|^2, \\
+    =& \frac{1}{4} |A|^2  |e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} - e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t}|^2 (1 - 2\text{Re}(\epsilon))=C'(t)(1 - 2\text{Re}(\epsilon)),
+\end{align}
+Now, we can calculate the asymmetry $A(t)$:
+\begin{align}
+    A(t) =& \frac{N_+(t) - N_-(t)}{N_+(t) + N_-(t)} = \frac{C(t)(1 + 2\text{Re}(\epsilon)) - C'(t)(1 - 2\text{Re}(\epsilon))}{C(t)(1 + 2\text{Re}(\epsilon)) + C'(t)(1 - 2\text{Re}(\epsilon))}
+\end{align}
+When $t$ is large, the beam is $K_L$ dominated, so we can approximate $C(t) \approx C'(t)$, and thus
+\begin{align}
+    A(t) \approx \frac{(1 + 2\text{Re}(\epsilon)) - (1 - 2\text{Re}(\epsilon))}{(1 + 2\text{Re}(\epsilon)) + (1 - 2\text{Re}(\epsilon))} = \frac{4\text{Re}(\epsilon)}{2} = 2\text{Re}(\epsilon) = \delta_L.
+\end{align}
+Using the PDG values for $\Delta m$, $\Gamma_{L,S}$, and $\epsilon$, we can plot $A(t)$ versus $t/\tau_S$ over the range $0 \leq t/\tau_S \leq 10$. The plot will show that $A(t)$ starts from zero at $t=0$ and approaches $2\text{Re}(\epsilon)$ as $t$ increases, reflecting the CP violation in the neutral kaon system. We can further simplify the expression for $C(t)$ and $C'(t)$ to make the plot more explicit. Note that 
+\begin{align}
+    &|e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} + e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t}|^2 = e^{-\Gamma_S t} + e^{-\Gamma_L t} + 2e^{-\frac{1}{2}(\Gamma_S + \Gamma_L)t}\cos(\Delta m t), \\
+    &|e^{-i m_S t} e^{-\frac{1}{2}\Gamma_S t} - e^{-i m_L t} e^{-\frac{1}{2}\Gamma_L t}|^2 = e^{-\Gamma_S t} + e^{-\Gamma_L t} - 2e^{-\frac{1}{2}(\Gamma_S + \Gamma_L)t}\cos(\Delta m t).
+\end{align}
+
+
+The following is the numerical parameters used for the plot:
+\begin{align}
+    &\Delta m = 3.484 \times 10^{-12} \text{ MeV}, \\
+    &\Gamma_S = 7.351 \times 10^{-12} \text{ MeV}, \\
+    &\Gamma_L = 1.287 \times 10^{-14} \text{ MeV}, \\
+    &|\epsilon| = 2.228 \times 10^{-3}\\
+    &\varphi_\epsilon = 43.4678^\circ.
+\end{align}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Homework 3/Asy-plot.pdf}
+    \caption{Plot of $A(t)$ versus $t/\tau_S$ for $0 \leq t/\tau_S \leq 15$.}
+    \label{fig:Asy-plot}
+\end{figure}
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+To extend the model to include CPT violation, we introduce the complex parameter $\chi$ in the mass matrix. The full Hamiltonian in the $(K^0, \bar{K}^0)$ basis is then given by
+\begin{align}
+    &H = M_{\text{CPT}} - \frac{i}{2}\Gamma = \begin{pmatrix}
+    m - \frac{i}{2}\Gamma & \Delta + \chi - \frac{i}{2}\Gamma_{12} \\
+    \Delta + \chi^* - \frac{i}{2}\Gamma_{12} & m - \frac{i}{2}\Gamma
+    \end{pmatrix}\\
+    =& \begin{pmatrix}
+    m - \frac{i}{2}\Gamma & \Delta - \frac{i}{2}\Gamma_{12} \\
+    \Delta - \frac{i}{2}\Gamma_{12} & m - \frac{i}{2}\Gamma
+    \end{pmatrix} + \begin{pmatrix}
+    0 & \chi \\
+    \chi^* & 0
+    \end{pmatrix} = H_0 + H_{\text{CPT}},
+\end{align}
+To find the states that diagonalize this Hamiltonian, we can use perturbation theory again, treating $\chi$ as a small perturbation. The unperturbed eigenstates are still $|K_+\rangle$ and $|K_-\rangle$ with eigenvalues $m_S - \frac{i}{2}\Gamma_S$ and $m_L - \frac{i}{2}\Gamma_L$, respectively. The first-order correction to the $|K_+\rangle$ state is
+\begin{align}
+    &|K_S\rangle \approx |K_+\rangle + \frac{\langle K_-|H_{\text{CPT}}|K_+\rangle}{E_+ - E_-} |K_-\rangle = |K_+\rangle + \frac{\chi}{(m_S - m_L) - \frac{i}{2}(\Gamma_S - \Gamma_L)} |K_-\rangle\\
+    \approx &|K_+\rangle - \frac{\chi}{2\xi} |K_-\rangle,
+\end{align}
+and the first-order correction to the $|K_-\rangle$ state is
+\begin{align}
+    &|K_L\rangle \approx |K_-\rangle + \frac{\langle K_+|H_{\text{CPT}}|K_-\rangle}{E_- - E_+} |K_+\rangle = |K_-\rangle + \frac{\chi^*}{(m_L - m_S) - \frac{i}{2}(\Gamma_L - \Gamma_S)} |K_+\rangle\\
+    \approx &|K_-\rangle + \frac{\chi^*}{2\xi} |K_+\rangle,
+\end{align}
+where $\xi = \frac{\Delta m}{2} - i\frac{\Delta \Gamma}{4}$. \textbf{I think the equation provided in the problem statement has a typo, and the correct expressions should have a factor of $1/2$ in the denominator.} Now, we can define the parameters $\eta_{+-}$ and $\eta_{00}$, given by
+\begin{align}
+    &\eta_{+-} = \frac{\langle \pi^+ \pi^-|H|K_L\rangle}{\langle \pi^+ \pi^-|H|K_S\rangle} \approx \epsilon + \epsilon'- \frac{\chi}{2\xi}, \\
+    &\eta_{00} = \frac{\langle \pi^0 \pi^0|H|K_L\rangle}{\langle \pi^0 \pi^0|H|K_S\rangle} \approx \epsilon - 2\epsilon' - \frac{\chi}{2\xi},
+\end{align}
+where $\epsilon$ is the indirect CP violation parameter and $\epsilon'$ is the direct CP violation parameter. The phases of $\eta_{+-}$ and $\eta_{00}$ are modified by the CPT-violating term $\chi/(2\xi)$. The phase of $\eta_{+-}$ is given by
+\begin{align}
+    \varphi_{+-} = \tan^{-1}\left(\frac{\text{Im}(\epsilon + \epsilon' + \frac{\chi}{2\xi})}{\text{Re}(\epsilon + \epsilon' + \frac{\chi}{2\xi})}\right),
+\end{align}and the phase of $\eta_{00}$ is given by
+\begin{align}
+    \varphi_{00} = \tan^{-1}\left(\frac{\text{Im}(\epsilon - 2\epsilon' + \frac{\chi}{2\xi})}{\text{Re}(\epsilon - 2\epsilon' + \frac{\chi}{2\xi})}\right).
+\end{align}
+We consider the approximation formula for the tangent of the difference of angles:
+\begin{align}
+    Arg(1+z) \approx \tan^{-1}\left(\frac{\text{Im}(z)}{1 + \text{Re}(z)}\right) \approx \text{Im}(z),
+\end{align}
+where $z$ is a small complex number. Using this approximation, we can write
+\begin{align}
+    &\varphi_{+-} \approx \varphi_\epsilon + \text{Im}\left(\frac{\epsilon' + \frac{\chi}{2\xi}}{\epsilon}\right), \\
+    &\varphi_{00} \approx \varphi_\epsilon + \text{Im}\left(\frac{-2\epsilon' + \frac{\chi}{2\xi}}{\epsilon}\right).
+\end{align}
+Now, we can derive the relation between the phases:
+\begin{align}
+    &\frac{2}{3} \varphi_{+-} + \frac{1}{3} \varphi_{00} - \varphi_\epsilon \approx \frac{2}{3} \text{Im}\left(\frac{\epsilon' + \frac{\chi}{2\xi}}{\epsilon}\right) + \frac{1}{3} \text{Im}\left(\frac{-2\epsilon' + \frac{\chi}{2\xi}}{\epsilon}\right)\\
+    =& \text{Im}\left(\frac{\chi}{2\xi \epsilon}\right) = \frac{|\chi|}{2|\xi||\epsilon|}\sin(\varphi_\chi - \varphi_\epsilon-\varphi_\xi) \approx \frac{|\chi|}{2|\xi||\epsilon|}\sin\varphi_\epsilon,
+\end{align}
+where $\varphi_\chi$ is the phase of $\chi$ and $\varphi_\xi$ is the phase of $\xi$. The approximation in the last step assumes that $\varphi_\chi - \varphi_\epsilon - \varphi_\xi \approx \varphi_\epsilon$, which is reasonable if $\chi$ is small and does not introduce a large phase shift. Finally, we can express $|\chi|$ in terms of the mass difference between $K^0$ and $\bar{K}^0$, and $\xi$ in terms of the mass and width differences:
+\begin{align}
+    |\chi| = |m_{\bar{K}^0} - m_{K^0}|, \quad |\xi| = \sqrt{\left(\frac{\Delta m}{2}\right)^2 + \left(\frac{\Delta \Gamma}{4}\right)^2} \approx \frac{m_L - m_S}{2}.
+\end{align} Thus, we have
+\begin{align}
+    \frac{2}{3} \varphi_{+-} + \frac{1}{3} \varphi_{00} - \varphi_\epsilon \approx \frac{|m_{\bar{K}^0} - m_{K^0}|}{2|\epsilon|(m_L - m_S)}\sin\varphi_\epsilon.
+\end{align}
+Now for the limit on CPT invariance, we can use the experimental values for $\varphi_{+-}$, $\varphi_{00}$, and $\varphi_\epsilon$ to set an upper limit on $|m_{\bar{K}^0} - m_{K^0}|$. The PDG values are $\varphi_{+-} \approx 43.4^\circ\pm 0.5^\circ$, $\varphi_{00} \approx 43.7^\circ\pm 0.6^\circ$, and $\varphi_\epsilon \approx 43.5^\circ\pm 0.5^\circ$. Using these values, we can calculate the left-hand side of the relation:
+\begin{align}
+    &\frac{2}{3} \varphi_{+-} + \frac{1}{3} \varphi_{00} - \varphi_\epsilon \approx \frac{2}{3} \times 43.4^\circ + \frac{1}{3} \times 43.7^\circ - 43.5^\circ = 0^\circ \pm \sigma^\circ,
+\end{align}
+where $\sigma$ is given by the error propagation formula:
+\begin{align}
+    \sigma = \sqrt{\left(\frac{2}{3}\right)^2 (0.5^\circ)^2 + \left(\frac{1}{3}\right)^2 (0.6^\circ)^2 + (0.5^\circ)^2} \approx 0.63^\circ.
+\end{align}
+Thus, we have
+\begin{align}
+    \frac{2}{3} \varphi_{+-} + \frac{1}{3} \varphi_{00} - \varphi_\epsilon = 0^\circ \pm 0.63^\circ.
+\end{align}
+Now, we can use this result to set an upper limit on $|m_{\bar{K}^0} - m_{K^0}|$:
+\begin{align}
+    &\left|\frac{2}{3} \varphi_{+-} + \frac{1}{3} \varphi_{00} - \varphi_\epsilon\right| \approx \frac{|m_{\bar{K}^0} - m_{K^0}|}{2|\epsilon|(m_L - m_S)}\sin\varphi_\epsilon   \leq 0.63^\circ \approx 0.011 \text{ radians},  \\
+    &|m_{\bar{K}^0} - m_{K^0}| \leq 0.011 \times 2|\epsilon|(m_L - m_S)/\sin\varphi_\epsilon\approx 2.49 \times 10^{-16} \text{ MeV}.
+\end{align}
+Here we only consider 1$\sigma$ deviation for the limit, which corresponds to a confidence level of about 68\%. For a more stringent limit, we can consider 2$\sigma$ or 3$\sigma$ deviations, which would correspond to confidence levels of about 95\% and 99.7\%, respectively.
+
+\qed
+
+
+
+
+
+

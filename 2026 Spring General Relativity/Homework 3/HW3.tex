@@ -1,0 +1,82 @@
+\section*{Problem Set 2 due on Due March 2 at 11:59pm}
+\question{1}{}
+Show that the ratio of the mean density to the central density in a polytrope is
+\begin{align}
+    \frac{\bar{\rho}}{\rho(0)} = 3\frac{|\theta'(\xi_1)|}{\xi_1}.
+\end{align}
+\answer{}
+We start with the definition of the mean density $\bar{\rho}$, which is given by the total mass $M$ divided by the volume $V$ of the star:
+\begin{align}
+    \bar{\rho} = \frac{M}{V}.
+\end{align}
+The total mass $M$ can be expressed as an integral of the density $\rho(r)$ over the volume of the star:
+\begin{align}
+    M = \int_0^R 4\pi r^2 \rho(r) dr,
+\end{align}
+where $R$ is the radius of the star. The volume $V$ of the star is given by:
+\begin{align}
+    V = \frac{4}{3}\pi R^3.
+\end{align}
+Substituting these expressions into the definition of $\bar{\rho}$, we get:
+\begin{align}
+    \bar{\rho} = \frac{\int_0^R 4\pi r^2 \rho(r) dr}{\frac{4}{3}\pi R^3} = \frac{3}{R^3} \int_0^R r^2 \rho(r) dr.
+\end{align}
+Now, we can express the density $\rho(r)$ in terms of the dimensionless variable $\xi$ and the function $\theta(\xi)$, which is related to the density by:
+\begin{align}
+    \rho(r) = \rho(0) \theta^n(\xi),
+\end{align}
+where $n$ is the polytropic index. The variable $\xi$ is defined as:
+\begin{align}
+    \xi = \frac{r}{a},
+\end{align}where $a$ is a scaling factor. The radius of the star corresponds to $\xi_1$, where $\theta(\xi_1) = 0$. Substituting these expressions into the integral for $\bar{\rho}$, we get:
+\begin{align}
+    \bar{\rho} = \frac{3}{R^3} \int_0^R r^2 \rho(0) \theta^n\left(\frac{r}{a}\right) dr.
+\end{align}
+Changing the variable of integration from $r$ to $\xi$, we have:
+\begin{align}
+    \bar{\rho} = \frac{3}{R^3} \int_0^{\xi_1} (a\xi)^2 \rho(0) \theta^n(\xi) a d\xi = \frac{3a^3 \rho(0)}{R^3} \int_0^{\xi_1} \xi^2 \theta^n(\xi) d\xi.
+\end{align}
+Since $R = a\xi_1$, we can substitute this into the expression for $\bar{\rho}$:
+\begin{align}
+    \bar{\rho} = \frac{3a^3 \rho(0)}{(a\xi_1)^3} \int_0^{\xi_1} \xi^2 \theta^n(\xi) d\xi = \frac{3 \rho(0)}{\xi_1^3} \int_0^{\xi_1} \xi^2 \theta^n(\xi) d\xi.
+\end{align}
+Now, we can use the Lane-Emden equation, which relates $\theta(\xi)$ to its derivative $\theta'(\xi)$:
+\begin{align}
+    \frac{1}{\xi^2} \frac{d}{d\xi} \left( \xi^2 \frac{d\theta}{d\xi} \right) = -\theta^n.
+\end{align}
+Integrating this equation from $0$ to $\xi_1$, we get:
+\begin{align}
+    \int_0^{\xi_1} \xi^2 \theta^n(\xi) d\xi = -\int_0^{\xi_1} \frac{d}{d\xi} \left( \xi^2 \frac{d\theta}{d\xi} \right) d\xi = -\left[ \xi^2 \frac{d\theta}{d\xi} \right]_0^{\xi_1} = -\xi_1^2 \theta'(\xi_1).
+\end{align}
+Substituting this back into the expression for $\bar{\rho}$, we get:
+\begin{align}
+    \bar{\rho} = \frac{3 \rho(0)}{\xi_1^3} (-\xi_1^2 \theta'(\xi_1)) = 3 \frac{|\theta'(\xi_1)|}{\xi_1} \rho(0).
+\end{align}
+Finally, we can express the ratio of the mean density to the central density as:
+\begin{align}
+    \frac{\bar{\rho}}{\rho(0)} = 3 \frac{|\theta'(\xi_1)|}{\xi_1}.
+\end{align}\qed
+
+
+
+
+\clearpage
+\question{2}{}
+Show that the mean kinetic energy of an electron in a degenerate gas is $\frac{3}{5}E_F'$ in the non-relativistic case and $\frac{3}{4}E_F$ in the relativistic case. Here $E_F'=E_F-m_e\approx\frac{p_F^2}{2m_e}$.
+\answer{}
+
+
+
+
+
+
+
+
+\clearpage
+\question{3}{}
+For a pure ideal neutron gas, solve the coupled differential equations for
+mass and $p_F$ to find the central density for which the total mass is maximum. Then provide the mass (max) mass and radius at that value. Plot the mass as a function of central density showing both regions of stability and instability. \\\\
+Hint: Use the last 2 pages of notes in StStr2.pdf, this converts the O.V. equation to variables $x$ and $y$. You will need expressions for $\bar{p}$ and $\bar{\rho}$ for a ideal fermi gas of neutrons. Then you will need to integrate (numerically) the OV equation and the equation for $d\bar{M}/dx$. Each initial value of $y$ (when $x=0$) corresponds to a central density. The radius of the star will correspond to the value of $x$ when the density goes to $0$. You can make a table (say
+from $y_{init}$ between $0.35$ and $1$ and determine the mass of the star for each $y_{init}$ to find the value of $y_{init}$ when $M$ is maximized).
+
+\answer{}
