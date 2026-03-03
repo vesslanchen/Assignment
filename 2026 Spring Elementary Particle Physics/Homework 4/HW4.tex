@@ -1,0 +1,62 @@
+\section*{Problem Set 4 Due 11am, Monday, March 23, 2026}
+
+\question{1}{\textbf{Discrete gauge symmetry}}\\
+It often occurs that spontaneous breaking of a continuous symmetry leaves a discrete subgroup unbroken. If the original symmetry was local, the remaining subgroup is known as a \textit{discrete gauge symmetry}. As a simple example, consider a model involving three complex scalar fields $\phi_i,i=1,2,3$ with a $U(1)$ gauge symmetry, $\phi_i\to e^{iq_i\alpha(x)} \phi_i$, and canonical gauge-covariant kinetic terms. Suppose the potential is of the form
+\begin{align}
+    V(\phi_1,\phi_2,\phi_3) =\sum_{i=1}^3V_i (\phi_i^\dagger \phi_i) +V_{\text{cubic}},
+\end{align}
+where each $V_i$ is a renormalizable polynomial in $\phi_i^\dagger \phi_i$ (e.g. $V_i =-m_i^2 \phi_i^\dagger \phi_i +\lambda_i (\phi_i^\dagger \phi_i)^2$), and 
+\begin{align}
+    V_{\text{cubic}} = \lambda_1 \phi_1 \phi_2 \phi_3 +\lambda_2 \phi_1^2 \phi_2^\dagger +\text{h.c.}
+\end{align}
+
+\begin{itemize}
+    \item [(a)]Find the $U(1)$ charge $q_i$ of the $\phi_i$ for which the theory is $U(1)$ gauge invariant.
+    \item [(b)] Show that by constant field rephasings $\phi_i\to e^{i\alpha_i} \phi_i$ one may take $\lambda_1$ and $\lambda_2$ to be real and positive without loss of generality.
+    \item [(c)] Show that a discrete $Z_3$ symmetry i.e. $\phi_i\to e^{2\pi i/3} \phi_i$ remains unbroken.
+\end{itemize}
+
+\answer{}
+
+
+
+\clearpage
+\question{2}{\textbf{Georgi-Glashow $SO(3)$ model}} \\
+A competing model to what became the standard $SU(2)\times U(1)$ electroweak model was suggested by Georgi and Glashow in 1972, based on just the $SU(2)\cong SO(3)$ gauge symmetry (i.e. the symmetry with respect to three-dimensional rotations in the “weak isospin” space). The electric charge, $Q$ was made compatible with the $SO(3)$ generators by embedding, for instance, the electron into triplets with new heavy leptons.
+
+\begin{itemize}
+    \item [(a)] The $SO(3)$ symmetry is spontaneously broken by a vacuum expectation value, $v$ of a real triplet (isovector) scalar field $\phi^a, a=1,2,3$ with the Lagrangian
+    \begin{align}
+        \mathcal{L} = \frac{1}{2} \partial_\mu \phi^a \partial^\mu \phi^a-\frac{\lambda}{4} (\phi^a \phi^a -v^2)^2,
+    \end{align}
+    where $\lambda$ is a dimensionless coupling. Find the mass spectrum of the scalar particles in this model.
+    \item [(b)] The $SO(3)$ symmetry is weakly gauged by adding a triplet $A_\mu^a$ gauge field with the Lagrangian 
+    \begin{align}
+        \mathcal{L} = -\frac{1}{4} F_{\mu\nu}^a F^{a\mu\nu} +\frac{1}{2} D_\mu \phi^a D^\mu \phi^a-\frac{\lambda}{4} (\phi^a \phi^a -v^2)^2,    
+    \end{align}
+    where the covariant derivative, $D_\mu \phi^a =\partial_\mu \phi^a +g \epsilon^{abc} A_\mu^b \phi^c$, and $g$ is the gauge coupling. Find the mass spectrum of the vector and scalar particles.
+    \item [(c)] Explain why this model contains no massive neutral weak boson and why this was in conflict with the 1973 observation of weak neutral currents.
+\end{itemize}
+
+\answer{}
+
+
+
+\clearpage
+\question{3}{\textbf{Longitudinal $WZ$ scattering and the role of the Higgs}}\\
+Consider tree-level scattering $W^+_L(p_1) Z_L(p_2) \to W^+_L(p_3) Z_L(p_4)$ in the electroweak theory. Work in the custodial limit $g'\to 0$, so $m_W=m_Z=m$ and $v=2m/g$. Assume $E\gg m$ and use 
+\begin{align}
+    \epsilon_L^\mu(p) = \frac{p^\mu}{m} +\mathcal{O}(\frac{m}{E}),\quad s=(p_1+p_2)^2,\quad t=(p_1-p_3)^2,\quad u=(p_1-p_4)^2, s+t+u\approx 0.
+\end{align}
+You may use the following Feynman rules (all momenta incoming), with Minkowski metric $\eta_{\mu\nu}=\text{diag}(+,-,-,-)$:
+\begin{align}
+    D_{\mu\nu}(k)&=\frac{-i}{k^2-m^2}\Big(\eta_{\mu\nu} -\frac{k_\mu k_\nu}{m^2}\Big),\\
+    V^{\alpha\beta\mu}(p_+,p_-,p_Z)&=-ig \Big[\eta^{\alpha\beta}(p_+-p_-)^\mu +\eta^{\beta\mu}(p_--p_Z)^\alpha +\eta^{\mu\alpha}(p_Z-p_+)^\beta \Big],\\
+    V^{\alpha\beta\mu\nu} &= -ig^2 \Big[2\eta^{\alpha\beta}\eta^{\mu\nu} -\eta^{\alpha\mu}\eta^{\beta\nu} -\eta^{\alpha\nu}\eta^{\beta\mu} \Big],\\
+    hW_\alpha^+ W_\beta^- &:igm\eta_{\alpha\beta},\quad hZ_\mu Z_\nu :igm\eta_{\mu\nu}.
+\end{align}
+
+\begin{itemize}
+    \item [(a)] Using gauge interactions only (no Higgs exchange), draw all contributing tree-level diagrams. With $\epsilon_L^\mu(p) \approx p^\mu/m$, show that each diagram individually contains terms of order $g^2 E^4/m^4$, but that the complete $mathcal{O}(E^4)$ contribution cancels in the sum of all gauge diagrams. Conclude that the leading gauge-sector growth is at most $\mathcal{M}_{\text{gauge}}\propto g^2 E^2/m^2$ (up to corrections suppressed by $m/E$).
+    \item [(b)] Now include a physical Higgs boson $h$ of mass $m_h$. Draw the additional Higgs-exchange diagram(s) and determine their leading high-energy behavior using $\epsilon_L^\mu(p) \approx p^\mu/m$. Show that adding the Higgs contribution to your result from part (a) cancels the remaining $\mathcal{O}(E^2)$ growth at fixed scattering angle, and determine the resulting constant high-energy limit of the full amplitude, expressing it in terms of the dimensionless Higgs quartic coupling $\lambda$.
+\end{itemize}

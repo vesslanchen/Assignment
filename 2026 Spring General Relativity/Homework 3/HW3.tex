@@ -1,4 +1,4 @@
-\section*{Problem Set 2 due on Due March 2 at 11:59pm}
+\section*{Problem Set 3 due on Due March 2 at 11:59pm}
 \question{1}{}
 Show that the ratio of the mean density to the central density in a polytrope is
 \begin{align}
@@ -64,7 +64,58 @@ Finally, we can express the ratio of the mean density to the central density as:
 \question{2}{}
 Show that the mean kinetic energy of an electron in a degenerate gas is $\frac{3}{5}E_F'$ in the non-relativistic case and $\frac{3}{4}E_F$ in the relativistic case. Here $E_F'=E_F-m_e\approx\frac{p_F^2}{2m_e}$.
 \answer{}
-
+The definition of the mean kinetic energy $\langle K \rangle$ is given by the total kinetic energy of the electrons divided by the total number of electrons. In a degenerate electron gas, the electrons fill up all available energy states up to the Fermi energy $E_F$. In the non-relativistic case, the kinetic energy of an electron with momentum $p$ is given by:
+\begin{align}
+    K = \frac{p^2}{2m_e}.
+\end{align}
+The Fermi energy $E_F$ is related to the Fermi momentum $p_F$ by:
+\begin{align}
+    E_F = \frac{p_F^2}{2m_e}.
+\end{align}
+The mean kinetic energy can be calculated by integrating the kinetic energy over all occupied states up to the Fermi momentum:
+\begin{align}
+    \langle K \rangle = \frac{1}{N} \int_0^{p_F} \frac{p^2}{2m_e} g(p) dp,
+\end{align}where $g(p)$ is the density of states in momentum space and $N$ is the total number of electrons. The density of states in three dimensions is given by:
+\begin{align}
+    g(p) = \frac{V}{(2\pi)^3} 4\pi p^2,
+\end{align}where $V$ is the volume of the system. The total number of electrons $N$ can be calculated by integrating the density of states up to the Fermi momentum:
+\begin{align}
+    N = \int_0^{p_F} g(p) dp = \frac{V}{(2\pi)^3} \int_0^{p_F} 4\pi p^2 dp = \frac{V}{(2\pi)^3} \frac{4\pi p_F^3}{3}.
+\end{align}
+Substituting the expressions for $g(p)$ and $N$ into the expression for $\langle K \rangle$, we get:
+\begin{align}
+    \langle K \rangle = \frac{1}{N} \int_0^{p_F} \frac{p^2}{2m_e} \frac{V}{(2\pi)^3} 4\pi p^2 dp = \frac{1}{N} \frac{V}{(2\pi)^3} \int_0^{p_F} \frac{p^4}{2m_e} 4\pi dp.
+\end{align}
+Evaluating the integral, we have:
+\begin{align}
+    \langle K \rangle = \frac{1}{N} \frac{V}{(2\pi)^3} \frac{4\pi}{2m_e} \int_0^{p_F} p^4 dp = \frac{1}{N} \frac{V}{(2\pi)^3} \frac{4\pi}{2m_e} \frac{p_F^5}{5}.
+\end{align}
+Substituting the expression for $N$, we get:
+\begin{align}
+    \langle K \rangle = \frac{1}{\frac{V}{(2\pi)^3} \frac{4\pi p_F^3}{3}} \frac{V}{(2\pi)^3} \frac{4\pi}{2m_e} \frac{p_F^5}{5} = \frac{3}{5} \frac{p_F^2}{2m_e} = \frac{3}{5} E_F'.
+\end{align}
+In the relativistic case, the kinetic energy of an electron with momentum $p$ is given by:
+\begin{align}
+    K = \sqrt{p^2 c^2 + m_e^2 c^4} - m_e c^2\approx pc,
+\end{align}
+where we have used the approximation for high momentum. The Fermi energy $E_F$ is related to the Fermi momentum $p_F$ by:
+\begin{align}
+    E_F = \sqrt{p_F^2 c^2 + m_e^2 c^4} - m_e c^2 \approx p_F c.
+\end{align}
+The mean kinetic energy can be calculated by integrating the kinetic energy over all occupied states up to the Fermi momentum:
+\begin{align}
+    \langle K \rangle = \frac{1}{N} \int_0^{p_F} pc g(p) dp,
+\end{align}where $g(p)$ and $N$ are the same as in the non-relativistic case. Substituting the expressions for $g(p)$ and $N$, we get:
+\begin{align}
+    \langle K \rangle = \frac{1}{N} \int_0^{p_F} pc \frac{V}{(2\pi)^3} 4\pi p^2 dp = \frac{1}{N} \frac{V}{(2\pi)^3} 4\pi c \int_0^{p_F} p^3 dp.
+\end{align}
+Evaluating the integral, we have:
+\begin{align}
+    \langle K \rangle = \frac{1}{N} \frac{V}{(2\pi)^3} 4\pi c \frac{p_F^4}{4} = \frac{1}{N} \frac{V}{(2\pi)^3} \pi c p_F^4.
+\end{align}Substituting the expression for $N$, we get:
+\begin{align}
+    \langle K \rangle = \frac{1}{\frac{V}{(2\pi)^3} \frac{4\pi p_F^3}{3}} \frac{V}{(2\pi)^3} \pi c p_F^4 = \frac{3}{4} p_F c = \frac{3}{4} E_F.
+\end{align}\qed
 
 
 
@@ -74,9 +125,122 @@ Show that the mean kinetic energy of an electron in a degenerate gas is $\frac{3
 
 \clearpage
 \question{3}{}
-For a pure ideal neutron gas, solve the coupled differential equations for
-mass and $p_F$ to find the central density for which the total mass is maximum. Then provide the mass (max) mass and radius at that value. Plot the mass as a function of central density showing both regions of stability and instability. \\\\
+For a pure ideal neutron gas, solve the coupled differential equations for mass and $p_F$ to find the central density for which the total mass is maximum. Then provide the mass (max) mass and radius at that value. Plot the mass as a function of central density showing both regions of stability and instability. 
+
 Hint: Use the last 2 pages of notes in StStr2.pdf, this converts the O.V. equation to variables $x$ and $y$. You will need expressions for $\bar{p}$ and $\bar{\rho}$ for a ideal fermi gas of neutrons. Then you will need to integrate (numerically) the OV equation and the equation for $d\bar{M}/dx$. Each initial value of $y$ (when $x=0$) corresponds to a central density. The radius of the star will correspond to the value of $x$ when the density goes to $0$. You can make a table (say
 from $y_{init}$ between $0.35$ and $1$ and determine the mass of the star for each $y_{init}$ to find the value of $y_{init}$ when $M$ is maximized).
 
 \answer{}
+The Oppenheimer-Volkoff (OV) equations is given by:
+\begin{align}
+    \frac{dP}{dr} &= -\frac{G(M(r) + 4\pi r^3 P/c^2)(\rho + P/c^2)}{r(r-2GM(r)/c^2)}, \\
+    \frac{dM}{dr} &= 4\pi r^2 \rho,
+\end{align}
+where $P$ is the pressure, $\rho$ is the density, $M(r)$ is the mass enclosed within radius $r$, and $G$ is the gravitational constant. For a pure ideal neutron gas, we can express the pressure and density in terms of the Fermi momentum $p_F$ as follows:
+\begin{align}
+    P &= \frac{1}{3\pi^2} \int_0^{p_F} \frac{p^4}{\sqrt{p^2 c^2 + m_n^2 c^4}} dp, \\
+    \rho &= \frac{1}{\pi^2} \int_0^{p_F} p^2 \sqrt{p^2 c^2 + m_n^2 c^4} dp,
+\end{align}
+where $m_n$ is the mass of a neutron. We can introduce dimensionless variables $x$ and $y$ defined as:
+\begin{align}
+    x &= \frac{r}{R_0}, \\
+    y &= \frac{p_F}{m_n c},
+\end{align}
+where $R_0$ is a characteristic radius. The OV equations can be rewritten in terms of these dimensionless variables as:
+\begin{align}
+    \frac{dP}{dx} &= -\frac{G(M(x) + 4\pi R_0^3 x^3 P/c^2)(\rho + P/c^2)}{ x (R_0x - 2GM(x)/c^2)}, \\
+    \frac{dM}{dx} &= 4\pi R_0^3 x^2 \rho.
+\end{align}
+Also, we can express the pressure and density in terms of $y$ as:
+\begin{align}
+    P(y) &= \frac{1}{3\pi^2} \int_0^{y} \frac{(m_n c y')^4}{\sqrt{(m_n c y')^2 c^2 + m_n^2 c^4}} m_ncdy'\\
+    =& \frac{m_n^4 c^5}{3\pi^2} \int_0^{y} \frac{y'^4}{\sqrt{y'^2 + 1}} dy', \\
+    \rho(y) &= \frac{1}{\pi^2} \int_0^{y} (m_n c y')^2 \sqrt{(m_n c y')^2 c^2 + m_n^2 c^4} m_ncdy'\\
+    =& \frac{m_n^4 c^5}{\pi^2} \int_0^{y} y'^2 \sqrt{y'^2 + 1} dy'.
+\end{align}
+By chain rule, we can express the derivatives in terms of $y$:
+\begin{align}
+    \frac{dP}{dx} &= \frac{dP}{dy} \frac{dy}{dx}\\
+    =& \frac{m_n^4 c^5}{3\pi^2} \frac{y^4}{\sqrt{y^2 + 1}} \frac{dy}{dx}.
+\end{align}
+Hence, the OV equations can be rewritten as:
+\begin{align}
+    \frac{m_n^4 c^5}{3\pi^2} \frac{y^4}{\sqrt{y^2 + 1}} \frac{dy}{dx} &= -\frac{G(M(x) + 4\pi R_0^3 x^3 P(y)/c^2)(\rho(y) + P(y)/c^2)}{ x (R_0x - 2GM(x)/c^2)}.
+\end{align}
+We can simplify the first equation to find an expression for $\frac{dy}{dx}$:
+\begin{align}
+    \frac{dy}{dx} = -\frac{3\pi^2 G(M(x) + 4\pi R_0^3 x^3 P(y)/c^2)(\rho(y) + P(y)/c^2)}{m_n^4 c^5 x (R_0x - 2GM(x)/c^2) \frac{y^4}{\sqrt{y^2 + 1}}}.
+\end{align}
+Now we have following coupled differential equations:
+\begin{align}
+    \frac{dy}{dx} &= -\frac{3\pi^2 G(M(x) + 4\pi R_0^3 x^3 P(y)/c^2)(\rho(y) + P(y)/c^2)}{m_n^4 c^5 x (R_0x - 2GM(x)/c^2) \frac{y^4}{\sqrt{y^2 + 1}}}, \\
+    \frac{dM}{dx} &= 4\pi R_0^3 x^2 \rho(y),\\
+    P(y) &= \frac{m_n^4 c^5}{3\pi^2\hbar^3} \int_0^{y} \frac{y'^4}{\sqrt{y'^2 + 1}} dy', \\
+    \rho(y) &= \frac{m_n^4 c^5}{\pi^2\hbar^3} \int_0^{y} y'^2 \sqrt{y'^2 + 1} dy'.
+\end{align}
+We restore the physical constants $\hbar$ in the expressions for pressure and density to ensure the correct units. We define the following constants to simplify the equations:
+\begin{align}
+    \epsilon &= \frac{m_n^4 c^5}{3\pi^2\hbar^3}, \\
+    R_0&= \frac{c^2}{\sqrt{G\epsilon}}, \quad R_0^2= \frac{c^4}{G\epsilon} \\
+    \mu     &=\frac{R_0 c^2}{G}, \\
+    \tilde{m}&=M/\mu, \quad M=\tilde{m} \mu=\tilde{m} \frac{R_0 c^2}{G}, \\
+    \tilde{R}&=R_0 x,
+\end{align}
+Then we can rewrite the equations as:
+
+\begin{align}
+    P(y)= \epsilon \int_0^{y} \frac{y'^4}{\sqrt{y'^2 + 1}} dy'= \epsilon f(y),
+\end{align}
+\begin{align}
+    \rho(y) = 3\epsilon \int_0^{y} y'^2 \sqrt{y'^2 + 1} dy'=3\epsilon g(y)/c^2,
+\end{align}
+
+\begin{align}
+    \frac{dM}{dx}=\frac{d \tilde{m}}{dx} \mu &= \frac{d \tilde{m}}{dx} \frac{R_0 c^2}{G} = 4\pi R_0^3 x^2 \rho(y)\implies \frac{d \tilde{m}}{dx} = 4\pi \frac{G R_0^2}{c^2} x^2 \rho(y)\\
+    \implies \frac{d \tilde{m}}{dx} &= 4\pi \frac{G R_0^2}{c^2} x^2 3\epsilon g(y)/c^2 = 12\pi \frac{G R_0^2 \epsilon}{c^4} x^2 g(y) = 12\pi x^2 g(y)
+\end{align}
+
+\begin{align}
+    \frac{dy}{dx} &= -\frac{3\pi^2 G(M(x) + 4\pi R_0^3 x^3 P(y)/c^2)(\rho(y) + P(y)/c^2)}{m_n^4 c^5 x (R_0x - 2GM(x)/c^2) \frac{y^4}{\sqrt{y^2 + 1}}}\\
+    =& -\frac{3\pi^2 G(\tilde{m} \frac{R_0 c^2}{G} + 4\pi R_0^3 x^3 \epsilon f(y)/c^2)(3\epsilon g(y)/c^2 + \epsilon f(y)/c^2)}{m_n^4 c^5 x (R_0x - 2G\tilde{m} \frac{R_0 c^2}{G}/c^2) \frac{y^4}{\sqrt{y^2 + 1}}}
+\end{align}
+The first term:
+\begin{align}
+    (\tilde{m} \frac{R_0 c^2}{G} + 4\pi R_0^3 x^3 \epsilon f(y)/c^2) =& \frac{R_0 c^2}{G} (\tilde{m} + 4\pi \frac{G R_0^2\epsilon}{c^4} x^3  f(y))\\
+    =& \frac{R_0 c^2}{G} (\tilde{m} + 4\pi  x^3 f(y))
+\end{align}
+The second term:
+\begin{align}
+    (3\epsilon g(y)/c^2 + \epsilon f(y)/c^2) =& \epsilon (3 g(y) + f(y))/c^2
+\end{align}
+The denominator:
+\begin{align}
+    m_n^4 c^5  x (R_0x - 2G\tilde{m} \frac{R_0 c^2}{G}/c^2)  =& (3\pi^2 \epsilon) R_0 x (x - 2\tilde{m})
+\end{align}
+Putting everything together, we have:
+\begin{align}
+    \frac{dy}{dx} =& -\frac{3\pi^2 G(\tilde{m} \frac{R_0 c^2}{G} + 4\pi R_0^3 x^3 \epsilon f(y)/c^2)(3\epsilon g(y) + \epsilon f(y)/c^2)}{m_n^4 c^5 x (R_0x - 2G\tilde{m} \frac{R_0 c^2}{G}/c^2) \frac{y^4}{\sqrt{y^2 + 1}}}\\
+    =& -\frac{3\pi^2 G \frac{R_0 c^2}{G} (\tilde{m} + 4\pi  x^3 f(y)) \epsilon (3 g(y) + f(y)/c^2)}{(3\pi^2 \epsilon) R_0 x (x - 2\tilde{m}) \frac{y^4}{\sqrt{y^2 + 1}}}\\
+    =& -\frac{3\pi^2 G \frac{R_0 c^2}{G} (\tilde{m} + 4\pi  x^3 f(y)) \epsilon (3 g(y) + f(y))/c^2}{(3\pi^2 \epsilon) R_0 x (x - 2\tilde{m}) \frac{y^4}{\sqrt{y^2 + 1}}}\\
+    =& -\frac{ (\tilde{m} + 4\pi  x^3 f(y)) (3 g(y) + f(y))}{ x (x - 2\tilde{m}) \frac{y^4}{\sqrt{y^2 + 1}}}
+\end{align}
+In summary, we have the following coupled differential equations:
+\begin{align}
+    \frac{dy}{dx} =& -\frac{ (\tilde{m} + 4\pi  x^3 f(y)) (3 g(y) + f(y))}{ x (x - 2\tilde{m}) \frac{y^4}{\sqrt{y^2 + 1}}}, \\
+    \frac{d \tilde{m}}{dx} =& 12\pi x^2 g(y),\\
+    f(y)=& \int_0^{y} \frac{y'^4}{\sqrt{y'^2 + 1}} dy', \\
+    g(y)=& \int_0^{y} y'^2 \sqrt{y'^2 + 1} dy'.
+\end{align}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Homework 3/p3-mass-density.pdf}
+    \caption{Mass as a function of central density. The maximum mass occurs at the peak of the curve, which corresponds to the critical central density. The region to the left of the peak is stable, while the region to the right is unstable.}
+    \label{fig:mass_density_plot}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Homework 3/p3-mass-radius.pdf}
+    \caption{Mass as a function of radius. }
+    \label{fig:mass_radius_plot}
+\end{figure}
+
