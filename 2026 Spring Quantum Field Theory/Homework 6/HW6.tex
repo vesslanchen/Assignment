@@ -6,10 +6,187 @@ Consider the harmonic oscillator problem we have discussed previously at finite 
 \end{align}
 Impose the periodic boundary conditions and calculate the thermal partition function $Z$. What would you get with the anti-periodic boundary conditions?
 \answer{}
+First, we can expand the field $x(\tau)$ in Fourier modes as
+\begin{align}
+    x(\tau) = \sum_{n=-\infty}^{\infty} x_n e^{i \omega_n \tau}, \quad \omega_n = \frac{2\pi n}{\beta}.
+\end{align}
+In this way, we have imposed the periodic boundary conditions $x(\tau + \beta) = x(\tau)$, which leads to the quantization of the frequencies $\omega_n$. Besides, the Fourier coefficients $x_n$ are complex numbers satisfying $x_{-n} = x_n^*$ to ensure that $x(\tau)$ is real. Substituting this expansion into the action, the Euclidean action becomes (note that we have Wick rotated to Euclidean time $\tau = it$):
+\begin{align}
+    &S_E = \int_0^\beta d\tau \left( \frac{1}{2} \dot{x}^2 + \frac{1}{2} \omega^2 x^2 \right) = \frac{1}{2} \int_0^\beta d\tau \sum_{n,m} \left( -\omega_n \omega_m x_n x_m e^{i (\omega_n + \omega_m) \tau} + \omega^2 x_n x_m e^{i (\omega_n + \omega_m) \tau} \right) \\
+    =& \frac{1}{2} \sum_{n,m} \left( -\omega_n \omega_m + \omega^2 \right) x_n x_m \int_0^\beta d\tau e^{i (\omega_n + \omega_m) \tau} = \frac{1}{2} \sum_{n,m} \left( -\omega_n \omega_m + \omega^2 \right) x_n x_m \beta \delta_{n,-m} \\
+    =& \frac{1}{2}\beta \sum_{n}\left( -\omega_n \omega_{-n} + \omega^2 \right) x_n x_{-n} \\
+    =& \frac{1}{2}\beta \sum_{n} \left( \omega_n^2 + \omega^2 \right) |x_n|^2 = \frac{1}{2}\beta (\omega_0^2 + \omega^2) |x_0|^2 + \beta\sum_{n=1}^{\infty} \left( \omega_n^2 + \omega^2 \right) |x_n|^2\\
+    =& \frac{1}{2} \beta(\omega_0^2 + \omega^2) x_0^2+ \beta\sum_{n=1}^{\infty} \left( \omega_n^2 + \omega^2 \right) (a_n^2 + b_n^2),
+\end{align}
+where we have defined $x_n = a_n + i b_n$ with $a_n, b_n$ being real numbers. The path integral measure can be written as
+\begin{align}
+    \mathcal{D}x = \prod_{n=-\infty}^{\infty} dx_n = dx_0 \prod_{n=1}^{\infty} da_n db_n.
+\end{align}
+Thus, the partition function can be computed as
+\begin{align}
+    &Z = \int \mathcal{D}x e^{-S_E} = \int dx_0 e^{-\frac{1}{2} \beta(\omega_0^2 + \omega^2) x_0^2} \prod_{n=1}^{\infty} \int da_n db_n e^{-\beta\left( \omega_n^2 + \omega^2 \right) (a_n^2 + b_n^2)}\\
+    =&\int dx_0 e^{-\frac{1}{2} \beta(\omega_0^2 + \omega^2) x_0^2}\prod_{n=1}^{\infty} \left( \int da_n e^{-\beta\left( \omega_n^2 + \omega^2 \right) a_n^2} \int db_n e^{-\beta\left( \omega_n^2 + \omega^2 \right) b_n^2} \right).
+\end{align}
+We can evaluate the Gaussian integrals as
+\begin{align}
+    &\int dx_0 e^{-\frac{1}{2} \beta(\omega_0^2 + \omega^2) x_0^2} = \sqrt{\frac{2\pi}{\beta(\omega_0^2 + \omega^2)}} = \sqrt{\frac{2\pi}{\beta\omega^2}}, \\
+    &\int da_n e^{-\beta\left( \omega_n^2 + \omega^2 \right) a_n^2} = \sqrt{\frac{\pi}{\beta(\omega_n^2 + \omega^2)}}, \quad \int db_n e^{-\beta\left( \omega_n^2 + \omega^2 \right) b_n^2} = \sqrt{\frac{\pi}{\beta(\omega_n^2 + \omega^2)}}.
+\end{align}
+Therefore, the partition function can be expressed as
+\begin{align}
+    &Z = \sqrt{\frac{2\pi}{\beta\omega^2}} \prod_{n=1}^{\infty} \left( \frac{\pi}{\beta(\omega_n^2 + \omega^2)} \right) = \sqrt{\frac{2\pi}{\beta\omega^2}} \prod_{n=1}^{\infty} \left( \frac{\pi}{\beta\left( \left( \frac{2\pi n}{\beta} \right)^2 + \omega^2 \right)} \right)\\
+    =&\sqrt{\frac{2\pi}{\beta\omega^2}} \prod_{n=1}^{\infty} \left( 
+    \frac{\pi}{\beta\left(\frac{2\pi n}{\beta}\right)^2\left(
+    1+\left(\frac{\beta\omega}{2\pi n}\right)^2
+    \right)}\right)\\
+    =&\sqrt{\frac{2\pi}{\beta\omega^2}} \prod_{n=1}^{\infty} \left( \frac{\pi}{\beta\left(\frac{2\pi n}{\beta}\right)^2} \right) \prod_{n=1}^{\infty} \left( 1 + \left( \frac{\beta\omega}{2\pi n} \right)^2 \right)^{-1}
+\end{align}
+To evaluate the infinite product, we can use the formula
+\begin{align}
+    &\frac{\sinh(\pi z)}{\pi z} = \prod_{n=1}^{\infty} \left( 1 + \frac{z^2}{n^2} \right)\\
+    \implies& \frac{\pi z}{\sinh(\pi z)} = \prod_{n=1}^{\infty} \left( 1 + \frac{z^2}{n^2} \right)^{-1}.
+\end{align}
+By setting $z = \frac{\beta \omega}{2\pi}$, we can rewrite the partition function as
+\begin{align}
+    &Z=\sqrt{\frac{2\pi}{\beta\omega^2}} \left[\prod_{n=1}^{\infty} \left( \frac{\pi}{\beta\left(\frac{2\pi n}{\beta}\right)^2} \right)\right] \cdot \frac{\pi z}{\sinh(\pi z)}\\
+    =&\sqrt{\frac{2\pi}{\beta\omega^2}} \left[\prod_{n=1}^{\infty} \left( \frac{\pi}{\beta\left(\frac{2\pi n}{\beta}\right)^2} \right)\right] \cdot \frac{\frac{\beta \omega}{2}}{\sinh\left( \frac{\beta \omega}{2} \right)}\\
+    =&\sqrt{2\pi\beta} \left[\prod_{n=1}^{\infty} \left( \frac{\pi}{\beta\left(\frac{2\pi n}{\beta}\right)^2} \right)\right] \cdot \frac{1}{2\sinh\left( \frac{\beta \omega}{2} \right)}.
+\end{align}
+We can further simplify the infinite product as
+\begin{align}
+    &\prod_{n=1}^{\infty} \left( \frac{\pi}{\beta\left(\frac{2\pi n}{\beta}\right)^2} \right) = \prod_{n=1}^{\infty} \left( \frac{\beta}{4\pi n^2} \right) 
+\end{align}
+Our final expression for the partition function is
+\begin{align}
+    &Z(\beta, \omega) = \sqrt{2\pi\beta} \prod_{n=1}^{\infty} \left( \frac{\beta}{4\pi n^2} \right) \cdot \frac{1}{2\sinh\left( \frac{\beta \omega}{2} \right)}.
+\end{align}
+Also, the last term can be rewritten as
+\begin{align}
+    &\frac{1}{2\sinh\left( \frac{\beta \omega}{2} \right)} = \frac{e^{-\frac{\beta \omega}{2}}}{1 - e^{-\beta \omega}}\\
+    =& e^{-\frac{\beta \omega}{2}} \sum_{n=0}^{\infty} e^{-n \beta \omega} = \sum_{n=0}^{\infty} e^{-\left( n + \frac{1}{2} \right) \beta \omega}.
+\end{align}
+This result is consistent with the energy spectrum of the quantum harmonic oscillator, which is given by $E_n = \left( n + \frac{1}{2} \right) \omega$ with $n = 0, 1, 2, \ldots$. The partition function can be expressed as
+\begin{align}
+    &Z(\beta, \omega) = \sqrt{2\pi\beta} \prod_{n=1}^{\infty} \left( \frac{\beta}{4\pi n^2} \right) \sum_{n=0}^{\infty} e^{-\left( n + \frac{1}{2} \right) \beta \omega}.
+\end{align}
+If we consider the normalized partition function by dividing $Z$ by the infinite product, we have
+\begin{align}
+    &\tilde{Z}(\beta, \omega) = \frac{Z(\beta, \omega)}{\sqrt{2\pi\beta} \prod_{n=1}^{\infty} \left( \frac{\beta}{4\pi n^2} \right)} = \sum_{n=0}^{\infty} e^{-\left( n + \frac{1}{2} \right) \beta \omega}.
+\end{align}
+This is the standard expression for the partition function of a quantum harmonic oscillator at finite temperature. 
 
+
+For the anti-periodic boundary conditions, we can expand the field $x(\tau)$ in Fourier modes as
+\begin{align}
+    x(\tau) = \sum_{n=-\infty}^{\infty} x_{2n+1} e^{i \omega_{2n+1} \tau}, \quad \omega_{2n+1} = \frac{(2n+1)\pi}{\beta}.
+\end{align}
+In this case, the frequencies are quantized as odd multiples of $\pi/\beta$. Since $x(\tau)$ is anti-periodic, we have $x(\tau + \beta) = -x(\tau)$. Also, the Fourier coefficients $x_{2n+1}$ are complex numbers satisfying $x_{-(2n+1)} = x_{2n+1}^*$ to ensure that $x(\tau)$ is real. Substituting this expansion into the Euclidean action, we have
+\begin{align}
+    S_E=&\int_0^\beta d\tau \left( \frac{1}{2} \dot{x}^2 + \frac{1}{2} \omega^2 x^2 \right) \\
+    =& \frac{1}{2} \int_0^\beta d\tau \sum_{n,m} \left( -\omega_{2n+1} \omega_{2m+1} x_{2n+1} x_{2m+1} e^{i (\omega_{2n+1} + \omega_{2m+1}) \tau} + \omega^2 x_{2n+1} x_{2m+1} e^{i (\omega_{2n+1} + \omega_{2m+1}) \tau} \right)\\
+    =& \frac{1}{2} \sum_{n,m} \left( -\omega_{2n+1} \omega_{2m+1} + \omega^2 \right) x_{2n+1} x_{2m+1} \int_0^\beta d\tau e^{i (\omega_{2n+1} + \omega_{2m+1}) \tau}\\
+    =& \frac{1}{2} \sum_{n,m} \left( -\omega_{2n+1} \omega_{2m+1} + \omega^2 \right) x_{2n+1} x_{2m+1} \beta \delta_{n,-m-1}\\
+    =& \frac{1}{2}\beta \sum_{n} \left( -\omega_{2n+1} \omega_{-2n-1} + \omega^2 \right) x_{2n+1} x_{-2n-1} = \frac{1}{2}\beta \sum_{n} \left( \omega_{2n+1}^2 + \omega^2 \right) |x_{2n+1}|^2\\
+    =& \beta\sum_{n=-\infty}^{\infty} \left( \omega_{2n+1}^2 + \omega^2 \right) (a_n^2 + b_n^2),
+\end{align}
+where we have defined $x_{2n+1} = a_n + i b_n$ with $a_n, b_n$ being real numbers. The path integral measure can be written as
+\begin{align}
+    \mathcal{D}x = \prod_{n=-\infty}^{\infty} dx_{2n+1} = \prod_{n=-\infty}^{\infty} da_n db_n.
+\end{align} Thus, the partition function can be computed as
+\begin{align}
+    &Z = \int \mathcal{D}x e^{-S_E} = \prod_{n=-\infty}^{\infty} \int da_n db_n e^{-\beta\left( \omega_{2n+1}^2 + \omega^2 \right) (a_n^2 + b_n^2)} = \prod_{n=-\infty}^{\infty} \left( \int da_n e^{-\beta\left( \omega_{2n+1}^2 + \omega^2 \right) a_n^2} \int db_n e^{-\beta\left( \omega_{2n+1}^2 + \omega^2 \right) b_n^2} \right).
+\end{align}
+We can evaluate the Gaussian integrals as
+\begin{align}
+    &\int da_n e^{-\beta\left( \omega_{2n+1}^2 + \omega^2 \right) a_n^2} = \sqrt{\frac{\pi}{\beta(\omega_{2n+1}^2 + \omega^2)}}, \quad \int db_n e^{-\beta\left( \omega_{2n+1}^2 + \omega^2 \right) b_n^2} = \sqrt{\frac{\pi}{\beta(\omega_{2n+1}^2 + \omega^2)}}.
+\end{align} Therefore, the partition function can be expressed as
+\begin{align}
+    &Z = \prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta(\omega_{2n+1}^2 + \omega^2)} \right) = \prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left( \left( \frac{(2n+1)\pi}{\beta} \right)^2 + \omega^2 \right)} \right)\\
+    =&\prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left(\frac{(2n+1)\pi}{\beta}\right)^2\left(
+    1+\left(\frac{\beta\omega}{(2n+1)\pi}\right)^2
+    \right)}\right)\\
+    =&\prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left(\frac{(2n+1)\pi}{\beta}\right)^2} \right) \prod_{n=-\infty}^{\infty} \left( 1 + \left( \frac{\beta\omega}{(n+\frac{1}{2}) 2\pi} \right)^2 \right)^{-1}
+\end{align}
+To evaluate the infinite product, we can use the formula
+\begin{align}
+    &\frac{\cosh(\pi z)}{\pi z} = \prod_{n=0}^{\infty} \left( 1 + \frac{z^2}{(n+\frac{1}{2})^2} \right)\\
+    \implies& \frac{\pi z}{\cosh(\pi z)} = \prod_{n=0}^{\infty} \left( 1 + \frac{z^2}{(n+\frac{1}{2})^2} \right)^{-1}.  
+\end{align} By setting $z = \frac{\beta \omega}{2\pi}$, we can rewrite the partition function as
+\begin{align}
+    &Z=\prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left(\frac{(2n+1)\pi}{\beta}\right)^2} \right) \cdot \frac{\pi z}{\cosh(\pi z)}\\
+    =&\prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left(\frac{(2n+1)\pi}{\beta}\right)^2} \right) \cdot \frac{\frac{\beta \omega}{2}}{\cosh\left( \frac{\beta \omega}{2} \right)}\\
+    =&\prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left(\frac{(2n+1)\pi}{\beta}\right)^2} \right) \cdot \frac{1}{2\cosh\left( \frac{\beta \omega}{2} \right)}.
+\end{align}
+We can further simplify the infinite product as
+\begin{align}
+    &\prod_{n=-\infty}^{\infty} \left( \frac{\pi}{\beta\left(\frac{(2n+1)\pi}{\beta}\right)^2} \right) = \prod_{n=-\infty}^{\infty} \left( \frac{\beta}{4\pi (n+\frac{1}{2})^2} \right).
+\end{align} Thus, our final expression for the partition function is
+\begin{align}
+    &Z(\beta, \omega) = \prod_{n=-\infty}^{\infty} \left( \frac{\beta}{4\pi (n+\frac{1}{2})^2} \right) \cdot \frac{1}{2\cosh\left( \frac{\beta \omega}{2} \right)}.
+\end{align}
+Also, the last term can be rewritten as 
+\begin{align}
+    &\frac{1}{2\cosh\left( \frac{\beta \omega}{2} \right)} = \frac{e^{-\frac{\beta \omega}{2}}}{1 + e^{-\beta \omega}}\\
+    =& e^{-\frac{\beta \omega}{2}} \sum_{n=0}^{\infty} (-1)^n e^{-n \beta \omega} = \sum_{n=0}^{\infty} (-1)^n e^{-\left( n + \frac{1}{2} \right) \beta \omega}.
+\end{align}
+This result is consistent with the energy spectrum of the quantum harmonic oscillator with anti-periodic boundary conditions, which is given by $E_n = \left( n + \frac{1}{2} \right) \omega$ with $n = 0, 1, 2, \ldots$. The partition function can be expressed as
+\begin{align}
+    &Z(\beta, \omega) = \prod_{n=-\infty}^{\infty} \left( \frac{\beta}{4\pi (n+\frac{1}{2})^2} \right) \sum_{n=0}^{\infty} (-1)^n e^{-\left( n + \frac{1}{2} \right) \beta \omega}.
+\end{align}
+If we consider the normalized partition function by dividing $Z$ by the infinite product, we have
+\begin{align}
+    &\tilde{Z}(\beta, \omega) = \frac{Z(\beta, \omega)}{\prod_{n=-\infty}^{\infty} \left( \frac{\beta}{4\pi (n+\frac{1}{2})^2} \right)} = \sum_{n=0}^{\infty} (-1)^n e^{-\left( n + \frac{1}{2} \right) \beta \omega}.
+\end{align}
+This is the standard expression for the partition function of a quantum harmonic oscillator with anti-periodic boundary conditions at finite temperature.
+\qed
 
 
 \clearpage
 \question{2}{}
 Using the solution of the previous problem determine the free energy $F$, entropy $S$ and average energy $E$ in terms of the thermal partition function.
 \answer{}
+The free energy $F$ can be calculated from the partition function $Z$ as
+\begin{align}
+    F = -\frac{1}{\beta} \ln Z.
+\end{align}
+The average energy $E$ can be calculated from the partition function as
+\begin{align}   
+    E = -\frac{\partial}{\partial \beta} \ln Z.
+\end{align}
+The entropy $S$ can be calculated from the free energy and average energy as
+\begin{align}
+    S = \beta (E - F).
+\end{align}
+By substituting the expression for $F$ into the formula for $S$, we can express the entropy in terms of the partition function as
+\begin{align}
+    S = \beta \left( E + \frac{1}{\beta} \ln Z \right) = \beta E + \ln Z.
+\end{align}
+Thus, we have expressed the free energy, average energy, and entropy in terms of the thermal partition function $Z$.    
+
+
+Now, we can further express these thermodynamic quantities in terms of the normalized partition function $\tilde{Z}$ and we drop the tilde for simplicity. For the periodic boundary conditions, we have
+\begin{align}
+    &Z(\beta, \omega) = \frac{1}{2\sinh\left( \frac{\beta \omega} {2} \right)}= \frac{e^{-\frac{\beta \omega}{2}}}{1 - e^{-\beta \omega}},
+\end{align}
+and for the anti-periodic boundary conditions, we have
+\begin{align}
+    &Z(\beta, \omega) = \frac{1}{2\cosh\left( \frac{\beta \omega} {2} \right)}= \frac{e^{-\frac{\beta \omega}{2}}}{1 + e^{-\beta \omega}}.
+\end{align}
+By substituting these expressions for $Z$ into the formulas for $F$, $E$, and $S$, we can obtain the explicit expressions for these thermodynamic quantities in terms of $\beta$ and $\omega$ for both cases. For the periodic boundary conditions, we have
+\begin{align}
+    &F = -\frac{1}{\beta} \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 - e^{-\beta \omega}} \right) = \frac{\omega}{2} + \frac{1}{\beta} \ln \left( 1 - e^{-\beta \omega} \right),\\
+    &E = -\frac{\partial}{\partial \beta} \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 - e^{-\beta \omega}} \right) = \frac{\omega}{2} + \frac{\omega e^{-\beta \omega}}{1 - e^{-\beta \omega}},\\
+    &S = \beta E + \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 - e^{-\beta \omega}} \right) = \frac{\beta \omega}{2} + \frac{\beta \omega e^{-\beta \omega}}{1 - e^{-\beta \omega}} + \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 - e^{-\beta \omega}} \right)\\
+    =& \frac{\beta \omega}{2} + \frac{\beta \omega e^{-\beta \omega}}{1 - e^{-\beta \omega}} - \frac{\beta \omega}{2} - \ln \left( 1 - e^{-\beta \omega} \right)\\
+    =& \frac{\beta \omega e^{-\beta \omega}}{1 - e^{-\beta \omega}} - \ln \left( 1 - e^{-\beta \omega} \right).
+\end{align}
+
+For the anti-periodic boundary conditions, we have
+\begin{align}
+    &F = -\frac{1}{\beta} \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 + e^{-\beta \omega}} \right) = \frac{\omega}{2} + \frac{1}{\beta} \ln \left( 1 + e^{-\beta \omega} \right),\\
+    &E = -\frac{\partial}{\partial \beta} \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 + e^{-\beta \omega}} \right) = \frac{\omega}{2} - \frac{\omega e^{-\beta \omega}}{1 + e^{-\beta \omega}},\\
+    &S = \beta E + \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 + e^{-\beta \omega}} \right) = \frac{\beta \omega}{2} - \frac{\beta \omega e^{-\beta \omega}}{1 + e^{-\beta \omega}} + \ln \left( \frac{e^{-\frac{\beta \omega}{2}}}{1 + e^{-\beta \omega}} \right)\\
+    =& \frac{\beta \omega}{2} - \frac{\beta \omega e^{-\beta \omega}}{1 + e^{-\beta \omega}} - \frac{\beta \omega}{2} - \ln \left( 1 + e^{-\beta \omega} \right)\\
+    =& -\frac{\beta \omega e^{-\beta \omega}}{1 + e^{-\beta \omega}} - \ln \left( 1 + e^{-\beta \omega} \right).
+\end{align}
+\qed
