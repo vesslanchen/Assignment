@@ -1,0 +1,112 @@
+\section*{Homework 7 Due to March 19 8:00 AM}
+\question{1}{}
+Compare the composition of the Dirac spinor and all five gamma matrices, including 
+\begin{align}
+    \gamma^5 = \pm i \prod_{\mu=0,1,2,3} \gamma^\mu,
+\end{align}
+in Peskin and Schroeder, Landau-Lifshitz’s Quantum Electrodynamics, and with the one introduced in my course. Find the unitary transition matrix $U$ which implements the transition from the spinorial to the standard (Dirac) representation.
+\answer{}
+In Peskin and Schroeder, the gamma matrices are defined as
+\begin{align}
+    \gamma^0 = \begin{pmatrix}
+        0 & I \\
+        I & 0
+    \end{pmatrix}, \quad
+    \gamma^i = \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix}, \quad
+    \gamma^5 = i\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}
+        -I & 0 \\
+        0 & I
+    \end{pmatrix},
+\end{align}
+where $\sigma^i$ are the Pauli matrices. In Landau-Lifshitz’s Quantum Electrodynamics, the gamma matrices are defined as
+\begin{align}
+    \gamma^0 = \begin{pmatrix}
+        I & 0 \\
+        0 & -I
+    \end{pmatrix}, \quad
+    \gamma^i = \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix}, \quad
+    \gamma^5 = -i\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}
+        0 & -I \\
+        -I & 0
+    \end{pmatrix}.
+\end{align}
+In the course, the gamma matrices are defined as
+\begin{align}
+    \gamma^0 = \begin{pmatrix}
+        0 & I \\
+        I & 0
+    \end{pmatrix}, \quad
+    \gamma^i = \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix}, \quad
+    \gamma^5 = i\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}
+        -I & 0 \\
+        0 & I
+    \end{pmatrix}.
+\end{align}
+The unitary transition matrix $U$ that implements the transition from the spinorial to the standard (Dirac) representation can be found by comparing the definitions of the gamma matrices in the two representations. We can write the gamma matrices in the spinorial representation as
+\begin{align}
+    \gamma^0_{\text{spinorial}} = \begin{pmatrix}
+        0 & I \\
+        I & 0
+    \end{pmatrix}, \quad
+    \gamma^i_{\text{spinorial}} = \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix}, \quad
+    \gamma^5_{\text{spinorial}} = i\gamma^0_{\text{spinorial}}\gamma^1_{\text{spinorial}}\gamma^2_{\text{spinorial}}\gamma^3_{\text{spinorial}} = \begin{pmatrix}
+        -I & 0 \\
+        0 & I
+    \end{pmatrix}.
+\end{align}
+The gamma matrices in the standard (Dirac) representation are
+\begin{align}
+    \gamma^0_{\text{Dirac}} = \begin{pmatrix}
+        I & 0 \\
+        0 & -I
+    \end{pmatrix}, \quad
+    \gamma^i_{\text{Dirac}} = \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix}, \quad
+    \gamma^5_{\text{Dirac}} = i\gamma^0_{\text{Dirac}}\gamma^1_{\text{Dirac}}\gamma^2_{\text{Dirac}}\gamma^3_{\text{Dirac}} = \begin{pmatrix}
+        0 & I \\
+        I & 0
+    \end{pmatrix}.
+\end{align}
+To find the unitary transition matrix $U$, we can use the fact that the gamma matrices in the two representations are related by a similarity transformation:
+\begin{align}
+    \gamma^\mu_{\text{Dirac}} = U \gamma^\mu_{\text{spinorial}} U^\dagger.
+\end{align}
+By comparing the definitions of the gamma matrices in the two representations, we can find that the unitary transition matrix $U$ is given by
+\begin{align}
+    U = \frac{1}{\sqrt{2}} \begin{pmatrix}
+        I & I \\
+        -I & I
+    \end{pmatrix}.
+\end{align}
+This matrix satisfies the relation
+\begin{align}
+    U \gamma^0_{\text{spinorial}} U^\dagger = \gamma^0_{\text{Dirac}}, \quad
+    U \gamma^i_{\text{spinorial}} U^\dagger = \gamma^i_{\text{Dirac}}, \quad
+    U \gamma^5_{\text{spinorial}} U^\dagger = \gamma^5_{\text{Dirac}}.
+\end{align}
+\qed
+
+
+\clearpage
+\question{2}{}
+Compare the definitions of left-handed and right-handed. As a reference point use the Dirac equation of motion
+\begin{align}
+    i \gamma^\mu \partial_\mu \psi = m \psi
+\end{align}
+and the fact that neutrino is left-handed. Check that in all definitions of the
+Dirac matrices the Clifford algebra is satisfied.
+\answer{}

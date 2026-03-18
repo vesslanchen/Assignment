@@ -13,12 +13,44 @@ where each $V_i$ is a renormalizable polynomial in $\phi_i^\dagger \phi_i$ (e.g.
 \begin{itemize}
     \item [(a)]Find the $U(1)$ charge $q_i$ of the $\phi_i$ for which the theory is $U(1)$ gauge invariant.
     \item [(b)] Show that by constant field rephasings $\phi_i\to e^{i\alpha_i} \phi_i$ one may take $\lambda_1$ and $\lambda_2$ to be real and positive without loss of generality.
-    \item [(c)] Show that a discrete $Z_3$ symmetry i.e. $\phi_i\to e^{2\pi i/3} \phi_i$ remains unbroken.
+    \item [(c)] Suppose parameters are such that the vacuum satisfies $\langle \phi_3\rangle =v\neq 0$ but $\langle \phi_1\rangle =\langle \phi_2\rangle =0$. Show that a discrete ${Z}_3$ symmetry i.e. $\phi_i\to e^{i\frac{2\pi}{3}q_i} \phi_i$ remains unbroken.
 \end{itemize}
 
 \answer{}
-
-
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+First, it is straightforward to see that the kinetic terms are already gauge invariant for any choice of $q_i$. Next, the potential is gauge invariant if each term is gauge invariant. The first three terms are automatically gauge invariant since they depend only on $\phi_i^\dagger \phi_i$. The last two terms are gauge invariant if
+\begin{align}
+    q_1+q_2+q_3&=0,\\
+    2q_1-q_2&=0.
+\end{align}
+Solving these equations gives $q_1=q, q_2=2q, q_3=-3q$ for some arbitrary charge $q$.
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Assume $\lambda_1 = \Lambda_1 e^{i\theta_1}$ and $\lambda_2 = \Lambda_2 e^{i\theta_2}$ with $\Lambda_{1,2}>0$. Now, the constraint should be 
+\begin{align}
+    \theta_1 + \alpha_1 + \alpha_2 + \alpha_3 &=0,\\
+    \theta_2 + 2\alpha_1 - \alpha_2 &=0,
+\end{align}
+where $\alpha_i$ are the rephasing angles. Since this is a system of two equations with three unknowns, we can always find a solution for $\alpha_i$ to make $\lambda_1$ and $\lambda_2$ real and positive. For example, we can choose $\alpha_1=0$, then $\alpha_2=-\theta_2$ and $\alpha_3=\theta_2-\theta_1$. Hence, after the rephasing, we have $\lambda_1 = \Lambda_1$ and $\lambda_2 = \Lambda_2$, and both are real and positive.
+\begin{itemize}
+    \item [(c)] 
+\end{itemize}
+Hence, if the vacuum expectation value (VEV) of $\phi_3$ is nonzero, it should be invariant under the transformation. Hence 
+\begin{align}
+    \langle \phi_3\rangle &\to e^{iq_3\alpha(x)} \langle \phi_3\rangle = e^{iq_3\alpha(x)} v =v \\
+    \Rightarrow e^{iq_3\alpha(x)}&=1 \Rightarrow q_3\alpha(x) =2\pi n, n\in \mathbb{Z} \Rightarrow \alpha(x) =\frac{2\pi n}{q_3} = -\frac{2\pi n}{3q}.
+\end{align}
+Hence, the corresponding transformation for $\phi_1$, $\phi_2$ and $\phi_3$ is
+\begin{align}
+    \phi_1 &\to e^{iq_1\alpha(x)} \phi_1 = e^{i\frac{2\pi n}{3}} \phi_1,\\
+    \phi_2 &\to e^{iq_2\alpha(x)} \phi_2 = e^{i\frac{4\pi n}{3}} \phi_2,\\
+    \phi_3 &\to e^{iq_3\alpha(x)} \phi_3 = e^{-i\frac{2\pi n}{3}} \phi_3 = \phi_3.
+\end{align}
+This is a $Z_3$ symmetry since $e^{i\frac{2\pi n}{3}}$ has three distinct values for $n=0,1,2$ and then it repeats for $n=3$. Therefore, the unbroken discrete gauge symmetry is $Z_3$.
+\qed
 
 \clearpage
 \question{2}{\textbf{Georgi-Glashow $SO(3)$ model}} \\

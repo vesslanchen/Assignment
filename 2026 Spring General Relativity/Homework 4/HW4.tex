@@ -7,6 +7,122 @@ Consider a 2D space with negative curvature. Show that the embedding into Euclid
 \end{itemize}
 Find the Ricci scalar for both cases. Then show the case (b) embedded in a non-Euclidean space does give a space of constant curvature and find the Ricci scalar. Also, what happens in case (a) for a non-Euclidean embedding?
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+For the hyperboloid $x^2+y^2-z^2=R^2$, we can parametrize the surface using cylindrical coordinates ($z, \phi$):
+\begin{align}
+    x=& \sqrt{R^2+z^2} \cos\phi,\\
+    y=& \sqrt{R^2+z^2} \sin\phi,\\
+    z=&z.
+\end{align}
+The original metric in the embedding space is given by
+\begin{align}
+    ds^2=dx^2+dy^2+dz^2.
+\end{align}
+Then we have 
+\begin{align}
+    dx=& \frac{z}{\sqrt{R^2+z^2}} \cos\phi dz - \sqrt{R^2+z^2} \sin\phi d\phi,\\
+    dy=& \frac{z}{\sqrt{R^2+z^2}}\sin\phi dz + \sqrt{R^2+z^2} \cos\phi d\phi,\\
+    dz=&dz.
+\end{align}
+Now we can compute the metric on the surface by substituting these expressions into the original metric:
+\begin{align}
+    ds^2=&dx^2+dy^2+dz^2\\
+    =&\left(\frac{z^2}{R^2+z^2}+1\right)dz^2+(R^2+z^2)d\phi^2\\
+    =&\frac{R^2+2z^2}{R^2+z^2}dz^2+(R^2+z^2)d\phi^2.
+\end{align}
+Then, we can say in the coordinates $(z, \phi)$, the metric is given by
+\begin{align}
+    g_{zz}=&\frac{R^2+2z^2}{R^2+z^2},\\
+    g_{\phi\phi}=&R^2+z^2,\\
+    g_{z\phi}=&g_{\phi z}=0.
+\end{align}
+After calculation in Mathematica (see the attached file), we can find the Ricci scalar is given by
+\begin{align}
+    \mathcal{R}=-\frac{2R^2}{(R^2+2z^2)^2}.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+For the hyperboloid $x^2+y^2-z^2=-R^2$, we can parametrize the surface using cylindrical coordinates ($z, \phi$):
+\begin{align}
+    x=& \sqrt{z^2-R^2} \cos\phi,\\
+    y=& \sqrt{z^2-R^2} \sin\phi,\\
+    z=&z.
+\end{align} 
+The original metric in the embedding space is given by
+\begin{align}
+    ds^2=dx^2+dy^2+dz^2.
+\end{align} Then we have 
+\begin{align}   
+    dx=& \frac{z}{\sqrt{z^2-R^2}} \cos\phi dz - \sqrt{z^2-R^2} \sin\phi d\phi,\\
+    dy=& \frac{z}{\sqrt{z^2-R^2}}\sin\phi dz + \sqrt{z^2-R^2} \cos\phi d\phi,\\
+    dz=&dz.
+\end{align}
+Now we can compute the metric on the surface by substituting these expressions into the original metric:
+\begin{align}
+    ds^2=&dx^2+dy^2+dz^2\\
+    =&\left(\frac{z^2}{z^2-R^2}+1\right)dz^2+(z^2-R^2)d\phi^2\\ 
+    =&\frac{2z^2-R^2}{z^2-R^2}dz^2+(z^2-R^2)d\phi^2.
+\end{align}
+Then, we can say in the coordinates $(z, \phi)$, the metric is given by
+\begin{align}
+    g_{zz}=&\frac{2z^2-R^2}{z^2-R^2},\\
+    g_{\phi\phi}=&z^2-R^2,\\
+    g_{z\phi}=&g_{\phi z}=0.
+\end{align}
+After calculation in Mathematica (see the attached file), we can find the Ricci scalar is given by
+\begin{align}
+    \mathcal{R}=\frac{2R^2}{(2z^2-R^2)^2}.
+\end{align}
+Now, we can see that the Ricci scalar is not a constant, which means the curvature is not constant. However, if we embed the hyperboloid into a non-Euclidean space with metric
+\begin{align}
+    ds^2=dx^2+dy^2-dz^2,
+\end{align}we can find the metric on the surface is given by
+\begin{align}
+    ds^2=&dx^2+dy^2-dz^2\\
+    =&\left(\frac{z^2}{z^2-R^2}-1\right)dz^2+(z^2-R^2)d\phi^2\\
+    =&\frac{R^2}{z^2-R^2}dz^2+(z^2-R^2)d\phi^2.
+\end{align}
+Then, we can say in the coordinates $(z, \phi)$, the metric is given by
+\begin{align}
+    g_{zz}=&\frac{R^2}{z^2-R^2},\\
+    g_{\phi\phi}=&z^2-R^2,\\
+    g_{z\phi}=&g_{\phi z}=0.
+\end{align}
+After calculation in Mathematica (see the attached file), we can find the Ricci scalar is given by
+\begin{align}
+    \mathcal{R}=-\frac{2}{R^2}.
+\end{align}
+We can see that the Ricci scalar is a constant, which means the curvature is constant. 
+
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+For the case (a), if we embed the hyperboloid into a non-Euclidean space with metric
+\begin{align}
+    ds^2=dx^2+dy^2-dz^2,
+\end{align}we can find the metric on the surface is given by
+\begin{align}
+    ds^2=&dx^2+dy^2-dz^2\\
+    =&\left(\frac{z^2}{R^2+z^2}-1\right)dz^2+(R^2+z^2)d\phi^2\\
+    =&-\frac{R^2}{R^2+z^2}dz^2+(R^2+z^2)d\phi^2.
+\end{align}
+Then, we can say in the coordinates $(z, \phi)$, the metric is given by
+\begin{align}
+    g_{zz}=&-\frac{R^2}{R^2+z^2},\\
+    g_{\phi\phi}=&R^2+z^2,\\
+    g_{z\phi}=&g_{\phi z}=0.
+\end{align}
+After calculation in Mathematica (see the attached file), we can find the Ricci scalar is given by
+\begin{align}
+    \mathcal{R}=\frac{2}{R^2}.
+\end{align}
+We can see that the Ricci scalar is a constant, which means the curvature is constant. 
+
+\qed
+
 
 
 
@@ -14,7 +130,7 @@ Find the Ricci scalar for both cases. Then show the case (b) embedded in a non-E
 \question{2}{}
 Consider the metric
 \begin{align}
-    g_{\mu\nu}=C_{\mu\nu} + \frac{K}{1_KC_{ab} x^a x^b} C_{\mu\lambda} C_{\nu\sigma} x^\lambda x^\sigma
+    g_{\mu\nu}=C_{\mu\nu} + \frac{K}{1-KC_{ab} x^a x^b} C_{\mu\lambda} C_{\nu\sigma} x^\lambda x^\sigma
 \end{align}
 \begin{itemize}
     \item [(a)] Derive the inverse metric $g^{\mu\nu}$.
@@ -22,8 +138,132 @@ Consider the metric
     \item [(c)] Derive solutions for the equations of motions when $K=+1,0,-1$.
 \end{itemize}
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+To derive the inverse metric $g^{\mu\nu}$, we start with the given metric:
+\begin{align}
+    g_{\mu\nu}=C_{\mu\nu} + \frac{K}{1-KC_{ab} x^a x^b} C_{\mu\lambda} C_{\nu\sigma} x^\lambda x^\sigma.
+\end{align}
+We can rewrite this as:
+\begin{align}
+    g_{\mu\nu} = C_{\mu\nu} + \frac{K}{1-KC_{ab} x^a x^b} (C_{\mu\lambda} x^\lambda)(C_{\nu\sigma} x^\sigma).
+\end{align}
+Let us define $x_\mu = C_{\mu\lambda} x^\lambda$. Also, we can define $C_{ab} x^a x^b = x^\rho x_\rho$ since $x^\rho = C^{\rho\lambda} x_\lambda$. Then we can express the metric as:
+\begin{align}
+    g_{\mu\nu} = C_{\mu\nu} + \frac{K}{1-Kx^\rho x_\rho} x_\mu x_\nu.
+\end{align}
+To find the inverse metric $g^{\mu\nu}$, we can assume it has the form:
+\begin{align}
+    g^{\mu\nu} = C^{\mu\nu} + \alpha x^\mu x^\nu,
+\end{align}
+where $\alpha$ is a constant to be determined. We need to satisfy the condition:
+\begin{align}
+    g^{\mu\rho} g_{\rho\nu} = \delta^\mu{}_\nu.
+\end{align}
+Substituting the expressions for $g_{\mu\nu}$ and $g^{\nu\rho}$, we get:
+\begin{align}
+    (C^{\mu\rho} + \alpha x^\mu x^\rho)(C_{\rho\nu} + \frac{K}{1-Kx^\rho x_\rho} x_\rho x_\nu) = \delta^\mu{}_\nu.
+\end{align}
+Expanding this expression, we have:
+\begin{align}
+    C^{\mu\rho} C_{\rho\nu} + \frac{K}{1-Kx^\rho x_\rho} C^{\mu\rho} x_\rho x_\nu + \alpha x^\mu x^\rho C_{\rho\nu} + \alpha \frac{K}{1-Kx^\rho x_\rho} x^\mu x^\rho x_\rho x_\nu = \delta^\mu{}_\nu.
+\end{align}
+Since $C^{\mu\rho} C_{\rho\nu} = \delta^\mu{}_\nu$, we can simplify this to:
+\begin{align}
+     0&=\frac{K}{1-Kx^\rho x_\rho} C^{\mu\rho} x_\rho x_\nu + \alpha x^\mu x_\nu + \alpha \frac{K}{1-Kx^\rho x_\rho} x^\mu x^\rho x_\rho x_\nu \\
+     &=\frac{K}{1-Kx^\rho x_\rho} x^\mu x_\nu + \alpha x^\mu x_\nu + \alpha \frac{K}{1-Kx^\rho x_\rho} x^\mu (x^\rho x_\rho) x_\nu \\
+    &=\left(\frac{K}{1-Kx^\rho x_\rho} + \alpha + \alpha \frac{K}{1-Kx^\rho x_\rho} (x^\rho x_\rho)\right) x^\mu x_\nu.
+\end{align}
+Hence, we can solve for $\alpha$:
+\begin{align}
+    &\alpha \left(1 + \frac{K x^\rho x_\rho}{1-Kx^\rho x_\rho}\right) = -\frac{K}{1-Kx^\rho x_\rho}\\
+    \implies& \alpha \frac{1}{1-Kx^\rho x_\rho} = -\frac{K}{1-Kx^\rho x_\rho}\\
+    \implies &\alpha = -K.
+\end{align}
+Thus, the inverse metric is given by:
+\begin{align}
+    g^{\mu\nu} = C^{\mu\nu} - K x^\mu x^\nu.
+\end{align}
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+First, we need to compute the derivatives of the metric components. The metric is given by:
+\begin{align}
+    g_{\mu\nu} = C_{\mu\nu} + \frac{K}{1-Kx^\rho x_\rho} x_\mu x_\nu= C_{\mu\nu} + \frac{K}{1-KC_{ab} x^a x^b} C_{\mu\lambda} C_{\nu\sigma} x^\lambda x^\sigma=C_{\mu\nu} +f(x) x_\mu x_\nu,
+\end{align}
+where we have defined $f(x) = \frac{K}{1-Kx^\rho x_\rho}$. Then, we can compute the derivatives of the metric components:
+\begin{align}
+    \partial_\lambda g_{\mu\nu} =& \underbrace{\partial_\lambda C_{\mu\nu}}_{=0} + \partial_\lambda f(x) x_\mu x_\nu + f(x) \partial_\lambda (x_\mu x_\nu)\\
+    =& \partial_\lambda f(x) x_\mu x_\nu + f(x) (\partial_\lambda x_\mu x_\nu + x_\mu \partial_\lambda x_\nu)\\
+    =& \partial_\lambda f(x) x_\mu x_\nu + f(x) (\delta_\lambda{}_\mu x_\nu + x_\mu \delta_\lambda{}_\nu).
+\end{align}
+Also, the $\partial_\lambda f(x)$ can be computed as:
+\begin{align}
+    \partial_\lambda f(x) =& \partial_\lambda \left(\frac{K}{1-Kx^\rho x_\rho}\right)\\
+    =& \frac{K^2 \partial_\lambda (x^\rho x_\rho)}{(1-Kx^\rho x_\rho)^2}\\
+    =& \frac{K^2 \partial_\lambda (C^{\rho\sigma} x_\sigma x_\rho)}{(1-Kx^\rho x_\rho)^2}\\
+    =& \frac{K^2 (C^{\rho\sigma} \delta_\lambda{}_\sigma x_\rho + C^{\rho\sigma} x_\sigma \delta_\lambda{}_\rho)}{(1-Kx^\rho x_\rho)^2}\\
+    =& \frac{2K^2 x_\lambda}{(1-Kx^\rho x_\rho)^2}.
+\end{align}
+Hence the derivatives of the metric components can be expressed as:
+\begin{align}
+    \partial_\lambda g_{\mu\nu} =& \frac{2K^2 x_\lambda}{(1-Kx^\rho x_\rho)^2} x_\mu x_\nu + f(x) (\delta_\lambda{}_\mu x_\nu + \delta_\lambda{}_\nu x_\mu ).
+\end{align}
 
+Now we can compute the Christoffel symbols using the formula:
+\begin{align}
+    \Gamma^a_{bc} = \frac{1}{2} g^{ad} (\partial_b g_{cd} + \partial_c g_{bd} - \partial_d g_{bc}).
+\end{align}
+Substituting the expressions for $g^{ad}$ and $\partial_\lambda g_{\mu\nu}$, we can compute the Christoffel symbols: 
+\begin{align}
+    \Gamma^a_{bc} =& \frac{1}{2} (C^{ad} - K x^a x^d) \Bigg( \frac{2K^2 x_b}{(1-Kx^\rho x_\rho)^2} x_c x_d + f(x) (\delta_b{}_{c} x_d + \textcolor{red}{\cancel{\delta_b{}_{d} x_c}} ) \\
+    +& \cancel{\frac{2K^2 x_c}{(1-Kx^\rho x_\rho)^2} x_b x_d} + f(x) (\delta_c{}_{b} x_d + \textcolor{blue}{\cancel{\delta_c{}_{d} x_b}} ) - \cancel{\frac{2K^2 x_d}{(1-Kx^\rho x_\rho)^2} x_b x_c} - f(x) (\textcolor{red}{\cancel{\delta_d{}_{b} x_c}} + \textcolor{blue}{\cancel{\delta_d{}_{c} x_b}} )\Bigg)\\
+    =& \frac{1}{2} (C^{ad} - K x^a x^d) \Bigg( \frac{2K^2 }{(1-Kx^\rho x_\rho)^2}x_b x_c x_d + 2\frac{K}{1-Kx^\rho x_\rho} \delta_b{}_{c} x_d \Bigg)\\
+    =& \frac{K}{1-Kx^\rho x_\rho} (C^{ad} - K x^a x^d) \left( \frac{K}{1-Kx^\rho x_\rho} x_b x_c x_d + \delta_b{}_{c} x_d \right)\\    
+    =& \frac{K}{1-Kx^\rho x_\rho} \left( \textcolor{red}{\frac{K}{1-Kx^\rho x_\rho} x_b x_c x^a} + \delta_b{}_{c} x^a - \textcolor{red}{\frac{K^2}{1-Kx^\rho x_\rho} x^a x^d x_d x_b x_c} - K\delta_b{}_{c} x^a x^d x_d \right)\\
+    =& \frac{K}{1-Kx^\rho x_\rho} x^a \Bigg( \textcolor{red}{\frac{K}{1-Kx^\rho x_\rho}x_b x_c\left( 1 -Kx^d x_d \right)} + \delta_b{}_{c}(1-Kx^d x_d) \Bigg)\\
+    =& Kx^a \Bigg( \frac{K}{1-Kx^\rho x_\rho}x_b x_c + \delta_{bc}  \Bigg).
+\end{align}
+Note that 
+\begin{align}
+    \delta_{bc}=\partial_b x_c = =\partial_b (C_{c\lambda} x^\lambda) = C_{c\lambda} \delta_b{}^\lambda = C_{cb}.
+\end{align}
+Then we can express the Christoffel symbols as:
+\begin{align}
+    \Gamma^a_{bc} = Kx^a \Bigg( \frac{K}{1-Kx^\rho x_\rho}x_b x_c + C_{bc}  \Bigg)=K x^a g_{bc}.
+\end{align}
 
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+The equations of motion for a geodesic are given by:
+\begin{align}
+    \frac{d^2 x^a}{d\lambda^2} + \Gamma^a_{bc} \frac{dx^b}{d\lambda} \frac{dx^c}{d\lambda} = 0,
+\end{align}
+where $\lambda$ is the affine parameter. Substituting the expression for $\Gamma^a_{bc}$, we have:
+\begin{align}
+    \frac{d^2 x^a}{d\lambda^2} + K x^a g_{bc} \frac{dx^b}{d\lambda} \frac{dx^c}{d\lambda} = 0.
+\end{align}
+This is a second-order ordinary differential equation for $x^a(\lambda)$. The solutions will depend on the value of $K$:
+\begin{itemize}
+    \item For $K=0$, the equation reduces to $\frac{d^2 x^a}{d\lambda^2} = 0$, which implies that $v^a= \frac{dx^a}{d\lambda}$ is constant. Thus, the solution is given by:
+    \begin{align}
+        x^a(\lambda) = v^a \lambda + x_0^a,
+    \end{align}
+    where $x_0^a$ is the initial position.
+    \item For $K=+1$, the equation becomes $\frac{d^2 x^a}{d\lambda^2} + x^a g_{bc} \frac{dx^b}{d\lambda} \frac{dx^c}{d\lambda} = 0$. We can apply $\frac{d}{d\lambda}(g_{ab} v^a v^b)$ to find that $g_{ab} v^a v^b$ is a constant. Let $g_{ab} v^a v^b = \beta$, then we can express the equation as $\frac{d^2 x^a}{d\lambda^2} + \beta x^a = 0$. The solution to this equation is given by:
+    \begin{align}
+        x^a(\lambda) = A^a \cos(\sqrt{\beta} \lambda) + B^a \sin(\sqrt{\beta} \lambda),
+    \end{align}
+    where $A^a$ and $B^a$ are constants determined by the initial conditions.
+    \item For $K=-1$, the equation becomes $\frac{d^2 x^a}{d\lambda^2} - x^a g_{bc} \frac{dx^b}{d\lambda} \frac{dx^c}{d\lambda} = 0$. Similar to the case of $K=+1$, we can find that $g_{ab} v^a v^b$ is a constant. Let $g_{ab} v^a v^b = \beta$, then we can express the equation as $\frac{d^2 x^a}{d\lambda^2} - \beta x^a = 0$. The solution to this equation is given by:
+    \begin{align}
+        x^a(\lambda) = C^a e^{\sqrt{\beta} \lambda} + D^a e^{-\sqrt{\beta} \lambda},
+    \end{align}
+    where $C^a$ and $D^a$ are constants determined by the initial conditions.
+\end{itemize}
+\qed
 
 \clearpage
 \question{3}{}
@@ -35,3 +275,64 @@ Consider the de Sitter space in coordinates where the metric takes the form
 \end{align} 
 Solve the geodesic equation to find the affine parameter as a function of $t$. Show that geodesics reach $t\to-\infty$ in a finite affine parameter, demonstrating that these coordinates fail to cover the entire manifold.
 \answer{}
+The Christoffel symbols for the given metric can be computed as:
+\begin{align}
+    \Gamma^\lambda_{\mu\nu}=\frac{1}{2} g^{\lambda\sigma} (\partial_\mu g_{\nu\sigma} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu}).
+\end{align}
+Since the metric is diagonal, we can compute the non-zero Christoffel symbols as:
+\begin{align}
+    \Gamma^t_{ij}=&\frac{1}{2} g^{tt} (\partial_i g_{jt} + \partial_j g_{it} - \partial_t g_{ij})\\
+    =&\frac{1}{2} (1) (0 + 0 - \partial_t (-e^{2Ht} \delta_{ij}))\\
+    =&H e^{2Ht} \delta_{ij},
+\end{align}
+and
+\begin{align}
+    \Gamma^i_{jt}=&\frac{1}{2} g^{ik} (\partial_j g_{kt} + \partial_t g_{jk} - \partial_k g_{jt})\\
+    =&\frac{1}{2} (-e^{-2Ht} \delta^{ik}) (0 + \partial_t (-e^{2Ht} \delta_{jk}) - 0)\\
+    =&H \delta^i_j.
+\end{align}
+The geodesic equations are given by:
+\begin{align}
+    \frac{d^2 x^\lambda}{d\lambda^2} + \Gamma^\lambda_{\mu\nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda} = 0.
+\end{align}
+Substituting the expressions for the Christoffel symbols, we can write the geodesic equations as:
+\begin{align}
+    \frac{d^2 t}{d\lambda^2} + H e^{2Ht} \delta_{ij} \frac{dx^i}{d\lambda} \frac{dx^j}{d\lambda} = 0,
+\end{align}and
+\begin{align}
+    \frac{d^2 x^i}{d\lambda^2} + 2H \frac{dt}{d\lambda} \frac{dx^i}{d\lambda} = 0.
+\end{align}
+We can rewrite the second equation as:
+\begin{align}
+    \frac{d}{d\lambda} \left( e^{2Ht} \frac{dx^i}{d\lambda} \right) = 0\\
+    \implies e^{2Ht} \frac{dx^i}{d\lambda} = C^i,
+\end{align}
+where $C^i$ are constants determined by the initial conditions. Substituting this expression into the first equation, we have:
+\begin{align}
+    \frac{d^2 t}{d\lambda^2} + H e^{2Ht} \delta_{ij} \frac{C^i}{e^{2Ht}} \frac{C^j}{e^{2Ht}} = 0\\
+    \implies \frac{d^2 t}{d\lambda^2} + H e^{-2Ht} \delta_{ij} C^i C^j = 0\\
+    \implies \frac{d^2 t}{d\lambda^2} + H e^{-2Ht} C^2 = 0,
+\end{align}
+where $C^2 = \delta_{ij} C^i C^j$. This is a second-order ordinary differential equation for $t(\lambda)$. We consider the following equation:
+\begin{align}
+    &\frac{d}{d\lambda} \left( \Big( \frac{d t}{d\lambda} \Big)^2 -  e^{-2Ht} C^2\right)\\
+    =& 2 \frac{d t}{d\lambda} \frac{d^2 t}{d\lambda^2} + 2H e^{-2Ht} C^2 \frac{dt}{d\lambda}\\
+    =& 2 \frac{d t}{d\lambda} \left( \frac{d^2 t}{d\lambda^2} + H e^{-2Ht} C^2 \right)\\
+    =& 0.
+\end{align}
+Hence, we can find that $\Big( \frac{d t}{d\lambda} \Big)^2 -  e^{-2Ht} C^2$ is a constant. Let $\Big( \frac{d t}{d\lambda} \Big)^2 -  e^{-2Ht} C^2 = \beta$, then we can express the equation as:
+\begin{align}
+    &\Big( \frac{d t}{d\lambda} \Big)^2 = \beta + e^{-2Ht} C^2\\
+    \implies &\frac{d t}{d\lambda} = \sqrt{\beta + e^{-2Ht} C^2}.
+\end{align}
+
+\textbf{If $\beta=0$}, we can express the equation as:
+\begin{align}
+    &\frac{d t}{d\lambda} = \sqrt{e^{-2Ht} C^2}\\
+    \implies &\frac{d t}{d\lambda} = e^{-Ht} C\\
+    \implies &\lambda = -\frac{1}{H} e^{Ht} + \lambda_0,
+\end{align}
+where $\lambda_0$ is a constant determined by the initial conditions. We can see that as $t \to -\infty$, $\lambda \to \lambda_0$, which means that geodesics reach $t \to -\infty$ in a finite affine parameter. This demonstrates that these coordinates fail to cover the entire manifold.
+
+\textbf{If $\beta \neq 0$}, I don't know how to solve the equation analytically, but we can still find that as $t \to -\infty$, $\lambda$ approaches a finite value, which also demonstrates that these coordinates fail to cover the entire manifold.
+\qed
