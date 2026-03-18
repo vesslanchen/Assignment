@@ -110,3 +110,72 @@ Compare the definitions of left-handed and right-handed. As a reference point us
 and the fact that neutrino is left-handed. Check that in all definitions of the
 Dirac matrices the Clifford algebra is satisfied.
 \answer{}
+We can define the Dirac spinor $\psi$ as a four-component with a left-handed Weyl spinor $\psi_L$ and a right-handed Weyl spinor $\psi_R$, which have 2 components each:
+\begin{align}
+    \psi = \begin{pmatrix}
+        \psi_L \\
+        \psi_R
+    \end{pmatrix}.
+\end{align}
+The left-handed and right-handed components of the Dirac spinor can be defined using the projection operators:
+\begin{align}
+    P_L = \frac{1}{2}(1 - \gamma^5), \quad P_R = \frac{1}{2}(1 + \gamma^5).
+\end{align}
+The left-handed and right-handed components of the Dirac spinor can be obtained by applying the projection operators to the Dirac spinor:
+\begin{align}
+    \psi_L = P_L \psi, \quad \psi_R = P_R \psi.
+\end{align}
+We can write the Dirac equation of motion in terms of the left-handed and right-handed components:
+\begin{align}
+    i \begin{pmatrix}
+        0 & \sigma^\mu \\
+        \bar{\sigma}^\mu & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        \partial_\mu \psi_L \\
+        \partial_\mu \psi_R
+    \end{pmatrix} = m \begin{pmatrix}
+        \psi_L \\
+        \psi_R
+    \end{pmatrix},
+\end{align}
+where $\sigma^\mu = (I, \sigma^i)$ and $\bar{\sigma}^\mu = (I, -\sigma^i)$. This equation can be separated into two equations:
+\begin{align}
+    i \sigma^\mu \partial_\mu \psi_R = m \psi_L, \quad
+    i \bar{\sigma}^\mu \partial_\mu \psi_L = m \psi_R.
+\end{align}
+In the massless limit ($m=0$), the equations decouple and we have
+\begin{align}
+    i \sigma^\mu \partial_\mu \psi_R = 0, \quad
+    i \bar{\sigma}^\mu \partial_\mu \psi_L = 0.
+\end{align}
+This shows that the left-handed and right-handed components of the Dirac spinor are independent in the massless limit. Hence, the massless fermion can be left-handed or right-handed. Hence, the neutrino, which is observed to be left-handed, can be described by a left-handed Weyl spinor $\psi_L$ in the massless limit.
+
+To check that the Clifford algebra is satisfied in all definitions of the Dirac matrices, we need to verify that the gamma matrices satisfy the anticommutation relation:
+\begin{align}
+    \{\gamma^\mu, \gamma^\nu\} = 2g^{\mu\nu}I,
+\end{align}
+where $g^{\mu\nu}$ is the Minkowski metric. Here we use the Weyl representation of the gamma matrices, which is given by
+\begin{align}
+    \gamma^0 = \begin{pmatrix}
+        0 & I \\
+        I & 0
+    \end{pmatrix}, \quad
+    \gamma^i = \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+    \end{pmatrix}, \quad
+    \gamma^5 = i\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}
+        -I & 0 \\
+        0 & I
+    \end{pmatrix}.
+\end{align}
+Then we can compute the anticommutators:
+\begin{align}
+    \{\gamma^0, \gamma^0\} &= 2I, \\
+    \{\gamma^i, \gamma^j\} &= -2\delta^{ij}I, \\
+    \{\gamma^0, \gamma^i\} &= 0, \\
+    \{\gamma^5, \gamma^\mu\} &= 0.
+\end{align}
+Here we apply the properties of the Pauli matrices, which satisfy $\{\sigma^i, \sigma^j\} = 2\delta^{ij}I$. Since we can apply the unitary transition matrix $U$ to transform the gamma matrices to the standard (Dirac) representation, we can conclude that the Clifford algebra is satisfied in all definitions of the Dirac matrices.
+\qed
