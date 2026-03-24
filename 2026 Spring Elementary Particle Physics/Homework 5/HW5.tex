@@ -1,0 +1,51 @@
+\section*{Problem Set 5 Due 11am, Monday, April 6, 2026}
+
+\question{1}{\textbf{Fermion mass diagonalization for a complex mass matrix}}
+
+The mass term for three chiral fermions $\psi_{L,R}^0 = (\psi^0_{1L,R}, \psi^0_{2L,R}, \psi^0_{3L,R})$ is $\mathcal{L}_{\text{mass}}=-\overline{\psi_L^0} M \psi_R^0 + \text{h.c.}$, where 
+\begin{align}
+    M=\begin{pmatrix}
+        1 & i & 0.5\\
+        0 & 3 +\frac{i}{2} & 2\\
+        0.25 & \frac{i}{7}& 6 
+    \end{pmatrix}.
+\end{align}
+The physical masses are obtained from a bi-unitary transformation $A_L^\dagger M A_R = \text{diag}(m_1, m_2, m_3)$, where $m_i\geq 0$.
+
+\begin{itemize}
+    \item [(a)] Show that $A_L$ diagonalizes $M M^\dagger$, while $A_R$ diagonalizes $M^\dagger M$ with eigenvalues $m_i^2$.Explain why the physical masses are the singular values of $M$, rather than the eigenvalues of $M$. 
+    \item [(b)] Compute the physical masses $m_1$, $m_2$, and $m_3$, ordered as $m_1\leq m_2 \leq m_3$, and find one pair of unitary matrices $A_L$ and $A_R$ such that $M=A_L \text{diag}(m_1, m_2, m_3) A_R^\dagger$.
+    \item [(c)] Briefly explain why the matrices $A_L$ and $A_R$ are not unique, even after the masses are fixed.
+\end{itemize}
+
+\answer{}
+
+
+
+\clearpage
+\question{2}{\textbf{CKM-like mixing with a singlet down quark}}
+
+Consider a variant of the Standard Model in which the quark sector does not contain the $c, b$ or $t$ quarks. The remaining quark fields consist of an $SU(2)_L$ doublet $Q_L = (u_L, d_L)^T$, together with $SU(2)_L$ singlets $u_R$, $d_R$, $s_R$. In addition, $s_L$ is an left-handed $SU(2)_L$ singlet. The $SU(3)_C$ and $U(1)_Y$ quantum numbers are chosen so that all quarks have the same color and electric charges as in the Standard Model.
+
+\begin{itemize}
+    \item [(a)] Write down the charged- and neutral-current electroweak interactions, the Yukawa interactions, and any possible bare mass terms. What are the mass terms after spontaneous symmetry breaking?
+    \item [(b)] Determine the number of physical parameters in the quark sector. Separate them into masses, mixing angles and phases. Is there CP violation in this model?
+\end{itemize}
+
+\answer{}
+
+\clearpage
+\question{3}{\textbf{Jarlskog invariant and unitarity triangles}}
+
+The Jarlskog invariant $J$ is defined via 
+\begin{align}
+    \text{Im}(V_{ij} V_{kl} V_{il}^* V_{kj}^*) = J \sum_{m,n=1}^3 \varepsilon_{ikm} \varepsilon_{jln},
+\end{align}
+where $i,j,k,l=1,2,3$ and $\varepsilon_{ikm}$ is the totally antisymmetric Levi-Civita symbol.
+
+\begin{itemize}
+    \item [(a)]After diagonalizing the quark mass matrices, the mass-eigenstate quark fields may still be redefined by independent phase rotations $d_{L,R}^j\to e^{i\alpha_{j}} d_{L,R}^j$ and $u_{L,R}^j\to e^{i\beta_{j}} u_{L,R}^j$, which leave the kinetic terms and masses unchanged. Determine how $V_{ij}$ transforms under these rephasings, and show that $V_{ij} V_{kl} V_{il}^* V_{kj}^*$ is invariant. Explain why the imaginary part of such a rephasing-invariant quantity is a good candidate for a physical measure of CP violation.
+    \item [(b)] Show, using the orthogonality of distinct rows and columns of the CKM matrix, that the area of all six unitarity triangles is exactly equal to $|J|/2$. \textit{Note:(This holds for the unitarity triangles before normalizing one side to unit length.)}
+\end{itemize}
+
+\answer{}

@@ -1,0 +1,56 @@
+\section*{Homework 8 Due to March 26 8:00 AM}
+
+\question{a}{}
+Assume you have a static point-like electric charge e at the point $y$. Find the time component of the four-potential $A_0(t,\vec{x})$ in the Lorentz-Heaviside system of units.
+\answer{}
+The potential $A_0(t,\vec{x})$ due to a static point-like electric charge $e$ at the point $\vec{y}$ can be found using the Green's function for the Poisson equation in three-dimensional space. The Poisson equation for the electrostatic potential is given by
+\begin{align}
+    \nabla^2 A_0(\vec{x}) = -\rho(\vec{x}),
+\end{align}
+where $\rho(\vec{x})$ is the charge density. For a point charge $e$ located at $\vec{y}$, the charge density can be expressed as
+\begin{align}
+    \rho(\vec{x}) = e \delta^3(\vec{x} - \vec{y}),
+\end{align} where $\delta^3$ is the three-dimensional Dirac delta function. The Green's function for the Poisson equation in three dimensions is given by
+\begin{align}
+    G(\vec{x}, \vec{y}) = \frac{1}{4\pi |\vec{x} - \vec{y}|}.
+\end{align}
+Using the Green's function, we can express the potential $A_0(\vec{x})$ as
+\begin{align}
+    A_0(\vec{x}) = \int d^3y' G(\vec{x}, \vec{y}') \rho(\vec{y}').
+\end{align}
+Substituting the charge density for the point charge, we have
+\begin{align}
+    A_0(\vec{x}) = \int d^3y' \frac{1}{4\pi |\vec{x} - \vec{y}'|} e \delta^3(\vec{y}' - \vec{y}) = \frac{e}{4\pi |\vec{x} - \vec{y}|}.
+\end{align}
+Thus, the time component of the four-potential $A_0(t,\vec{x})$ in the Lorentz-Heaviside system of units is given by
+\begin{align}
+    A_0(t,\vec{x}) = \frac{e}{4\pi |\vec{x} - \vec{y}|}.
+\end{align} 
+\qed
+
+
+
+
+\clearpage
+\question{b}{}
+Use the previous calculation as a hint to obtain the photon propagator (Green’s function) in the Coulomb gauge $\partial_i A_i = 0$ (or in the momentum space $k_i A_i = 0$). Start from the Feynman gauge
+\begin{align}
+    G^{\mu\nu}(k) = \frac{-ig^{\mu\nu}}{k^2 }.
+\end{align}
+
+
+\answer{}
+In the Coulomb gauge, we impose the condition $\partial_i A_i = 0$ in position space, which translates to $k_i A_i = 0$ in momentum space. This means that the spatial components of the photon propagator must be transverse to the momentum vector $\vec{k}$. To achieve this, we can decompose the Feynman gauge propagator into its time and spatial components. The Feynman gauge propagator is given by
+\begin{align}
+    G^{\mu\nu}(k) = \frac{-ig^{\mu\nu}}{k^2}.
+\end{align}
+The projection operator that enforces the Coulomb gauge condition can be defined as
+\begin{align}
+    P^{ij} = \delta^{ij} - \frac{k^i k^j}{\vec{k}^2},
+\end{align} where $i,j$ run over the spatial indices. The time component of the propagator remains unchanged, while the spatial components are modified by the projection operator. Thus, the photon propagator in the Coulomb gauge can be expressed as
+\begin{align}
+G^{00}(k) &= \frac{i}{\vec{k}^2}, \\
+G^{0i}(k) &= G^{i0}(k) = 0, \\
+G^{ij}(k) &= \frac{i}{k^2} \left( \delta^{ij} - \frac{k^i k^j}{\vec{k}^2} \right) = \frac{i P^{ij}}{k^2}.
+\end{align}
+\qed

@@ -89,9 +89,9 @@ The vacuum expectation value (VEV) of $\Phi$ is $\langle \Phi \rangle = (0,0,v)^
     h_3+v\end{pmatrix} - v^2 \right)^2\\
     =& \frac{\lambda}{4} \left( h_1^2 + h_2^2 + (h_3+v)^2 - v^2 \right)^2\\
     =& \frac{\lambda}{4} \left( h_1^2 + h_2^2 + h_3^2 + 2vh_3 \right)^2\\
-    =& \frac{\lambda}{4} \left( h_1^2 + h_2^2 + h_3^2 \right)^2 + \frac{\lambda}{2} v h_3 \left( h_1^2 + h_2^2 + h_3^2 \right) + \lambda v^2 h_3^2.
+    =& \frac{\lambda}{4} \left( h_1^2 + h_2^2 + h_3^2 \right)^2 + \frac{\lambda}{2} v h_3 \left( h_1^2 + h_2^2 + h_3^2 \right) + \underbrace{\lambda v^2}_{=\frac{m_{h_3}^2}{2}} h_3^2.
 \end{align}
-Hence, the mass spectrum of the scalar particles is $m_{h_1}^2 = m_{h_2}^2 =0$ and $m_{h_3}^2 = 2\lambda v^2$. The two massless scalars $h_1$ and $h_2$ are the Goldstone bosons corresponding to the spontaneous breaking of the $SO(3)$ symmetry. Note that since $h_i$ are real scalars, we need to divide the mass term by 2 to get the correct mass squared.
+Hence, the mass spectrum of the scalar particles is $m_{h_1}^2 = m_{h_2}^2 =0$ and $m_{h_3}^2 = 2\lambda v^2$. The two massless scalars $h_1$ and $h_2$ are the Goldstone bosons corresponding to the spontaneous breaking of the $SO(3)$ symmetry. Note that since $h_i$ are real scalars, we need to divide the mass term by 2 to get the correct mass squared. 
 
 \begin{itemize}
     \item [(b)]
@@ -110,25 +110,220 @@ Here, we can apply the identity $\varepsilon^{abc} \varepsilon^{ade} = \delta^{b
     &\frac{1}{2} g^2 \varepsilon^{abc} \varepsilon^{ade} A_\mu^b A^{\mu d} \phi^c \phi^e = \frac{1}{2} g^2 (\delta^{bd} \delta^{ce} - \delta^{be} \delta^{cd}) A_\mu^b A^{\mu d} \phi^c \phi^e\\
     =& \frac{1}{2} g^2 A_\mu^b A^{\mu b} \phi^c \phi^c - \frac{1}{2} g^2 A_\mu^b A^{\mu d} \phi^b \phi^d.
 \end{align}
+We can write down the first term and the second term explicitly as (with $(\phi^1, \phi^2, \phi^3) = (h_1, h_2, v+h_3)$):
+\begin{align}
+    &\frac{1}{2} g^2 A_\mu^b A^{\mu b} \phi^c \phi^c\\
+    =&\frac{1}{2}g^2 (A_\mu^1 A^{\mu 1} + A_\mu^2 A^{\mu 2} + A_\mu^3 A^{\mu 3}) (h_1^2 + h_2^2 + (v+h_3)^2)\\
+    =&\frac{1}{2}g^2 (A_\mu^1 A^{\mu 1} + A_\mu^2 A^{\mu 2} + A_\mu^3 A^{\mu 3}) (h_1^2 + h_2^2 + h_3^2 + 2vh_3 + v^2)\\
+    \implies& \frac{1}{2}g^2 v^2 (A_\mu^1 A^{\mu 1} + A_\mu^2 A^{\mu 2} + A_\mu^3 A^{\mu 3}) + \cdots,
+\end{align}
+and 
+\begin{align}
+    &\frac{1}{2} g^2 A_\mu^b A^{\mu d} \phi^b \phi^d=\frac{1}{2} g^2 A_\mu^b \phi^b  A^{\mu d} \phi^d\\
+    =&\frac{1}{2} g^2 (A_\mu^1 h_1 + A_\mu^2 h_2 + A_\mu^3 (v+h_3)) (A^{\mu 1} h_1 + A^{\mu 2} h_2 + A^{\mu 3} (v+h_3))\\
+    =&\frac{1}{2} g^2 (A_\mu^1 h_1 + A_\mu^2 h_2 + A_\mu^3 (v+h_3)) (A^{\mu 1} h_1 + A^{\mu 2} h_2 + A^{\mu 3} (v+h_3))\\
+    \implies& \frac{1}{2} g^2 v^2 A_\mu^3 A^{\mu 3} + \cdots.
+\end{align}
+Combining these two terms, we find the mass term for the gauge bosons:
+\begin{align}
+    &\frac{1}{2} g^2 v^2 (A_\mu^1 A^{\mu 1} + A_\mu^2 A^{\mu 2} + A_\mu^3 A^{\mu 3}) - \frac{1}{2} g^2 v^2 A_\mu^3 A^{\mu 3}\\
+    =& \frac{1}{2} g^2 v^2 (A_\mu^1 A^{\mu 1} + A_\mu^2 A^{\mu 2})\\
+    =& \frac{1}{2} m_A^2 (A_\mu^1 A^{\mu 1} + A_\mu^2 A^{\mu 2}),
+\end{align}
+where $m_A^2 = g^2 v^2$. Hence, the mass spectrum of the vector bosons is $m_{A^1} = m_{A^2} = gv$ and $m_{A^3} = 0$. The mass spectrum of the scalar particles is the same as in part (a), with $m_{h_1}^2 = m_{h_2}^2 =0$ and $m_{h_3}^2 = 2\lambda v^2$. The two massless scalars $h_1$ and $h_2$ are the Goldstone bosons corresponding to the spontaneous breaking of the $SO(3)$ symmetry, and they are "eaten" by the gauge bosons $A_\mu^1$ and $A_\mu^2$ to become their longitudinal components, giving them mass. The remaining scalar $h_3$ is a physical Higgs-like boson. In summary, the mass spectrum is:
+\begin{align}
+    &m_{A^1} = m_{A^2} = gv, \quad m_{A^3} = 0,\\
+    &m_{h_1}^2 = m_{h_2}^2 =0, \quad m_{h_3} = \sqrt{2\lambda v^2}.
+\end{align}
 
-
-
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+In this model, there are two massive gauge bosons, one massless gauge boson, and one physical scalar boson. The massless gauge boson $A_\mu^3$ corresponds to an unbroken $U(1)$ symmetry, which can be identified with electromagnetism. The two massive gauge bosons $A_\mu^1$ and $A_\mu^2$ correspond to the charged weak bosons $W^\pm$, but there is \textbf{no neutral weak boson} like the $Z$ boson in the Standard Model. This is the main reason why the Georgi-Glashow $SO(3)$ model was ruled out by the 1973 observation of weak neutral currents. \qed
 
 \clearpage
 \question{3}{\textbf{Longitudinal $WZ$ scattering and the role of the Higgs}}\\
 Consider tree-level scattering $W^+_L(p_1) Z_L(p_2) \to W^+_L(p_3) Z_L(p_4)$ in the electroweak theory. Work in the custodial limit $g'\to 0$, so $m_W=m_Z=m$ and $v=2m/g$. Assume $E\gg m$ and use 
+
 \begin{align}
-    \varepsilon_L^\mu(p) = \frac{p^\mu}{m} +\mathcal{O}(\frac{m}{E}),\quad s=(p_1+p_2)^2,\quad t=(p_1-p_3)^2,\quad u=(p_1-p_4)^2, s+t+u\approx 0.
+    \varepsilon_L^\mu(p_1) = \frac{1}{m}p_1^\mu +\frac{2m}{t-2m^2}p_3^\mu+\mathcal{O}(\frac{m}{E})^2,\quad \varepsilon_L^\mu(p_2) = \frac{1}{m}p_2^\mu +\frac{2m}{t-2m^2}p_4^\mu +\mathcal{O}(\frac{m}{E})^2,\\
+    \varepsilon_L^\mu(p_3) = \frac{1}{m}p_3^\mu +\frac{2m}{t-2m^2}p_1^\mu +\mathcal{O}(\frac{m}{E})^2,\quad \varepsilon_L^\mu(p_4) = \frac{1}{m}p_4^\mu +\frac{2m}{t-2m^2}p_2^\mu +\mathcal{O}(\frac{m}{E})^2
 \end{align}
-You may use the following Feynman rules (all momenta incoming), with Minkowski metric $\eta_{\mu\nu}=\text{diag}(+,-,-,-)$:
+and
+\begin{align}
+    s=(p_1+p_2)^2,\quad t=(p_1-p_3)^2= (p_2-p_4)^2,\quad u=(p_1-p_4)^2=(p_2-p_3)^2, \quad s+t+u=4m^2\approx 0.
+\end{align}
+where $s,t,u$ are the Mandelstam variables. You may use the following Feynman rules (all momenta incoming), with Minkowski metric $\eta_{\mu\nu}=\text{diag}(+,-,-,-)$:
 \begin{align}
     D_{\mu\nu}(k)&=\frac{-i}{k^2-m^2}\Big(\eta_{\mu\nu} -\frac{k_\mu k_\nu}{m^2}\Big),\\
+    D_h(k) &= \frac{i}{k^2 - m_h^2},\\
     V^{\alpha\beta\mu}(p_+,p_-,p_Z)&=-ig \Big[\eta^{\alpha\beta}(p_+-p_-)^\mu +\eta^{\beta\mu}(p_--p_Z)^\alpha +\eta^{\mu\alpha}(p_Z-p_+)^\beta \Big],\\
     V^{\alpha\beta\mu\nu} &= -ig^2 \Big[2\eta^{\alpha\beta}\eta^{\mu\nu} -\eta^{\alpha\mu}\eta^{\beta\nu} -\eta^{\alpha\nu}\eta^{\beta\mu} \Big],\\
-    hW_\alpha^+ W_\beta^- &:igm\eta_{\alpha\beta},\quad hZ_\mu Z_\nu :igm\eta_{\mu\nu}.
+    hW_\alpha^+ W_\beta^- &:V^{hWW}_{\alpha\beta}= igm\eta_{\alpha\beta},\quad hZ_\mu Z_\nu :V^{hZZ}_{\mu\nu} =igm\eta_{\mu\nu}.
 \end{align}
 
 \begin{itemize}
     \item [(a)] Using gauge interactions only (no Higgs exchange), draw all contributing tree-level diagrams. With $\varepsilon_L^\mu(p) \approx p^\mu/m$, show that each diagram individually contains terms of order $g^2 E^4/m^4$, but that the complete $\mathcal{O}(E^4)$ contribution cancels in the sum of all gauge diagrams. Conclude that the leading gauge-sector growth is at most $\mathcal{M}_{\text{gauge}}\propto g^2 E^2/m^2$ (up to corrections suppressed by $m/E$).
     \item [(b)] Now include a physical Higgs boson $h$ of mass $m_h$. Draw the additional Higgs-exchange diagram(s) and determine their leading high-energy behavior using $\varepsilon_L^\mu(p) \approx p^\mu/m$. Show that adding the Higgs contribution to your result from part (a) cancels the remaining $\mathcal{O}(E^2)$ growth at fixed scattering angle, and determine the resulting constant high-energy limit of the full amplitude, expressing it in terms of the dimensionless Higgs quartic coupling $\lambda$.
 \end{itemize}
+
+
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+
+\begin{figure}[!th]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-2.5,2.5) {\(W^+_L,\varepsilon_1^\mu\)};
+        \vertex (i2) at (-2.5,-2.5) {\(Z_L,\varepsilon_2^\nu\)};
+        \vertex (f1) at (2.5,2.5) {\(W^+_L,\varepsilon_3^{\alpha*}\)};
+        \vertex (f2) at (2.5,-2.5) {\(Z_L,\varepsilon_4^{\beta*}\)};
+        % 頂點
+        \vertex (v1) at (-1,0);
+        \vertex (v2) at (1,0);
+        \diagram*{
+            (i1)--[charged boson, momentum={\(p_1\)}](v1) --[photon, reversed momentum={\(p_2\)}](i2),
+            (v1) --[charged boson, momentum={\(q_s\)}](v2),
+            (f1)--[anti charged boson, reversed momentum'={\(p_3\)}](v2) --[photon, momentum'={\(p_4\)}] (f2),
+        };  
+        \node[left=5pt of v1] {\(V^{\mu\rho\nu}(p_1,-q_s,p_2)\)};
+        \node[right=5pt of v2]{\(V^{\lambda\alpha\beta}(q_s,-p_3,-p_4)\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $W^+_L Z_L \to W^+_L Z_L$ via s-channel gauge boson exchange. $q_s = p_1 + p_2=p_3 + p_4$ is the momentum of the intermediate gauge boson.}
+    \label{HW4:w-z-scattering-s-channel}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-2.5,2.5) {\(W^+_L,\varepsilon_1^\mu\)};
+        \vertex (i2) at (-2.5,-2.5) {\(Z_L,\varepsilon_2^\nu\)};
+        \vertex (f1) at (2.5,-2.5) {\(W^+_L,\varepsilon_3^{\alpha*}\)};
+        \vertex (f2) at (2.5,2.5) {\(Z_L,\varepsilon_4^{\beta*}\)};
+        % 頂點
+        \vertex (v1) at (0,1);
+        \vertex (v2) at (0,-1);
+        \diagram*{
+            (i1)--[charged boson, momentum'={\(p_1\)}](v1) --[photon,  momentum'={\(p_4\)}](f2),
+            (v1) --[charged boson, momentum={\(q_u\)}](v2),
+            (i2)--[photon,  momentum={\(p_2\)}](v2) --[charged boson, momentum={\(p_3\)}] (f1),
+        };  
+        \node[above=25pt of v1] {\(V^{\mu\rho\beta}(p_1,-q_u,-p_4)\)};
+        \node[below=25pt of v2]{\(V^{\lambda\alpha\nu}(q_u,-p_3,p_2)\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $W^+_L Z_L \to W^+_L Z_L$ via u-channel gauge boson exchange. $q_u = p_1 - p_4 = p_2 - p_3$ is the momentum of the intermediate gauge boson.}
+    \label{HW4:w-z-scattering-u-channel}
+    \end{subfigure}\\
+    \begin{subfigure}{0.49\textwidth}
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-2.5,2.5) {\(W^+_L,\varepsilon_1^\mu\)};
+        \vertex (i2) at (-2.5,-2.5) {\(Z_L,\varepsilon_2^\nu\)};
+        \vertex (f1) at (2.5,2.5) {\(W^+_L,\varepsilon_3^{\alpha*}\)};
+        \vertex (f2) at (2.5,-2.5) {\(Z_L,\varepsilon_4^{\beta*}\)};
+        % 頂點
+        \vertex (v) at (0,0);
+        \diagram*{
+            (i1)--[charged boson, momentum'={\(p_1\)}](v) --[charged boson,  momentum'={\(p_3\)}](f1),
+            (i2)--[photon,  momentum={\(p_2\)}](v) --[photon, momentum={\(p_4\)}] (f2),
+        };  
+        \node[below=25pt of v]{\(V^{\mu\alpha\nu\beta}\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $W^+_L Z_L \to W^+_L Z_L$ via four-point gauge interaction.}
+    \label{HW4:w-z-scattering-four-point}
+     \end{subfigure}
+    \caption{Tree-level Feynman diagrams for $W^+_L Z_L \to W^+_L Z_L$ scattering via gauge interactions.}
+\end{figure}
+The tree-level diagrams for $W^+_L Z_L \to W^+_L Z_L$ scattering via gauge interactions are shown in Figure \ref{HW4:w-z-scattering-s-channel}, Figure \ref{HW4:w-z-scattering-u-channel} and Figure \ref{HW4:w-z-scattering-four-point}. We can calculate the amplitude for each diagram using the given Feynman rules and the polarization vectors. For the s-channel diagram in Figure \ref{HW4:w-z-scattering-s-channel}, the amplitude is:
+\begin{align}
+    i\mathcal{M}_s = & V^{\mu\rho\nu}(p_1,-q_s,p_2) D_{\rho\lambda}(q_s) V^{\lambda\alpha\beta}(q_s,-p_3,-p_4) \varepsilon_{1\mu} \varepsilon_{2\nu} \varepsilon_{3\alpha}^* \varepsilon_{4\beta}^*.
+\end{align}
+Next, for the u-channel diagram in Figure \ref{HW4:w-z-scattering-u-channel}, the amplitude is:
+\begin{align}
+    i\mathcal{M}_u =& V^{\mu\rho\beta}(p_1,-q_u,-p_4) D_{\rho\lambda}(q_u) V^{\lambda\alpha\nu}(q_u,-p_3,p_2) \varepsilon_{1\mu} \varepsilon_{2\nu} \varepsilon_{3\alpha}^* \varepsilon_{4\beta}^*.
+\end{align}
+Last, for the four-point diagram in Figure \ref{HW4:w-z-scattering-four-point}, the amplitude is:
+\begin{align}
+    i\mathcal{M}_4 =& V^{\mu\alpha\nu\beta} \varepsilon_{1\mu} \varepsilon_{2\nu} \varepsilon_{3\alpha}^* \varepsilon_{4\beta}^*.
+\end{align}
+All of calculation are done in Mathematica, and the results are:
+\begin{align}
+    i\mathcal{M}_s&=ig^2\frac{s^2 t^4 (s+2 t)-8 m^2 \left(s t^4 (3 s+t)\right)+4 m^4 t^3 \left(20 s^2+21 s t+2 t^2\right)+O\left(m^5\right)}{4m^4 \left(m^2-s\right) \left( t-2 m^2\right)^4},\\
+    i\mathcal{M}_u&=ig^2\frac{-t^4 (s-t) (s+t)^2-4 m^2 \left(t^4 (s+t) (3 s+5 t)\right)+4 m^4 t^3 \left(20 s^2+55 s t+37 t^2\right)+O\left(m^5\right)}{4 m^4\left(t-2 m^2\right)^4 \left(-3 m^2+s+t\right)},\\
+    i\mathcal{M}_4&=ig^2\frac{-i g^2 t^4 \left(-2 s^2-2 s t+t^2\right)+4 i g^2 m^2 t^4 (3 t-2 s)-48 i g^2 m^4 t^4+O\left(m^5\right)}{4m^4 ( t-2 m^2)^4}.
+\end{align}
+If we set $s=4E^2\gg m^2$, it is obvious that each diagram contains terms of $\frac{s^2}{m^4}\propto\frac{E^4}{m^4}$. However, when we sum up all the contributions, we find
+\begin{align}
+    &i\mathcal{M}_s+i\mathcal{M}_u+i\mathcal{M}_4 = ig^2 \frac{-s t^5 (s+t)+m^2 t^4 \left(14 s^2+18 s t+3 t^2\right)-8 m^4 \left(t^3 \left(4 s^2+11 s t+5 t^2\right)\right)+O\left(m^5\right)}{4 m^2 \left(m^2-s\right) \left(t-2 m^2\right)^4 \left(-3 m^2+s+t\right)}\\
+    =&ig^2 \frac{-s t^5 (s+t)+m^2 t^4 \left(14 s^2+18 s t+3 t^2\right)-8 m^4 \left(t^3 \left(4 s^2+11 s t+5 t^2\right)\right)+O\left(m^5\right)}{-4 m^2 \left(s t^4 (s+t)\right)+4 m^4 t^3 \left(8 s^2+12 s t+t^2\right)+O\left(m^5\right)}\\
+    \approx& ig^2 \frac{-s t^5 (s+t)+m^2 t^4 \left(14 s^2+18 s t+3 t^2\right)-8 m^4 \left(t^3 \left(4 s^2+11 s t+5 t^2\right)\right)+O\left(m^5\right)}{-4 m^2 \left(s t^4 (s+t)\right)} \\ 
+    \times&\left(1 - \frac{4 m^4 t^3 \left(8 s^2+12 s t+t^2\right)}{-4 m^2 \left(s t^4 (s+t)\right)} + O\left(m^5\right) \right)\\
+    \approx& ig^2\frac{-s t^5 (s+t)+2 m^2 t^4 \left(3 s^2+3 s t+t^2\right)+\frac{m^4 t^3 \left(80 s^4+192 s^3 t+126 s^2 t^2+14 s t^3+3 t^4\right)}{s (s+t)}+O\left(m^5\right)}{-4 m^2 \left(s t^4 (s+t)\right)}.
+\end{align}
+If we just check the leading term, we find this term is of order $ig^2\frac{t}{4m^2}$. If we take $t\sim s\sim E^2$, we find the leading term is of order $ig^2\frac{E^2}{m^2}$. Hence, the leading gauge-sector growth is at most $\mathcal{M}_{\text{gauge}}\propto g^2 E^2/m^2$ (up to corrections suppressed by $m/E$). 
+
+
+
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-2.5,2.5) {\(W^+_L,\varepsilon_1^\mu\)};
+        \vertex (i2) at (-2.5,-2.5) {\(Z_L,\varepsilon_2^\nu\)};
+        \vertex (f1) at (2.5,2.5) {\(W^+_L,\varepsilon_3^{\alpha*}\)};
+        \vertex (f2) at (2.5,-2.5) {\(Z_L,\varepsilon_4^{\beta*}\)};
+        % 頂點
+        \vertex (v1) at (0,1);
+        \vertex (v2) at (0,-1);
+        \diagram*{
+            (i1)--[charged boson, momentum'={\(p_1\)}](v1) --[charged boson,  momentum'={\(p_3\)}](f1),
+            (v1) --[scalar, momentum={\(q_t\)}](v2),
+            (i2)--[photon,  momentum={\(p_2\)}](v2) --[photon, momentum={\(p_4\)}] (f2),
+        };  
+        \node[above=15pt of v1] {\(V^{hWW}_{\mu\alpha}\)};
+        \node[below=15pt of v2] {\(V^{hZZ}_{\nu\beta}\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $W^+_L Z_L \to W^+_L Z_L$ scattering via Higgs exchange. $q_t = p_1 - p_3 = p_2 - p_4$ is the momentum of the intermediate Higgs boson.}
+    \label{HW4:w-z-scattering-higgs-exchange}
+\end{figure}
+The additional diagram for $W^+_L Z_L \to W^+_L Z_L$ scattering via Higgs exchange is shown in Figure \ref{HW4:w-z-scattering-higgs-exchange}. The amplitude for this diagram is:
+\begin{align}
+    i\mathcal{M}_h =& V^{hWW}_{\mu\alpha} D_h(q_t) V^{hZZ}_{\nu\beta} \varepsilon_{1\mu} \varepsilon_{2\nu} \varepsilon_{3\alpha}^* \varepsilon_{4\beta}^*.
+\end{align}
+Again, by Mathematica, we find
+\begin{align}
+    i\mathcal{M}_h =& -ig^2\frac{t^2 \left(t-4 m^2\right)^2}{4m^4 \left( t-2 m^2\right)^2 \left(t-M^2\right)},
+\end{align}
+where $M$ is the mass of the Higgs boson. By estimation of order of magnitude, we find $i\mathcal{M}_h \sim -ig^2\frac{t}{4m^2}$. Hence, the Higgs contribution cancels the remaining $\mathcal{O}(E^2)$ growth at fixed scattering angle. Now, we can add the Higgs contribution to the gauge contribution to get the full amplitude:
+\begin{align}
+    &i \mathcal{M}_\text{full} = i\mathcal{M}_s + i\mathcal{M}_u + i\mathcal{M}_4 + i\mathcal{M}_h\\
+    =&ig^2 \frac{\left(M^2 s t^5 (s+t)+O\left(M^4\right)\right)+m^2 \left(2 t^5 \left(s^2+t s+t^2\right)+t^4 \left(-14 s^2-18 t s-3 t^2\right) M^2+O\left(M^4\right)\right)+O\left(m^4\right)}{4 m^2 \left(m^2-s\right) \left(t-2 m^2\right)^4 \left(t-M^2\right) \left(-3 m^2+s+t\right)}\\
+    =&ig^2 \frac{t^5\left(M^2 s  (s+t) + m^2(2  \left(s^2+t s+t^2\right)) \right)+\text{higher order terms}}{4 m^2 \left(m^2-s\right) \left(t-2 m^2\right)^4 \left(t-M^2\right) \left(-3 m^2+s+t\right)}\\
+    \approx& ig^2 \frac{t^5\left(M^2 s  (s+t) + m^2(2  \left(s^2+t s+t^2\right)) \right)}{4 m^2 (-s)(t^4)(t)(s+t)}\\
+    =& -ig^2\left(  \frac{M^2}{4m^2} +\frac{2(s^2+ts+t^2) }{s(s+t)} \right)
+\end{align}
+Here, we consider the limit $s\sim t \sim E^2 \gg m^2, M^2$. In this limit, we find the full amplitude approaches a constant:
+\begin{align}
+    i\mathcal{M}_\text{full} \approx -ig^2\left(  \frac{M^2}{4m^2} +\frac{2(s^2+ts+t^2) }{s(s+t)} \right) \approx -ig^2\left(  \frac{M^2}{4m^2} +\frac{3}{2} \right).
+\end{align}
+Since $M^2 = 2\lambda v^2 = 8\lambda m^2/g^2$, we can express the constant high-energy limit of the full amplitude in terms of the dimensionless Higgs quartic coupling $\lambda$:
+\begin{align}
+    i\mathcal{M}_\text{full} \approx -ig^2\left(  \frac{8\lambda m^2/g^2}{4m^2} +\frac{3}{2} \right) = -ig^2\left(  2\lambda/g^2 +\frac{3}{2} \right).  
+\end{align}
+\qed
