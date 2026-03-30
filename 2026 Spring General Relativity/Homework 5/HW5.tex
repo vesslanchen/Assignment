@@ -112,7 +112,45 @@ Find the proper distance and determine the time the light was emitted
 We will assume matter $(\gamma=1)$ and compare the results for (i) $(\Omega_0,\Omega_\Lambda)=(1,0)$ and (ii) $(\Omega_0,\Omega_\Lambda)=(0.27,0.73)$.
 
 \answer{}
-Now, we start with 
+Now, we start with the equations of proper distance and time of emission:
+\begin{align}
+    d_p &= c \int_0^z \frac{dz}{H},\\
+    t_e &= \int_z^{\infty} \frac{dz}{(1+z)H},
+\end{align}
+where $z$ is red shifting, $H=H_0\sqrt{\Omega_0 a^{-3} +\Omega_\Lambda}$, $a^{-1}=1+z$ Then we can have 
+\begin{align}
+    d_p =&\frac{c}{H_0} \int_0^z \frac{dz}{\sqrt{\Omega_0(1+z)^3+\Omega_\Lambda}},\\
+    t_e =&\frac{1}{H_0} \int_z^{\infty} \frac{dz}{(1+z)\sqrt{\Omega_0(1+z)^3+\Omega_\Lambda}}
+\end{align}
+\begin{itemize}
+    \item [(i)] If $(\Omega_0,\Omega_\Lambda)=(1,0)$,
+    \begin{itemize}
+    \item [(a)] $(d_p,t_e)=(41.9357 \text{ Mpc},8.97175 \text{ Gyr})$
+    \item [(b)] $(d_p,t_e)=(4225 \text{ Mpc}, 1.1383 \text{ Gyr})$
+    \end{itemize}
+    \item [(ii)] If $(\Omega_0,\Omega_\Lambda)=(0.27,0.73)$
+    \begin{itemize}
+    \item [(a)] $(d_p,t_e)=(42.1642 \text{ Mpc},13.4245 \text{ Gyr})$
+    \item [(b)] $(d_p,t_e)=(6465.85 \text{ Mpc},2.1755 \text{ Gyr})$
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+The angular size $\theta$ subtended by the horizon is defined as the ratio of the physical horizon size at redshift $z$ to the angular diameter distance $d_a$:\begin{align}\theta = \frac{d_{H,phys}(z)}{d_a(z)} = \frac{r_H / (1+z)}{d_p / (1+z)} = \frac{r_H}{d_p}.\end{align}Since our models are flat ($\Omega_k = 0$), the factor $(1+z)$ cancels out, and the angle can be directly computed using comoving distances. Now for the angle spanned $\theta$, we have 
+\begin{align}
+\theta = \frac{r_H(z)}{d_p(z)}
+\end{align}
+where 
+\begin{align}
+    r_H = c\int_z^\infty \frac{dz}{H} =\frac{c}{H_0} \int_z^\infty \frac{dz}{\sqrt{\Omega_0(1+z)^3+\Omega_\Lambda}}.
+\end{align}
+Then we have 
+\begin{itemize}
+    \item [(i)] If $(\Omega_0,\Omega_\Lambda)=(1,0)$, $\theta=\frac{254.66}{8195}=1.78^\circ$
+    \item [(ii)] If $(\Omega_0,\Omega_\Lambda)=(0.27,0.73)$, $\theta=\frac{490.09}{14082.}=1.99^\circ$
+\end{itemize}\qed
+
 
 
 
@@ -124,3 +162,38 @@ A particle $\chi$ with mass $m=1$ GeV and $g_\chi=2$ as a cross-section for the 
 \end{align}
 Between what temperatures is $\chi$ in thermal equilibrium with the electron? 
 \answer{}
+The density $n_\chi$ is given by
+\begin{align}
+    n_\chi = \frac{g_\chi}{(2\pi)^3} \int f(\mathbf{p})d^3p=\frac{g_\chi}{2\pi^2}\int_0^\infty \frac{p^2 dp}{\exp(\sqrt{p^2+m^2}/T)\pm1} 
+\end{align}
+If we assume the $T\ll m$, we can have 
+\begin{align}
+    &n_\chi\approx\frac{g_\chi}{2\pi^2}\int_0^\infty \frac{p^2 dp}{\exp(\sqrt{p^2+m^2}/T)}\\
+    =&\frac{g_\chi}{2\pi^2}\int_0^\infty p^2 \exp(-\sqrt{p^2+m^2}/T) dp\\
+    \approx& \frac{g_\chi}{2\pi^2}\int_0^\infty p^2 \exp{-\left(\frac{m+p^2/2m}{T}\right)}, \quad \text{$E=\sqrt{p^2+m^2}\approx m + \frac{p^2}{2m}$}\\
+    =&\frac{g_\chi}{2\pi^2} \sqrt{\frac{\pi}{2}} \left(mT\right)^{3/2} e^{-m/T}\\
+    =&g_\chi\left(\frac{mT}{2\pi}\right)^{3/2} e^{-m/T}=2\left(\frac{mT}{2\pi}\right)^{3/2} e^{-m/T}.
+\end{align}
+Now, we can calculate the interaction rate $\Gamma$, given by 
+\begin{align}
+    \Gamma= \langle\sigma v \rangle n = \frac{T^2}{(T^2+m^2)^2} 2\left(\frac{mT}{2\pi}\right)^{3/2} e^{-m/T}.
+\end{align}
+The Hubble parameter is given by 
+\begin{align}
+    H(T) = \sqrt{\frac{4\pi^3}{45}g} \frac{T^2}{M_{Pl}}\approx1.66\frac{\sqrt{g}T^2}{M_{Pl}},
+\end{align}
+where the Planck mass $M_{Pl}$ is $1.22\times10^{19}$~GeV. Now we can try to solve the root for the equation $\Gamma(T)=H(T)$, given by 
+\begin{align}
+    &\frac{T^2}{(T^2+m^2)^2} 2\left(\frac{mT}{2\pi}\right)^{3/2} e^{-m/T} = 1.66\frac{\sqrt{g}T^2}{M_{Pl}}\\
+    \implies&\frac{2}{(T^2+1)^2}\left(\frac{T}{2\pi}\right)^{3/2} e^{-1/T} = 1.66\frac{\sqrt{g}}{1.22\times10^{19}},\quad\text{substituting $m = 1$~GeV}
+\end{align}
+To find the temperature range where $\chi$ is in thermal equilibrium with electrons, we solve $\Gamma(T) \ge H(T)$. Based on the numerical solution of the transcendental equation: 
+\begin{align}
+    \frac{2}{(T^2 + 1)^2} \left( \frac{T}{2\pi} \right)^{3/2} e^{-1/T} = \frac{1.66 \sqrt{100}}{1.22 \times 10^{19}},
+\end{align}
+where we simply assume $g\approx100$. Then we can obtain two solutions
+\begin{align}
+    T_{\text{low}}&=0.0295 \text{ GeV} = 29.5 \text{ MeV},\\
+    T_{\text{high}}&=6.13\times10^{6} \text{ GeV}.
+\end{align}
+Between $29.5$~MeV and $6\times10^{6}$ GeV, the particle $\chi$ can be in thermal equilibrium with the electrons. \qed
