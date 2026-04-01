@@ -1,0 +1,33 @@
+\section*{Homework 9 Due to April 2 8:00 AM}
+\question{1}{}
+Repeat the Faddeev-Popov-’t Hooft quantization procedure that we have studied previously for pure Yang-Mills theory. Find an appropriate gauge condition such that it cancels the quadratic cross term in Equation: 
+\begin{align}
+    -ie A^\mu (\phi^\dagger\overleftrightarrow{\partial_\mu}\phi)=evA_\mu\partial^\mu \varphi+\text{cubic terms}. 
+\end{align}
+Collect all quadratic terms in the gauge-fixed Lagrangian (with ghosts included) and determine the propagators of the fields $A_\mu, h, c$ and $\phi$ as function of $\xi$. In thus obtained propagators study separately the limits 
+\begin{align}
+    \xi=1 \text{ and } \xi\to\infty.
+\end{align}
+What information can you obtain from the limit $\xi\to\infty$?
+
+\answer{}
+First, we have to identify the gauge-fixing term. For a U(1) gauge theory coupled to a scalar field, 
+we choose the gauge condition:
+\begin{align}
+    \partial_\mu A^\mu - \xi e v \varphi = 0
+\end{align}
+This Lorenz-type gauge with the scalar field term cancels the cross term. The gauge-fixing Lagrangian is:
+\begin{align}
+    \mathcal{L}_{\text{gf}} = -\frac{1}{2\xi}(\partial_\mu A^\mu - \xi e v \varphi)^2
+\end{align}
+Adding the Faddeev-Popov ghost term:
+\begin{align}
+    \mathcal{L}_{\text{ghost}} = \bar{c}\partial_\mu \partial^\mu c
+\end{align}
+The complete quadratic Lagrangian becomes:
+\begin{align}
+    \mathcal{L}_2 &= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + \frac{1}{2}(\partial_\mu \varphi)^2 - \frac{1}{2}e^2v^2A_\mu A^\mu \\
+    &\quad + \frac{1}{2\xi}(\partial_\mu A^\mu)^2 - e v A_\mu \partial^\mu \varphi + \bar{c}\partial_\mu \partial^\mu c
+\end{align}
+
+

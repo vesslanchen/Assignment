@@ -170,7 +170,7 @@ If we assume the $T\ll m$, we can have
 \begin{align}
     &n_\chi\approx\frac{g_\chi}{2\pi^2}\int_0^\infty \frac{p^2 dp}{\exp(\sqrt{p^2+m^2}/T)}\\
     =&\frac{g_\chi}{2\pi^2}\int_0^\infty p^2 \exp(-\sqrt{p^2+m^2}/T) dp\\
-    \approx& \frac{g_\chi}{2\pi^2}\int_0^\infty p^2 \exp{-\left(\frac{m+p^2/2m}{T}\right)}, \quad \text{$E=\sqrt{p^2+m^2}\approx m + \frac{p^2}{2m}$}\\
+    \approx& \frac{g_\chi}{2\pi^2}\int_0^\infty p^2 \exp{\left[-\frac{1}{T}\left(m+\frac{p^2}{2m}\right)\right]}, \quad \text{$E=\sqrt{p^2+m^2}\approx m + \frac{p^2}{2m}$}\\
     =&\frac{g_\chi}{2\pi^2} \sqrt{\frac{\pi}{2}} \left(mT\right)^{3/2} e^{-m/T}\\
     =&g_\chi\left(\frac{mT}{2\pi}\right)^{3/2} e^{-m/T}=2\left(\frac{mT}{2\pi}\right)^{3/2} e^{-m/T}.
 \end{align}
@@ -196,4 +196,52 @@ where we simply assume $g\approx100$. Then we can obtain two solutions
     T_{\text{low}}&=0.0295 \text{ GeV} = 29.5 \text{ MeV},\\
     T_{\text{high}}&=6.13\times10^{6} \text{ GeV}.
 \end{align}
-Between $29.5$~MeV and $6\times10^{6}$ GeV, the particle $\chi$ can be in thermal equilibrium with the electrons. \qed
+Between $29.5$~MeV and $6\times10^{6}$ GeV, the particle $\chi$ can be in thermal equilibrium with the electrons. Note that we have to consider different $g$ in the low temperature. When the temperature is below $\mathcal{O}(10)$~MeV, we consider photons $\gamma$, neutrinos $\nu$, and electron $e$. Hence, the $g$ is given by
+\begin{align}
+    g=2+3\times2\times\frac{7}{8}+3\times2\times\frac{7}{8}=10.75.
+\end{align}
+With this new $g$, the new answer for $T_\text{low}$ become 
+\begin{align}
+    T_\text{low}=0.0286\text{ GeV}=28.6\text{ MeV}
+\end{align}
+Hence, between $28.6$~MeV and $6\times10^{6}$ GeV, the particle $\chi$ can be in thermal equilibrium with the electrons. \textbf{However, this statement is wrong again.} With this $T_\text{high}$, $\chi$ is no longer non-relativistic. We have to re-derive this relation again for relativistic case. Start with number density $n_\chi$ given by 
+\begin{align}
+    &n_\chi = \frac{g_\chi}{(2\pi)^3} \int f(\mathbf{p})d^3p=\frac{g_\chi}{2\pi^2}\int_0^\infty \frac{p^2 dp}{\exp(\sqrt{p^2+m^2}/T)\pm1}\\
+    \approx&\frac{g_\chi}{2\pi^2}\int_0^\infty \frac{p^2 dp}{\exp(p/T)\pm1}\\
+    =& \begin{cases}
+    \frac{g_\chi}{2\pi^2} \frac{3\zeta(3)}{2}T^3,\quad\text{boson}\\
+    \frac{g_\chi}{2\pi^2} 2\zeta(3)T^3,\quad\text{fermion}
+    \end{cases}.
+\end{align}
+Now we can do the similar process again. The interaction rate is given by 
+\begin{align}
+   &\Gamma=
+    \begin{cases}
+        \frac{T^2}{(T^2+m^2)^2} \frac{g_\chi}{2\pi^2} \frac{3\zeta(3)}{2}T^3,\quad\text{boson} \\
+        \frac{T^2}{(T^2+m^2)^2} \frac{g_\chi}{2\pi^2} 2\zeta(3)T^3,\quad\text{fermion}
+    \end{cases}\\
+    =&\begin{cases}
+        \frac{T^2}{(T^2+m^2)^2} \frac{3\zeta(3)}{2\pi^2}T^3,\quad\text{boson} \\
+        \frac{T^2}{(T^2+m^2)^2} \frac{4\zeta(3)}{2\pi^2}T^3,\quad\text{fermion}
+    \end{cases}.
+\end{align}
+Compare with hubble parameter, we can obtain
+\begin{align}
+    &\begin{cases}
+        \frac{T^2}{(T^2+1)^2} \frac{3\zeta(3)}{2\pi^2}T^3=1.66\frac{\sqrt{g}T^2}{M_{Pl}},\quad\text{boson}\\
+        \frac{T^2}{(T^2+1)^2} \frac{4\zeta(3)}{2\pi^2}T^3 = 1.66\frac{\sqrt{g}T^2}{M_{Pl}},\quad\text{fermion}
+    \end{cases}\\
+    \implies&\begin{cases}
+        \frac{1}{(T^2+1)^2} \frac{3\zeta(3)}{2\pi^2}T^3=1.66\frac{\sqrt{100}}{M_{Pl}},\quad\text{boson}\\
+        \frac{1}{(T^2+1)^2} \frac{4\zeta(3)}{2\pi^2}T^3 = 1.66\frac{\sqrt{100}}{M_{Pl}},\quad\text{fermion}
+    \end{cases}\\
+    \implies&\begin{cases}
+        T_\text{high}=1.34267\times10^{17} \text{ GeV, (boson)} \\
+        T_\text{high}=1.79022\times10^{17} \text{ GeV, (fermion)} 
+    \end{cases}
+\end{align}
+Here, we consider the SM to estimate $g\approx100$. In summary, by considering the appropriate relativistic limits and effective degrees of freedom, we find that the particle $\chi$ is in thermal equilibrium with the thermal bath in the temperature range:
+\begin{align}
+28.6 \text{ MeV} \lesssim T \lesssim 1.79 \times 10^{17} \text{ GeV} \quad (\text{assuming fermion } \chi)
+\end{align}
+The lower bound is determined by the non-relativistic freeze-out, while the upper bound represents the initial coupling of the species in the very early universe.\qed
