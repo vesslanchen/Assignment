@@ -18,16 +18,105 @@ we choose the gauge condition:
 \end{align}
 This Lorenz-type gauge with the scalar field term cancels the cross term. The gauge-fixing Lagrangian is:
 \begin{align}
-    \mathcal{L}_{\text{gf}} = -\frac{1}{2\xi}(\partial_\mu A^\mu - \xi e v \varphi)^2
+    &\mathcal{L}_{\text{gf}} = -\frac{1}{2\xi}(\partial_\mu A^\mu - \xi e v \varphi)^2\\
+    =&-\frac{1}{2\xi}(\partial^\mu A\mu)^2 + ev \varphi (\partial^\mu A_\mu) - \frac{\xi}{2} e^2 v^2 \varphi^2\\
+    =&-\frac{1}{2\xi}(\partial^\mu A\mu)^2 - ev A_\mu (\partial^\mu \varphi ) - \frac{\xi}{2} e^2 v^2 \varphi^2,
 \end{align}
-Adding the Faddeev-Popov ghost term:
+where we apply the IBP to move the derivative to act on $\varphi$. Define $m_A=ev$, then obtain:
 \begin{align}
-    \mathcal{L}_{\text{ghost}} = \bar{c}\partial_\mu \partial^\mu c
+    \mathcal{L}_{\text{gf}} = -\frac{1}{2\xi}(\partial^\mu A\mu)^2 - m_A A_\mu (\partial^\mu \varphi ) - \frac{\xi}{2} m_A^2 \varphi^2.
 \end{align}
-The complete quadratic Lagrangian becomes:
+The ghost lagrangian is derived from the gauge fixing term, which is given by:
 \begin{align}
-    \mathcal{L}_2 &= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + \frac{1}{2}(\partial_\mu \varphi)^2 - \frac{1}{2}e^2v^2A_\mu A^\mu \\
-    &\quad + \frac{1}{2\xi}(\partial_\mu A^\mu)^2 - e v A_\mu \partial^\mu \varphi + \bar{c}\partial_\mu \partial^\mu c
+\delta_\alpha G &= \partial^\mu (\delta A_\mu) - \xi e v (\delta \varphi)\\
+&= \partial^\mu \left( \frac{1}{e} \partial_\mu \alpha \right) - \xi e v \left( \alpha (v + h) \right) \\
+&= \frac{1}{e} \left[ \partial^2 - \xi e^2 v (v + h) \right] \alpha.
 \end{align}
+
+If we only consider the quadratic term and ignore the $h$, then the lagrangian is given by:
+\begin{align}
+    &\mathcal{L}_{\text{ghost}} = \bar{c} \left[ -\partial^2 - \xi e^2 v^2\right] c\\
+    =&\bar{c} \left[ -\partial^2 - \xi  m_A^2 \right] c.
+\end{align}
+
+Also, after SSB, higgs field with VEV become 
+\begin{align}
+    |D_\mu \phi|^2 \supset \frac{1}{2}(\partial_\mu \varphi)^2 + ev A_\mu \partial^\mu \varphi + \frac{1}{2}(ev)^2 A_\mu A^\mu=\frac{1}{2}(\partial_\mu \varphi)^2 + m_A A_\mu \partial^\mu \varphi + \frac{1}{2}m_A^2 A_\mu A^\mu
+\end{align}
+
+
+Now, the full lagrangian with the quadratic terms is given by 
+\begin{align}
+    &\mathcal{L}_\text{full} = \mathcal{L}_\text{higgs with VEV}+ \mathcal{L}_\text{U$(1)$} +\mathcal{L}_\text{gf}+\mathcal{L}_\text{ghost}\\
+    =&\frac{1}{2} (\partial_\mu h)^2 -\frac{1}{2}m_h^2h^2+ \frac{1}{2}(\partial_\mu \varphi)^2 + \cancel{m_A A_\mu \partial^\mu \varphi} + \frac{1}{2}m_A^2 A_\mu A^\mu  -\frac{1}{4} F_{\mu\nu}F^{\mu\nu} -\frac{1}{2\xi}(\partial^\mu A_\mu)^2 -\cancel{ m_A A_\mu (\partial^\mu \varphi )} \\
+    -& \frac{\xi}{2} m_A^2 \varphi^2 + \bar{c} \left[ -\partial^2 - \xi  m_A^2 \right] c\\
+    =&\frac{1}{2} (\partial_\mu h)^2 -\frac{1}{2}m_h^2h^2+\frac{1}{2}(\partial_\mu \varphi)^2 + \frac{1}{2}m_A^2 A_\mu A^\mu -\frac{1}{4} F_{\mu\nu}F^{\mu\nu} -\frac{1}{2\xi}(\partial^\mu A_\mu)^2 - \frac{\xi}{2} m_A^2 \varphi^2 + \bar{c} \left[ -\partial^2 - \xi  m_A^2 \right] c\\
+    =&\underbrace{\frac{1}{2}h\left(-\partial^2-m_h^2\right)h}_{\text{physical higgs}}\\
+    -& \underbrace{\frac{1}{2} A_\mu \left[ (-\partial^2 + m_A^2)g^{\mu\nu} + \left(1 - \frac{1}{\xi}\right)\partial^\mu \partial^\nu \right] A_\nu}_{\text{Gauge}} \\
+     +& \underbrace{\frac{1}{2} \varphi (-\partial^2 - \xi m_A^2) \varphi}_{\text{Goldstone boson}} \\
+     +& \underbrace{\bar{c} (-\partial^2 - \xi m_A^2) c}_{\text{ghost}}
+\end{align}
+
+The corresponding propagators are given by:
+\begin{itemize}
+    \item physical higgs:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2- m_h^2}.
+    \end{align}
+    \item Photon: 
+    \begin{align}
+        \Delta_{\mu\nu}(k)=\frac{i}{k^2-m_A^2}\left(-g_{\mu\nu}+\frac{k_\mu k_\nu}{k^2-\xi m_A^2}(1-\xi)\right).
+    \end{align}
+    \item Goldstone boson:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2-\xi m_A^2}.
+    \end{align}
+    \item Ghost:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2-\xi m_A^2}.
+    \end{align}
+\end{itemize}
+Now, if we consider the $\xi=1$, we have 
+\begin{itemize}
+    \item physical higgs:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2- m_h^2}.
+    \end{align}
+    \item Photon: 
+    \begin{align}
+        \Delta_{\mu\nu}(k)=\frac{-ig_{\mu\nu}}{k^2-m_A^2}.
+    \end{align}
+    \item Goldstone boson:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2- m_A^2}.
+    \end{align}
+    \item Ghost:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2- m_A^2}.
+    \end{align}
+\end{itemize}
+If we consider $\xi\to\infty$, we have 
+\begin{itemize}
+    \item physical higgs:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2- m_h^2}.
+    \end{align}
+    \item Photon: 
+    \begin{align}
+        \Delta_{\mu\nu}(k)=\frac{i}{k^2-m_A^2}\left(-g_{\mu\nu}+\frac{k_\mu k_\nu}{k^2-\xi m_A^2}(1-\xi)\right)\to\frac{-i}{k^2-m_A^2}\left(g_{\mu\nu}-\frac{k_\mu k_\nu}{ m_A^2}\right).
+    \end{align}
+    \item Goldstone boson:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2-\xi m_A^2}\to0.
+    \end{align}
+    \item Ghost:
+    \begin{align}
+        \Delta(k)=\frac{i}{k^2-\xi m_A^2}\to0.
+    \end{align}
+\end{itemize}
+\textbf{Interpretation:} When we take the limit $\xi\to\infty$, the photon can eat the goldstone boson and ghost to physically become massive vector boson. Also, under this limit, there is no non-physical field $c$ and non-physical parameter $\xi$ in the calculation.
+
+
+
 
 
