@@ -13,12 +13,91 @@ The mass term for three chiral fermions $\psi_{L,R}^0 = (\psi^0_{1L,R}, \psi^0_{
 The physical masses are obtained from a bi-unitary transformation $A_L^\dagger M A_R = \text{diag}(m_1, m_2, m_3)$, where $m_i\geq 0$.
 
 \begin{itemize}
-    \item [(a)] Show that $A_L$ diagonalizes $M M^\dagger$, while $A_R$ diagonalizes $M^\dagger M$ with eigenvalues $m_i^2$.Explain why the physical masses are the singular values of $M$, rather than the eigenvalues of $M$. 
+    \item [(a)] Show that $A_L$ diagonalizes $M M^\dagger$, while $A_R$ diagonalizes $M^\dagger M$ with eigenvalues $m_i^2$. Explain why the physical masses are the singular values of $M$, rather than the eigenvalues of $M$. 
     \item [(b)] Compute the physical masses $m_1$, $m_2$, and $m_3$, ordered as $m_1\leq m_2 \leq m_3$, and find one pair of unitary matrices $A_L$ and $A_R$ such that $M=A_L \text{diag}(m_1, m_2, m_3) A_R^\dagger$.
     \item [(c)] Briefly explain why the matrices $A_L$ and $A_R$ are not unique, even after the masses are fixed.
 \end{itemize}
 
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+First, using singular value decomposition (SVD) in Mathematica, we can find: 
+\begin{align}
+    A_L &=\begin{pmatrix}
+        0.099671\, +0. i & 0.348233\, +0. i & -0.932094+0. i \\
+        0.371683\, -0.137417 i & -0.00441727-0.854405 i & 0.0380947\, -0.333902 i \\
+        0.872506\, -0.267894 i & -0.0552851+0.381643 i & 0.0726444\, +0.113936 i \\
+        \end{pmatrix},\\
+    A_R &= \begin{pmatrix}
+        0.0492249\, -0.0103738 i & 0.111144\, +0.0317104 i & -0.991542+0.0309028 i \\
+        0.156144\, -0.127386 i & -0.128268-0.96428 i & -0.0394805-0.107446 i \\
+        0.933737\, -0.291541 i & -0.0553138+0.193115 i & 0.0499158\, +0.0171554 i \\
+    \end{pmatrix},\\
+    M_D&=\begin{pmatrix}
+        6.45603 & 0. & 0. \\
+        0. & 3.00881 & 0. \\
+        0. & 0. & 0.921729 \\
+    \end{pmatrix},
+\end{align}
+such that 
+\begin{align}
+    A_L^\dagger M A_R&=M_D,\\
+    A_L^\dagger M M^\dagger A_L&=M_D^2,\\
+    A_R^\dagger M^\dagger M A_R&=M_D^2.
+\end{align}
+The reason for using singular values instead of eigenvalues is that physical masses must be real and non-negative. For a general complex mass matrix $M$, the eigenvalues can be complex. However, the singular values (which are the square roots of the eigenvalues of the positive-semidefinite matrix $M^\dagger M$) are guaranteed to be real and non-negative.
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+In order to get $m_1\leq m_2\leq m_3$, we can switch the first column vector and the third column vector in $A_L$ and $A_R$ matrices, given by 
+\begin{align}
+    A_L'=&\begin{pmatrix}
+         -0.932094+0. i & 0.348233\, +0. i & 0.099671\, +0. i \\
+ 0.0380947\, -0.333902 i & -0.00441727-0.854405 i & 0.371683\, -0.137417 i \\
+ 0.0726444\, +0.113936 i & -0.0552851+0.381643 i & 0.872506\, -0.267894 i \\
+    \end{pmatrix}\\
+A_R'=&\begin{pmatrix}
+     -0.991542+0.0309028 i & 0.111144\, +0.0317104 i & 0.0492249\, -0.0103738 i \\
+ -0.0394805-0.107446 i & -0.128268-0.96428 i & 0.156144\, -0.127386 i \\
+ 0.0499158\, +0.0171554 i & -0.0553138+0.193115 i & 0.933737\, -0.291541 i \\
+\end{pmatrix},
+\end{align}
+such that 
+\begin{align}
+    (A_L')^\dagger M A_R' =  M_D'=\begin{pmatrix}
+        0.921729 & 0. & 0. \\
+        0. & 3.00881 & 0. \\
+        0. & 0. & 6.45603 \\
+    \end{pmatrix}.
+\end{align}
+Later, we just omit the prime. Now, we obtain:
+\begin{align}
+    &A_L^\dagger M A_R =  M_D\\
+    \implies &A_L M_D A_R^\dagger =M.
+\end{align}
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+We can define the phase angles $\theta_i$, $i=1,2,3$ such that 
+\begin{align}
+    A_L\to A_L U = A_L \begin{pmatrix}
+        e^{i\theta_1} &0&0\\
+        0&e^{i\theta_2}&0\\
+        0&0&e^{i\theta_3}
+    \end{pmatrix},
+    A_R\to A_R U = A_R \begin{pmatrix}
+        e^{i\theta_1} &0&0\\
+        0&e^{i\theta_2}&0\\
+        0&0&e^{i\theta_3}
+    \end{pmatrix},
+\end{align} 
+and then we have 
+\begin{align}
+    A_L^\dagger M A_R \to U^\dagger A_L^\dagger M A_R U = U^\dagger M_D U = M_D.
+\end{align}
+Since $U$ and $M_D$ are diagonal, so we can easily compute it and simplify it. In summary, $A_L$ and $A_R$ are not unique, by rotating with arbitrary phase angles $\theta_i$, even though $M_D$ is fixed the order.\qed
 
 
 
@@ -34,6 +113,93 @@ Consider a variant of the Standard Model in which the quark sector does not cont
 \end{itemize}
 
 \answer{}
+\begin{table}[ht!]
+\centering 
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    Field & $SU(2)_L$ ($T_3$) & $U(1)_Y$ & $Q = T_3 + Y$ \\
+    \hline
+    $Q_L = (u_L, d_L)^T$ & $(+1/2, -1/2)$ & $+1/6$ & $(+2/3, -1/3)$ \\
+    $u_R$ & $0$ & $+2/3$ & $+2/3$ \\
+    $d_R$ & $0$ & $-1/3$ & $-1/3$ \\
+    $s_L$ & $0$ & $-1/3$ & $-1/3$ \\ 
+    $s_R$ & $0$ & $-1/3$ & $-1/3$ \\
+    $\Phi = (\phi^+, \phi^0)^T$ & $(+1/2, -1/2)$ & $+1/2$ & $(+1, 0)$ \\
+    $\tilde{\Phi} = (\phi^{0*}, -\phi^-)^T$ & $(+1/2, -1/2)$ & $-1/2$ & $(0, -1)$ \\
+    \hline
+    \end{tabular}
+    \caption{Field quantum numbers under $SU(2)_L \times U(1)_Y$.}
+    \label{table:HW5-quantum}
+\end{table}
+Table~\ref{table:HW5-quantum} shows the all quantum number in $SU(2)_{L}\times U(1)_Y$ for necessary quantum field. We can write down the Lagrangian, given by 
+\begin{align}
+    \mathcal{L}\supset \mathcal{L}_\text{EW}+\mathcal{L}_\text{Yukawa},
+\end{align}
+where 
+\begin{align}
+    \mathcal{L}_\text{EW}\supset \overline{Q_L}\gamma^\mu D_\mu Q_L + \overline{u_R}\gamma^\mu D_\mu u_R + \overline{d_R}\gamma^\mu D_\mu d_R + \overline{s_L}\gamma^\mu D_\mu s_L + \overline{s_R}\gamma^\mu D_\mu s_R,
+\end{align}
+where $D_\mu=\partial_\mu - igW_\mu^a T^a -ig'B_\mu Y$. Since only $Q_L$ has non-zero $T_3$ values, which involves charged-current, we can obtain: 
+\begin{align}
+    \mathcal{L}_\text{CC} = \frac{g}{\sqrt{2}} \overline{u_L} \gamma^\mu d_L W^+_\mu + \text{h.c.}
+\end{align}
+Here we use the standard notation for the charged gauge bosons:
+\begin{align}
+    W^{\pm}_\mu = \frac{1}{\sqrt{2}}(W^1_\mu \mp i W^2_\mu).
+\end{align}
+For the neutral-current (NC) interactions, they are mediated by the photon ($A_\mu$) and the $Z$ boson ($Z_\mu$), which are combinations of $W^3_\mu$ and $B_\mu$:
+\begin{align}
+    \mathcal{L}_\text{NC} = e J^\mu_\text{em} A_\mu + \frac{g}{\cos\theta_w} (J^\mu_3 - \sin^2\theta_w J^\mu_\text{em}) Z_\mu,
+\end{align}
+where $e = g \sin\theta_w$. The electromagnetic current $J^\mu_\text{em}$ is summed over all fields with their respective charges $Q$. The critical part is the weak isospin current $J^\mu_3$, which only receives contributions from the $SU(2)_L$ doublet $Q_L$:
+\begin{align}
+    J^\mu_3 = \frac{1}{2} \overline{u_L} \gamma^\mu u_L - \frac{1}{2} \overline{d_L} \gamma^\mu d_L.
+\end{align} 
+Note that $s_L, s_R, u_R, d_R$ do not contribute to $J^\mu_3$ as they are singlets. Next, we write down the Yukawa interactions and the bare mass terms. Since $s_L$ is a gauge singlet, it can form gauge-invariant mass terms directly with $d_R$ and $s_R$ without the Higgs field:
+\begin{align}
+    \mathcal{L}_\text{Yukawa} &= -y_u \overline{Q_L} \tilde{\Phi} u_R - y_{d1} \overline{Q_L} \Phi d_R - y_{d2} \overline{Q_L} \Phi s_R + \text{h.c.} \\
+    \mathcal{L}_\text{bare} &= -M_{s1} \overline{s_L} d_R - M_{s2} \overline{s_L} s_R + \text{h.c.}
+\end{align}
+After Spontaneous Symmetry Breaking (SSB), the Higgs field acquires a VEV $\langle \Phi \rangle = (0, v/\sqrt{2})^T$. The mass terms for the quarks are obtained by replacing $\Phi$ with its VEV:
+\begin{align}
+    \mathcal{L}_\text{mass} =& -m_u \overline{u_L} u_R - 
+    \begin{pmatrix} 
+        \overline{d_L} & \overline{s_L} 
+    \end{pmatrix} 
+    \begin{pmatrix} 
+        y_{d1}\frac{v}{\sqrt{2}} & y_{d2}\frac{v}{\sqrt{2}}\\ 
+        M_{s1} & M_{s2} 
+    \end{pmatrix} 
+    \begin{pmatrix} 
+        d_R \\ 
+        s_R 
+    \end{pmatrix} + \text{h.c.}\\
+    =&-m_u \overline{u_L} u_R - 
+    \begin{pmatrix} 
+        \overline{d_L} & \overline{s_L} 
+    \end{pmatrix} M_d    
+    \begin{pmatrix} 
+        d_R \\ 
+        s_R 
+    \end{pmatrix} + \text{h.c.}
+\end{align}
+where $m_u = y_u v/\sqrt{2}$. We can define the $2 \times 2$ down-type mass matrix as $M_d$. 
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Now, we have to diagonalize the matrix $M_d$. We can consider the two $2\times2$ unitary matrices $U_L$ and $U_R$ such that $U_L^\dagger M_d U_R$ is a diagonal matrix and all diagonal components are non-negative and real by the singular value decomposition (SVD). After rotation, there are three physical quark masses. Before rotation, there are totally 9 parameters in the $\mathcal{L}_\text{mass}$: $1$ in $m_u$, 8 in $M_d$ (4 complex numbers = 8 real numbers). 
+
+For $U_R$, since $d_R$ and $s_R$ have the same quantum number, there is no change in the interaction after $U_R$ rotation. Nonetheless, for $U_L$, since $d_L$ and $s_L$ have different quantum number, the rotation:
+\begin{align}
+\begin{pmatrix} d_L \\ s_L \end{pmatrix} \to A_L \begin{pmatrix} d_L \\ s_L \end{pmatrix}
+\end{align}
+will move the mixing into the Charged Current (CC) and the Neutral Current (NC). One mixing angle $\theta$ remains physical (similar to the Cabibbo angle).
+
+In summary, \textbf{we have $3$ physical masses, and $1$ rotation angle} describing the mixing between $d_L$ and $s_L$ in charged and neutral weak interactions. Since there is no phase angle, then we don't have CP violation.
+
+\textbf{Remark:} Note that The $U_L$ contain $3$ phase angles and $1$ rotation angle. However, we can use redefinition from $u,d,s$ quarks to remove those phase angles, leaving the rotation angle.\qed
+
 
 \clearpage
 \question{3}{\textbf{Jarlskog invariant and unitarity triangles}}
@@ -50,4 +216,43 @@ where $i,j,k,l=1,2,3$ and $\varepsilon_{ikm}$ is the totally antisymmetric Levi-
 \end{itemize}
 
 \answer{}
-First, 
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+First, in the charge weak current, the lagrangian is given by: 
+\begin{align}
+    J_\text{CC}^\mu \propto \overline{u_L^i} V_{ij}\gamma^\mu d_L^j.
+\end{align}
+When we apply any phase rotation on the quark field, saying $d_{L,R}^j\to e^{i\alpha_{j}} d_{L,R}^j$ and $u_{L,R}^j\to e^{i\beta_{j}} u_{L,R}^j$, to keep the form of the charged-current interaction invariant, the CKM matrix $V_{ij}$ transforms as 
+\begin{align}
+    V_{ij}\to V_{ij}'= e^{i\beta_i}e^{-i\alpha_j}V_{ij}.
+\end{align}
+For the Jarlskog invariant $J$, after the rotation, it is given by:
+\begin{align}
+    &V_{ij} V_{kl} V_{il}^* V_{kj}^*\to V_{ij}' V_{kl}' (V'_{il})^* (V'_{kj})^* \\
+    =& (e^{i\beta_i} V_{ij} e^{-i\alpha_j}) (e^{i\beta_k} V_{kl} e^{-i\alpha_l}) (e^{-i\beta_i} V_{il}^* e^{i\alpha_l}) (e^{-i\beta_k} V_{kj}^* e^{i\alpha_j})  \\
+    =& (e^{i\beta_i} e^{-i\beta_i}) (e^{i\beta_k} e^{-i\beta_k}) (e^{-i\alpha_j} e^{i\alpha_j}) (e^{-i\alpha_l} e^{i\alpha_l}) V_{ij} V_{kl} V_{il}^* V_{kj}^*  \\
+    =& V_{ij} V_{kl} V_{il}^* V_{kj}^*.
+\end{align}
+Hence, this $J$ is invariant under the phase rotation. This property is helpful when we measure CP violation phenomenon, since it is independent of any phase redefinition for quark fields which absorb unphysical phase. Under this property, the CP violation parameter cannot be removed by the phase redefinition.
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Since the CKM matrix $V$ is unitary, we can consider 
+\begin{align}
+    &V^\dagger V = \mathbf{1}\\
+    \implies &V_{ki}V_{kj}^*=0,\quad\text{if $i\neq j$}.
+\end{align}
+Without loss of generality, we can assume $i=b,j=d$, then we have 
+\begin{align}
+    &\underbrace{V_{ud}V_{ub}^*}_{z_1} + \underbrace{V_{cd} V_{cb}^*}_{z_2} + \underbrace{V_{td}V_{tb}^*}_{z_3}=0\\
+    \implies& z_1+z_2+z_3=0.
+\end{align}
+Then the area $A$ of this triangle is given by (compared definition $\text{Im}(V_{ij} V_{kl} V_{il}^* V_{kj}^*) = J \sum_{m,n=1}^3 \varepsilon_{ikm} \varepsilon_{jln}$)
+\begin{align}
+    &A= \frac{1}{2}|\text{Im}(z_1 z_2^*)|\\
+    =&\frac{1}{2}\left|\text{Im} (V_{ud}V_{ub}^*  V_{cd}^* V_{cb})\right|= \frac{1}{2}\left|\text{Im} (V_{ud} V_{cb}V_{ub}^* V_{cd}^*)\right|=\frac{1}{2}\left|J \sum_{m,n=1}^3 \varepsilon_{ucm} \varepsilon_{dbn}\right|\\
+    =&\frac{1}{2}\left|J  \varepsilon_{uct} \varepsilon_{dbs}\right|=\frac{1}{2}\left|J\varepsilon_{123}\varepsilon_{132}\right|=\frac{|J|}{2}.
+\end{align}
+Since we can choose any arbitrary indices $i, j$ ($i \neq j$) for rows or columns, this result holds for all six unitarity triangles. Hence, we complete the proof that $A = \frac{|J|}{2}$.\qed
