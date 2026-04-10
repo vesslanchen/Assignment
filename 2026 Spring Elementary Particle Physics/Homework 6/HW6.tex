@@ -1,0 +1,184 @@
+\section*{Problem Set 6 Due 11am, Monday, April 20, 2026}
+\question{1}{\textbf{UV completion of the Weinberg operator without $\nu_R$}}
+
+Consider an extension of the Standard Model containing a heavy complex scalar
+triplet $\Delta$ transforming as $(1,3,1)$ under $SU(3)_C\times SU(2)_L\times U(1)_Y$. Write the triplet in matrix form as
+\begin{align}
+    \Delta=
+    \begin{pmatrix}
+    \Delta^+/\sqrt{2}& \Delta^{++}\\
+    \Delta^0         & -\Delta^{+}/\sqrt{2}    
+    \end{pmatrix}.
+\end{align}
+Let $L_i$ denote the lepton doublets, where $i,j$ are flavor indices, and define $\tilde{H}\equiv i\sigma_2 H^*$. Suppose the Lagrangian contains the renormalizable interactions
+\begin{align}
+    \mathcal{L}\supset-\frac{1}{2}\xi_{ij} \overline{L_i^c} i\sigma_2 \Delta L_j-\mu \tilde{H}^\dagger\Delta^\dagger H - M_\Delta^2 \text{Tr}(\Delta^\dagger \Delta)+h.c.
+\end{align}
+where $\xi_{ij}$ are dimensionless couplings and $\mu$, $M_\Delta$ are new mass parameters. This is known as the \textit{type-II} seesaw mechanism.
+\begin{itemize}
+    \item [(a)] Show that the two interaction terms above are gauge invariant under $SU(2)_L\times U(1)_Y$. In particular, verify that the hypercharge assignments are consistent and explain why the flavor matrix $\xi_{ij}$ must be symmetric. \textit{Hint}: Recall that under an $SU(2)_L$ transformation $U$, $\Delta\to U\Delta U^\dagger$.
+    \item [(b)] Assume $M_\Delta$ is much larger than the electroweak scale. Integrate out the heavy triplet at tree level and show that the resulting low-energy effective theory contains the Weinberg operator 
+    \begin{align}
+        \mathcal{L}_\text{eff}\supset - \frac{\kappa_{ij}}{\lambda} (\overline{L_i}\tilde{H})(\tilde{H}^T L_j^c) +h.c.
+    \end{align}
+    Determine the coefficient in terms of $\xi_{ij}, \mu$ and $M_\Delta$, up to an overall sign and convention-dependent factors of $2$.
+    \item [(c)] After electroweak symmetry breaking, determine the resulting neutrino mass matrix $(m_\nu)_{ij}$. Compare your result with the schematic right-handed neutrino seesaw scaling $m_\nu\approx\frac{y_\nu v^2}{M_N}$, or equivalently $\frac{\kappa}{\Lambda}\approx \frac{y_\nu^2}{M_N}$, which arises from integrating out heavy right-handed neutrinos with mass $M_N$ and Yukawa coupling $y_\nu$. What is the corresponding heavy mass scale and coupling combination in the scalar-triplet case?
+\end{itemize}
+
+
+
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+For the second interaction term, $\tilde{H}^\dagger\Delta^\dagger H$, in order to have $U(1)_Y$ invariant, the hypercharge of $\Delta$ is given by 
+\begin{align}
+    &\frac{1}{2}-Y_\Delta +\frac{1}{2}  = 0 \\
+    \implies& Y_\Delta = 1.
+\end{align}
+The corresponding quantum numbers or representation for $L,L^c,H,\tilde{H},\Delta,\Delta^\dagger$ under the gauge group $SU(2)_L\times U(1)_Y$ are given by Table~\ref{table:HW6-quantum}. 
+
+\begin{table}[!ht]
+\centering 
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Field & $SU(2)_L$ & $U(1)_Y$ \\
+    \hline
+    $L$  &   $\mathbf{2}$ &  $-1/2$    \\
+    $L^c$  &   $\mathbf{2}$ &  $1/2$    \\
+    $H$  &   $\mathbf{2}$ &  $1/2$    \\
+    $\tilde{H}$  &   $\mathbf{2}$ &  $-1/2$    \\
+    $\Delta$  &   $\mathbf{3}$ &  $1$    \\
+    $\Delta^\dagger$  &   $\mathbf{\overline{3}}$ &  $-1$    \\
+    \hline
+    \end{tabular}
+    \caption{Field quantum numbers under $SU(2)_L \times U(1)_Y$.}
+    \label{table:HW6-quantum}
+\end{table}
+Now, we can verify the invariance under each transformation:
+\begin{itemize}
+    \item $U(1)_Y$:
+        \begin{align}
+        &-\frac{1}{2}\xi_{ij} \overline{L_i^c} i\sigma_2 \Delta L_j\\
+        \to& -\frac{1}{2}\xi_{ij} (\overline{L_i^c} e^{-\alpha(x)/2} )i\sigma_2 ( e^{\alpha(x)}  \Delta )(e^{-\alpha(x)/2}  L_j)\\
+        =&-\frac{1}{2}\xi_{ij} \overline{L_i^c} i\sigma_2 \Delta L_j,
+        \end{align}
+        \begin{align}
+            &-\mu \tilde{H}^\dagger\Delta^\dagger H \\
+            \to& -\mu (\tilde{H}^\dagger e^{\alpha(x)/2}) (e^{-\alpha(x)} \Delta^\dagger)  (e^{\alpha(x)/2} H)\\
+            =&-\mu \tilde{H}^\dagger\Delta^\dagger H.
+        \end{align}
+        Hence, the interaction terms are invariant under $U(1)_Y$ gauge transformation. 
+    \item $SU(2)$:
+    Note that $L^c= -i\gamma^2 L^*=-i\gamma^2 (L^\dagger)^T=-i\gamma^2\gamma^0 \overline{L}^T=\mathbf{C}\overline{L}^T$, where $\gamma^2$ is the dirac matrix acting on the dirac spinor space, and $\mathbf{C}$ is the charge conjugation operator. Also, for $\tilde{H}=i\sigma_2H^*$, we have 
+    \begin{align}
+        \tilde{H}\to& i\sigma_2 (UH)^*\\
+        =& i\sigma_2 U^* H^* = i\sigma_2 \left(e^{-i (\alpha^1\tau_1+\alpha^2\tau_2+\alpha^3\tau_3)}\right)^* H^*\\
+        =& \underbrace{i\sigma_2 e^{i (\alpha^1\tau_1 - \alpha^2\tau_2+\alpha^3\tau_3)}}_{e^{i (-\alpha^1\tau_1 - \alpha^2\tau_2-\alpha^3\tau_3)}i\sigma_2} H^*\\
+        =& Ui\sigma_2 H^*\\
+        =& U \tilde{H}
+    \end{align}
+    Now we have, 
+    \begin{align}
+        L^c= -i\gamma_2 L^*\to& -i\gamma_2 (UL)^* =-i\gamma_2 U^* L^* \\
+        =& U^* (-i\gamma_2) L^*=U^* L^c
+    \end{align}
+    Now the first term under the $SU(2)_L$ transformation is giver by
+    \begin{align}
+        &-\frac{1}{2}\xi_{ij} \overline{L_i^c} i\sigma_2 \Delta L_j\\
+        \to& -\frac{1}{2}\xi_{ij} (\overline{L_i^c} (U^*)^\dagger)  i \sigma_2 (U  \Delta  U^\dagger) U L_j\\
+        =& -\frac{1}{2}\xi_{ij} \overline{L_i^c} U^T  i \sigma_2 U \Delta  L_j.
+    \end{align}
+    For $ U^T  i \sigma_2 U$, we can simplify it as 
+    \begin{align}
+       &U^T  i \sigma_2 U =( e^{-i \alpha^a \tau_a})^T i\sigma_2 e^{-i \alpha^a \tau_a} \\
+       =&\underbrace{( e^{-i (\alpha^1\tau_1+\alpha^2\tau_2+\alpha^3\tau_3)})^T}_{e^{-i (\alpha^1\tau_1-\alpha^2\tau_2+\alpha^3\tau_3)}} \underbrace{i\sigma_2 e^{-i (\alpha^1\tau_1+\alpha^2\tau_2+\alpha^3\tau_3)}}_{e^{-i (-\alpha^1\tau_1+\alpha^2\tau_2-\alpha^3\tau_3)} i \sigma_2}\\
+       =&i\sigma_2.
+    \end{align}
+    Hence, we have 
+    \begin{align}
+        &-\frac{1}{2}\xi_{ij} \overline{L_i^c} i\sigma_2 \Delta L_j\\
+        \to&-\frac{1}{2}\xi_{ij} \overline{L_i^c} U^T  i \sigma_2 U \Delta  L_j \\
+        =&-\frac{1}{2}\xi_{ij} \overline{L_i^c} i\sigma_2 \Delta L_j.
+    \end{align}
+    For the second term, we have 
+    \begin{align}
+        &-\mu \tilde{H}^\dagger\Delta^\dagger H\\
+        \to&-\mu  (\tilde{H}^\dagger U^\dagger) (U \Delta U^\dagger)^\dagger U H\\
+        =& -\mu \tilde{H}^\dagger U^\dagger U \Delta^\dagger U^\dagger  U H\\
+        =&-\mu \tilde{H}^\dagger\Delta^\dagger H.
+    \end{align}
+\end{itemize}
+\textbf{Hence, both interaction terms are invariant under $SU(2)_L$ and $U(1)_Y$ gauge transformations.} Next, for the discussion about $\xi_{ij}$, we first observe the term $i\sigma_2 \Delta$, which is given by 
+\begin{align}
+    &M=i\sigma_2 \Delta = 
+    \begin{pmatrix}
+    0&1\\
+    -1&0    
+    \end{pmatrix}\begin{pmatrix}
+    \Delta^+/\sqrt{2}& \Delta^{++}\\
+    \Delta^0         & -\Delta^{+}/\sqrt{2}    
+    \end{pmatrix}=\begin{pmatrix}
+    \Delta^0& -\Delta^{+}/\sqrt{2}   \\
+    -\Delta^+/\sqrt{2}         & -\Delta^{++}    
+    \end{pmatrix}\\
+    \implies& M=M^T.
+\end{align}
+Then if we take the transpose on $\overline{L_i^c} i\sigma_2 \Delta L_j$, we can get
+\begin{align}
+    &\overline{L_i^c} M L_j= (-i\gamma^2 L_i^*)^\dagger\gamma^0 M L_j=L_i^T (+i)(-\gamma^2)\gamma^0 M L_j=L_i^T (-i\gamma^2)\gamma^0 M L_j\\
+    \underset{\text{transpose}}{\implies}& \underbrace{(-1)}_{\text{since exchange two fermions}} (L_j)^T M^T \underbrace{(\gamma^0)^T}_{\gamma^0} \underbrace{(-i\gamma^2)^T}_{-i\gamma^2} L_i = L_j^T M^T \underbrace{\gamma^0 (i\gamma^2)}_{(-i\gamma^2)\gamma^0} L_i \\
+    =& L_j^T \underbrace{M^T  (-i\gamma^2)\gamma^0}_{[M,\gamma^\mu]=0} L_i\\
+    =&L_j^T (-i\gamma^2)\gamma^0 M^T   L_i =  \overline{L_j^c} M L_i.
+\end{align} 
+Hence, we have $\overline{L_i^c} M L_j= \overline{L_j^c} M L_i$, which is symmetric with interchanging $i,j$, and the $\xi_{ij}$ has to be symmetric as well.
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\question{2}{\textbf{Majorana phases and neutrino oscillations}}
+
+The PMNS matrix for Majorana neutrinos is $U_\text{PMNS}=U_\text{Dirac}\text{diag}(1,e^{i\alpha/2},e^{i\beta/2})$, where $U_\text{Dirac}$ contains three mixing angles and one Dirac CP-violating phase, while $\alpha$ and $\beta$ are Majorana phases.
+\begin{itemize}
+    \item [(a)] Write the vacuum oscillation amplitude for $\nu_l\to\nu_{l'}$ in terms of $U_\text{PMNS}$, the neutrino masses, the baseline $L$, and the neutrino energy $E$. Show explicitly that the Majorana phases cancel from the oscillation probability.
+    \item [(b)] Briefly explain why Majorana phases can enter lepton-number-violating processes such as neutrinoless double beta decay, but do not affect ordinary neutrino oscillations.
+\end{itemize}
+
+
+\answer{}
+
+
+
+\clearpage
+\question{3}{\textbf{Solar neutrino day-night effect}}
+
+Solar neutrino oscillations can be modified by the fact that during the night neutrinos must pass through the Earth before reaching the detectors. Hence the oscillation probability can differ between neutrinos arriving during the day and at night. Experiments with real-time event reconstruction can therefore search for a day-night asymmetry in the measured solar neutrino flux.
+
+To understand this effect, assume that high-energy $^8$B solar neutrinos arrive at the surface of the Earth approximately in the $|\nu_2\rangle$ mass eigenstate. This is a consequence of adiabatic MSW conversion in the Sun, and for the physical value $\Delta m_{21}^2\approx 7.5 \times 10^{-5}$~eV$^2$ the approximation is still quite good, at the few-percent level. Work in a two-flavor framework $(\nu_e,\nu_x)$ where $|\nu_x\rangle$ is the active flavor state orthogonal to $|\nu_e\rangle$.
+
+\begin{itemize}
+    \item [(a)] By expressing $|\nu_2\rangle$ as a linear combination of $|\nu_e\rangle$ and $|\nu_x\rangle$, where the mixing angle is defined by $|\nu_e\rangle=\cos\theta|\nu_1\rangle+\sin\theta|\nu_2\rangle$, compute the probability that $|\nu_2\rangle$ is detected as an electron neutrino.
+    \item [(b)] If instead the solar neutrino, originally in the $|\nu_2\rangle$ state, propagates a distance $L$ through the Earth before reaching the detector, compute the probability that this neutrino is detected as an electron neutrino, assuming that the electron number density $n_e$ is constant along the neutrino path.
+    
+    \textit{Hint:} In matter of constant density, show that the oscillation frequency is 
+    \begin{align}
+        \Delta_M=\sqrt{\Delta^2 \sin^2 2\theta + (\Delta\cos2\theta-\sqrt{2}G_Fn_e)^2},
+    \end{align}
+    where $\Delta= (\Delta m^2)/(2E_\nu)$, and that the matter mixing angle satisfies $\Delta_M\sin2\theta_M=\Delta\sin2\theta$ and $\Delta_M\cos2\theta_M=\Delta\cos2\theta-\sqrt{2}G_F n_e$.
+    \item [(c)] Given the values $L=3000$~km, $\sqrt{2}G_F n_e=1.5\times10^{-13}$~eV, $\Delta m_{21}^2=7.5\times 10^{-5}$~eV$^2$, $\sin^2\theta\approx0.3$ and $E_\nu=8$~MeV, obtain $P_{ee}^\text{night}-P_{ee}^\text{day}$. Compare your result qualitatively with the observed fact that the solar-neutrino day-night asymmetry is at the few-percent level. In 2014, the Super-Kamiokande experiment reported a $2.7\sigma$ indication of a nonzero day-night asymmetry for $^8$B neutrinos, which has been updated to a $2.9\sigma$ effect in Phys. Rev. \textbf{D94}, 052010 (2016).
+\end{itemize}
+
+\answer{}
+
+
