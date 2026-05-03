@@ -1,0 +1,68 @@
+\section*{Homework 12 Due to April 23 8:00 AM}
+
+\question{1}{}
+The standard model is formulated in terms of $4+8$ gauge bosons. The latter are gluons, the gauge bosons of QCD. Four gauge bosons represent the electroweak sector. Usually one starts with three gauge bosons $W$ representing SU$(2)$, and one gauge boson $B$ representing the hypercharge. Upon the spontaneous breaking $W_3$ and $B$ mix with each other; their linear combinations form the $Z$ boson and the massless photon $\gamma$. Derive the expressions for $Z$ and $\gamma$ in terms of $W_3$ and $\gamma$.
+
+Basing on the anomalies’ cancellations verified in Sec.~$19.2$ of my textbook, check that the cancelation persists for the triangle graphs for 
+\begin{align}
+    ZW^+W^-, \quad ZZZ, \quad \gamma\gamma\gamma, \quad \gamma W^+W^-. 
+\end{align} 
+i.e. derive the analogs of Eqs.~$(19.3)-(19.10)$.
+
+\answer{}
+First, we need to express the $Z$ boson and the photon $\gamma$ in terms of the original gauge bosons $W_3$ and $B$. The mixing can be described by the Weinberg angle $\theta_W$, which is defined as:
+\begin{align}
+    \tan \theta_W = \frac{g'}{g},
+\end{align}
+where $g$ is the SU(2) gauge coupling and $g'$ is the U(1) gauge coupling. The physical gauge bosons are then given by:
+\begin{align}
+    Z_\mu &= \cos \theta_W W_{3\mu} - \sin \theta_W B_\mu, \\
+    A_\mu &= \sin \theta_W W_{3\mu} + \cos \theta_W B_\mu.
+\end{align}
+We will consider the amplitudes contribution from left-handed fermions and right-handed fermions separately. The sum of these contributions should vanish for the anomalies to cancel. The relevant Feynman diagrams involve triangle loops with fermions running in the loop and gauge bosons as external legs. Besides, because of the $gamma_5$ matrix, their contributions from left-handed and right-handed fermions will have opposite signs.
+
+\begin{itemize}
+    \item $ZW^+W^-$: 
+    Since $W^\pm$ bosons couple only to left-handed fermions ($g_R = 0$), only the left-handed doublets contribute to this triangle diagram. The coupling of the $Z$ boson to left-handed fermions is $g_L^f = T_3^f - Q_f \sin^2\theta_W$. The anomaly coefficient is proportional to the sum over all left-handed fermions in a single generation:
+    \begin{align}
+        \mathcal{A}_{ZW^+W^-} \propto \sum_{f \in L} g_L^f = \sum_{f \in L} T_3^f - \sin^2\theta_W \sum_{f \in L} Q_f.
+    \end{align}
+    For one generation, the sums vanish independently:
+    \begin{itemize}
+        \item $\sum_{f \in L} T_3^f = (\frac{1}{2} - \frac{1}{2})_{lep} + 3 \times (\frac{1}{2} - \frac{1}{2})_{quark} = 0$
+        \item $\sum_{f \in L} Q_f = (0 - 1)_{lep} + 3 \times (\frac{2}{3} - \frac{1}{3})_{quark} = -1 + 1 = 0$
+    \end{itemize}
+    Thus, $\mathcal{A}_{ZW^+W^-} = 0$.
+
+    \item {$ZZZ$}: 
+    The $Z$ boson couples to both left-handed ($g_L^f$) and right-handed ($g_R^f = -Q_f \sin^2\theta_W$) fermions. The total anomaly is proportional to $\sum_f [(g_L^f)^3 - (g_R^f)^3]$:
+    \begin{align}
+        \mathcal{A}_{ZZZ} \propto \sum_f \left[ (T_3^f - Q_f \sin^2\theta_W)^3 - (-Q_f \sin^2\theta_W)^3 \right].
+    \end{align}
+    Expanding the cubic term $(T_3^f - Q_f \sin^2\theta_W)^3$, we obtain:
+    \begin{align}
+        \mathcal{A}_{ZZZ} \propto \sum_f \left[ (T_3^f)^3 - 3(T_3^f)^2 Q_f \sin^2\theta_W + 3 T_3^f (Q_f \sin^2\theta_W)^2 \right].
+    \end{align}
+    Using $T_3 = \pm 1/2$ for doublets, each term vanishes upon summation over a generation:
+    \begin{itemize}
+        \item $\sum T_3^3 = \frac{1}{4} \sum T_3 = 0$ (due to doublet structure).
+        \item $\sum T_3^2 Q = \frac{1}{4} \sum Q = 0$ (due to lepton-quark charge cancellation).
+        \item $\sum T_3 Q^2 = \frac{1}{2}(Q_u^2 - Q_d^2) \times 3 + \frac{1}{2}(Q_\nu^2 - Q_e^2) = \frac{1}{2}(\frac{4}{9} - \frac{1}{9}) \times 3 + \frac{1}{2}(0 - 1) = \frac{1}{2} - \frac{1}{2} = 0$.
+    \end{itemize}
+    Consequently, $\mathcal{A}_{ZZZ} = 0$.
+
+    \item {$\gamma W^+W^-$}: 
+    Similar to $ZW^+W^-$, only left-handed fermions contribute because of the $W$ vertices. The photon couples to the charge $Q_f$ regardless of chirality. The anomaly is:
+    \begin{align}
+        \mathcal{A}_{\gamma W^+W^-} \propto \sum_{f \in L} Q_f = (-1)_{lep} + 3 \times \left( \frac{1}{3} \right)_{quark} = 0.
+    \end{align}
+    This precise cancellation between leptons and quarks is essential for the consistency of the Standard Model.
+
+    \item {$\gamma\gamma\gamma$}: 
+    The photon is a pure vector gauge boson, where $Q_L = Q_R = Q_f$. The anomaly contribution for each fermion species vanishes identically:
+    \begin{align}
+        \mathcal{A}_{\gamma\gamma\gamma} \propto \sum_f (Q_f^3 - Q_f^3) = 0.
+    \end{align}
+\end{itemize}
+
+In conclusion, the anomaly cancellation persists for all the specified triangle graphs, ensuring the consistency of the Standard Model.\qed

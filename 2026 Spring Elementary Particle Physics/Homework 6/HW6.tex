@@ -19,7 +19,7 @@ where $\xi_{ij}$ are dimensionless couplings and $\mu$, $M_\Delta$ are new mass 
     \item [(a)] Show that the two interaction terms above are gauge invariant under $SU(2)_L\times U(1)_Y$. In particular, verify that the hypercharge assignments are consistent and explain why the flavor matrix $\xi_{ij}$ must be symmetric. \textit{Hint}: Recall that under an $SU(2)_L$ transformation $U$, $\Delta\to U\Delta U^\dagger$.
     \item [(b)] Assume $M_\Delta$ is much larger than the electroweak scale. Integrate out the heavy triplet at tree level and show that the resulting low-energy effective theory contains the Weinberg operator 
     \begin{align}
-        \mathcal{L}_\text{eff}\supset - \frac{\kappa_{ij}}{\lambda} (\overline{L_i}\tilde{H})(\tilde{H}^T L_j^c) +h.c.
+        \mathcal{L}_\text{eff}\supset - \frac{\kappa_{ij}}{\Lambda} (\overline{L_i}\tilde{H})(\tilde{H}^T L_j^c) +h.c.
     \end{align}
     Determine the coefficient in terms of $\xi_{ij}, \mu$ and $M_\Delta$, up to an overall sign and convention-dependent factors of $2$.
     \item [(c)] After electroweak symmetry breaking, determine the resulting neutrino mass matrix $(m_\nu)_{ij}$. Compare your result with the schematic right-handed neutrino seesaw scaling $m_\nu\approx\frac{y_\nu v^2}{M_N}$, or equivalently $\frac{\kappa}{\Lambda}\approx \frac{y_\nu^2}{M_N}$, which arises from integrating out heavy right-handed neutrinos with mass $M_N$ and Yukawa coupling $y_\nu$. What is the corresponding heavy mass scale and coupling combination in the scalar-triplet case?
@@ -36,7 +36,7 @@ For the second interaction term, $\tilde{H}^\dagger\Delta^\dagger H$, in order t
     &\frac{1}{2}-Y_\Delta +\frac{1}{2}  = 0 \\
     \implies& Y_\Delta = 1.
 \end{align}
-The corresponding quantum numbers or representation for $L,L^c,H,\tilde{H},\Delta,\Delta^\dagger$ under the gauge group $SU(2)_L\times U(1)_Y$ are given by Table~\ref{table:HW6-quantum}. 
+The corresponding quantum numbers or representation for $L,L^c,H,\tilde{H},\Delta,\Delta^\dagger$ under the gauge group $SU(2)_L\times U(1)_Y$ are listed in Table~\ref{table:HW6-quantum}. 
 
 \begin{table}[!ht]
 \centering 
@@ -49,7 +49,7 @@ The corresponding quantum numbers or representation for $L,L^c,H,\tilde{H},\Delt
     $H$  &   $\mathbf{2}$ &  $1/2$    \\
     $\tilde{H}$  &   $\mathbf{2}$ &  $-1/2$    \\
     $\Delta$  &   $\mathbf{3}$ &  $1$    \\
-    $\Delta^\dagger$  &   $\mathbf{\overline{3}}$ &  $-1$    \\
+    $\Delta^\dagger$  &   $\mathbf{3}$ &  $-1$    \\
     \hline
     \end{tabular}
     \caption{Field quantum numbers under $SU(2)_L \times U(1)_Y$.}
@@ -137,9 +137,96 @@ Hence, we have $\overline{L_i^c} M L_j= \overline{L_j^c} M L_i$, which is symmet
     \item [(b)]
 \end{itemize}
 
+\begin{figure}[!th]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-2.5,2.5) {\(L_j\)};
+        \vertex (i2) at (-2.5,-2.5) {\(\overline{L_i^c}\)};
+        \vertex (f1) at (2.5,2.5) {\(H\)};
+        \vertex (f2) at (2.5,-2.5) {\(\tilde{H}\)};
+        % 頂點
+        \vertex (v1) at (-1,0);
+        \vertex (v2) at (1,0);
+        \diagram*{
+            (i1)--[fermion, momentum={\(p_1\)}](v1) --[fermion, reversed momentum={\(p_2\)}](i2),
+            (v1) --[scalar, momentum={\(q_s\)}](v2),
+            (f1)--[scalar, reversed momentum'={\(p_3\)}](v2) --[scalar, momentum'={\(p_4\)}] (f2),
+        };  
+        \node[left=5pt of v1] {\( -i\frac{1}{2}\xi_{ij} i\sigma_2\)};
+        \node[right=5pt of v2]{\( -i\mu\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $L_j \overline{L_i^c} \to H \tilde{H}$ via s-channel scalar exchange. $q_s = p_1 + p_2 = p_3 + p_4$ is the momentum of the intermediate scalar.}
+    \label{HW6:LL-HH-scattering-s-channel}
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{feynman}
+        % 外部粒子
+        \vertex (i1) at (-2.5,2.5) {\(L_j\)};
+        \vertex (i2) at (-2.5,-2.5) {\(\overline{L_i^c}\)};
+        \vertex (f1) at (2.5,2.5) {\(H\)};
+        \vertex (f2) at (2.5,-2.5) {\(\tilde{H}\)};
+        % 頂點
+        \vertex (v1) at (-1,0);
+        \vertex (v2) at (1,0);
+        \vertex (v4point) at (0,0);
+        \diagram*{
+            (i1)--[fermion, momentum={\(p_1\)}](v4point) --[fermion, reversed momentum={\(p_2\)}](i2),
+            (f1)--[scalar, reversed momentum'={\(p_3\)}](v4point) --[scalar, momentum'={\(p_4\)}] (f2),
+        };  
+        \node [left=5pt of v4point] {\( i \frac{\xi_{ij} \mu}{ 2 M_\Delta^2}\)};
+    \end{feynman}
+    \end{tikzpicture}
+    \caption{Feynman diagram for $L_j \overline{L_i^c} \to H \tilde{H}$ via 4-point contact interaction. This diagram arises from integrating out the heavy scalar $\Delta$ in the limit $M_\Delta \to \infty$.}
+    \label{HW6:LL-HH-scattering-4point}
+    \end{subfigure}
+    \caption{Tree-level Feynman diagrams for $L_j \overline{L_i^c} \to H \tilde{H}$ scattering via scalar interactions.}
+\end{figure}
+We first compute the amplitude for the process $L_j \overline{L_i^c} \to H \tilde{H}$ via s-channel scalar exchange, as shown in Fig.~\ref{HW6:LL-HH-scattering-s-channel}. Here we ignore the spinor structure. The amplitude is given by
+\begin{align}
+    i\mathcal{M}=&\left(-\frac{i}{2}\xi_{ij} \right) \frac{i}{q_s^2 - M_\Delta^2} (-i\mu)\\
+    =& -i \frac{\xi_{ij} \mu}{2 (q_s^2 - M_\Delta^2)} .
+\end{align}
+In the low-energy limit where $q_s^2 \ll M_\Delta^2$, we can approximate the amplitude as
+\begin{align}
+    i\mathcal{M} \approx i \frac{\xi_{ij} \mu}{2 M_\Delta^2} .
+\end{align}
+This corresponds to an effective 4-point contact interaction, as shown in Fig.~\ref{HW6:LL-HH-scattering-4point}, with an effective Lagrangian term given by
+\begin{align}
+    \mathcal{L}_\text{eff} \supset - \frac{\xi_{ij} \mu}{2 M_\Delta^2} (\overline{L_i}\tilde{H})(\tilde{H}^T L_j^c) + h.c.
+\end{align}
+Comparing this with the Weinberg operator, we can identify the coefficient as
+\begin{align}
+    \frac{\kappa_{ij}}{\Lambda} = \frac{\xi_{ij} \mu}{2 M_\Delta^2}.
+\end{align}
 
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
 
-
+After electroweak symmetry breaking, the Higgs field acquires a vacuum expectation value $\langle H \rangle = (0, v/\sqrt{2})^T$. Substituting this into the effective Lagrangian term, we get the neutrino mass matrix as
+\begin{align}
+    &- \frac{\xi_{ij} \mu}{2 M_\Delta^2} (\overline{L_i}\tilde{H})(\tilde{H}^T L_j^c) + h.c \\
+    \implies & - \frac{\xi_{ij} \mu}{2 M_\Delta^2} \left(\overline{L_i}\begin{pmatrix}0\\
+v/\sqrt{2}\end{pmatrix}\right) \left(\begin{pmatrix}0 & v/\sqrt{2}\end{pmatrix} L_j^c\right) + h.c.\\
+    =& - \frac{\xi_{ij} \mu v^2}{4 M_\Delta^2} \overline{\nu_{iL}} \nu_{jL}^c + h.c.\\
+    =& - \frac{\xi_{ij} \mu v^2}{4 M_\Delta^2} \overline{\nu_{iL}} \nu_{jR} + h.c.
+\end{align}
+Hence, the neutrino mass matrix is given by
+\begin{align}
+    (m_\nu)_{ij} = \frac{\xi_{ij} \mu v^2}{4 M_\Delta^2}.
+\end{align}
+Comparing this with the right-handed neutrino seesaw scaling $m_\nu\approx\frac{y_\nu v^2}{M_N}$, we can identify the corresponding heavy mass scale and coupling combination in the scalar-triplet case as
+\begin{align}
+    M_N \leftrightarrow \frac{4 M_\Delta^2}{\xi_{ij} \mu}, \quad y_\nu \leftrightarrow 1.
+\end{align}
+\qed
 
 
 
@@ -157,8 +244,43 @@ The PMNS matrix for Majorana neutrinos is $U_\text{PMNS}=U_\text{Dirac}\text{dia
 
 
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+The flavor eigenstates of neutrinos can be expressed as a linear combination of the mass eigenstates as follows:
+\begin{align}
+    |\nu_l\rangle = \sum_{j=1}^3 U_{lj}^* |\nu_j\rangle,
+\end{align}where $U_{lj}$ are the elements of the PMNS matrix. The time evolution of the mass eigenstates is given by
+\begin{align}
+    |\nu_j(t)\rangle = e^{-i E_j t} |\nu_j\rangle,
+\end{align}where $E_j$ is the energy of the $j$-th mass eigenstate. The flavor state at time $t$ can be written as
+\begin{align}
+    |\nu_l(t)\rangle = \sum_{j=1}^3 U_{lj}^* e^{-i E_j t} |\nu_j\rangle.
+\end{align} 
+The oscillation amplitude for $\nu_l \to \nu_{l'}$ can be calculated as follows:
+\begin{align}
+    A_{l \to l'}(t) &= \langle \nu_{l'} | \nu_l(t) \rangle \\
+    &= \sum_{i=1}^3 U_{l'i} \langle \nu_i | \sum_{j=1}^3 U_{lj}^* e^{-i E_j t} |\nu_j\rangle \\
+    &= \sum_{i=1}^3 U_{l'i} U_{li}^* e^{-i E_i t}.
+\end{align}
+Now, we can express the PMNS matrix in terms of the Dirac and Majorana phases as follows:
+\begin{align}
+    U_\text{PMNS} = U_\text{Dirac} \cdot \text{diag}(1, e^{i\alpha/2}, e^{i\beta/2}).
+\end{align}
+This means that the elements of the PMNS matrix can be written as
+\begin{align}
+    U_{li} = (U_\text{Dirac})_{li} \cdot e^{i\phi_i},
+\end{align}where $\phi_i$ is the Majorana phase associated with the $i$-th mass eigenstate. Substituting this into the expression for the oscillation amplitude, we get
+\begin{align}
+    A_{l \to l'}(t) &= \sum_{i=1}^3 (U_\text{Dirac})_{l'i} e^{i\phi_i} (U_\text{Dirac})_{li}^* e^{-i\phi_i} e^{-i E_i t} \\
+    &= \sum_{i=1}^3 (U_\text{Dirac})_{l'i} (U_\text{Dirac})_{li}^* e^{-i E_i t}.
+\end{align}
+As we can see, the Majorana phases $e^{i\phi_i}$ and $e^{-i\phi_i}$ cancel out in the expression for the oscillation amplitude. Therefore, the oscillation probability, which is given by $P_{l \to l'}(t) = |A_{l \to l'}(t)|^2$, is also independent of the Majorana phases.
 
-
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+Since Majorana phases do not affect the oscillation probabilities, they cannot be probed through ordinary neutrino oscillation experiments. If neutrinos are Dirac particles, then the process should conserve lepton number. However, if neutrinos are Majorana particles, then lepton number is not conserved, and processes that violate lepton number is possible. Hence, the Majorana phases can enter lepton-number-violating processes such as neutrinoless double beta decay. 
 
 \clearpage
 \question{3}{\textbf{Solar neutrino day-night effect}}
@@ -180,5 +302,122 @@ To understand this effect, assume that high-energy $^8$B solar neutrinos arrive 
 \end{itemize}
 
 \answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+Given that $|\nu_e\rangle=\cos\theta|\nu_1\rangle+\sin\theta|\nu_2\rangle$, we can express $|\nu_2\rangle$ as a linear combination of $|\nu_e\rangle$ and $|\nu_x\rangle$ as follows:
+\begin{align}
+    |\nu_2\rangle = \sin\theta |\nu_e\rangle + \cos\theta |\nu_x\rangle.
+\end{align}
+The probability that $|\nu_2\rangle$ is detected as an electron neutrino is given by the square of the amplitude for $|\nu_2\rangle$ to be in the $|\nu_e\rangle$ state:
+\begin{align}
+    P_{ee}^\text{day} = |\langle \nu_e | \nu_2 \rangle|^2 = |\sin\theta|^2 = \sin^2\theta.
+\end{align}
 
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+To derive $\Delta_M$ and $\theta_M$, we start with the effective Hamiltonian for neutrino propagation in matter in the flavor basis $(|\nu_e\rangle, |\nu_x\rangle)$:
+\begin{align}
+H_{f} = H_{vac} + H_{int}
+\end{align}
+The vacuum part $H_{vac}$, after subtracting a common trace term $\frac{E_1+E_2}{2}$, is given by:
+\begin{align}
+H_{vac} = \frac{\Delta}{2} 
+    \begin{pmatrix} 
+    -\cos 2\theta & \sin 2\theta \\
+     \sin 2\theta & \cos 2\theta 
+    \end{pmatrix},
+\end{align}
+where $\Delta = \frac{\Delta m^2}{2E}$. The interaction part $H_{int}$ arises from the coherent forward scattering of $\nu_e$ on electrons (via $W$ exchange), contributing a potential $V = \sqrt{2}G_F n_e$:
+\begin{align}
+H_{int} = \begin{pmatrix} 
+    V & 0 \\ 
+    0 & 0 \end{pmatrix}.
+\end{align}
+Total Hamiltonian $H_f$ (after again subtracting $V/2$ to make it traceless) becomes:
+\begin{align}
+H_f = \frac{1}{2} 
+    \begin{pmatrix} 
+    V - \Delta \cos 2\theta & \Delta \sin 2\theta \\
+     \Delta \sin 2\theta & -(V - \Delta \cos 2\theta) 
+    \end{pmatrix}.
+\end{align}
 
+We wish to express this in the same form as the vacuum Hamiltonian but with matter-modified parameters $\Delta_M$ and $\theta_M$:
+\begin{align}
+    H_f = \frac{\Delta_M}{2} \begin{pmatrix} 
+        -\cos 2\theta_M & \sin 2\theta_M \\
+         \sin 2\theta_M & \cos 2\theta_M 
+    \end{pmatrix}.
+\end{align}
+Comparing the matrix elements, we obtain the following relations:
+\begin{enumerate}\item Off-diagonal term:
+    \begin{align}
+        \Delta_M \sin 2\theta_M = \Delta \sin 2\theta
+    \end{align}
+    \item Diagonal term:
+    \begin{align}
+        -\Delta_M \cos 2\theta_M = V - \Delta \cos 2\theta \implies \Delta_M \cos 2\theta_M = \Delta \cos 2\theta - V
+    \end{align}
+\end{enumerate}
+To find the oscillation frequency $\Delta_M$, we square and add these two equations:
+\begin{align}
+    \Delta_M^2 (\sin^2 2\theta_M + \cos^2 2\theta_M) &= (\Delta \sin 2\theta)^2 + (\Delta \cos 2\theta - V)^2 \nonumber \\
+    \Delta_M &= \sqrt{\Delta^2 \sin^2 2\theta + (\Delta \cos 2\theta - \sqrt{2}G_F n_e)^2}.
+\end{align}
+The matter mixing angle $\theta_M$ is then implicitly defined by:
+\begin{align}\tan 2\theta_M = \frac{\Delta \sin 2\theta}{\Delta \cos 2\theta - \sqrt{2}G_F n_e}.
+\end{align}
+In the Earth's matter with constant electron density $n_e$, the effective Hamiltonian eigenstates are the matter eigenstates $|\nu_{1m}\rangle$ and $|\nu_{2m}\rangle$. These are related to the flavor states by the matter mixing angle $\theta_M$:
+\begin{align}
+    |\nu_e\rangle &= \cos\theta_M |\nu_{1m}\rangle + \sin\theta_M |\nu_{2m}\rangle, \\
+    |\nu_x\rangle &= -\sin\theta_M |\nu_{1m}\rangle + \cos\theta_M |\nu_{2m}\rangle.
+\end{align}
+The solar neutrino enters the Earth in the $|\nu_2\rangle$ mass eigenstate. Expressing $|\nu_2\rangle$ in terms of the matter eigenstates:
+\begin{align}
+    |\nu(0)\rangle = |\nu_2\rangle &= \sin\theta |\nu_e\rangle + \cos\theta |\nu_x\rangle \nonumber \\
+    &= \sin\theta (\cos\theta_M |\nu_{1m}\rangle + \sin\theta_M |\nu_{2m}\rangle) + \cos\theta (-\sin\theta_M |\nu_{1m}\rangle + \cos\theta_M |\nu_{2m}\rangle) \nonumber \\
+    &= -\sin(\theta_M - \theta) |\nu_{1m}\rangle + \cos(\theta_M - \theta) |\nu_{2m}\rangle.
+\end{align}
+After propagating a distance $L$, the state evolves to (ignoring a global phase):
+\begin{align}
+    |\nu(L)\rangle = -e^{-i E_{1m} L} \sin(\theta_M - \theta) |\nu_{1m}\rangle + e^{-i E_{2m} L} \cos(\theta_M - \theta) |\nu_{2m}\rangle,
+\end{align}
+where $E_{2m} - E_{1m} = \Delta_M$ is the oscillation frequency in matter. The probability of detecting this neutrino as an electron neutrino is $P_{ee}^{\text{night}} = |\langle \nu_e | \nu(L) \rangle|^2$:
+\begin{align}
+    \langle \nu_e | \nu(L) \rangle &= -\cos\theta_M \sin(\theta_M - \theta) + e^{-i \Delta_M L} \sin\theta_M \cos(\theta_M - \theta) \nonumber \\
+    &= -\cos\theta_M (\sin\theta_M \cos\theta - \cos\theta_M \sin\theta) + e^{-i \Delta_M L} \sin\theta_M (\cos\theta_M \cos\theta + \sin\theta_M \sin\theta).
+\end{align}
+Using the identity $|\alpha + \beta e^{-i\phi}|^2 = \alpha^2 + \beta^2 + 2\alpha\beta\cos\phi$, and simplifying the result:
+\begin{align}
+    P_{ee}^{\text{night}} = \sin^2\theta + \sin 2\theta_M \sin 2(\theta_M - \theta) \sin^2\left( \frac{\Delta_M L}{2} \right).
+\end{align}
+The second term represents the regeneration of the electron neutrino flavor due to the Earth's matter effect.
+
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+First, we calculate the vacuum oscillation parameter $\Delta$:
+\begin{align}
+    \Delta = \frac{\Delta m_{21}^2}{2E_\nu} = \frac{7.5 \times 10^{-5} \text{ eV}^2}{2 \times 8 \times 10^6 \text{ eV}} \approx 4.69 \times 10^{-12} \text{ eV}.
+\end{align}
+The matter potential is given by $V = \sqrt{2}G_F n_e = 1.5 \times 10^{-13}$ eV. Given $\sin^2\theta \approx 0.3$, we have $\cos 2\theta = 1 - 2\sin^2\theta = 0.4$ and $\sin 2\theta = \sqrt{1 - 0.4^2} \approx 0.917$. The matter oscillation parameters are:
+\begin{align}
+    \Delta_M \sin 2\theta_M &= \Delta \sin 2\theta \approx 4.30 \times 10^{-12} \text{ eV}, \\
+    \Delta_M \cos 2\theta_M &= \Delta \cos 2\theta - V \approx 1.88 \times 10^{-12} - 0.15 \times 10^{-12} = 1.73 \times 10^{-12} \text{ eV}.
+\end{align}
+The oscillation frequency in matter is $\Delta_M = \sqrt{(4.30)^2 + (1.73)^2} \times 10^{-12} \approx 4.63 \times 10^{-12}$ eV. The mixing angles satisfy:
+\begin{align}
+    \sin 2\theta_M \approx 0.928, \quad \cos 2\theta_M \approx 0.373.
+\end{align}
+The factor for the asymmetry is:
+\begin{align}
+    \sin 2(\theta_M - \theta) = \sin 2\theta_M \cos 2\theta - \cos 2\theta_M \sin 2\theta \approx (0.928)(0.4) - (0.373)(0.917) \approx 0.029.
+\end{align}
+For solar neutrinos, the oscillation phase is averaged due to the energy spread, so $\langle \sin^2 (\Delta_M L / 2) \rangle = 1/2$. The day-night difference is:
+\begin{align}
+    P_{ee}^{\text{night}} - P_{ee}^{\text{day}} &= \frac{1}{2} \sin 2\theta_M \sin 2(\theta_M - \theta) \nonumber \\
+    &\approx \frac{1}{2} (0.928)(0.029) \approx 0.0135 = 1.35\%.
+\end{align}
+\qed

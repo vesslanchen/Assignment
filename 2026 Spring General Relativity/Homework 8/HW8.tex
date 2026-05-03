@@ -1,0 +1,280 @@
+\section*{Problem Set 8 due on May 8 at 11:59pm}
+
+\question{1}{}
+\begin{itemize}
+    \item [(a)] If the quantity $\hat{k}\equiv\frac{k}{a^2 T^2}=-10^{-40}$, determine the temperature at which the Universe becomes curvature dominated. 
+\end{itemize}
+
+We can still define ``today" to be the time when the microwave background temperature has reached the value $2.7$~K. 
+
+\begin{itemize}
+    \item [(b)] In this case, however, what is the value of the Hubble parameter (in km/s/Mpc), and
+    \item [(c)] what it the corresponding age of the Universe (in years) today?
+    \item [(d)] How does the scale factor grow with time?
+    \item [(e)] How does the distance to the horizon scale with time?
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+First, start with the Friedmann equation, which is given by 
+\begin{align}
+    H^2 =& \frac{8\pi G \rho}{3}- \frac{k}{a^2}\\
+    =&\frac{8\pi G \rho}{3} + 10^{-40} T^2.
+\end{align}
+To be more specific, we are determining when $\frac{8\pi G \rho}{3}=10^{-40} T^2$. We assume radiation dominating the process, and then this condition is given by
+\begin{align}
+    \frac{8\pi G \rho_r}{3}=& \frac{8\pi}{3 M_p^2} \underbrace{\frac{\pi^2N}{30} T^4}_{\rho_r} = 10^{-40} T^2\\
+    \rightarrow& T^2 =10^{-40}\times\frac{90M_p^2}{8N\pi^3}\\
+    \rightarrow& T \approx 10^{-20}\times(0.06)\times M_p\approx0.0072\text{ GeV} = 7.2 \text{ Mev},
+\end{align}
+where we assume $N\approx100$. However, this temperature is below than the QCD confinement scale $\Lambda_\text{QCD}\approx300$~MeV. Hence, the degree of freedom $N$ should be modified to $10.75$ (only photons, electrons, neutrinos), and the $T$ is re-evaluated as 
+\begin{align}
+    T\approx 22\text{ MeV}.
+\end{align}
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+First, $T_0=2.7$~K$=2.327\times10^{-4}$~eV, and the current Hubble parameter $H_0$ is dominated by curvature, which is given by 
+\begin{align}
+    H_0 =& \sqrt{\frac{-k}{a^2}}=\sqrt{10^{-40} T^2}=10^{-20}\times2.327\times10^{-4}\text{ eV}\\
+    \approx&2.327\times 10^{-24} \text{ eV}.
+\end{align}
+To convert this to km/s/Mpc, we use the conversion factor $1 \text{ eV} \approx 4.69 \times 10^{34} \text{ km/s/Mpc}$:
+\begin{align}
+    H_0 \approx& 2.33 \times 10^{-24} \times (4.69 \times 10^{34}) \\
+    \approx& 1.09 \times 10^{11} \text{ km/s/Mpc}.
+\end{align}
+
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Since the universe expansion is dominated by curvature source, the Hubble parameter $H$ is proportional to $t^{-1}$. Hence, the age of the universe is given by 
+\begin{align}
+    t_0\approx\frac{1}{H_0}=\frac{1}{2.327\times 10^{-24} \text{ eV}}.
+\end{align}
+Again, to convert this to years, we use the conversion $1 \text{ s} \approx 1.52 \times 10^{15} \text{ eV}^{-1}$:
+\begin{align}
+t_0 \approx& \frac{4.29 \times 10^{23}}{1.52 \times 10^{15}} \text{ s} \approx 2.82 \times 10^8 \text{ s}.
+\end{align}
+Given that $1 \text{ year} \approx 3.15 \times 10^7$ s, the age of the Universe today is:
+\begin{align}
+t_0 \approx& \frac{2.82 \times 10^8}{3.15 \times 10^7} \text{ years} \approx 9 \text{ years}.
+\end{align}
+
+\begin{itemize}
+    \item [(d)]
+\end{itemize}
+The definition of hubble parameter is given by 
+\begin{align}
+    H= \frac{\dot{a}}{a}= \sqrt{- \frac{k}{a^2}}=\frac{\sqrt{|k|}}{a}.
+\end{align}
+Hence, we can obtain 
+\begin{align}
+    &\dot{a}=\sqrt{|k|} \\
+    \rightarrow&a(t)=\sqrt{|k|}t + C, 
+\end{align}
+where the constant $C$ can be determined by the initial condition $a(t=0)=0$. Finally, we get 
+\begin{align}
+    a\propto t.
+\end{align}
+
+\begin{itemize}
+    \item [(e)]
+\end{itemize}
+
+The horizon distance $d_H(t)$ is defined as:
+\begin{align}
+d_H(t) = a(t) \int_0^t \frac{dt'}{a(t')}.
+\end{align}
+We split the integral into two parts: radiation dominated and curvature dominated:
+\begin{align}
+    d_H(t_0) = a_\text{cur}(t_0) \left[\int_0^{t_i}   \frac{dt'}{a_\text{rad}(t')}+ \int_{t_i}^{t_0}   \frac{dt'}{a_\text{cur}(t')} \right],
+\end{align}
+where $a_\text{rad}\propto t^{1/2}, a_\text{cur}\propto t$, and $t_i$ is when the curvature start to dominate. We can assume $a_\text{rad}(t)=At^{1/2},a_\text{cur}=Bt$, and $At_{i}^{1/2}=Bt_i\implies A=B\sqrt{t_i}$. Then, we can complete this integral: 
+\begin{align}
+    d_H(t_0)=& Bt_0 \left[  \frac{2}{A}\sqrt{t_i} + \frac{1}{B}\ln\left(\frac{t_0}{t_i}\right) \right]\\
+    =& t_0\left(2+ \ln\left(\frac{t_0}{t_i}\right)  \right)
+\end{align}
+\qed
+
+
+
+
+
+\clearpage
+\question{2}{}
+Consider the equations of motion for the inflation and radiation
+
+\begin{align}
+    \dot{\rho_\phi}+3H\rho_\phi&=-\Gamma_\phi\rho_\phi,  \\
+    \dot{\rho_R}+4H\rho_R&=\Gamma_\phi\rho_\phi,
+\end{align}
+\begin{itemize}
+    \item [(a)] Rewrite these equations in terms of $\frac{d}{dt}$ using $\frac{d}{dt}=RH \frac{d}{dR}$.
+    \item [(b)] When $\Gamma_\phi\ll H$, the right hand side of the 1st equation can be neglected, leading to the simple solution that $\rho_\phi\approx\rho_\text{end} (R_{\text{end}}/R)^3$, where $\rho_\text{end}$ is the scale factor when inflation ends and $\rho_\text{end}=\rho_\phi(R_\text{end})$. Provide an analytic solution for $\rho_R$ by integrating the differential equation from $R_\text{end}$ to some $R > R_\text{end}$.
+    \item [(c)] Using the condition $\rho_R(R_\text{RH})=\rho_\phi(R_\text{RH})$, to define $R_\text{RH}$. Solve for $R_\text{end}/R_\text{RH}$ (your result will depend on $\rho_\text{end}$). Then find an expression for the reheat temperature (in terms of $\Gamma_\phi$) recalling that $\rho_R=\frac{\pi^2}{30} N T^4$.
+\end{itemize}
+\answer{}
+\textbf{Note:} I prefer using $a$ as the scale parameter instead of $R$.
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+By using $\frac{d}{dt}$ using $\frac{d}{dt}=aH \frac{d}{da}$, we can obtain 
+\begin{align}
+    &\begin{cases}
+        aH \frac{d\rho_\phi}{da}+3H \rho_\phi&=-\Gamma_\phi\rho_\phi\\
+        aH \frac{d\rho_R}{da}+4H \rho_R&=\Gamma_\phi\rho_\phi
+    \end{cases}\\
+    \rightarrow &
+    \begin{cases}
+        a\frac{d\rho_\phi}{da}+3 \rho_\phi&=-\frac{\Gamma_\phi}{H} \rho_\phi\\
+        a \frac{d\rho_R}{da}+4 \rho_R&=\frac{\Gamma_\phi}{H}\rho_\phi
+    \end{cases}
+\end{align}
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+If the $H\gg\Gamma_\phi$, the equation can be simplified as 
+\begin{align}
+    &\begin{cases}
+        a\frac{d\rho_\phi}{da}+3 \rho_\phi&=0\\
+        a \frac{d\rho_R}{da}+4 \rho_R&=\frac{\Gamma_\phi}{H}\rho_\phi
+    \end{cases}\\
+    \rightarrow&
+    \frac{d\rho_\phi}{\rho_\phi}=-3\frac{da}{a}\\
+    \rightarrow&
+    \ln\left(\frac{\rho_\phi}{\rho_\text{end}}\right)=-3\ln\left(\frac{a}{a_\text{end}}\right)\\
+    \rightarrow&
+    \rho_\phi=\rho_\text{end}  \left(\frac{a}{a_\text{end}}\right)^{-3}=\rho_\text{end}  \left(\frac{a_\text{end}}{a}\right)^{3}.
+\end{align}
+For the radiation part, we have the equation 
+\begin{align}
+    a \frac{d\rho_R}{da}+4 \rho_R&=\frac{\Gamma_\phi}{H}\rho_\phi,
+\end{align}
+and we know the hubble $H$ parameter is dominated by the inflation, which is given by 
+\begin{align}
+    H^2=&\frac{8\pi\rho_\phi}{3M_p^2}=\frac{8\pi}{3M_p^2} \rho_\text{end}  \left(\frac{a_\text{end}}{a}\right)^{3}\\
+    H=&\sqrt{\frac{8\pi}{3M_p^2} \rho_\phi}=\sqrt{\frac{8\pi}{3M_p^2} \rho_\text{end}  \left(\frac{a_\text{end}}{a}\right)^{3}}=H_\text{end}\left(\frac{a_\text{end}}{a}\right)^{3/2},\\
+    \rightarrow \frac{\Gamma_\phi}{H}\rho_\phi=&\frac{\Gamma_\phi}{H_\text{end}\left(\frac{a_\text{end}}{a}\right)^{3/2}}\rho_\text{end}  \left(\frac{a_\text{end}}{a}\right)^{3}=\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \left(\frac{a_\text{end}}{a}\right)^{3/2}
+\end{align}
+where $H_\text{end}=\sqrt{\frac{8\pi}{3M_p^2} \rho_\text{end}}$. Then, the radiation part can be simplified as 
+\begin{align}
+    a \frac{d\rho_R}{da}+4 \rho_R&=\frac{\Gamma_\phi}{H}\rho_\phi=\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \left(\frac{a_\text{end}}{a}\right)^{3/2}.
+\end{align}
+Multiplying by $a^3$ on both sides, then we have 
+\begin{align}
+    &\underbrace{a^4\frac{d\rho_R}{da}+4 a^3\rho_R}_{\frac{d}{da} (a^4\rho_R)}=\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \left(a_\text{end}\right)^{3/2} \left(a\right)^{3/2}\\
+    \rightarrow& \left.a^4\rho_R  \right|^{a}_{\text{end}}= \frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \left(a_\text{end}\right)^{3/2}  \frac{2}{5} \left.a^{5/2}  \right|^{a}_{\text{end}}
+\end{align}
+By assuming $\rho_R(a_\text{end})=0$, the equation can be simplified as 
+\begin{align}
+    \rho_R =& \frac{2}{5a^4} \left( \frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \left(a_\text{end}\right)^{3/2}\right) \left( a^{5/2}- (a_\text{end})^{5/2}  \right)\\
+    =&\frac{2}{5}\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}}\left[\left(\frac{a_\text{end}}{a}\right)^{3/2} -\left(\frac{a_\text{end}}{a}\right)^{4}\right].
+\end{align}
+
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+Define $\rho_R(a_\text{RH})=\rho_\phi(a_\text{RH})$, which is given by 
+\begin{align}
+    \rho_R=\frac{2}{5}\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}}\left[\left(\frac{a_\text{end}}{a_\text{RH}}\right)^{3/2} -\left(\frac{a_\text{end}}{a_\text{RH}}\right)^{4}\right]=\rho_\text{end}  \left(\frac{a_\text{end}}{a_\text{RH}}\right)^3.
+\end{align}
+Assuming $a_\text{RH}\gg a_\text{end}$, this equation can be simplified as 
+\begin{align}
+    &\frac{2}{5}\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \left(\frac{a_\text{end}}{a_\text{RH}}\right)^{3/2} =  \rho_\text{end}  \left(\frac{a_\text{end}}{a_\text{RH}}\right)^3\\
+    \rightarrow& \left(\frac{a_\text{end}}{a_\text{RH}}\right)^{3/2} = \frac{2}{5}\frac{\Gamma_\phi  }{H_\text{end}} \\
+    \rightarrow& \frac{a_\text{end}}{a_\text{RH}} = \left(\frac{2}{5}\frac{\Gamma_\phi  }{H_\text{end}}\right)^{2/3}=\left(\frac{2}{5}\frac{\Gamma_\phi  }{\sqrt{\frac{8\pi}{3M_p^2} \rho_\text{end}}}\right)^{2/3}.
+\end{align}
+Now $\rho_R(a_\text{RH})$ is given by 
+\begin{align}
+    \rho_R(a_\text{RH}) =&  \frac{2}{5}\frac{\Gamma_\phi \rho_\text{end} }{H_\text{end}} \underbrace{\left(\frac{a_\text{end}}{a_\text{RH}}\right)^{3/2}}_{\frac{2}{5}\frac{\Gamma_\phi  }{H_\text{end}}}=\frac{4}{25}\frac{\Gamma_\phi^2 \rho_\text{end} }{H_\text{end}^2}\\
+    =&\frac{4}{25}\frac{\Gamma_\phi^2 \rho_\text{end} }{\frac{8\pi}{3M_p^2} \rho_\text{end}}\\
+    =&\frac{3}{50\pi} \Gamma_\phi^2 M_p^2.
+\end{align}
+Using the formula $\rho_R=\frac{\pi^2}{30} N T^4$, we can have 
+\begin{align}
+    &\rho_R=\frac{\pi^2}{30} N T_\text{RH}^4 = \frac{3}{50\pi} \Gamma_\phi^2 M_p^2\\
+    \rightarrow& T_\text{RH} = \left(\frac{9}{5\pi^3}\frac{\Gamma_\phi^2 M_p^2}{N}\right)^{1/4}.
+\end{align}
+\qed
+
+
+\clearpage
+\question{3}{}
+Let $\phi$ be the scalar field driving inflation (the inflaton). After inflation, assume that $\phi$ is oscillating in a quadratic potential given by $m_\psi$ ($V=\frac{1}{2}m_\phi^2 \phi^2$) with an initial amplitude given by $M_p$. Further assume that the decay rate of $\phi$ is given by $\Gamma_\phi=m_\phi^3/M_p^2$. Let $R_\text{end}$ be the scale factor when $\phi$ begins its oscillations.
+
+\begin{itemize}
+    \item [(a)] Determine the ratio of the scale factor at the time of decay, $R_\text{RH}$ to $R_\text{end}$ your result from the previous problem with this specific decay rate.
+    \item [(b)] After decay, the Universe is radiation dominated. Your solution for the energy density in radiation is no longer valid as the source term in the 2nd equation of problem 2 vanishes. Find the radiation density (as a function of $R$) for $R>R_\text{RH}$.
+    \item [(c)] Assume now that another scalar field, $\psi$ with mass $m_\psi$ begins its oscillations with amplitude $\psi_0$ when $m_\psi=H$. Determine the ratio of the scale factor at the time $\psi$'s begin to oscillate, $R_\psi$ to $R_\text{end}$. Your result will depend on whether $\psi$ begins oscillation before or after $\phi$ decays. Derive this ratio for both cases and give the condition of $m_\psi$ needed for your solution to be valid. 
+\end{itemize}
+\answer{}
+\begin{itemize}
+    \item [(a)]
+\end{itemize}
+From the previous problem, with $\frac{a_\text{end}}{a_\text{RH}} = \left(\frac{2}{5}\frac{\Gamma_\phi  }{H_\text{end}}\right)^{2/3}=\left(\frac{2}{5}\frac{\Gamma_\phi  }{\sqrt{\frac{8\pi}{3M_p^2} \rho_\text{end}}}\right)^{2/3}$, the energy density $\rho_\phi$ (which is the potential $V$) and the decay width $\Gamma_\phi$ are given by 
+\begin{align}
+    &\begin{cases}
+        \rho_\text{end}=V=\frac{1}{2}m_\phi^2 M_p^2,\\
+        \Gamma_\phi=\frac{m_\phi^3}{M_p^2}
+    \end{cases}\\
+    \rightarrow&\frac{a_\text{end}}{a_\text{RH}} =\left(\frac{2}{5} \frac{ \frac{m_\phi^3}{M_p^2}  }{\sqrt{\frac{8\pi}{3M_p^2} \frac{1}{2}m_\phi^2 M_p^2}} \right)^{2/3}\\
+    =&\left(\sqrt{\frac{3}{25\pi}}  \frac{m_\phi^2}{M_p^2}  \right)^{2/3}\\
+    \rightarrow &\frac{a_\text{RH}}{a_\text{end}}= \left(\sqrt{\frac{\pi}{3}}  \frac{5M_p^2}{m_\phi^2}\right)^{2/3}.
+\end{align}
+
+\begin{itemize}
+    \item [(b)]
+\end{itemize}
+
+Now, after $\phi$ decaying, the contribution $\frac{\Gamma_\phi}{H}\rho_\phi$ in the $\rho_R$ differential equation will vanish, which is given by 
+\begin{align}
+    &a \frac{d\rho_R}{da}+4 \rho_R=\frac{\Gamma_\phi}{H}\rho_\phi=0\\
+    \rightarrow & \left. \ln(\rho_R) \right|_{\text{RH}}^{a} =  \left. -4\ln(a) \right|_{\text{RH}}^{a}\\
+    \rightarrow & \frac{\rho_R}{\rho_R(a_\text{RH})}= \left(\frac{a_\text{RH}}{a}\right)^4\\
+    \rightarrow & \rho_R =  \rho_R(a_\text{RH})\left(\frac{a_\text{RH}}{a}\right)^4 = \frac{3}{50\pi} \Gamma_\phi^2 M_p^2 \left(\frac{a_\text{RH}}{a}\right)^4 \\
+    =& \frac{3}{50\pi} \frac{m_\phi^6}{M_p^2} \left(\frac{a_\text{RH}}{a}\right)^4 \propto a^{-4}.
+\end{align}
+Particularly, after $\phi$ decaying, the radiation will freely dilute because of the expansion. In other word, the radiation energy density $\rho_R$ is proportional to $a^{-4}$.
+
+
+\begin{itemize}
+    \item [(c)]
+\end{itemize}
+According to previous problem, the hubble parameter at reheating is given by 
+\begin{align}
+    H_\text{RH} = H_\text{end} \left( \frac{a_\text{end}}{a_\text{RH}} \right)^{3/2} = H_\text{end} \left( \frac{2}{5} \frac{\Gamma_\phi}{H_\text{end}} \right) = \frac{2}{5} \Gamma_\phi = \frac{2}{5} \frac{m_\phi^3}{M_p^2}.
+\end{align}
+
+Assuming the $\psi$ field begins oscillate \textbf{before} the $\phi$ decay, the $\rho_\phi$ dominates the expansion source, and the hubble parameter $H$ now is given by 
+\begin{align}
+    &H\propto a^{-3/2} \\
+    &H=H_\text{end}\left(\frac{a_\text{end}}{a}\right)^{3/2}\\
+    \rightarrow& \frac{a_\text{end}}{a} = \left(\frac{H}{H_\text{end}}\right)^{2/3}\\
+    \rightarrow& \frac{a}{a_\text{end}} = \left(\frac{H_\text{end}}{H}\right)^{2/3}.
+\end{align}
+Hence, when $a=a_\psi$, then $H=m_\psi$, and $\psi$ start to oscillate. The equation is then given by 
+\begin{align}
+    \frac{a_\psi}{a_\text{end}}=\left(\frac{H_\text{end}}{H}\right)^{2/3}= \left(\frac{ \sqrt{\frac{8\pi}{3M_p^2} \frac{1}{2}m_\phi^2 M_p^2}}{m_\psi}\right)^{2/3}=\left(\sqrt{\frac{4\pi}{3}}\frac{m_\phi}{m_\psi}\right)^{2/3}.
+\end{align}
+This condition is valid when $a_\psi<a_\text{RH}$, meaning that $H=m_\psi>H_\text{RH}=\frac{2}{5} \Gamma_\phi = \frac{2}{5} \frac{m_\phi^3}{M_p^2}$.
+
+Next, assuming the $\psi$ field begins oscillate \textbf{after} the $\phi$ decay (after reheating), the $\rho_R$ dominates the expansion source, and the hubble parameter $H$ now is given by
+
+\begin{align}
+    &H\propto a^{-2} \\
+    &H=H_\text{RH}\left(\frac{a_\text{RH}}{a}\right)^{2}\\
+    \rightarrow& \frac{a_\text{RH}}{a} = \left(\frac{H}{H_\text{RH}}\right)^{1/2}\\
+    \rightarrow& \frac{a}{a_\text{RH}} = \left(\frac{H_\text{RH}}{H}\right)^{1/2}.
+\end{align}
+Hence, when $a=a_\psi$, then $H=m_\psi$, and $\psi$ start to oscillate. The equation is then given by 
+\begin{align}
+    &\frac{a_\psi}{a_\text{RH}}=\left(\frac{H_\text{RH}}{m_\psi}\right)^{1/2}\\
+    \rightarrow&\frac{a_\psi}{a_\text{end}}= \frac{a_\psi}{a_\text{RH}} \frac{a_\text{RH}}{a_\text{end}}=\left(\frac{H_\text{RH}}{m_\psi}\right)^{1/2} \left(\sqrt{\frac{\pi}{3}}  \frac{5M_p^2}{m_\phi^2}\right)^{2/3}.
+\end{align}
+This condition is valid when $a_\psi>a_\text{RH}$, meaning that $H=m_\psi<H_\text{RH}=\frac{2}{5} \Gamma_\phi = \frac{2}{5} \frac{m_\phi^3}{M_p^2}$.\qed
+
+

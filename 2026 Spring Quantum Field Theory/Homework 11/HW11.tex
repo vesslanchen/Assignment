@@ -1,0 +1,104 @@
+\section*{Homework 11 Due to April 16 8:00 AM}
+\question{1}{}
+In two-dimensional Schwinger model (massless 2D QED)
+\begin{align}
+    \mathcal{L}=-\frac{1}{4 e_0^2}F_{\mu\nu}F^{\mu\nu}+\bar{\psi}i\slashed{D}\psi,
+\end{align}
+where 
+\begin{align}
+    D_\mu = \partial_\mu + i A_\mu,
+\end{align}
+and $\psi$ is a two-dimensional Dirac spinor. Consider the axial-vector current, 
+\begin{align}
+    j_\mu^5 = \bar{\psi}\gamma_\mu\gamma_5\psi.
+\end{align}
+Calculate $\partial^\mu j_\mu^5$ by virtue of the classical equations of motion for $\psi$, $\bar{\psi}$. 
+
+
+Regularize (the UV divergent) current $j_\mu^5$ by adding the Pauli-Villars regulator field $\Psi_R$ 
+\begin{align}
+    \mathcal{L}_R = \bar{\Psi}_R(i\slashed{D}-M)\Psi_R, \ \mathcal{L}_{\text{total}} = \mathcal{L} + \mathcal{L}_R,
+\end{align}
+which is similar to $\psi$ in everything except two aspects: (i) it has a heavy mass $M$ ($M\to\infty$ at the end of the calculation); (ii) every loop of the primary $\psi$ field is accompanied by the similar regulator loop (made of $\Psi_R$) which must be multiplied “by hand” by −1 compared to the $\psi$ loop. If the axial-vector current is regularized as 
+\begin{align}
+    j_\mu^{5,\text{R}} = \bar{\psi}\gamma_\mu\gamma_5\psi - \bar{\Psi}_R\gamma_\mu\gamma_5\Psi_R,
+\end{align} 
+the classical equations of motion are applicable for $j_\mu^{5,\text{R}}$ provided that the equations of motion are derived from the total Lagrangian $\mathcal{L}_{\text{total}}$. Calculate $\partial^\mu j_\mu^{5,\text{R}}$, integrate out $\Psi_R$ and find $\partial^\mu j_\mu^{5,\text{R}}$ in term of the photon filed. Please, do not forget, that because of the gauge invariance $A_\mu$ can appear only through the field strength $F_{\mu\nu}$.
+
+\answer{}
+First, we write down the equations of motion for $\psi$, $\Psi_R$, and their conjugates:
+\begin{align}
+i\slashed{D}\psi &= 0, \\
+(i\slashed{D} - M)\Psi_R &= 0, \\
+\bar{\psi}i\overleftarrow{\slashed{D}} &= 0, \\
+\bar{\Psi}_R(i\overleftarrow{\slashed{D}} + M) &= 0.
+\end{align}
+Using these equations of motion, we can calculate the divergence of the original axial-vector current $j_\mu^5$:
+\begin{align}
+\partial^\mu j_\mu^5 &= \partial^\mu (\bar{\psi}\gamma_\mu\gamma_5\psi) \\
+&= (\partial^\mu \bar{\psi})\gamma_\mu\gamma_5\psi + \bar{\psi}\gamma_\mu\gamma_5(\partial^\mu \psi) \\
+&= \frac{1}{i}(-\bar{\psi}i\overleftarrow{\slashed{D}}\gamma_5\psi + \bar{\psi}\gamma_5 i\slashed{D}\psi) \\
+&= 0.
+\end{align}
+Note that $\partial^\mu (\bar{\psi} \gamma_\mu \gamma_5 \psi) = \bar{\psi} \overleftarrow{D}^\mu \gamma_\mu \gamma_5 \psi + \bar{\psi} \gamma_\mu \gamma_5 D^\mu \psi$ because the terms proportional to the gauge field $A_\mu$ cancel out due to the opposite gauge charges of $\psi$ and $\bar{\psi}$. Thus, classically, the axial-vector current is conserved. 
+
+Next, we calculate the divergence of the regularized axial-vector current $j_\mu^{5,\text{R}}$:
+\begin{align}
+\partial^\mu j_\mu^{5,\text{R}} &= \partial^\mu (\bar{\psi}\gamma_\mu\gamma_5\psi - \bar{\Psi}_R\gamma_\mu\gamma_5\Psi_R) \\
+&= \partial^\mu (\bar{\psi}\gamma_\mu\gamma_5\psi) - \partial^\mu (\bar{\Psi}_R\gamma_\mu\gamma_5\Psi_R) \\
+&= 0 - \frac{1}{i}(-\bar{\Psi}_R(i\overleftarrow{\slashed{D}} + M)\gamma_5\Psi_R + \bar{\Psi}_R\gamma_5 (i\slashed{D} - M)\Psi_R) \\
+&= -2iM \bar{\Psi}_R \gamma_5 \Psi_R. 
+\end{align}
+
+
+The "integration out" of $\Psi_R$ means evaluating the expectation value of the operator obtained from the EOM:
+\begin{align}
+\langle \partial^\mu j_\mu^{5,R} \rangle = -2iM \langle \bar{\Psi}_R \gamma_5 \Psi_R \rangle_A
+\end{align}
+This expectation value can be expressed using the fermion propagator in the gauge background $\mathcal{G}_A = (i\slashed{D}-M)^{-1}$:
+\begin{align}
+\langle \bar{\Psi}_R(x) \gamma_5 \Psi_R(x) \rangle = -i \text{Tr} \left[ \gamma_5 \langle x | \frac{1}{i\slashed{D} - M} | x \rangle \right].
+\end{align}
+To evaluate the trace, we first rationalize the denominator of the propagator:
+\begin{align}
+    \frac{1}{i\slashed{D} - M} = \frac{i\slashed{D} + M}{(i\slashed{D})^2 - M^2} = \frac{i\slashed{D} + M}{-\slashed{D}^2 - M^2}.
+\end{align}
+Using the identity for the square of the Dirac operator in a gauge background:
+\begin{align}
+    \slashed{D}^2 = D^2 + \frac{i}{2} \sigma^{\mu\nu} F_{\mu\nu},
+\end{align}
+where in two dimensions, $\sigma^{\mu\nu} = \frac{i}{2}[\gamma^\mu, \gamma^\nu] = i \epsilon^{\mu\nu} \gamma_5$. Thus, we have:
+\begin{align}
+    \slashed{D}^2 = D^2 - \frac{1}{2} \epsilon^{\mu\nu} F_{\mu\nu} \gamma_5.
+\end{align}
+Substituting this into the expression for the expectation value:
+\begin{align}
+    \langle \bar{\Psi}R \gamma_5 \Psi_R \rangle &= -i \text{Tr} \left[ \gamma_5 \frac{i\slashed{D} + M}{-D^2 + \frac{1}{2} \epsilon^{\mu\nu} F{\mu\nu} \gamma_5 - M^2} \right].
+\end{align}
+Since the trace over spinor indices $\text{tr}(\gamma_5 \gamma_\mu) = 0$, the $i\slashed{D}$ term in the numerator vanishes. We are left with:
+\begin{align}
+    \langle \bar{\Psi}R \gamma_5 \Psi_R \rangle &= -i M \text{Tr} \left[ \frac{\gamma_5}{-D^2 - M^2 + \frac{1}{2} \epsilon^{\mu\nu} F{\mu\nu} \gamma_5} \right].
+\end{align}
+Now, we expand the denominator for large $M$. Noting that we need a term proportional to $\gamma_5$ to get a non-vanishing spinor trace ($\text{tr}(\gamma_5^2) = \text{tr}(1) = 2$ in 2D, and $\text{tr}(\gamma_5) = 0$):
+\begin{align}
+    \frac{1}{(-D^2 - M^2) + \frac{1}{2} \epsilon^{\alpha\beta} F_{\alpha\beta} \gamma_5} \approx \frac{1}{-D^2 - M^2} - \frac{1}{(-D^2 - M^2)} \left( \frac{1}{2} \epsilon^{\alpha\beta} F_{\alpha\beta} \gamma_5 \right) \frac{1}{(-D^2 - M^2)} + \dots
+\end{align}
+Inserting the leading contributing term back into the trace:
+\begin{align}
+    \langle \bar{\Psi}R \gamma_5 \Psi_R \rangle &\approx -i M \int \frac{d^2k}{(2\pi)^2} \text{tr} \left[ \gamma_5 \left( - \frac{\frac{1}{2} \epsilon^{\mu\nu} F_{\mu\nu} \gamma_5}{(-k^2 - M^2)^2} \right) \right] \\ 
+    &= \frac{i M}{2} \epsilon^{\mu\nu} F_{\mu\nu} \cdot \text{tr}(1) \int \frac{d^2k}{(2\pi)^2} \frac{1}{(k^2 + M^2)^2}.
+\end{align}
+The momentum integral in two dimensions is:
+\begin{align}
+    \int \frac{d^2k}{(2\pi)^2} \frac{1}{(k^2 + M^2)^2} = \frac{1}{4\pi} \int_0^\infty \frac{du}{(u+M^2)^2} = \frac{1}{4\pi M^2}.
+\end{align}
+Combining everything, the expectation value becomes:
+\begin{align}
+    \langle \bar{\Psi}R \gamma_5 \Psi_R \rangle = \frac{i M \epsilon^{\mu\nu} F{\mu\nu}}{4\pi M^2} = \frac{i \epsilon^{\mu\nu} F_{\mu\nu}}{4\pi M}.
+\end{align}
+Finally, we substitute this back into the expression for the divergence of the regularized current:
+\begin{align}
+    \langle \partial^\mu j_\mu^{5,R} \rangle &= -2iM \langle \bar{\Psi}R \gamma_5 \Psi_R \rangle \\
+    &= -2iM \left( \frac{i \epsilon^{\mu\nu} F{\mu\nu}}{4\pi M} \right) \\
+    &= \frac{1}{2\pi} \epsilon^{\mu\nu} F_{\mu\nu}.
+\end{align}
