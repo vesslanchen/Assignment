@@ -1,13 +1,99 @@
-\section*{Problem Set 5 due on April 15 at 11:59pm}
+\section*{Problem Set 6 due on April 15 at 11:59pm}
 \question{1}{}
 Find the dependence of $\Delta Y$ on the number of neutrino flavors, $N_\nu$. That is, find the ratio $(\Delta Y/Y)/(\Delta N_\nu / N_\nu)$. Evaluate this. Remember that there are two sources to consider. The effect on $n/p$ freeze-out and the effect on time at which BBN starts.
+
+
 \answer{}
+First, the $Y$ is given by 
+\begin{align}
+    &Y= 2\frac{n}{p+n}=\frac{2n/p}{1+n/p}=\frac{2x}{1+x}\\
+    \implies& \frac{dY}{dx}=2\frac{(1+x)-x}{(1+x)^2}=\frac{2}{(1+x)^2}\\
+    \implies& \Delta Y = \frac{2 \Delta x}{ (1+x)^2}\\
+    \implies& \frac{\Delta Y}{ Y } =\left( \frac{1+x}{2x} \right) \frac{2}{(1+x)^2} \Delta x = \frac{1}{x(1+x)} \Delta x \\
+    =& \frac{1}{1+x} \frac{\Delta x}{x}
+\end{align}
+The ratio $x$ can be determined by the mass difference  between protons and neutrons $\Delta m = m_n-m_p$, which is given by:
+\begin{align}
+    x=x_f e^{-t_\text{BBN}/\tau_n},
+\end{align}
+where $x_f=e^{-\Delta m/T_f}$, $\tau_n$ is the decay constant of the neutron. To find $\frac{\Delta x}{x}$, we take the logarithm of $x$ and vary it:
+
+\begin{align}
+    \ln x &= -\frac{\Delta m}{T_f} - \frac{t_{\text{BBN}}}{\tau_n} \\
+    \implies \frac{\Delta x}{x} &= \left( \frac{\Delta m}{T_f} \right) \frac{\Delta T_f}{T_f} - \frac{\Delta t_{\text{BBN}}}{\tau_n}
+\end{align}
+Now we consider the two sources as requested:
+\begin{enumerate}
+    \item Effect on $n/p$ freeze-out ($T_f$): The freeze-out occurs when the weak interaction rate $\Gamma_w \approx G_F^2 T^5$ falls below the Hubble expansion rate $H \approx \sqrt{g_*} T^2 / M_{Pl}$. This implies $T_f \propto g_*^{1/6}$.
+    The effective degrees of freedom $g_*$ depends on $N_\nu$ as $g_* = \frac{11}{2} + \frac{7}{4} N_\nu$. Therefore:
+    \begin{align}
+    \frac{\Delta T_f}{T_f} = \frac{1}{6} \frac{\Delta g_*}{g_*} = \frac{1}{6} \left( \frac{7/4}{g_*} \right) \Delta N_\nu
+    \end{align}
+Substituting this into the first term:
+\begin{align}
+\left( \frac{\Delta x}{x} \right)_{\text{freeze-out}} = \frac{\Delta m}{6 T_f} \frac{\Delta g}{g_*}
+\end{align}
+\item Effect on the time BBN starts ($t_{\text{BBN}}$):
+BBN begins at a fixed temperature $T_{\text{BBN}} \approx 0.07 \text{ MeV}$. In the radiation-dominated era, the time-temperature relation is $t \propto g_*^{-1/2} T^{-2}$. Thus, $t_{\text{BBN}} \propto g_*^{-1/2}$, leading to:
+\begin{align}
+\frac{\Delta t_{\text{BBN}}}{t_{\text{BBN}}} &= -\frac{1}{2} \frac{\Delta g_*}{g_*} \\
+\implies -\frac{\Delta t_{\text{BBN}}}{\tau_n} &= - \frac{t_{\text{BBN}}}{\tau_n} \left( -\frac{1}{2} \frac{\Delta g_*}{g_*} \right) = \frac{t_{\text{BBN}}}{2 \tau_n} \frac{\Delta g_*}{g_*}
+\end{align}
+\end{enumerate}
+Combining both effects:
+\begin{align}
+    \frac{\Delta x}{x} = \left( \frac{\Delta m}{6 T_f} + \frac{t_{\text{BBN}}}{2 \tau_n} \right) \frac{\Delta g_*}{g_*}
+\end{align}
+Now we evaluate the sensitivity ratio $(\Delta Y/Y) / (\Delta N_\nu / N_\nu)$. Using $g_* \approx 10.75$ and $\Delta g_* = \frac{7}{4} \Delta N_\nu$:
+    \begin{align}\frac{\Delta Y/Y}{\Delta N_\nu / N_\nu} &= \left( \frac{1}{1+x} \right) \left( \frac{\Delta m}{6 T_f} + \frac{t_{\text{BBN}}}{2 \tau_n} \right) \frac{7 N_\nu}{4 g_*}
+\end{align}
+
+To evaluate the ratio, we use the standard values at the BBN epoch:
+\begin{itemize}
+    \item Neutron-to-proton ratio: $x \approx 1/7$
+    \item Mass difference: $\Delta m \approx 1.29 \text{ MeV}$
+    \item Freeze-out temperature: $T_f \approx 0.8 \text{ MeV}$
+    \item BBN start time: $t_{\text{BBN}} \approx 200 \text{ s}$
+    \item Neutron lifetime: $\tau_n \approx 880 \text{ s}$
+    \item Effective degrees of freedom: $g_* = 10.75$ (for $N_\nu = 3$)
+\end{itemize}
+Finally, we get \begin{align}
+\frac{\Delta Y/Y}{\Delta N_\nu / N_\nu}  \approx \mathbf{0.164}
+\end{align}
+
 
 
 \clearpage
 \question{2}{}
-new interaction is discovered as well as three new neutrinos which interact only through this new interaction. If as in the case of the weak interactions, this new rate is proportional to some $M_{Z'}^{-4}$, find the cosmological limit on the mass of $Z'$. To do this, assume that the limit from BBN on the number of neutrinos is $N_\nu<3.2$. 
+A new interaction is discovered as well as three new neutrinos which interact only through this new interaction. If as in the case of the weak interactions, this new rate is proportional to some $M_{Z'}^{-4}$, find the cosmological limit on the mass of $Z'$. To do this, assume that the limit from BBN on the number of neutrinos is $N_\nu<3.2$. 
 \answer{}
+First, the interaction rate can be determined by 
+\begin{align}
+    \Gamma=\frac{T^5}{M_{Z'}^4}.
+\end{align}
+We can take $T^5$ to match the dimension on both sides. Decoupling occurs at temperature $T_d$ when $\Gamma(T_d) \approx H(T_d)$.
+\begin{align}
+\frac{T_d^5}{M_{Z'}^4} &\approx \frac{T_d^2}{M_{Pl}} \\
+\implies T_d^3 &\approx \frac{M_{Z'}^4}{M_{Pl}} 
+\end{align}
+where $M_{Pl} \approx 10^{19}$ GeV is the Planck mass. After the new neutrinos decouple at $T_d$, the entropy of the rest of the Standard Model (SM) plasma is conserved. As other SM particles annihilate, they heat the photons and standard neutrinos, but not the decoupled $\nu_s$. Using entropy conservation $s \propto g_* T^3 = \text{const}$:
+\begin{align}
+    \frac{T_{\nu s}}{T_\nu} = \left( \frac{g_(T_{BBN})}{g_(T_d)} \right)^{1/3}
+\end{align}
+where $g_*(T_{BBN}) = 10.75$. The contribution of the 3 new neutrino flavors to the effective number of neutrinos is:
+\begin{align}
+\Delta N_\nu = 3 \times \left( \frac{T_{\nu s}}{T_\nu} \right)^4 = 3 \times \left( \frac{10.75}{g_*(T_d)} \right)^{4/3}
+\end{align}
+Given the BBN limit $N_\nu < 3.2$, we have $\Delta N_\nu < 0.2$. Solving for $g_*(T_d)$:
+\begin{align}3 \times \left( \frac{10.75}{g_(T_d)} \right)^{4/3} &< 0.2 \\
+\left( \frac{10.75}{g_(T_d)} \right)^{4/3} &< 0.0667 \\ \implies g_*(T_d) &> \frac{10.75}{(0.0667)^{3/4}} \approx 82.2
+\end{align}
+In the SM, $g_* > 82$ corresponds to a temperature $T_d$ above the QCD phase transition ($\Lambda_{QCD} \approx 200$ MeV). At $T \approx 10$ GeV (where all quarks except top are relativistic), $g_* \approx 86$. Let's assume $T_d \approx 10$ GeV.Finally, substituting $T_d$ back into Eq. (1):
+\begin{align}
+    M_{Z'}^4 &\approx T_d^3 \times M_{Pl} \\
+    M_{Z'}^4 &\approx (10 \text{ GeV})^3 \times 10^{19} \text{ GeV} = 10^{22} \text{ GeV}^4 \\ 
+    \implies M_{Z'} &\approx 10^{5.5} \text{ GeV} = {3.16 \times 10^5 \text{ GeV} = 316 \text{ TeV}}
+\end{align}\qed
 
 
 \clearpage
@@ -15,3 +101,18 @@ new interaction is discovered as well as three new neutrinos which interact only
 For a neutrino mass of $m_\nu=10$~GeV, determine the ratio $T_\nu/T_\gamma$ needed to compute
 the relic density of neutrinos. What is the temperature ratio for $m_\nu=100$~GeV?
 \answer{}
+
+The contribution of a massive neutrino species to the energy density of the universe today is given by the formula (c.f. eq~(3.2.79) in Baumnann's note):
+\begin{align}
+\Omega_\nu h^2 = \frac{\sum m_\nu}{94 \text{ eV}} \left( \frac{T_\nu}{T_\gamma} \right)^3
+\end{align}
+In the standard case where $T_\nu/T_\gamma = (4/11)^{1/3} \approx 0.714$, we recover the standard result for light neutrinos. However, for very heavy neutrinos, we must ensure $\Omega_\nu h^2 \leq \Omega_c h^2 \approx 0.12$ to avoid overclosing the universe. Setting the relic density to the observed dark matter density $\Omega_\nu h^2 \approx 0.12$, we solve for the ratio $(T_\nu/T_\gamma)^3$:
+\begin{align}0.12 &= \frac{10 \times 10^9 \text{ eV}}{94 \text{ eV}} \left( \frac{T_\nu}{T_\gamma} \right)^3 \\
+    \left( \frac{T_\nu}{T_\gamma} \right)^3 &= \frac{0.12 \times 94}{10^{10}} \approx 1.128 \times 10^{-9} \\
+    \implies \frac{T_\nu}{T_\gamma} &= (1.128 \times 10^{-9})^{1/3} \approx \mathbf{1.04 \times 10^{-3}}
+\end{align}
+Similarly, for a $100$ GeV neutrino:\begin{align}0.12 &= \frac{100 \times 10^9 \text{ eV}}{94 \text{ eV}} \left( \frac{T_\nu}{T_\gamma} \right)^3 \\
+    \left( \frac{T_\nu}{T_\gamma} \right)^3 &= \frac{0.12 \times 94}{10^{11}} \approx 1.128 \times 10^{-10} \\
+    \implies \frac{T_\nu}{T_\gamma} &= (1.128 \times 10^{-10})^{1/3} \approx \mathbf{4.82 \times 10^{-4}}
+\end{align}
+\qed

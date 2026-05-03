@@ -1,0 +1,152 @@
+\section*{Problem Set 7 due on April 27 at 11:59pm}
+\question{1}{}
+In a baryon symmetric universe, the final baryon (and anti-baryon) density is roughly $n_B/n_\gamma=10^{-18}$. In a baryon asymmetric universe with $\eta= (n_B-n_{\bar{B}})/n_\gamma \approx 6 \times 10^{-10}$, determine the freeze-out temperature for annihilations and the final density of anti-baryons. Note the freeze out temperature for baryons is NOT the same as for antibaryons (if there is an asymmetry).
+\answer{}
+
+Assuming a radiation-dominated universe, we can express the Hubble parameter as:
+\begin{align}
+    H = \sqrt{\frac{8\pi G \rho}{3}} = \sqrt{\frac{8\pi G g_* \pi^2 T^4}{90}},  
+\end{align}
+where $g_*$ is the effective number of relativistic degrees of freedom. The baryon number density can be expressed in terms of the baryon-to-photon ratio $\eta$ and the photon number density $n_\gamma$:
+\begin{align}
+    n_B \approx \eta n_\gamma = \eta \frac{2\zeta(3)}{\pi^2} T^3
+\end{align}
+The freeze-out condition for anti-baryons is defined when the annihilation rate $\Gamma_{\bar{B}}$ equals the Hubble expansion rate $H$:
+\begin{align}
+    \Gamma_{\bar{B}} = n_B \langle \sigma v \rangle = H
+\end{align}
+Substituting the expressions for $n_B$ and $H$ into the freeze-out condition:
+\begin{align}
+    \left( \eta \frac{2\zeta(3)}{\pi^2} T^3 \right) \langle \sigma v \rangle = \sqrt{\frac{8\pi^3 G g_*}{90}} T^2
+\end{align}
+
+Solving for the anti-baryon freeze-out temperature $T_{\bar{f}}$:
+\begin{align}
+    T_{\bar{f}} = \frac{\pi^2}{\eta \cdot 2\zeta(3) \cdot \langle \sigma v \rangle} \sqrt{\frac{8\pi^3 G g_*}{90}}
+\end{align}
+\textbf{Note:} Since $\eta$ is in the denominator, a larger asymmetry results in a lower freeze-out temperature, meaning anti-baryons continue to annihilate for a longer period.
+
+The presence of the baryon excess $\eta$ exerts an exponential suppression on the anti-baryon abundance. The final ratio of anti-baryons to photons $(n_{\bar{B}}/n_\gamma)$ can be derived from the integrated Boltzmann equation for an asymmetric species:
+\begin{align}
+    \frac{n_{\bar{B}}}{n_\gamma} \approx \eta \exp\left( - \frac{\eta}{(n_B/n_\gamma)_{sym}} \right)
+\end{align}
+where $(n_B/n_\gamma)_{sym} \approx 10^{-18}$ is the residual density in a symmetric universe.
+
+Using the observed values:
+\begin{itemize}
+    \item $\eta \approx 6 \times 10^{-10}$
+    \item $(n_B/n_\gamma)_{sym} \approx 10^{-18}$
+\end{itemize}
+
+The calculation yields:
+\begin{align}
+    \frac{n_{\bar{B}}}{n_\gamma} \approx (6 \times 10^{-10}) \cdot \exp\left( - \frac{6 \times 10^{-10}}{10^{-18}} \right) = (6 \times 10^{-10}) \cdot e^{-6 \times 10^8}
+\end{align}
+The factor $e^{-6 \times 10^8}$ is vanishingly small, effectively zero in any physical context. Thus, the final density of anti-baryons is negligible:
+\begin{align}
+    \frac{n_{\bar{B}}}{n_\gamma} \approx 0
+\end{align}
+In conclusion, the freeze-out temperature for anti-baryons is significantly lower than that for baryons due to the asymmetry, and the final density of anti-baryons is effectively zero in a baryon asymmetric universe.
+
+
+
+\clearpage
+\question{2}{}
+Analogous to the calculation of $Q$ in terms of chemical potentials done in class (see notes), Calculate expressions for $Q_3$, $B$ and $L$ that is weak isospin, Baryon number and lepton number. From these results setting $Q=Q_3=0$, and $9\mu_{u_L}+3\mu_\nu=0$ for sphaleron interactions in equilibrium, find the ratio $B/(B-L)$.
+\answer{} 
+
+In the high-temperature limit ($T \gg m$), the difference between the number density of a particle species and its antiparticle is given by:
+\begin{align}
+    n_i - n_{\bar{i}} \approx \frac{g_i T^2}{6} \mu_i \quad (\text{for fermions}), \quad \frac{g_i T^2}{3} \mu_i \quad (\text{for bosons})
+\end{align}
+We assume $N$ generations of fermions ($N=3$). Let $\mu_{u_L}, \mu_{d_L}, \mu_{u_R}, \mu_{d_R}$ be quark potentials, $\mu_{\nu}, \mu_{e_L}, \mu_{e_R}$ be lepton potentials, and $\mu_W, \mu_\phi$ be the potentials for $W$ bosons and Higgs scalars. First, for the weak isospin $Q_3$, we sum over all left-handed fermions and bosons:
+\begin{align}
+    &Q_3 = 3 \cdot  \frac{T^2}{6} \left[ 3\cdot \frac{1}{2}(\mu_{u_L} - \mu_{d_L}) + \frac{1}{2}(\mu_{\nu} - \mu_{e_L})  \right] + 2 \cdot \frac{T^2}{3} \mu_W\\
+    =& \frac{T^2}{6} \left[ \frac{9}{2} (\mu_{u_L} - \mu_{d_L}) + \frac{3}{2}(\mu_{\nu} - \mu_{e_L}) + 4\mu_W \right]
+\end{align}
+The factor of 3 accounts for the color degrees of freedom for quarks, and the factor of 2 accounts for the two polarization states of the $W$ bosons. Next, for the baryon number $B$, we sum over all quarks: 
+\begin{align}
+    &B = 3 \cdot 3 \cdot \frac{T^2}{6} \left[ \frac{1}{3}(\mu_{u_L} + \mu_{d_L}) + \frac{1}{3}(\mu_{u_R} + \mu_{d_R})  \right] \\
+    =& \frac{T^2}{6} \left[ 3(\mu_{u_L} + \mu_{d_L}) + 3(\mu_{u_R} + \mu_{d_R})  \right]
+\end{align}
+For the lepton number $L$, we sum over all leptons:
+\begin{align}
+    &L = N \cdot \frac{T^2}{6} \left[ \mu_{\nu} + \mu_{e_L} + \mu_{e_R} \right]\\
+    =& \frac{T^2}{6} \left[ 3\mu_{\nu} + 3\mu_{e_L} + 3\mu_{e_R} \right].
+\end{align}
+The $Q$ is given by the sum of the electric charges of all particles:
+\begin{align}
+    &Q = 3 \cdot 3 \cdot \frac{T^2}{6} \left[ \frac{2}{3}(\mu_{u_L} + \mu_{u_R}) - \frac{1}{3}(\mu_{d_L} + \mu_{d_R})\right] + 3 \cdot \frac{T^2}{6} \left[ -(\mu_{e_L} + \mu_{e_R}) \right] + 2 \cdot \frac{T^2}{3} \mu_W+ 2 \cdot \frac{T^2}{3} \mu_\phi\\
+    =& \frac{T^2}{6} \left[ 3\cdot 3 \cdot \left( \frac{2}{3}(\mu_{u_L} + \mu_{u_R}) - \frac{1}{3}(\mu_{d_L} + \mu_{d_R})\right) - 3 \cdot (\mu_{e_L} + \mu_{e_R}) + 4\mu_W + 4\mu_\phi \right]\\
+    =& \frac{T^2}{6} \left[ 6(\mu_{u_L} + \mu_{u_R}) - 3(\mu_{d_L} + \mu_{d_R}) - 3(\mu_{e_L} + \mu_{e_R}) + 4\mu_W + 4\mu_\phi \right].
+\end{align}
+Now, we set $Q=0$ and $Q_3=0$ to find relations between the chemical potentials. From $Q_3=0$, we have:
+\begin{align}
+    \frac{9}{2} (\mu_{u_L} - \mu_{d_L}) + \frac{3}{2}(\mu_{\nu} - \mu_{e_L}) + 4\mu_W = 0 \quad \Rightarrow \quad 9(\mu_{u_L} - \mu_{d_L}) + 3(\mu_{\nu} - \mu_{e_L}) + 8\mu_W = 0
+\end{align}
+From $Q=0$, we have:
+\begin{align}
+    6(\mu_{u_L} + \mu_{u_R}) - 3(\mu_{d_L} + \mu_{d_R}) - 3(\mu_{e_L} + \mu_{e_R}) + 4\mu_W + 4\mu_\phi = 0
+\end{align}
+Next, the sphaleron, yukawa interactions, and weak interactions in equilibrium give us the following relations:
+\begin{align}
+    \mu_\nu = -3\mu_{u_L}\\
+    \mu_{e_R}= \mu_{e_L} - \mu_\phi\\
+    \mu_{u_R} = \mu_{u_L} + \mu_\phi\\
+    \mu_{d_R} = \mu_{d_L} - \mu_\phi\\
+    \mu_{d_L} = \mu_{u_L} + \mu_W \\
+    \mu_{e_L} = \mu_{\nu} + \mu_W
+\end{align}
+Substituting these relations into the $Q=0$ equation, we get:
+\begin{align}
+    &6(\mu_{u_L} + \mu_{u_L} + \mu_\phi) - 3(\mu_{u_L} + \mu_W + \mu_{u_L} + \mu_W - \mu_\phi) - 3(\mu_{\nu} + \mu_W + \mu_{e_L} - \mu_\phi) + 4\mu_W + 4\mu_\phi = 0\\
+    &\to12\mu_{u_L} + 6\mu_\phi - 6\mu_{u_L} - 6\mu_W + 3\mu_\phi - 3\mu_{\nu} - 3\mu_W - 3\mu_{e_L} + 3\mu_\phi + 4\mu_W + 4\mu_\phi = 0\\
+    &\to6\mu_{u_L} + 16\mu_\phi - 5\mu_W - 3\mu_{\nu} - 3\mu_{e_L} = 0
+\end{align}
+Substituting $\mu_{\nu} = -3\mu_{u_L}$ and $\mu_{e_L} = \mu_{\nu} + \mu_W$ into the above equation, we get:
+\begin{align}
+    &6\mu_{u_L} + 16\mu_\phi - 5\mu_W - 3(-3\mu_{u_L}) - 3(-3\mu_{u_L} + \mu_W) = 0\\
+    \to &6\mu_{u_L} + 16\mu_\phi - 5\mu_W + 9\mu_{u_L} + 9\mu_{u_L} - 3\mu_W = 0\\
+    \to &24\mu_{u_L} + 16\mu_\phi - 8\mu_W = 0
+\end{align}
+Substituting $\mu_{d_L} = \mu_{u_L} + \mu_W$ into the $Q_3=0$ equation, we get:
+\begin{align}
+    &9(\mu_{u_L} - \mu_{u_L} - \mu_W) + 3(\mu_{\nu} - \mu_{e_L}) + 8\mu_W = 0\\
+    \to &-9\mu_W + 3(\mu_{\nu} - \mu_{e_L}) + 8\mu_W = 0\\
+    \to &- \mu_W + 3(\mu_{\nu} - \mu_{e_L}) = 0
+\end{align}
+Substituting $\mu_{\nu} = -3\mu_{u_L}$ and $\mu_{e_L} = \mu_{\nu} + \mu_W$ into the above equation, we get:
+\begin{align}
+    &- \mu_W + 3(-3\mu_{u_L} - \mu_{\nu} - \mu_W) = 0\\
+    \to &- \mu_W - 9\mu_{u_L} - 3\mu_{\nu} - 3\mu_W = 0\\
+    \to &- 4\mu_W - 9\mu_{u_L} - 3\mu_{\nu} = 0
+\end{align}
+Substituting $\mu_{\nu} = -3\mu_{u_L}$ into the above equation, we get:
+\begin{align}
+    &- 4\mu_W - 9\mu_{u_L} + 9\mu_{u_L} = 0\\
+    \to &- 4\mu_W = 0 \quad \Rightarrow \quad \mu_W = 0
+\end{align}
+Substituting $\mu_W = 0$ into the equation $24\mu_{u_L} + 16\mu_\phi - 8\mu_W = 0$, we get:
+\begin{align}
+    &24\mu_{u_L} + 16\mu_\phi = 0\\
+    \to &\mu_\phi = -\frac{24}{16}\mu_{u_L} = -\frac{3}{2}\mu_{u_L}
+\end{align}
+Now we can express $B$ and $L$ in terms of $\mu_{u_L}$:
+\begin{align}
+    &B = \frac{T^2}{6} \left[ 3(\mu_{u_L} + \mu_{d_L}) + 3(\mu_{u_R} + \mu_{d_R})  \right] \\
+    = & \frac{T^2}{6} \left[ 3(\mu_{u_L} + \mu_{u_L} + \mu_W) + 3(\mu_{u_L} + \mu_\phi + \mu_{d_L} - \mu_\phi)  \right] \\
+    =& \frac{T^2}{6} \left[ 3(2\mu_{u_L}) + 3(2\mu_{u_L})  \right] = \frac{T^2}{6} \cdot 12\mu_{u_L}.
+\end{align}
+\begin{align}
+    &L = \frac{T^2}{6} \left[ 3\mu_{\nu} + 3\mu_{e_L} + 3\mu_{e_R} \right] \\
+    =& \frac{T^2}{6} \left[ 3(-3\mu_{u_L}) + 3(-3\mu_{u_L} + \mu_W) + 3(\mu_{e_L} - \mu_\phi) \right] \\
+    =& \frac{T^2}{6} \left[ -9\mu_{u_L} - 9\mu_{u_L} + 3\mu_W + 3\mu_{e_L} - 3\mu_\phi \right] \\
+    =& \frac{T^2}{6} \left[ -18\mu_{u_L} + 3\mu_{e_L} - 3\mu_\phi \right] \\
+    =& \frac{T^2}{6} \left[ -18\mu_{u_L} + 3(-3\mu_{u_L} + \mu_W) - 3(-\frac{3}{2}\mu_{u_L}) \right] \\
+    =& \frac{T^2}{6} \left[ -18\mu_{u_L} - 9\mu_{u_L} + \frac{9}{2}\mu_{u_L} \right] = \frac{T^2}{6} \cdot \left( -\frac{45}{2}\mu_{u_L} \right).
+\end{align}
+Finally, we can calculate the ratio $B/(B-L)$:
+\begin{align}
+    \frac{B}{B-L} = \frac{\frac{T^2}{6} \cdot 12\mu_{u_L}}{\frac{T^2}{6} \cdot 12\mu_{u_L} - \frac{T^2}{6} \cdot \left( -\frac{45}{2}\mu_{u_L} \right)} = \frac{12\mu_{u_L}}{12\mu_{u_L} + \frac{45}{2}\mu_{u_L}} = \frac{12}{12 + \frac{45}{2}} = \frac{8}{23}
+\end{align}
+Thus, the ratio $B/(B-L)$ is $\frac{8}{23}$.
