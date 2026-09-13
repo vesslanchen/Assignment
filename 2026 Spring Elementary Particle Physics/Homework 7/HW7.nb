@@ -10,10 +10,17 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
+<<<<<<< HEAD
 NotebookDataLength[     76403,       1618]
 NotebookOptionsPosition[     75442,       1592]
 NotebookOutlinePosition[     75858,       1609]
 CellTagsIndexPosition[     75815,       1606]
+=======
+NotebookDataLength[     75417,       1589]
+NotebookOptionsPosition[     74681,       1567]
+NotebookOutlinePosition[     75097,       1584]
+CellTagsIndexPosition[     75054,       1581]
+>>>>>>> 419d8652be3570af19463f70b3ac31339d540a28
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1196,9 +1203,15 @@ JQWXolqV1W0SP6nk+570U/gPJqsoIQ==
           "Meta" -> <|
            "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
             Plot, "GroupHighlight" -> False|>|>], 
+<<<<<<< HEAD
         ImageSizeCache -> {{4.503599627370496*^15, -4.503599627370496*^15}, {
          4.503599627370496*^15, -4.503599627370496*^15}}], Selectable -> 
        False]}, 
+=======
+        ImageSizeCache -> {{366.5544803481634, 
+         530.9889880204844}, {-49.5320108033992, -120.42437946540562`}}], 
+       Selectable -> False]}, 
+>>>>>>> 419d8652be3570af19463f70b3ac31339d540a28
      Annotation[{{{{}, {}, 
          Annotation[{
            Directive[
@@ -1364,8 +1377,12 @@ JQWXolqV1W0SP6nk+570U/gPJqsoIQ==
          Directive[]}, {27.631021115928547`, 
          Directive[]}, {41.44653167389282, 
          Directive[]}}, Automatic}], GridLinesStyle -> Directive[
+<<<<<<< HEAD
       GrayLevel[0.5, 0.4]], ImagePadding -> All, 
     ImageSize -> {644.48359375, Automatic}, 
+=======
+      GrayLevel[0.5, 0.4]], ImagePadding -> All, ImageSize -> Full, 
+>>>>>>> 419d8652be3570af19463f70b3ac31339d540a28
     Method -> {
      "DefaultBoundaryStyle" -> Automatic, 
       "DefaultGraphicsInteraction" -> {
@@ -1561,6 +1578,7 @@ JQWXolqV1W0SP6nk+570U/gPJqsoIQ==
      RowBox[{#, ",", 
        RowBox[{"Placed", "[", 
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
+<<<<<<< HEAD
  GeneratedCell->False,
  CellAutoOverwrite->False,
  CellChangeTimes->{{3.9867841110965014`*^9, 3.986784210738763*^9}, {
@@ -1588,6 +1606,11 @@ Cell[BoxData["1.3040651953323185`*^31"], "Output",
  CellChangeTimes->{{3.986831402429635*^9, 3.986831413450636*^9}},
  CellLabel->
   "Out[278]=",ExpressionUUID->"14317a37-f3a9-4a8e-9143-a653b2b39b4e"]
+=======
+ CellChangeTimes->{{3.9867841110965014`*^9, 3.986784210738763*^9}},
+ CellLabel->
+  "Out[276]=",ExpressionUUID->"a9b943fa-4e75-4d77-8592-2f5208111dae"]
+>>>>>>> 419d8652be3570af19463f70b3ac31339d540a28
 }, Open  ]]
 },
 WindowSize->{808, 892},
@@ -1614,13 +1637,22 @@ Cell[6068, 178, 33770, 673, 451, "Output",ExpressionUUID->"3985b2b8-fbf0-45b2-8e
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[39875, 856, 2229, 55, 489, "Input",ExpressionUUID->"cface802-fc1e-41d1-8b17-ef281d978a32"],
+<<<<<<< HEAD
 Cell[42107, 913, 32677, 655, 424, "Output",ExpressionUUID->"a9b943fa-4e75-4d77-8592-2f5208111dae"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[74821, 1573, 403, 11, 29, "Input",ExpressionUUID->"fd8591a1-d0f6-4b6a-9625-6befa6acf0fb"],
 Cell[75227, 1586, 199, 3, 52, "Output",ExpressionUUID->"14317a37-f3a9-4a8e-9143-a653b2b39b4e"]
+=======
+Cell[42107, 913, 32558, 651, 470, "Output",ExpressionUUID->"a9b943fa-4e75-4d77-8592-2f5208111dae"]
+>>>>>>> 419d8652be3570af19463f70b3ac31339d540a28
 }, Open  ]]
 }
 ]
 *)
 
+<<<<<<< HEAD
+=======
+(* End of internal cache information *)
+
+>>>>>>> 419d8652be3570af19463f70b3ac31339d540a28
