@@ -5,7 +5,7 @@ Let $N$ denote the \textbf{north pole} $(0,\cdots,0,1)\in \mathbb{S}^n\subseteq 
 \end{align}
 Let $\tilde{\sigma}=-\sigma(-x)$ for $x\in \mathbb{S}^n\setminus \{S\}$. 
 \begin{itemize}
-    \item [(a)] For any $x\in \mathbb{S}^n\setminus \{N\}$, show that $\sigma(x)=u$, where $(u,0)$ is the point where the line through $N$ and $x$ intersects the linear subspace where $x_{n+1}=0$. Similarly, show that $\tilde{\sigma}$ is the point where the line through $S$ and $x$ intersects the same subspace. (For this reason, $\tilde{\sigma}$ is also called $\textbf{stereographic projection from the south pole}$.)  
+    \item [(a)] For any $x\in \mathbb{S}^n\setminus \{N\}$, show that $\sigma(x)=u$, where $(u,0)$ is the point where the line through $N$ and $x$ intersects the linear subspace where $x_{n+1}=0$. Similarly, show that $\tilde{\sigma}(x)$ is the point where the line through $S$ and $x$ intersects the same subspace. (For this reason, $\tilde{\sigma}$ is also called $\textbf{stereographic projection from the south pole}$.)  
     \item [(b)] Show that $\sigma$ is bijective and 
     \begin{align}
         \sigma^{-1}(u^1,\cdots,u^n)=\frac{(2u^1,\cdots,2u^n, |u|^2-1)}{|u|^2+1}.
@@ -21,9 +21,9 @@ Let $\tilde{\sigma}=-\sigma(-x)$ for $x\in \mathbb{S}^n\setminus \{S\}$.
 where the hat indicates that the $i$-th coordinate is omitted. 
 
 
-For any distinct indices $i,j$, the transition map $\phi_j^\pm\circ (\phi_i^\pm)^{-1}$ is easily computed. In the case $i<j$, we get 
+For any distinct indices $i,j$, the transition map $\phi_i^\pm\circ (\phi_j^\pm)^{-1}$ is easily computed. In the case $i<j$, we get 
 \begin{align}
-    \phi_i^\pm\circ (\phi_j^\pm)^{-1}(u^1,\cdots,u^{n+1})=(u^1,\cdots,\hat{u}^{i},\cdots,\pm\sqrt{1-|u|^2},\cdots,u^{n})
+    \phi_i^\pm\circ (\phi_j^\pm)^{-1}(u^1,\cdots,u^{n})=(u^1,\cdots,\hat{u}^{i},\cdots,\pm\sqrt{1-|u|^2},\cdots,u^{n})
 \end{align}
 with the $\pm\sqrt{1-|u|^2}$ in the $j$-th position, and a similar formula holds for $i>j$. In the case $i=j$, an even simpler formula holds:
 \begin{align}
@@ -38,5 +38,12 @@ Thus, the collection of charts $\{(U_i^\pm,\phi_i^\pm)\}$ is a smooth atlas, and
 
 \clearpage
 \question{1.9}{}
+\textbf{Complex projective $n$-space}, denoted by $\mathbb{CP}^n$, is the set of all 1-dimensional complex-linear subspaces of $\mathbb{C}^{n+1}$, with the quotient topology inherited
+from the natural projection $\pi:\mathbb{C}^{n+1}\setminus \{0\}\to \mathbb{CP}^n$. Show that $\mathbb{CP}^n$ is a
+compact $2n$-dimensional topological manifold, and show how to give it a smooth structure analogous to the one we constructed for $\mathbb{RP}^n$. (We use the correspondence
+\begin{align}
+    (x^1+iy^1,\cdots,x^{n+1}+iy^{n+1}) \longleftrightarrow (x^1,\cdots,x^{n+1},y^1,\cdots,y^{n+1})
+\end{align}
+to identify $\mathbb{C}^{n+1}$ with $\mathbb{R}^{2n+2}$.)
 
 \answer{}
