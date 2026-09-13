@@ -14,6 +14,22 @@ Let $\tilde{\sigma}=-\sigma(-x)$ for $x\in \mathbb{S}^n\setminus \{S\}$.
     \item [(d)] Show that this smooth structure is the same as the one defined in Example~1.31.
 \end{itemize}
 
+\textbf{Example 1.31} We put a smooth structure on $\mathbb{S}^n$ as follows. For each $i=1,\cdots,n+1$, let $(U_i^\pm,\phi_i^\pm)$ denote the graph coordinate charts, where 
+\begin{align}
+    U_i^\pm=\{(x_1,\cdots,x_{n+1})\in \mathbb{S}^n: \pm x_i>0\},\quad \phi_i^\pm(x_1,\cdots,x_{n+1})=(x_1,\cdots,\hat{x}_i,\cdots,x_{n+1}),
+\end{align}
+where the hat indicates that the $i$-th coordinate is omitted. 
+
+
+For any distinct indices $i,j$, the transition map $\phi_j^\pm\circ (\phi_i^\pm)^{-1}$ is easily computed. In the case $i<j$, we get 
+\begin{align}
+    \phi_i^\pm\circ (\phi_j^\pm)^{-1}(u^1,\cdots,u^{n+1})=(u^1,\cdots,\hat{u}^{i},\cdots,\pm\sqrt{1-|u|^2},\cdots,u^{n})
+\end{align}
+with the $\pm\sqrt{1-|u|^2}$ in the $j$-th position, and a similar formula holds for $i>j$. In the case $i=j$, an even simpler formula holds:
+\begin{align}
+    \phi_i^\pm\circ (\phi_i^\mp)^{-1}(u^1,\cdots,u^{n})=\mathrm{ID}_{\mathbb{B}^n}.
+\end{align}
+Thus, the collection of charts $\{(U_i^\pm,\phi_i^\pm)\}$ is a smooth atlas, and so defines a smooth structure on $\mathbb{S}^n$.
 
 
 \answer{}
