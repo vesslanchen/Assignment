@@ -23,7 +23,7 @@ where the hat indicates that the $i$-th coordinate is omitted.
 
 For any distinct indices $i,j$, the transition map $\phi_i^\pm\circ (\phi_j^\pm)^{-1}$ is easily computed. In the case $i<j$, we get 
 \begin{align}
-    \phi_i^\pm\circ (\phi_j^\pm)^{-1}(u_1,\cdots,u_{n})=(u_1,\cdots,\hat{u}_{i},\cdots,\pm\sqrt{1-|u|^2},\cdots,u_{n})
+    \phi_i^\pm\circ (\phi_j^\pm)^{-1}(u_1,\cdots,u_{n})=(u_1,\cdots,\hat{u}^{i},\cdots,\pm\sqrt{1-|u|^2},\cdots,u_{n})
 \end{align}
 with the $\pm\sqrt{1-|u|^2}$ in the $j$-th position, and a similar formula holds for $i>j$. In the case $i=j$, an even simpler formula holds:
 \begin{align}
@@ -59,11 +59,7 @@ Plugging this value of $t$ into the first $n$ coordinates of $\tilde{\ell}(t)$, 
 \begin{align}
     \tilde{\ell}\left(t=\frac{1}{1+x_{n+1}}\right)=\frac{(x_1,\cdots,x_n)}{1+x_{n+1}}.
 \end{align}
-On the other hand, by the definition of $\tilde{\sigma}$, we have
-\begin{align}
-    \tilde{\sigma}(x)=-\sigma(-x)=-\frac{(-x_1,\cdots,-x_n)}{1-(-x_{n+1})}=\frac{(x_1,\cdots,x_n)}{1+x_{n+1}}.
-\end{align}
-These two expressions agree, so $\tilde{\sigma}(x)$ is exactly the point where the line through $S$ and $x$ intersects the hyperplane $x_{n+1}=0$.
+This is exactly the definition of $\tilde{\sigma}(x)$.
 
 \begin{itemize}
     \item [(b)] 
@@ -96,7 +92,7 @@ Thus, we have shown that $x=y$, and hence $\sigma$ is injective.
 
 Next, in order to show that $\sigma$ is surjective, let $u\in \mathbb{R}^n$ be arbitrary. We want to find $x\in \mathbb{S}^n\setminus \{N\}$ such that $\sigma(x)=u$. Let $x=(x_1,\cdots,x_n,x_{n+1})$. Then we have
 \begin{align}
-    \sigma(x)=u\implies \frac{(x_1,\cdots,x_n)}{1-x_{n+1}}=u\implies (x_1,\cdots,x_n)=(1-x_{n+1})u=(u_1(1-x_{n+1}),\cdots,u_n(1-x_{n+1})).
+    \sigma(x)=u\implies \frac{(x_1,\cdots,x_n)}{1-x_{n+1}}=u\implies (x_1,\cdots,x_n)=(1-x_{n+1})u=(u^1(1-x_{n+1}),\cdots,u^n(1-x_{n+1})).
 \end{align}
 With the constraint that $x\in \mathbb{S}^n$, we have
 \begin{align}
@@ -116,17 +112,9 @@ Since we want $x\in \mathbb{S}^n\setminus \{N\}$, we must have $x_{n+1}\neq 1$, 
 \end{align}
 Now that we have $x_{n+1}$, we can find $x_i$ for $i=1,\cdots,n$:
 \begin{align}
-    x_i=u_i(1-x_{n+1})=u_i\left(1-\frac{|u|^2-1}{|u|^2+1}\right)=u_i\left(\frac{2}{|u|^2+1}\right)=\frac{2u_i}{|u|^2+1}.
+    x_i=u^i(1-x_{n+1})=u^i\left(1-\frac{|u|^2-1}{|u|^2+1}\right)=u^i\left(\frac{2}{|u|^2+1}\right)=\frac{2u^i}{|u|^2+1}.
 \end{align}
-It remains to check that this $x$ indeed has the required properties. First, we have
-\begin{align}
-    |x|^2=\frac{4|u|^2+(|u|^2-1)^2}{(|u|^2+1)^2}=\frac{|u|^4+2|u|^2+1}{(|u|^2+1)^2}=\frac{(|u|^2+1)^2}{(|u|^2+1)^2}=1,
-\end{align}
-so $x\in \mathbb{S}^n$. Moreover, $1-x_{n+1}=\frac{2}{|u|^2+1}\neq 0$, so $x\neq N$, and
-\begin{align}
-    \sigma(x)=\frac{(x_1,\cdots,x_n)}{1-x_{n+1}}=\frac{\frac{2}{|u|^2+1}(u_1,\cdots,u_n)}{\frac{2}{|u|^2+1}}=u.
-\end{align}
-Thus, we have found $x\in \mathbb{S}^n\setminus \{N\}$ such that $\sigma(x)=u$, and hence $\sigma$ is surjective. Therefore, $\sigma$ is bijective. Besides, we have shown that
+Thus, we have found $x\in \mathbb{S}^n\setminus \{N\}$ such that $\sigma(x)=u$, and hence $\sigma$ is surjective. Therefore, $\sigma$ is bijective. Beside, we have shown that
 \begin{align}
     \sigma^{-1}(u_1,\cdots,u_n)=\frac{(2u_1,\cdots,2u_n, |u|^2-1)}{|u|^2+1}.
 \end{align}
@@ -134,74 +122,41 @@ Thus, we have found $x\in \mathbb{S}^n\setminus \{N\}$ such that $\sigma(x)=u$, 
 \begin{itemize}
     \item [(c)]
 \end{itemize}
-The transition map $\tilde{\sigma}\circ \sigma^{-1}$ is defined on the image under $\sigma$ of the overlap of the two charts. Since $\sigma^{-1}(u)=S$ if and only if $u=0$, this image is
-\begin{align}
-    \sigma\big(\mathbb{S}^n\setminus \{N,S\}\big)=\mathbb{R}^n\setminus \{0\}.
-\end{align}
-For any $u\in \mathbb{R}^n\setminus \{0\}$, using the formula $\tilde{\sigma}(x)=\frac{(x_1,\cdots,x_n)}{1+x_{n+1}}$ obtained in part (a), we have
+Consider the transition map $\tilde{\sigma}\circ \sigma^{-1}$. For any $u\in \sigma(\mathbb{S}^n\setminus \{N\})$, we have
 \begin{align}
     \tilde{\sigma}\circ \sigma^{-1}(u)&=\tilde{\sigma}\left(\frac{(2u_1,\cdots,2u_n, |u|^2-1)}{|u|^2+1}\right)
     =\frac{\frac{1}{|u|^2+1}(2u_1,\cdots,2u_n)}{1+\frac{|u|^2-1}{|u|^2+1}}
     =\frac{(2u_1,\cdots,2u_n)}{2 |u|^2}\\
     &=\frac{(u_1,\cdots,u_n)}{|u|^2}.
 \end{align}
-Every component of this map is a rational function of $u$ whose denominator $|u|^2$ does not vanish on $\mathbb{R}^n\setminus \{0\}$, and hence $\tilde{\sigma}\circ \sigma^{-1}$ is smooth.
-
-Besides, we need the other transition map $\sigma\circ \tilde{\sigma}^{-1}$ to be smooth as well. Write $f(u)=\frac{u}{|u|^2}$ for the map computed above. Then $|f(u)|=\frac{1}{|u|}$, and hence
-\begin{align}
-    f(f(u))=\frac{f(u)}{|f(u)|^2}=\frac{u/|u|^2}{1/|u|^2}=u.
-\end{align}
-Thus $f$ is its own inverse, so
-\begin{align}
-    \sigma\circ \tilde{\sigma}^{-1}=\left(\tilde{\sigma}\circ \sigma^{-1}\right)^{-1}=f^{-1}=f
-\end{align}
-is given by the same formula, and is therefore smooth on $\mathbb{R}^n\setminus \{0\}$ as well.
-
-Since $\mathbb{S}^n=(\mathbb{S}^n\setminus \{N\})\cup (\mathbb{S}^n\setminus \{S\})$ and both transition maps are smooth, the atlas consisting of the two charts $(\mathbb{S}^n\setminus \{N\},\sigma)$ and $(\mathbb{S}^n\setminus \{S\},\tilde{\sigma})$ is a smooth atlas, and so defines a smooth structure on $\mathbb{S}^n$.
+This is a smooth map, and hence the atlas consisting of the two charts $(\mathbb{S}^n\setminus \{N\},\sigma)$ and $(\mathbb{S}^n\setminus \{S\},\tilde{\sigma})$ defines a smooth structure on $\mathbb{S}^n$. Beside, the transition map $\sigma\circ \tilde{\sigma}^{-1}$ is also smooth, since it is the inverse of a smooth map. Therefore, the atlas consisting of the two charts $(\mathbb{S}^n\setminus \{N\},\sigma)$ and $(\mathbb{S}^n\setminus \{S\},\tilde{\sigma})$ defines a smooth structure on $\mathbb{S}^n$.
 
 \begin{itemize}
     \item [(d)]
 \end{itemize}
-
-First, we consider the transition map $\phi_i^\pm\circ \sigma^{-1}$. Since $x_i=\frac{2u_i}{|u|^2+1}$ and $|u|^2+1>0$, the condition $\pm x_i>0$ is equivalent to $\pm u_i>0$ for $i=1,\cdots,n$, and the condition $\pm x_{n+1}>0$ is equivalent to $\pm(|u|^2-1)>0$. In either case the domain
-\begin{align}
-    \sigma\big(U_i^\pm\cap (\mathbb{S}^n\setminus \{N\})\big)
-\end{align}
-is an open subset of $\mathbb{R}^n$. For $i=1,\cdots,n$ and $u$ in this set, we have 
+To show that the smooth structure defined by stereographic coordinates is the same as the one defined in Example~1.31, we need to show that the transition maps between the two atlases are smooth.
+Let $(U_i^\pm,\phi_i^\pm)$ be a chart from the atlas defined in Example~1.31, and let $(\mathbb{S}^n\setminus \{N\},\sigma)$ be the chart defined by stereographic coordinates. We need to show that the transition map $\phi_i^\pm\circ \sigma^{-1}$ is smooth. For any $u\in \sigma(U_i^\pm \cap \mathbb{S}^n\setminus \{N\})$, we have 
 \begin{align}
     \phi_i^\pm\circ \sigma^{-1}(u)&=\phi_i^\pm\left(\frac{(2u_1,\cdots,2u_n, |u|^2-1)}{|u|^2+1}\right)\\
-    &=\left(\frac{2u_1}{|u|^2+1},\cdots,\frac{2u_{i-1}}{|u|^2+1}, \frac{2u_{i+1}}{|u|^2+1}, \cdots, \frac{2u_n}{|u|^2+1},\frac{|u|^2-1}{|u|^2+1}\right),
+    &=\left(\frac{2u_1}{|u|^2+1},\cdots,\frac{2u_{i-1}}{|u|^2+1}, \hat{\frac{2u_i}{|u|^2+1}}, \frac{2u_{i+1}}{|u|^2+1}, \cdots, \frac{2u_n}{|u|^2+1},\frac{|u|^2-1}{|u|^2+1}\right).
 \end{align}
-where the $i$-th coordinate has been omitted. For $i=n+1$, we have
+for $i=1,\cdots,n$. For $i=n+1$, we have
 \begin{align}
-    \phi_{n+1}^\pm\circ \sigma^{-1}(u)&=\phi_{n+1}^\pm\left(\frac{(2u_1,\cdots,2u_n, |u|^2-1)}{|u|^2+1}\right)
-    =\left(\frac{2u_1}{|u|^2+1},\cdots,\frac{2u_n}{|u|^2+1}\right).
+    \phi_{n+1}^\pm\circ \sigma^{-1}(u)&=\phi_{n+1}^\pm\left(\frac{(2u_1,\cdots,2u_n, |u|^2-1)}{|u|^2+1}\right)\\
+    &=\left(\frac{2u_1}{|u|^2+1},\cdots,\frac{2u_n}{|u|^2+1}\right).
 \end{align}
-In both cases every component is a rational function of $u$ whose denominator $|u|^2+1$ is strictly positive, and hence the transition map is smooth.
-
-Next, we consider the transition map $\sigma\circ (\phi_i^\pm)^{-1}$. On $U_i^\pm$ we have $x_i^2=1-|v|^2>0$, so the image $\phi_i^\pm(U_i^\pm)$ is contained in the open unit ball $\mathbb{B}^n$, on which $\sqrt{1-|v|^2}$ is smooth. For $i=1,\cdots,n$ the north pole $N$ does not lie in $U_i^\pm$, since its $i$-th coordinate is $0$; hence the domain is all of $\mathbb{B}^n$, and
+In both cases, the transition map is smooth. Next, we need to show that the transition map $\sigma\circ (\phi_i^\pm)^{-1}$ is smooth. For any $v\in \phi_i^\pm(U_i^\pm \cap \mathbb{S}^n\setminus \{N\})$, we have
 \begin{align}
     \sigma\circ (\phi_i^\pm)^{-1}(v)&=\sigma\left((v_1,\cdots,v_{i-1},\underbrace{\pm\sqrt{1-|v|^2}}_{\text{the $i$-th coordinate}},v_i,\cdots,v_n)\right)\\
-    &=\frac{1}{1-v_n}\left(v_1,\cdots,v_{i-1},\pm\sqrt{1-|v|^2},v_i,\cdots,v_{n-1}\right).
+    &=\frac{1}{1-v_n}\left(v_1,\cdots,v_{i-1},\pm\sqrt{1-|v|^2},v_i,\cdots,v_{n-1}\right),
 \end{align}
-Since $|v|<1$ forces $|v_n|<1$, the denominator $1-v_n$ never vanishes, and hence this map is smooth. For $i=n+1$, we have
+for $i=1,\cdots,n$. For $i=n+1$, we have
 \begin{align}
-    \sigma\circ (\phi_{n+1}^\pm)^{-1}(v)&=\sigma\left((v_1,\cdots,v_n,\underbrace{\pm\sqrt{1-|v|^2}}_{\text{the $(n+1)$-th coordinate}})\right)
-    =\frac{1}{1\mp\sqrt{1-|v|^2}}\left(v_1,\cdots,v_n\right).
+    \sigma\circ (\phi_{n+1}^\pm)^{-1}(v)&=\sigma\left((v_1,\cdots,v_n,\underbrace{\pm\sqrt{1-|v|^2}}_{\text{the $(n+1)$-th coordinate}})\right)\\
+    &=\frac{1}{1-\pm\sqrt{1-|v|^2}}\left(v_1,\cdots,v_n\right)\\
+    &=\frac{1}{1\mp\sqrt{1-|v|^2}}\left(v_1,\cdots,v_n\right).
 \end{align}
-Here $N=(0,\cdots,0,1)\in U_{n+1}^+$ and $\phi_{n+1}^+(N)=0$, so for the $+$ sign the domain is the punctured ball
-\begin{align}
-    \phi_{n+1}^+\big(U_{n+1}^+\cap (\mathbb{S}^n\setminus \{N\})\big)=\mathbb{B}^n\setminus \{0\},
-\end{align}
-on which $1-\sqrt{1-|v|^2}>0$. For the $-$ sign the domain is all of $\mathbb{B}^n$, and $1+\sqrt{1-|v|^2}\geq 1>0$. In both cases the denominator does not vanish, and hence the transition map is smooth.
-
-Last, from $\tilde{\sigma}(x)=-\sigma(-x)$ we obtain $\tilde{\sigma}^{-1}(u)=-\sigma^{-1}(-u)$, that is,
-\begin{align}
-    \tilde{\sigma}^{-1}(u_1,\cdots,u_n)=\frac{(2u_1,\cdots,2u_n,\,1-|u|^2)}{|u|^2+1},
-\end{align}
-which differs from $\sigma^{-1}$ only in the sign of the last coordinate. Likewise $\tilde{\sigma}(x)=\frac{(x_1,\cdots,x_n)}{1+x_{n+1}}$ differs from $\sigma$ only in the sign appearing in the denominator. Hence the computations above go through verbatim, with the roles of the $+$ and $-$ signs interchanged in the case $i=n+1$, since it is now $S=(0,\cdots,0,-1)\in U_{n+1}^-$ that has to be removed. Therefore both $\phi_i^\pm\circ \tilde{\sigma}^{-1}$ and $\tilde{\sigma}\circ (\phi_i^\pm)^{-1}$ are smooth.
-
-Therefore, the smooth structure defined by stereographic coordinates is the same as the one defined in Example~1.31.
+Both of these transition maps are smooth. Therefore, the smooth structure defined by stereographic coordinates is the same as the one defined in Example~1.31.
 
 
 
@@ -218,4 +173,3 @@ compact $2n$-dimensional topological manifold, and show how to give it a smooth 
 to identify $\mathbb{C}^{n+1}$ with $\mathbb{R}^{2n+2}$.)
 
 \answer{}
-
