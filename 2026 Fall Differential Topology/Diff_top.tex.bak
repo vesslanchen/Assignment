@@ -35,10 +35,10 @@ Assignment Solution}
 
 \newcommand{\question}[2]{\section*{Question #1} #2}
 \newcommand{\answer}[1]{\section*{Answer}#1}
-\newcommand{\namedthmtitle}{}
-\newtheorem*{genericthm*}{\namedthmtitle}
+\newcommand{\thmname}{}
+\newtheorem*{genericthm*}{\thmname}
 \newenvironment{namedthm}[1]
-  {\renewcommand{\namedthmtitle}{#1}\begin{genericthm*}}
+  {\renewcommand{\thmname}{#1}\begin{genericthm*}}
   {\end{genericthm*}}
 
 \begin{document}

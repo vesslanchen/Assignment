@@ -1,0 +1,146 @@
+\section*{Week 3 assignment}
+
+
+\question{1}{}
+Let $O(n)=\{A\in M_n(\mathbb{R}) \mid A^TA=I\}$ be the orthogonal group, where $A^T$ is the transpose of $A$. Consider the map
+\begin{align}
+    \varphi: M_n(\mathbb{R})\to \mathrm{Sym}(n),\quad A\mapsto A^TA,
+\end{align}
+where $\mathrm{Sym}(n)$ is the set of symmetric $n\times n$ matrices (i.e., $B^T=B$).
+\begin{enumerate}
+    \item Show that $\mathrm{Sym}(n)$ is a manifold. Compute its dimension.
+    \item Compute the derivative of $\varphi$ and show that $\varphi$ is a submersion.
+    \item Prove that $O(n)$ is a submanifold of $M_n(\mathbb{R})$. What is the dimension of $O(n)$?
+    \item Prove that $O(n)$ is compact.
+\end{enumerate}
+\answer{}
+
+\begin{namedthm}{Definition 7.1}[Submersion, Ko Honda's notes]
+Let $U\subseteq\mathbb{R}^m$ and $V\subseteq\mathbb{R}^n$ be open sets. A smooth map $f:U\to V$ is a \textbf{submersion} if $df(x)$ is surjective for all $x\in U$. More generally, a smooth map $f:M\to N$ between manifolds is a submersion if all of its local representatives $\psi_\beta\circ f\circ\phi_\alpha^{-1}$ are submersions.
+\end{namedthm}
+
+\begin{namedthm}{Corollary 7.4}[Regular value theorem, Ko Honda's notes]
+Let $f: M\to N$ be a smooth map, where $\dim M = m$ and $\dim N = n$. A point $y\in N$ is called a \textbf{regular value} of $f$ if $df(x)$ is surjective for every $x\in f^{-1}(y)$. If $y$ is a regular value of $f$, then $f^{-1}(y)$ is a submanifold of $M$ of dimension $m-n$.
+\end{namedthm}
+
+
+
+
+\begin{enumerate}
+    \item [1.]
+\end{enumerate}
+Consider the map $\psi:\mathbb{R}^{n(n+1)/2}\to \mathrm{Sym}(n)$ defined by 
+\begin{align}
+    \psi(x_1,\cdots,x_{n(n+1)/2})=\begin{pmatrix}
+        x_1 & x_2 & \cdots & x_n\\
+        x_2 & x_{n+1} & \cdots & x_{2n-1}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        x_n & x_{2n-1} & \cdots & x_{n(n+1)/2}
+    \end{pmatrix}.
+\end{align}
+This map is a bijection, and its inverse is given by
+\begin{align}
+    \psi^{-1}\left(\begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n}\\
+        a_{12} & a_{22} & \cdots & a_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        a_{1n} & a_{2n} & \cdots & a_{nn}
+    \end{pmatrix}\right)=(a_{11},a_{12},\cdots,a_{1n},a_{22},a_{23},\cdots,a_{2n},\cdots,a_{nn}).
+\end{align}
+We equip $\mathrm{Sym}(n)$ with the subspace topology from $M_n(\mathbb{R})\cong\mathbb{R}^{n^2}$. Since $\psi$ is linear, it is continuous, and $\psi^{-1}$ is the restriction of a linear projection $M_n(\mathbb{R})\to\mathbb{R}^{n(n+1)/2}$, hence also continuous. So $\psi^{-1}$ is a homeomorphism.
+
+Hence $\{(\mathrm{Sym}(n),\psi^{-1})\}$ is an atlas consisting of a single chart. The only transition map is $\psi^{-1}\circ\psi=\mathrm{id}$, which is smooth.
+
+Since $\mathrm{Sym}(n)$ is a subspace of $\mathbb{R}^{n^2}$, which is Hausdorff and second countable, $\mathrm{Sym}(n)$ is also Hausdorff and second countable.
+
+Therefore, $\mathrm{Sym}(n)$ is a manifold of dimension $n(n+1)/2$.
+
+\begin{enumerate}
+    \item [2.]
+\end{enumerate}
+Consider the limit 
+\begin{align}
+    &\lim_{t\to 0}\frac{\varphi(A+tB)-\varphi(A)}{t}\\
+    =&\lim_{t\to 0}\frac{(A+tB)^T(A+tB)-A^TA}{t}\\
+    =&\lim_{t\to 0}\frac{A^TA+t(B^TA+A^TB)+t^2B^TB-A^TA}{t}=B^TA+A^TB.
+\end{align}
+It is easy to see that $B^T A+A^TB$ is symmetric. Then the derivative of $\varphi$ at $A$ is given by
+\begin{align}
+    d\varphi(A):M_n(\mathbb{R})\to \mathrm{Sym}(n),\quad B\mapsto B^TA+A^TB.
+\end{align}
+In order to show that $\varphi$ is a submersion, We show that $d\varphi(A)$ is surjective for every $A\in O(n)$. Consider $A\in O(n)$, then $A^TA=I$. Let $C\in\mathrm{Sym}(n)$ be arbitrary. We want to find $B\in M_n(\mathbb{R})$ such that $B^TA+A^TB=C$. Choose $B=\frac{1}{2}AC$, then we have
+\begin{align}
+    d\varphi(A)(B)=B^TA+A^TB=\frac{1}{2}(AC)^TA+\frac{1}{2}A^T(AC)=\frac{1}{2}C^TA^TA+\frac{1}{2}A^TAC=\frac{1}{2}C^T+\frac{1}{2}C=C.
+\end{align}
+Hence $d\varphi(A)$ is surjective for every $A\in O(n)=\varphi^{-1}(I)$, i.e., $I$ is a regular value of $\varphi$. 
+
+To be more clear, $\varphi$ is a submersion at $A\in O(n)$, but not a submersion at $0\in M_n(\mathbb{R})$.
+
+\begin{enumerate}
+    \item [3.]
+\end{enumerate}
+By definition, $O(n)=\varphi^{-1}(I)$. Since $I$ is a regular value of $\varphi$, by Corollary 7.4, $O(n)$ is a submanifold of $M_n(\mathbb{R})$ of dimension
+\begin{align}
+    \dim O(n)=\dim M_n(\mathbb{R})-\dim \mathrm{Sym}(n)=n^2-\frac{n(n+1)}{2}=\frac{n(n-1)}{2}.
+\end{align} 
+
+\begin{enumerate}
+    \item [4.]
+\end{enumerate}
+To show that $O(n)$ is compact, we need to show that it is closed and bounded by Heine-Borel theorem. Since $O(n)\subset M_n(\mathbb{R})\cong\mathbb{R}^{n^2}$, it suffices to show that $O(n)$ is closed and bounded in $\mathbb{R}^{n^2}$.
+
+Since $O(n)=\varphi^{-1}(I)$ and $\varphi$ is continuous, $O(n)$ is closed.
+
+To show that $O(n)$ is bounded, we need to show that there exists $M>0$ such that $\|A\|\le M$ for all $A\in O(n)$. Consider the Frobenius norm $\|A\|_F=\sqrt{\sum_{i,j}a_{ij}^2}=\sqrt{\mathrm{Tr}(A^TA)}$. Since $A\in O(n)$, we have $A^TA=I$, so $\|A\|_F=\sqrt{\mathrm{Tr}(I)}=\sqrt{n}$. Therefore, $O(n)$ is bounded.
+
+Hence, $O(n)$ is compact.\qed
+
+\clearpage
+\question{2}{}
+Let $F(x_1,\cdots,x_n)$ be a homogeneous function of degree $d$ in $n$ real variables, i.e.,
+\begin{align}
+    F(tx_1,\cdots,tx_n)=t^d\cdot F(x_1,\cdots,x_n).
+\end{align}
+\begin{enumerate}
+    \item Prove Euler's identity: $\displaystyle\sum_{i=1}^{n}x_i\frac{\partial F}{\partial x_i}=d\cdot F$.
+    \item Prove that the set $F^{-1}(a)$, for $a\neq 0$, is a submanifold of $\mathbb{R}^n$.
+\end{enumerate}
+\answer{}
+
+
+
+\begin{enumerate}
+    \item [1.]
+\end{enumerate}
+Consider the function $g(t)=F(tx_1,\cdots,tx_n)$. Then $g(t)=t^d\cdot F(x_1,\cdots,x_n)$. Taking the derivative with respect to $t$, we have
+\begin{align}
+    g'(t)=\sum_{i=1}^{n}\frac{\partial F}{\partial x_i}(tx_1,\cdots,tx_n)\cdot x_i=dt^{d-1}\cdot F(x_1,\cdots,x_n).
+\end{align}
+Setting $t=1$, we get
+\begin{align}
+    \sum_{i=1}^{n}x_i\frac{\partial F}{\partial x_i}(x_1,\cdots,x_n)=d\cdot F(x_1,\cdots,x_n).
+\end{align} 
+
+\begin{enumerate}
+    \item [2.]
+\end{enumerate}
+Assume $d>0$. To show that $F^{-1}(a)$ is a submanifold of $\mathbb{R}^n$, we need to show that $a$ is a regular value of $F$. Then the dimension of $F^{-1}(a)$ is given by $\dim F^{-1}(a)=\dim \mathbb{R}^n-\dim \mathbb{R}=n-1$.
+
+In order to show that $a$ is a regular value of $F$, we need to show that $dF(a)$ is surjective. That is, \begin{align}
+    dF(x)(v)=\lim_{t\to 0}\frac{F(x+tv)-F(x)}{t}=\sum_{i=1}^{n}\frac{\partial F}{\partial x_i}(x)\cdot v_i, \quad x\in F^{-1}(a), v\in \mathbb{R}^n
+\end{align}
+We want to show that there exists $v\in\mathbb{R}^n$ such that $dF(x)(v)=w\neq 0\in \mathbb{R}$. Therefore, 
+\begin{align}
+    \sum_{i=1}^{n}\frac{\partial F}{\partial x_i}(x)\cdot v_i=w\neq 0\in \mathbb{R}.
+\end{align}
+Consider vector $v=(x_1,\cdots,x_n)$. Then we have
+\begin{align}
+    w=dF(x)(v)=\sum_{i=1}^{n}\frac{\partial F}{\partial x_i}(x)\cdot x_i=d\cdot F(x)=d\cdot a\neq 0.
+\end{align}
+Hence, if we replace the $v$ by $v\frac{x}{d\cdot a}$, the equation becomes
+\begin{align}
+    dF(x)(x \frac{w}{d\cdot a})=\sum_{i=1}^{n}\frac{\partial F}{\partial x_i}(x)\cdot \frac{x_i w}{d\cdot a}=\frac{w}{d\cdot a}d\cdot F(x)=\frac{w}{d\cdot a}d\cdot a=w.
+\end{align}
+Hence, $dF(x)$ is surjective for all $x\in F^{-1}(a)$, i.e., $a$ is a regular value of $F$. Therefore, $F^{-1}(a)$ is a submanifold of $\mathbb{R}^n$ of dimension $n-1$.
+
+However, if $d=0$, then $F$ is a constant function, and $F^{-1}(a)$ is either empty or the whole space $\mathbb{R}^n$. In this case, $F^{-1}(a)$ is just $\mathbb{R}^n$.\qed

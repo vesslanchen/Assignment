@@ -1,0 +1,149 @@
+\section*{Week 2 assignment}
+
+
+\question{1}{}
+Show that hw1 problem~1.7 $(n = 2)$ and problem~1.9 $(n=1)$ gives the equivalent smooth structures on $\mathbb{S}^2$. 
+\answer{}
+
+In Problem~1.7 the manifold is $\mathbb{S}^2$, and in Problem~1.9 it is $\mathbb{CP}^1$. Since these are different sets, we first construct a bijection $F:\mathbb{CP}^1\to\mathbb{S}^2$.
+
+
+Throughout, we identify $\mathbb{R}^2$ with $\mathbb{C}$ via $(u_1,u_2)\leftrightarrow u_1+iu_2$, so that $\sigma,\tilde\sigma,\phi_1,\phi_2$ all take values in $\mathbb{C}$. Under this identification, the transition map of HW1 Problem~1.7(c) reads
+$\tilde\sigma\circ\sigma^{-1}(w)=w/|w|^2$.
+
+
+
+By HW1 Problem~1.9, $\phi_1([z_1:z_2])=z_2/z_1$ is a well-defined bijection from $U_1=\{z_1\neq 0\}$ onto $\mathbb{C}$, with $\phi_1^{-1}(w)=[1:w]$. If $z_1=0$, then $z_2\neq 0$, so $[0:z_2]=[0:1]$. Hence $\mathbb{CP}^1=U_1\sqcup\{[0:1]\}$.
+
+By HW1 Problem~1.7(b), $\sigma^{-1}:\mathbb{C}\to\mathbb{S}^2\setminus\{N\}$ is a bijection, so $\mathbb{S}^2=\sigma^{-1}(\mathbb{C})\sqcup\{N\}$.
+
+Define $F:\mathbb{CP}^1\to\mathbb{S}^2$ by
+\begin{equation}
+    F([z_1:z_2]) =
+    \begin{cases}
+        \sigma^{-1}(z_2/z_1), & z_1\neq 0,\\
+        N, & z_1 = 0,
+    \end{cases}
+\end{equation}
+that is, $F|_{U_1}=\sigma^{-1}\circ\phi_1$ and $F([0:1])=N$. Since $\phi_1$ is well-defined, so is $F$; since $\sigma^{-1}\circ\phi_1:U_1\to\mathbb{S}^2\setminus\{N\}$ is a bijection, so is $F$.
+
+Its inverse is
+\begin{equation}
+    F^{-1}(p) =
+    \begin{cases}
+        \phi_1^{-1}(\sigma(p)), & p\neq N,\\
+        [0:1], & p = N.
+    \end{cases}
+\end{equation}
+
+Now we show that $F$ is a diffeomorphism. On $\mathbb{CP}^1$ we use the charts $(U_1,\phi_1)$ and $(U_2,\phi_2)$ from HW1 Problem~1.9, where $U_2=\{z_2\neq 0\}$, $\phi_2([z_1:z_2])=z_1/z_2$ and $\phi_2^{-1}(\zeta)=[\zeta:1]$. On $\mathbb{S}^2$ we use $(\mathbb{S}^2\setminus\{N\},\sigma)$ and $(\mathbb{S}^2\setminus\{S\},\tilde\sigma)$.
+
+\textbf{On $U_1$.} We have $F(U_1)=\mathbb{S}^2\setminus\{N\}$ and
+\begin{equation}
+    \sigma\circ F\circ\phi_1^{-1}=\sigma\circ(\sigma^{-1}\circ\phi_1)\circ\phi_1^{-1}=\mathrm{id}_{\mathbb{C}},
+\end{equation}
+which is smooth.
+
+\textbf{On $U_2$.} The only point not in $U_2$ is $[1:0]$, and $F([1:0])=\sigma^{-1}(0)=S$. Since $F$ is a bijection, $F(U_2)=\mathbb{S}^2\setminus\{S\}$. For $\zeta\neq 0$, we have $\phi_2^{-1}(\zeta)=[\zeta:1]=[1:1/\zeta]$, so
+\begin{equation}
+    \tilde\sigma\circ F\circ\phi_2^{-1}(\zeta)=\tilde\sigma\circ\sigma^{-1}(1/\zeta)=\frac{1/\zeta}{|1/\zeta|^2}=\frac{|\zeta|^2}{\zeta}=\bar\zeta.
+\end{equation}
+For $\zeta=0$, we have $\phi_2^{-1}(0)=[0:1]$ and $F([0:1])=N$, so $\tilde\sigma\circ F\circ\phi_2^{-1}(0)=\tilde\sigma(N)=0=\bar 0$. Hence
+\begin{equation}
+    \tilde\sigma\circ F\circ\phi_2^{-1}(\zeta)=\bar\zeta\quad\text{for all }\zeta\in\mathbb{C},
+\end{equation}
+which in real coordinates is $(u_1,u_2)\mapsto(u_1,-u_2)$. This is linear, hence smooth.
+
+Since $U_1\cup U_2=\mathbb{CP}^1$, $F$ is smooth. In the same charts, the local representatives of $F^{-1}$ are the inverses of the two maps above, namely $\mathrm{id}_{\mathbb{C}}$ and $\zeta\mapsto\bar\zeta$ (conjugation is its own inverse), so $F^{-1}$ is smooth as well. Hence $F$ is a diffeomorphism, so the smooth structures on $\mathbb{S}^2$ induced by HW1 Problem~1.7 and HW1 Problem~1.9 are equivalent. \qed
+
+
+
+
+
+\clearpage
+\question{2}{}
+Give a proof of the inverse function theorem using Newton iteration. You only need to show for any y close to the origin, there exists a unique x close to the origin such that $f(x)=y$. You do not need to show the inverse is continuous or smooth. Compare this with the proof given in lectures. 
+\answer{}
+
+
+
+
+Let $f:U\to\mathbb{R}^n$ be $C^1$, where $0\in U\subseteq\mathbb{R}^n$ is open, and suppose $f(0)=0$ and $df(0)$ is invertible. We consider the equation $f(x)=y$ for $y$ near $0$. We want to show that there exists a unique $x$ near $0$ such that $f(x)=y$. 
+
+\paragraph{Newton iteration.} Fix $y$ near $0$. Set $x_0=0$ and
+\begin{align}
+    x_{k+1}=x_k+h_k,\qquad\text{where } y=f(x_k)+df(x_k)h_k.
+\end{align}
+Hence $h_k=df(x_k)^{-1}(y-f(x_k))$ as long as $x_k$ stays in the ball $B$ chosen below, where $df$ is invertible. We will show that $x_k$ converges to a solution of $f(x)=y$.
+
+\paragraph{The error after one step.} By the definition of $h_k$,
+\begin{align}
+    f(x_{k+1})-y= f(x_k+h_k)-f(x_k)-df(x_k)h_k.
+\end{align}
+To estimate this, let $g(t)=f(x_k+th_k)$ for $t\in[0,1]$. Then $g'(t)=df(x_k+th_k)h_k$, so
+\begin{align}
+    f(x_k+h_k)-f(x_k)=g(1)-g(0)=\int_0^1 g'(t)\,dt=\int_0^1 df(x_k+th_k)h_k\,dt.
+\end{align}
+Since $df(x_k)h_k=\int_0^1 df(x_k)h_k\,dt$, we get
+\begin{align}
+    f(x_{k+1})-y=\int_0^1\big[   df(x_k+th_k)-df(x_k)\big]\,h_k\,dt,
+\end{align}
+and hence
+\begin{align}
+    |f(x_{k+1})-y|\le \sup_{t\in[0,1]}\big\| df(x_k+th_k)-df(x_k) \big\|\,|h_k|.
+\end{align}
+Here we need the segment $\{x_k+th_k: t\in[0,1]\}$ to lie in $U$.
+
+\paragraph{Choosing the ball.} Since $df(0)$ is invertible and $df$ is continuous,
+there are $r>0$ and $C>0$ such that $\bar B_r=\{|x|\le r\}\subseteq U$ and,
+for all $x\in\bar B_r$, $df(x)$ is invertible with
+\begin{align}
+    \|df(x)^{-1}\|\le C.
+\end{align}
+Since $\bar B_r$ is closed and bounded, therefore compact, $df$ is uniformly continuous on $\bar B_r$,
+so there is $\delta>0$ such that
+\begin{align}
+    \|df(a)-df(b)\|\le \frac{1}{2C} \quad\text{whenever } a,b\in\bar B_r,\ |a-b|<\delta.
+\end{align}
+\paragraph{The iterates stay in the ball.} Suppose
+\begin{align}
+    |y| < \min\Big\{\frac{r}{2C},\frac{\delta}{2C}\Big\}.
+\end{align}
+We show by induction on $k$ that $x_k\in\bar B_r$ and $|h_k|\le 2^{-k}|h_0|$. 
+
+For $k=0$: $x_0=0\in\bar B_r$, and $h_0=df(0)^{-1}y$, so $|h_0|\le C|y|<\min\{\frac{r}{2},\frac{\delta}{2}\}$. Suppose $x_j\in\bar B_r$ and $|h_j|\le 2^{-j}|h_0|$ for all $j\le k$. Since $x_k=h_0+\cdots+h_{k-1}$,
+for $t\in[0,1]$ we have
+\begin{align}
+    |x_k+th_k| \le \sum_{j=0}^{k}|h_j| \le \sum_{j=0}^{k}2^{-j}|h_0| = (2-2^{-k})|h_0| < 2|h_0| < r,
+\end{align}
+so the segment $\{x_k+th_k\}$ lies in $\bar B_r$; in particular $x_{k+1}\in\bar B_r$.
+Moreover $|th_k|\le|h_k|\le|h_0|<\delta$, so by the choice of $\delta$,
+\begin{align}
+    \sup_{t\in[0,1]}\|df(x_k+th_k)-df(x_k)\|\le\frac{1}{2C},
+\end{align}
+and hence, by the error estimate above,
+\begin{align}
+    |f(x_{k+1})-y|\le\frac{1}{2C}|h_k|.
+\end{align}
+Since $x_{k+1}\in\bar B_r$, we get
+\begin{align}
+    |h_{k+1}| \le \|df(x_{k+1})^{-1}\|\,|f(x_{k+1})-y| \le C\cdot\frac{1}{2C}\,|h_k| = \frac{1}{2}|h_k| \le 2^{-(k+1)}|h_0|.
+\end{align}
+Thus $x_k\in\bar B_r$ and $|h_k|\le 2^{-k}|h_0|$ for all $k$.
+
+\paragraph{Convergence.} Since $\sum_{k=0}^{\infty}|h_k|\le 2|h_0|<r$, the series $\sum h_k$ converges absolutely, hence converges because $\mathbb{R}^n$ is complete. So $x_k\to x$ for some $x\in\bar B_r$, since $\bar B_r$ is closed. By the estimate $|f(x_{k+1})-y|\le\frac{1}{2C}|h_k|$ and $|h_k|\to 0$, we have $f(x_k)\to y$. On the other hand, $f(x_k)\to f(x)$ by continuity of $f$. Hence $f(x)=y$.
+
+\paragraph{Uniqueness} Assume $f(x)=f(x')=y$ for some $x,x'\in\bar B_r$. Then
+\begin{align}
+    0 = f(x)-f(x') = \int_0^1 df(x'+t(x-x'))(x-x')\,dt.
+\end{align}
+Since $df$ is continuous and $df(0)$ is invertible, we can choose $r$ smaller if necessary so that $df(x'+t(x-x'))$ is invertible for all $t\in[0,1]$. Hence the integral is invertible, so $x-x'=0$, i.e. $x=x'$. This proves uniqueness. \qed.
+
+
+
+
+
+\clearpage
+\question{3}{}
+3. (optional). Under this week's discussion, three questions are asked. Answer any one of them.
+\answer{}
